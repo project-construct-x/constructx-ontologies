@@ -1,0 +1,33 @@
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:assignment
+    a conx-addr:AddressAssignment ;
+    conx-addr:assignedAddress ex:address-1,
+                              ex:address-2 ;
+    conx-addr:addressRole ex:not-a-role ;
+    conx-addr:careOf "First recipient",
+                     "Second recipient" .
+
+ex:address-1
+    a conx-addr:Address ;
+    conx-addr:streetName 42 ;
+    conx-addr:houseNumber "12",
+                          "14" ;
+    conx-addr:postalCode "44801"@de ;
+    conx-addr:hasCountry ex:country-1,
+                         ex:country-2 ;
+    conx-addr:hasAdministrativeArea ex:country-1 ;
+    conx-addr:hasGeographicPosition "51.4, 7.3" .
+
+ex:address-2 a conx-addr:Address .
+ex:not-a-role a conx-addr:Address .
+
+ex:country-1 a conx-addr:Country .
+ex:country-2 a conx-addr:Country .
+
+ex:area
+    a conx-addr:AdministrativeArea ;
+    conx-addr:broaderAdministrativeTerritory ex:country-1,
+                                                    ex:country-2 .
+

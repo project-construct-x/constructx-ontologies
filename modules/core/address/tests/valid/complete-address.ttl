@@ -1,0 +1,44 @@
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:resource
+    conx-addr:hasAddressAssignment ex:assignment .
+
+ex:assignment
+    a conx-addr:AddressAssignment ;
+    conx-addr:assignedAddress ex:address ;
+    conx-addr:addressRole ex:delivery-role,
+                          ex:postal-role ;
+    conx-addr:departmentName "Wareneingang"@de ;
+    conx-addr:attentionOf "Schichtleitung" ;
+    conx-addr:careOf "Example Construction GmbH" .
+
+ex:address
+    a conx-addr:Address ;
+    conx-addr:streetName "Musterstraße"@de ;
+    conx-addr:additionalStreetName "Zufahrt West"@de ;
+    conx-addr:houseNumber "12a" ;
+    conx-addr:blockName "Block A"@de ;
+    conx-addr:buildingName "Logistikzentrum"@de ;
+    conx-addr:buildingPart "Halle 3"@de ;
+    conx-addr:floor "Erdgeschoss"@de ;
+    conx-addr:room "Warenannahme"@de ;
+    conx-addr:internalDeliveryPoint "Tor 4"@de ;
+    conx-addr:postOfficeBoxNumber "1234" ;
+    conx-addr:localityName "Bochum"@de ;
+    conx-addr:citySubdivisionName "Querenburg"@de ;
+    conx-addr:postalCode "44801" ;
+    conx-addr:plotIdentifier "Flurstück 4711" ;
+    conx-addr:hasCountry ex:germany ;
+    conx-addr:hasAdministrativeArea ex:north-rhine-westphalia ;
+    conx-addr:hasGeographicPosition [ ex:source "external geo model" ] .
+
+ex:delivery-role a conx-addr:AddressRole .
+ex:postal-role a conx-addr:AddressRole .
+
+ex:germany a conx-addr:Country .
+
+ex:north-rhine-westphalia
+    a conx-addr:AdministrativeArea ;
+    conx-addr:broaderAdministrativeTerritory ex:germany .
+

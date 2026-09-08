@@ -1,0 +1,24 @@
+@prefix areas: <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix countries: <https://www.construct-x.org/vocab/country#> .
+@prefix ex: <https://example.org/id/> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+
+ex:rub
+    conx-addr:hasAddressAssignment ex:rub-postal-address-assignment .
+
+ex:rub-postal-address-assignment
+    a conx-addr:AddressAssignment ;
+    conx-addr:assignedAddress ex:rub-address ;
+    conx-addr:addressRole roles:PostalAddressRole .
+
+ex:rub-address
+    a conx-addr:Address ;
+    conx-addr:streetName "Universitätsstraße"@de ;
+    conx-addr:houseNumber "150" ;
+    conx-addr:postalCode "44801" ;
+    conx-addr:localityName "Bochum"@de ;
+    conx-addr:hasCountry countries:DEU ;
+    conx-addr:hasAdministrativeArea areas:DE-NW .
+
+

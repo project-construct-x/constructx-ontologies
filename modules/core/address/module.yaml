@@ -1,0 +1,48 @@
+id: address
+title: Construct-X Address Ontology
+type: core
+status: draft
+version: 0.1.0
+
+ontology_iri: https://www.construct-x.org/ontology/address
+version_iri: https://www.construct-x.org/ontology/address/0.1.0
+namespace: https://www.construct-x.org/ontology/address#
+preferred_namespace_prefix: conx-addr
+created: 2026-08-13
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+shape_sets:
+  core:
+    graph_iri: https://www.construct-x.org/shapes/address/core
+    version_iri: https://www.construct-x.org/shapes/address/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/address/core#
+    version: 0.1.0
+    artifact: shapes/conx-addr-core.shacl.ttl
+
+dependencies: []
+
+maintainers:
+  - AP 3.4
+
+artifacts:
+  readme: README.md
+  changelog: CHANGELOG.md
+  ontology: ontology/conx-addr.ttl
+  core_shapes: shapes/conx-addr-core.shacl.ttl
+  strict_shapes: null
+  documentation: docs/index.md
+  confluence_overview: docs/confluence-overview.md
+  html_documentation: docs/address.html
+  source_analysis: docs/source-analysis.md
+  scope_and_competency_questions: docs/scope-and-competency-questions.md
+  concept_model: docs/concept-model.md
+  module_boundaries: docs/module-boundaries.md
+  term_catalog: docs/term-catalog.md
+  shacl_requirements: docs/shacl-requirements.md
+  concept_model_diagram: docs/diagrams/concept-model.md
+  administrative_territories: docs/administrative-territories.md
+  address_roles_documentation: docs/address-roles.md
+  core_shapes_documentation: docs/core-shapes.md
+  address_example: examples/rub-address.ttl
+

@@ -1,0 +1,14 @@
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:missing-address
+    a conx-addr:AddressAssignment ;
+    conx-addr:addressRole ex:role .
+
+ex:missing-role
+    a conx-addr:AddressAssignment ;
+    conx-addr:assignedAddress ex:address .
+
+ex:role a conx-addr:AddressRole .
+ex:address a conx-addr:Address .
+
