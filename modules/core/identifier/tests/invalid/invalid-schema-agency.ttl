@@ -1,0 +1,10 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:identifier-3
+  a adms:Identifier ;
+  skos:notation "123" ;
+  adms:schemaAgency ex:agency ;
+.
+

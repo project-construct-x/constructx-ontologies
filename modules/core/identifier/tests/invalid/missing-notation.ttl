@@ -1,0 +1,5 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:identifier-1 a adms:Identifier .
+

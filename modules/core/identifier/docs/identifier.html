@@ -1,0 +1,847 @@
+
+
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Construct-X Identifier Ontology</title>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Identifier Ontology", "termSet": "https://www.construct-x.org/ontology/identifier#", "url": "https://www.construct-x.org/ontology/identifier"}, "dateCreated": "2026-09-01", "description": "Defines the shared Construct-X contract for domain identifiers based on ADMS and SKOS without introducing parallel local identifier terms.", "encoding": [{"@type": "MediaObject", "contentUrl": "../ontology/conx-id.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Identifier Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/identifier", "version": "0.1.0"}</script>
+  <script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #d7dce2;
+      --panel: #f6f8fa;
+      --brand: #155c63;
+      --brand-dark: #0f4449;
+      --accent: #b84a39;
+      --code: #eef3f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 16px/1.55 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #fff;
+    }
+    header {
+      color: #fff;
+      background:
+        linear-gradient(120deg, rgba(15, 68, 73, .96), rgba(21, 92, 99, .92)),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .16), transparent 34%);
+      border-bottom: 5px solid var(--accent);
+    }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      padding: 38px 0 34px;
+    }
+    .hero-copy { min-width: 0; }
+    h1 { margin: 0 0 10px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; }
+    .subtitle { max-width: 760px; margin: 0; color: #e8f2f3; white-space: pre-line; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .version,
+    .hero-stat {
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid #b8d5d8;
+      border-radius: 4px;
+      color: #e8f2f3;
+      background: rgba(255, 255, 255, .08);
+    }
+    .figure-showcase {
+      padding: 0 0 10px;
+      background: #f8fafb;
+    }
+    .figure-stack {
+      display: grid;
+      gap: 18px;
+    }
+    .doc-figure {
+      position: relative;
+      margin: 0;
+      overflow: visible;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .doc-figure:hover {
+      z-index: 2;
+      transform: scale(1.035);
+      border-color: #aebbc4;
+      box-shadow: 0 18px 42px rgba(20, 28, 32, .18);
+    }
+    .doc-figure img {
+      display: block;
+      width: 100%;
+      max-height: min(72vh, 760px);
+      object-fit: contain;
+      padding: 18px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    .doc-figure figcaption {
+      padding: 11px 14px;
+      border-top: 1px solid var(--line);
+      color: var(--brand-dark);
+      background: #f4f7f8;
+      font-weight: 650;
+    }
+    .figure-zoom {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(20, 28, 32, .82);
+    }
+    .figure-zoom:target {
+      display: flex;
+    }
+    .figure-zoom img {
+      display: block;
+      max-width: min(1200px, 96vw);
+      max-height: 86vh;
+      object-fit: contain;
+      padding: 18px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+    }
+    .figure-zoom a {
+      position: absolute;
+      inset: 0;
+      cursor: zoom-out;
+    }
+    .figure-zoom span {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .55);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .page {
+      display: grid;
+      grid-template-columns: minmax(230px, 300px) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+      padding: 28px 0 56px;
+    }
+    main { min-width: 0; }
+    aside.toc {
+      position: sticky;
+      top: 18px;
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+      padding: 18px 18px 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+    .toc-title {
+      display: block;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--brand);
+      color: var(--brand-dark);
+      font-size: 1.15rem;
+    }
+    aside.toc ul { margin: 0; padding: 0; list-style: none; }
+    aside.toc li { margin: 0; }
+    aside.toc a { display: inline-block; overflow-wrap: anywhere; line-height: 1.25; }
+    .toc-group { padding: 12px 0 0; }
+    .toc-heading { font-weight: 700; color: var(--brand-dark); }
+    .toc-group > ul { padding: 7px 0 0 12px; }
+    .toc-group > ul > li { padding: 4px 0; }
+    .toc-alt {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--brand-dark);
+      font-size: 1.55rem;
+    }
+    h3 { margin: 26px 0 10px; color: var(--brand-dark); font-size: 1.15rem; }
+    a { color: #0b5cad; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; }
+    th, td { padding: 9px 10px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { width: 230px; background: var(--panel); font-weight: 650; }
+    .instance-details summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--brand-dark);
+      background: #f0f5f6;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .instance-details[open] summary { margin-bottom: 8px; }
+    .instance-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .instance-list li {
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fbfcfd;
+    }
+    .restriction-details summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--brand-dark);
+      background: #e5f0f1;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .restriction-details[open] summary {
+      margin-bottom: 8px;
+    }
+    .restriction-list {
+      display: grid;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .restriction-list li {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fbfcfd;
+    }
+    .restriction-property { font-weight: 650; }
+    .restriction-constraint {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #e5f0f1;
+      color: var(--brand-dark);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+    .restriction-filler { color: var(--muted); }
+    code, .curie { padding: 2px 5px; background: var(--code); border-radius: 4px; font-family: Consolas, "Liberation Mono", monospace; font-size: .92em; }
+    .term {
+      margin: 14px 0 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--brand);
+      border-radius: 6px;
+      background: #fff;
+    }
+    .term h3 { margin-top: 0; }
+    .term-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+    .pill { padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--panel); font-size: .88rem; }
+    .prefix-list { margin: 0; padding-left: 20px; }
+    .muted { color: var(--muted); }
+    .lang { color: var(--muted); font-size: .86em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .quality-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .quality-stat {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+    .quality-stat strong {
+      display: block;
+      color: var(--brand-dark);
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+    .quality-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+    .quality-section summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      color: var(--brand-dark);
+      font-weight: 700;
+      background: var(--panel);
+    }
+    .quality-list {
+      margin: 0;
+      padding: 8px 12px 12px 30px;
+    }
+    .quality-list li { margin: 5px 0; }
+    .quality-badge {
+      display: inline-block;
+      min-width: 58px;
+      margin-right: 6px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .quality-badge.error { color: #8a1f1f; background: #fde7e7; }
+    .quality-badge.warning { color: #6f5600; background: #fff1bd; }
+    .agent {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+    .agent-name {
+      display: block;
+      color: var(--brand-dark);
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+    .agent-role {
+      display: inline-block;
+      margin: 7px 0 8px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e5f0f1;
+      color: var(--brand-dark);
+      font-size: .8rem;
+      font-weight: 650;
+    }
+    .agent-affiliation {
+      min-height: 1.35em;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .agent-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand-dark);
+    }
+    .icon-link:hover {
+      border-color: var(--brand);
+      text-decoration: none;
+    }
+    .icon-link svg { width: 18px; height: 18px; display: block; }
+    .orcid-icon text {
+      font: 700 8px "Segoe UI", Arial, sans-serif;
+      fill: #fff;
+    }
+    .missing-mandatory th,
+    .missing-mandatory td,
+    .agent.missing-mandatory { background: #fde7e7; border-color: #d98a8a; }
+    .missing-optional th,
+    .missing-optional td,
+    .agent.missing-optional { background: #fff6d8; border-color: #d7bd67; }
+    .downloads,
+    .used-list { margin: 0; padding-left: 20px; }
+    .used-list li,
+    .downloads li { margin: 6px 0; }
+    .relation { color: var(--muted); font-size: .9rem; }
+    .visualization-panel {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .visualization-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      background: var(--panel);
+    }
+    .visualization-actions {
+      display: inline-flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 8px;
+    }
+    .visualization-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--brand-dark);
+      font-size: .9rem;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .visualization-toggle input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--brand);
+      cursor: pointer;
+    }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .legend-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+      display: inline-block;
+      border: 1px solid rgba(32, 33, 36, .25);
+    }
+    .legend-dot.class { background: var(--brand); border-color: var(--brand-dark); }
+    .legend-dot.literal { background: #fff; border-color: var(--brand); }
+    .legend-dot.object-property { background: #111; border-color: #111; }
+    .legend-dot.datatype-property {
+      width: 18px;
+      height: 0;
+      border: 0;
+      border-top: 2px dotted #66898c;
+      border-radius: 0;
+    }
+    .legend-dot.equivalent-class { background: linear-gradient(#111 0 25%, transparent 25% 55%, #111 55% 80%, transparent 80%); border-color: transparent; }
+    .layout-button {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--brand-dark);
+      padding: 5px 9px;
+      cursor: pointer;
+      font: inherit;
+      font-size: .9rem;
+    }
+    .layout-button:hover { border-color: var(--brand); }
+    .visualization-panel:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+    .visualization-panel:fullscreen .visualization-stage {
+      flex: 1 1 auto;
+      height: auto;
+      min-height: 0;
+    }
+    .visualization-panel:fullscreen #ontology-graph { height: 100%; min-height: 0; }
+    .visualization-panel:fullscreen .visualization-toolbar {
+      flex: 0 0 auto;
+    }
+    .visualization-stage {
+      display: flex;
+      min-height: 460px;
+      height: min(74vh, 680px);
+    }
+    #ontology-graph {
+      flex: 1 1 auto;
+      min-width: 0;
+      height: min(74vh, 680px);
+      min-height: 460px;
+      background:
+        linear-gradient(rgba(15, 68, 73, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 68, 73, .045) 1px, transparent 1px),
+        #fbfcfd;
+      background-size: 28px 28px;
+    }
+    .datatype-inspector {
+      flex: 0 0 310px;
+      width: 310px;
+      padding: 16px;
+      border-left: 1px solid var(--line);
+      background: #fff;
+      overflow: auto;
+    }
+    .datatype-inspector[hidden] { display: none; }
+    .datatype-inspector-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .datatype-inspector h3 {
+      margin: 0;
+      color: var(--brand-dark);
+      font-size: 1rem;
+    }
+    .datatype-inspector-route {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .86rem;
+      overflow-wrap: anywhere;
+    }
+    .datatype-inspector-close {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .datatype-inspector-close:hover { color: var(--brand-dark); }
+    .datatype-inspector-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .datatype-inspector-list li { border-top: 1px solid var(--line); }
+    .datatype-inspector-list a {
+      display: block;
+      padding: 9px 2px;
+      color: var(--brand-dark);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .datatype-inspector-list a:hover { color: var(--accent-dark); }
+    .datatype-inspector-list small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    .visualization-fallback {
+      padding: 14px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    footer { padding: 20px 0; color: var(--muted); border-top: 1px solid var(--line); }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .hero { padding: 28px 0 24px; }
+      .doc-figure img { padding: 10px; max-height: 62vh; }
+      .page { display: block; padding-top: 18px; }
+      aside.toc { position: static; max-height: none; margin-bottom: 22px; }
+      .visualization-stage { display: block; min-height: 0; height: auto; }
+      #ontology-graph { min-height: 380px; height: 65vh; }
+      .datatype-inspector {
+        width: auto;
+        max-height: 300px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .visualization-actions { justify-content: flex-start; }
+      th, td { display: block; width: 100%; }
+      th { border-bottom: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div class="hero-copy">
+        <h1>Construct-X Identifier Ontology</h1>
+<p class="subtitle">Defines the shared Construct-X contract for domain identifiers based on ADMS and SKOS without introducing parallel local identifier terms.</p>        <div class="hero-meta">
+<span class="version">Version 0.1.0</span><span class="hero-stat">Prefix conx-id</span>          <span class="hero-stat">0 classes</span>
+          <span class="hero-stat">0 properties</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="Table of contents">
+      <strong class="toc-title">Table of Contents</strong>
+      <ul>
+        <li class="toc-group"><a class="toc-heading" href="#metadata">Metadata</a></li>
+<li><a href="#agents">Creators and Contributors</a></li><li><a href="#quality-report">Quality Report</a></li><li><a href="#prefixes">Namespace Prefixes</a></li><li><a href="#used-ontologies">Used Ontologies</a></li><li><a href="#downloads">Downloads</a></li>        <li><a href="#overview">Overview</a></li>
+        
+        
+        
+        
+        
+      </ul>
+    </aside>
+
+    <main>
+    <section id="metadata">
+      <h2>Ontology Metadata</h2>
+      <table>
+        <tr><th>URI</th><td><a href="https://www.construct-x.org/ontology/identifier">https://www.construct-x.org/ontology/identifier</a></td></tr>
+        <tr class="">
+          <th>License</th>
+          <td><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></td>
+        </tr>
+        <tr class="">
+          <th>Creation date</th>
+          <td>2026-09-01</td>
+        </tr>
+        <tr class="">
+          <th>Namespace URI</th>
+          <td>https://www.construct-x.org/ontology/identifier#</td>
+        </tr>
+        <tr class="">
+          <th>Version IRI</th>
+          <td><a href="https://www.construct-x.org/ontology/identifier/0.1.0">https://www.construct-x.org/ontology/identifier/0.1.0</a></td>
+        </tr>
+        <tr class="">
+          <th>Prefix</th>
+          <td>conx-id</td>
+        </tr>
+        <tr class="">
+          <th>Title</th>
+          <td>Construct-X Identifier Ontology <span class="lang">[en]</span><br>Construct-X Identifier-Ontologie <span class="lang">[de]</span></td>
+        </tr>
+        <tr class="">
+          <th>Description</th>
+          <td>Defines the shared Construct-X contract for domain identifiers based on ADMS and SKOS without introducing parallel local identifier terms. <span class="lang">[en]</span><br>Definiert den gemeinsamen Construct-X-Vertrag fuer fachliche Kennungen auf Grundlage von ADMS und SKOS, ohne parallele lokale Kennungsbegriffe einzufuehren. <span class="lang">[de]</span></td>
+        </tr>
+        <tr class="">
+          <th>Publisher</th>
+          <td><a href="https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1">https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1</a></td>
+        </tr>
+        <tr class="">
+          <th>Version info</th>
+          <td>0.1.0</td>
+        </tr>
+        <tr class="missing-mandatory">
+          <th>Previous version</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-mandatory">
+          <th>Citation</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Abstract</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>See also</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Status</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Backward compatibility</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Incompatibility</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Modification Date</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Issued date</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Source</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>DOI</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Logo</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Diagram</th>
+          <td>To be defined</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="agents">
+      <h2>Creators and Contributors</h2>
+      <div class="grid">
+        <div class="agent missing-mandatory">
+          <strong class="agent-name">To be defined</strong>
+          <span class="agent-role">Creator</span>
+        </div>
+        <div class="agent missing-optional">
+          <strong class="agent-name">Max Mustermann (to be defined)</strong>
+          <span class="agent-role">Contributor</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="quality-report">
+      <h2>Quality Report</h2>
+      <div class="quality-summary">
+        <div class="quality-stat"><strong>15</strong>Total issues</div>
+        <div class="quality-stat"><strong>4</strong>Errors</div>
+        <div class="quality-stat"><strong>11</strong>Warnings</div>
+      </div>
+        <details class="quality-section" open>
+          <summary>Metadata (15)</summary>
+          <ul class="quality-list">
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#metadata">Missing recommended metadata: Previous version</a>            </li>
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#metadata">Missing recommended metadata: Citation</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Abstract</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: See also</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Status</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Backward compatibility</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Incompatibility</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Modification Date</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Issued date</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Source</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: DOI</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Logo</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Diagram</a>            </li>
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#agents">Missing recommended metadata: Creator</a>            </li>
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#agents">Missing recommended metadata: Contributor</a>            </li>
+          </ul>
+        </details>
+    </section>
+
+    <section id="prefixes">
+      <h2>Namespace Prefixes</h2>
+      <ul class="prefix-list">
+        <li><span class="curie">dcterms</span> http://purl.org/dc/terms/</li>
+        <li><span class="curie">owl</span> http://www.w3.org/2002/07/owl#</li>
+        <li><span class="curie">vann</span> http://purl.org/vocab/vann/</li>
+        <li><span class="curie">xsd</span> http://www.w3.org/2001/XMLSchema#</li>
+      </ul>
+    </section>
+
+    <section id="used-ontologies">
+      <h2>Used Ontologies</h2>
+      <ul class="used-list">
+        <li><a href="http://purl.org/dc/terms/">dcterms</a> <span class="relation">Referenced namespace</span></li>
+        <li><a href="http://purl.org/vocab/vann/">vann</a> <span class="relation">Referenced namespace</span></li>
+      </ul>
+    </section>
+
+    <section id="downloads">
+      <h2>Downloads</h2>
+      <ul class="downloads">
+        <li><a href="../ontology/conx-id.ttl">Turtle source</a> <span class="relation">text/turtle</span></li>
+      </ul>
+    </section>
+
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <table>
+        <tr><th>Classes</th><td>0</td></tr>
+        <tr><th>Object properties</th><td>0</td></tr>
+        <tr><th>Datatype properties</th><td>0</td></tr>
+        <tr><th>Annotation properties</th><td>0</td></tr>
+        <tr><th>RDF properties</th><td>0</td></tr>
+      </table>
+    </section>
+
+    <section id="cross-reference">
+      <h2>Cross-reference</h2>
+      <p class="muted">This section provides details for each class and property defined by the ontology.</p>
+      
+      
+      
+      
+      
+    </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap">Generated by OntoLens.</div>
+  </footer>
+</body>
+</html>

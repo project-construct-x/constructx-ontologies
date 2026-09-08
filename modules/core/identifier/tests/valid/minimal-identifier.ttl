@@ -1,0 +1,9 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:identifier-1
+  a adms:Identifier ;
+  skos:notation "HRB 12345" ;
+.
+

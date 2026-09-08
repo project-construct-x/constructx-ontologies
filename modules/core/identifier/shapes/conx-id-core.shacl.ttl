@@ -1,0 +1,62 @@
+# baseURI: https://www.construct-x.org/shapes/identifier/core
+# prefix: conx-id-sh
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-id-sh: <https://www.construct-x.org/shapes/identifier/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/identifier/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-09-01"^^xsd:date ;
+  dcterms:description "Validiert den gemeinsamen ADMS/SKOS-Vertrag fuer fachliche Kennungen im Construct-X-Ontologienetzwerk."@de ;
+  dcterms:description "Validates the shared ADMS/SKOS contract for domain identifiers in the Construct-X ontology network."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Identifier Core Shapes"@de ;
+  dcterms:title "Construct-X Identifier Core Shapes"@en ;
+  owl:versionIRI <https://www.construct-x.org/shapes/identifier/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+conx-id-sh:ADMSIdentifierShape
+  a sh:NodeShape ;
+  sh:targetClass adms:Identifier ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierTypeShape ;
+  sh:property conx-id-sh:IdentifierNotationPropertyShape,
+              conx-id-sh:IdentifierSchemaAgencyPropertyShape ;
+.
+
+conx-id-sh:ADMSIdentifierTypeShape
+  a sh:NodeShape ;
+  sh:class adms:Identifier ;
+  sh:message "[ID-001] Eine Identifikatorressource muss als adms:Identifier typisiert sein."@de ;
+  sh:message "[ID-001] An identifier resource must be typed as adms:Identifier."@en ;
+.
+
+conx-id-sh:IdentifierNotationPropertyShape
+  a sh:PropertyShape ;
+  sh:path skos:notation ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:Literal ;
+  sh:severity sh:Violation ;
+  sh:message "[ID-002] Ein Identifikator muss genau eine literale skos:notation besitzen."@de ;
+  sh:message "[ID-002] An identifier must have exactly one literal skos:notation."@en ;
+.
+
+conx-id-sh:IdentifierSchemaAgencyPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:schemaAgency ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:string ;
+  sh:severity sh:Violation ;
+  sh:message "[ID-003] schemaAgency darf hoechstens einmal als String angegeben werden."@de ;
+  sh:message "[ID-003] schemaAgency may be provided at most once as a string."@en ;
+.
+
