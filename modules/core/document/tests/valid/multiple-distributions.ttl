@@ -1,0 +1,32 @@
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:structural-plan
+  a conx-doc:Document ;
+  conx-doc:title "Tragwerksplan"@de ;
+  conx-doc:documentType document-type:plan ;
+  conx-doc:hasDistribution ex:structural-plan-pdf,
+                           ex:structural-plan-xml,
+                           ex:structural-plan-placeholder ;
+.
+
+ex:structural-plan-pdf
+  a conx-doc:DocumentDistribution ;
+  conx-doc:fileName "structural-plan.pdf" ;
+  dcat:downloadURL <https://example.org/files/structural-plan.pdf> ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
+.
+
+ex:structural-plan-xml
+  a conx-doc:DocumentDistribution ;
+  conx-doc:fileName "structural-plan.xml" ;
+  dcat:downloadURL <https://example.org/files/structural-plan.xml> ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/xml> ;
+.
+
+ex:structural-plan-placeholder
+  a conx-doc:DocumentDistribution ;
+  conx-doc:fileName "structural-plan.ifc" ;
+.

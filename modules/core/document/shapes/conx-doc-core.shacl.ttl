@@ -1,0 +1,504 @@
+# baseURI: https://www.construct-x.org/shapes/document/core
+# prefix: conx-doc-sh
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix conx-doc-sh: <https://www.construct-x.org/shapes/document/core#> .
+@prefix conx-id-sh: <https://www.construct-x.org/shapes/identifier/core#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-status: <https://www.construct-x.org/vocab/document-status#> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/document/core>
+  a owl:Ontology ;
+  dcterms:created "2026-09-01"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Validiert den allgemeinen Datenvertrag fuer Dokumente, Dokumentreferenzen, technische Distributionen und kontrollierte Dokumentwerte."@de ;
+  dcterms:description "Validates the general data contract for documents, document references, technical distributions, and controlled document values."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-09-01"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Document Core Shapes"@en ;
+  dcterms:title "Construct-X Document Core Shapes"@de ;
+  owl:imports <https://www.construct-x.org/shapes/identifier/core/0.1.0> ;
+  owl:versionIRI <https://www.construct-x.org/shapes/document/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+## Reusable value contracts
+
+conx-doc-sh:StringOrLangStringShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+.
+
+conx-doc-sh:NonEmptyStringOrLangStringShape
+  a sh:NodeShape ;
+  sh:node conx-doc-sh:StringOrLangStringShape ;
+  sh:pattern "\\S" ;
+.
+
+conx-doc-sh:NonEmptyStringShape
+  a sh:NodeShape ;
+  sh:datatype xsd:string ;
+  sh:pattern "\\S" ;
+.
+
+conx-doc-sh:DateOrDateTimeShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:datatype xsd:date ]
+      [ sh:datatype xsd:dateTime ]
+    ) ;
+.
+
+## Resource and explicit-type contracts
+
+conx-doc-sh:DocumentResourceShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[DOC-DOC-001] Ein Document muss eine Ressource sein und darf kein Literal sein."@de ;
+  sh:message "[DOC-DOC-001] A Document must be a resource and must not be a literal."@en ;
+.
+
+conx-doc-sh:ExplicitDocumentTypeShape
+  a sh:NodeShape ;
+  sh:class conx-doc:Document ;
+  sh:message "[DOC-DOC-002] Eine als Dokument verwendete Ressource muss explizit als conx-doc:Document typisiert sein."@de ;
+  sh:message "[DOC-DOC-002] A resource used as a document must be explicitly typed as conx-doc:Document."@en ;
+.
+
+conx-doc-sh:DocumentReferenceResourceShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[DOC-REF-001] Eine DocumentReference muss eine Ressource sein und darf kein Literal sein."@de ;
+  sh:message "[DOC-REF-001] A DocumentReference must be a resource and must not be a literal."@en ;
+.
+
+conx-doc-sh:ExplicitDocumentReferenceTypeShape
+  a sh:NodeShape ;
+  sh:class conx-doc:DocumentReference ;
+  sh:message "[DOC-REF-002] Eine als Dokumentreferenz verwendete Ressource muss explizit als conx-doc:DocumentReference typisiert sein."@de ;
+  sh:message "[DOC-REF-002] A resource used as a document reference must be explicitly typed as conx-doc:DocumentReference."@en ;
+.
+
+conx-doc-sh:DocumentDistributionResourceShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[DOC-DIST-001] Eine DocumentDistribution muss eine Ressource sein und darf kein Literal sein."@de ;
+  sh:message "[DOC-DIST-001] A DocumentDistribution must be a resource and must not be a literal."@en ;
+.
+
+conx-doc-sh:ExplicitDocumentDistributionTypeShape
+  a sh:NodeShape ;
+  sh:class conx-doc:DocumentDistribution ;
+  sh:message "[DOC-DIST-002] Eine als Distribution verwendete Ressource muss explizit als conx-doc:DocumentDistribution typisiert sein."@de ;
+  sh:message "[DOC-DIST-002] A resource used as a distribution must be explicitly typed as conx-doc:DocumentDistribution."@en ;
+.
+
+conx-doc-sh:DocumentOrReferenceShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:class conx-doc:Document ]
+      [ sh:class conx-doc:DocumentReference ]
+    ) ;
+  sh:message "[DOC-CAR-001] Eine Ressource mit documentType oder hasDistribution muss als Document oder DocumentReference typisiert sein."@de ;
+  sh:message "[DOC-CAR-001] A resource using documentType or hasDistribution must be typed as Document or DocumentReference."@en ;
+.
+
+## Controlled reference values
+
+conx-doc-sh:DocumentTypeConceptShape
+  a sh:NodeShape ;
+  sh:class conx-doc:DocumentType ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      document-type:contract
+      document-type:invoice
+      document-type:deliveryNote
+      document-type:certificate
+      document-type:report
+      document-type:plan
+      document-type:evidenceDocument
+      document-type:other
+    ) ;
+  sh:message "[DOC-DOC-020] documentType muss auf einen freigegebenen Dokumenttyp verweisen."@de ;
+  sh:message "[DOC-DOC-020] documentType must reference an approved document type."@en ;
+.
+
+conx-doc-sh:DocumentStatusConceptShape
+  a sh:NodeShape ;
+  sh:class conx-doc:DocumentStatus ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      document-status:draft
+      document-status:issued
+      document-status:superseded
+      document-status:withdrawn
+      document-status:expired
+      document-status:archived
+    ) ;
+  sh:message "[DOC-DOC-021] documentStatus muss auf einen freigegebenen Dokumentstatus verweisen."@de ;
+  sh:message "[DOC-DOC-021] documentStatus must reference an approved document status."@en ;
+.
+
+## Target shapes
+
+conx-doc-sh:DocumentContextShape
+  a sh:NodeShape ;
+  sh:name "Document context"@en ;
+  sh:name "Dokumentkontext"@de ;
+  sh:targetSubjectsOf conx-doc:hasDocumentReference ;
+  sh:property conx-doc-sh:HasDocumentReferencePropertyShape ;
+.
+
+conx-doc-sh:DocumentCarrierShape
+  a sh:NodeShape ;
+  sh:name "Document carrier"@en ;
+  sh:name "Dokumenttraeger"@de ;
+  sh:targetSubjectsOf conx-doc:documentType,
+                      conx-doc:hasDistribution ;
+  sh:node conx-doc-sh:DocumentOrReferenceShape ;
+.
+
+conx-doc-sh:DocumentShape
+  a sh:NodeShape ;
+  sh:name "Document"@en ;
+  sh:name "Dokument"@de ;
+  sh:targetClass conx-doc:Document ;
+  sh:targetObjectsOf conx-doc:referencesDocument ;
+  sh:targetSubjectsOf conx-doc:documentStatus ;
+  sh:node conx-doc-sh:DocumentResourceShape,
+          conx-doc-sh:ExplicitDocumentTypeShape ;
+  sh:property conx-doc-sh:TitlePropertyShape,
+              conx-doc-sh:DescriptionPropertyShape,
+              conx-doc-sh:LanguagePropertyShape,
+              conx-doc-sh:DocumentTypePropertyShape,
+              conx-doc-sh:DocumentStatusPropertyShape,
+              conx-doc-sh:VersionPropertyShape,
+              conx-doc-sh:CreatedPropertyShape,
+              conx-doc-sh:IssuedPropertyShape,
+              conx-doc-sh:ModifiedPropertyShape,
+              conx-doc-sh:ValidFromPropertyShape,
+              conx-doc-sh:ValidUntilPropertyShape,
+              conx-doc-sh:ValidityOrderPropertyShape,
+              conx-doc-sh:DocumentHasDistributionPropertyShape,
+              conx-doc-sh:DocumentIdentifierPropertyShape ;
+.
+
+conx-doc-sh:DocumentReferenceShape
+  a sh:NodeShape ;
+  sh:name "Document reference"@en ;
+  sh:name "Dokumentreferenz"@de ;
+  sh:targetClass conx-doc:DocumentReference ;
+  sh:targetObjectsOf conx-doc:hasDocumentReference ;
+  sh:targetSubjectsOf conx-doc:referencesDocument ;
+  sh:node conx-doc-sh:DocumentReferenceResourceShape,
+          conx-doc-sh:ExplicitDocumentReferenceTypeShape,
+          conx-doc-sh:DocumentReferenceTargetShape ;
+  sh:property conx-doc-sh:TitlePropertyShape,
+              conx-doc-sh:DescriptionPropertyShape,
+              conx-doc-sh:LanguagePropertyShape,
+              conx-doc-sh:ReferenceDocumentTypePropertyShape,
+              conx-doc-sh:VersionPropertyShape,
+              conx-doc-sh:CreatedPropertyShape,
+              conx-doc-sh:IssuedPropertyShape,
+              conx-doc-sh:ModifiedPropertyShape,
+              conx-doc-sh:ValidFromPropertyShape,
+              conx-doc-sh:ValidUntilPropertyShape,
+              conx-doc-sh:ValidityOrderPropertyShape,
+              conx-doc-sh:ReferencesDocumentPropertyShape,
+              conx-doc-sh:ExternalDocumentReferencePropertyShape,
+              conx-doc-sh:ReferenceHasDistributionPropertyShape,
+              conx-doc-sh:ReferenceIdentifierPropertyShape ;
+.
+
+conx-doc-sh:DocumentDistributionShape
+  a sh:NodeShape ;
+  sh:name "Document distribution"@en ;
+  sh:name "Dokumentdistribution"@de ;
+  sh:targetClass conx-doc:DocumentDistribution ;
+  sh:targetObjectsOf conx-doc:hasDistribution ;
+  sh:targetSubjectsOf conx-doc:fileName ;
+  sh:node conx-doc-sh:DocumentDistributionResourceShape,
+          conx-doc-sh:ExplicitDocumentDistributionTypeShape ;
+  sh:property conx-doc-sh:AccessUrlPropertyShape,
+              conx-doc-sh:DownloadUrlPropertyShape,
+              conx-doc-sh:FileNamePropertyShape,
+              conx-doc-sh:MediaTypePropertyShape ;
+.
+
+## Context and shared-carrier property shapes
+
+conx-doc-sh:HasDocumentReferencePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:hasDocumentReference ;
+  sh:class conx-doc:DocumentReference ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-CTX-001] Jeder Wert von hasDocumentReference muss eine explizit typisierte DocumentReference-Ressource sein."@de ;
+  sh:message "[DOC-CTX-001] Every hasDocumentReference value must be an explicitly typed DocumentReference resource."@en ;
+.
+
+## Common document metadata property shapes
+
+conx-doc-sh:TitlePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:title ;
+  sh:node conx-doc-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-010] title muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[DOC-DOC-010] title must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-doc-sh:DescriptionPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:description ;
+  sh:node conx-doc-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-011] description muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[DOC-DOC-011] description must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-doc-sh:LanguagePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:language ;
+  sh:node conx-doc-sh:NonEmptyStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-012] language muss als nicht leerer xsd:string angegeben werden."@de ;
+  sh:message "[DOC-DOC-012] language must be provided as a non-empty xsd:string."@en ;
+.
+
+conx-doc-sh:DocumentTypePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:documentType ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DocumentTypeConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-020] documentType darf hoechstens einmal vorkommen und muss auf einen freigegebenen Dokumenttyp verweisen."@de ;
+  sh:message "[DOC-DOC-020] documentType may occur at most once and must reference an approved document type."@en ;
+.
+
+conx-doc-sh:DocumentStatusPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:documentStatus ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DocumentStatusConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-021] documentStatus darf hoechstens einmal vorkommen und muss auf einen freigegebenen Dokumentstatus verweisen."@de ;
+  sh:message "[DOC-DOC-021] documentStatus may occur at most once and must reference an approved document status."@en ;
+.
+
+conx-doc-sh:VersionPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:version ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:NonEmptyStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-030] version darf hoechstens einmal als nicht leerer xsd:string vorkommen."@de ;
+  sh:message "[DOC-DOC-030] version may occur at most once as a non-empty xsd:string."@en ;
+.
+
+conx-doc-sh:CreatedPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:created ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DateOrDateTimeShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-040] created darf hoechstens einmal als xsd:date oder xsd:dateTime vorkommen."@de ;
+  sh:message "[DOC-DOC-040] created may occur at most once as xsd:date or xsd:dateTime."@en ;
+.
+
+conx-doc-sh:IssuedPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:issued ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DateOrDateTimeShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-041] issued darf hoechstens einmal als xsd:date oder xsd:dateTime vorkommen."@de ;
+  sh:message "[DOC-DOC-041] issued may occur at most once as xsd:date or xsd:dateTime."@en ;
+.
+
+conx-doc-sh:ModifiedPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:modified ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DateOrDateTimeShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-042] modified darf hoechstens einmal als xsd:date oder xsd:dateTime vorkommen."@de ;
+  sh:message "[DOC-DOC-042] modified may occur at most once as xsd:date or xsd:dateTime."@en ;
+.
+
+conx-doc-sh:ValidFromPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:validFrom ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DateOrDateTimeShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-043] validFrom darf hoechstens einmal als xsd:date oder xsd:dateTime vorkommen."@de ;
+  sh:message "[DOC-DOC-043] validFrom may occur at most once as xsd:date or xsd:dateTime."@en ;
+.
+
+conx-doc-sh:ValidUntilPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:validUntil ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DateOrDateTimeShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-044] validUntil darf hoechstens einmal als xsd:date oder xsd:dateTime vorkommen."@de ;
+  sh:message "[DOC-DOC-044] validUntil may occur at most once as xsd:date or xsd:dateTime."@en ;
+.
+
+conx-doc-sh:ValidityOrderPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:validFrom ;
+  sh:lessThanOrEquals conx-doc:validUntil ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-045] validFrom darf nicht nach validUntil liegen."@de ;
+  sh:message "[DOC-DOC-045] validFrom must not be later than validUntil."@en ;
+.
+
+conx-doc-sh:DocumentHasDistributionPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:hasDistribution ;
+  sh:class conx-doc:DocumentDistribution ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-050] Jeder hasDistribution-Wert eines Dokuments muss eine explizit typisierte DocumentDistribution-Ressource sein."@de ;
+  sh:message "[DOC-DOC-050] Every hasDistribution value of a document must be an explicitly typed DocumentDistribution resource."@en ;
+.
+
+conx-doc-sh:DocumentIdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:identifier ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DOC-060] Jeder Dokumentidentifikator muss eine gueltig strukturierte ADMS-Identifier-Ressource sein."@de ;
+  sh:message "[DOC-DOC-060] Every document identifier must be a valid structured ADMS Identifier resource."@en ;
+.
+
+## DocumentReference contracts
+
+conx-doc-sh:DocumentReferenceTargetShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:property [ sh:path conx-doc:referencesDocument ; sh:minCount 1 ] ]
+      [ sh:property [ sh:path dcterms:references ; sh:minCount 1 ] ]
+      [ sh:property [ sh:path conx-doc:hasDistribution ; sh:minCount 1 ] ]
+    ) ;
+  sh:message "[DOC-REF-013] Eine DocumentReference muss mindestens ein modelliertes Dokument, eine externe Dokumentressource oder eine Distribution referenzieren."@de ;
+  sh:message "[DOC-REF-013] A DocumentReference must reference at least one modeled document, external document resource, or distribution."@en ;
+.
+
+conx-doc-sh:ReferencesDocumentPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:referencesDocument ;
+  sh:maxCount 1 ;
+  sh:class conx-doc:Document ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-REF-010] referencesDocument darf hoechstens einmal vorkommen und muss auf ein explizit typisiertes Document zeigen."@de ;
+  sh:message "[DOC-REF-010] referencesDocument may occur at most once and must reference an explicitly typed Document."@en ;
+.
+
+conx-doc-sh:ExternalDocumentReferencePropertyShape
+  a sh:PropertyShape ;
+  sh:path dcterms:references ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-REF-011] dcterms:references darf hoechstens einmal vorkommen und muss eine externe IRI sein."@de ;
+  sh:message "[DOC-REF-011] dcterms:references may occur at most once and must be an external IRI."@en ;
+.
+
+conx-doc-sh:ReferenceHasDistributionPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:hasDistribution ;
+  sh:class conx-doc:DocumentDistribution ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-REF-012] Jeder hasDistribution-Wert einer Dokumentreferenz muss eine explizit typisierte DocumentDistribution-Ressource sein."@de ;
+  sh:message "[DOC-REF-012] Every hasDistribution value of a document reference must be an explicitly typed DocumentDistribution resource."@en ;
+.
+
+conx-doc-sh:ReferenceDocumentTypePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:documentType ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:DocumentTypeConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-REF-020] documentType darf an einer Dokumentreferenz hoechstens einmal vorkommen und muss freigegeben sein."@de ;
+  sh:message "[DOC-REF-020] documentType may occur at most once on a document reference and must be approved."@en ;
+.
+
+conx-doc-sh:ReferenceIdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:identifier ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-REF-030] Jeder Referenzidentifikator muss eine gueltig strukturierte ADMS-Identifier-Ressource sein."@de ;
+  sh:message "[DOC-REF-030] Every reference identifier must be a valid structured ADMS Identifier resource."@en ;
+.
+
+## DocumentDistribution contracts
+
+conx-doc-sh:AccessUrlPropertyShape
+  a sh:PropertyShape ;
+  sh:path dcat:accessURL ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DIST-010] Jeder accessURL-Wert muss eine IRI sein."@de ;
+  sh:message "[DOC-DIST-010] Every accessURL value must be an IRI."@en ;
+.
+
+conx-doc-sh:DownloadUrlPropertyShape
+  a sh:PropertyShape ;
+  sh:path dcat:downloadURL ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DIST-011] Jeder downloadURL-Wert muss eine IRI sein."@de ;
+  sh:message "[DOC-DIST-011] Every downloadURL value must be an IRI."@en ;
+.
+
+conx-doc-sh:FileNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-doc:fileName ;
+  sh:maxCount 1 ;
+  sh:node conx-doc-sh:NonEmptyStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DIST-020] fileName darf hoechstens einmal als nicht leerer xsd:string vorkommen."@de ;
+  sh:message "[DOC-DIST-020] fileName may occur at most once as a non-empty xsd:string."@en ;
+.
+
+conx-doc-sh:MediaTypePropertyShape
+  a sh:PropertyShape ;
+  sh:path dcat:mediaType ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[DOC-DIST-030] mediaType darf hoechstens einmal vorkommen und muss eine IANA-orientierte IRI sein."@de ;
+  sh:message "[DOC-DIST-030] mediaType may occur at most once and must be an IANA-oriented IRI."@en ;
+.

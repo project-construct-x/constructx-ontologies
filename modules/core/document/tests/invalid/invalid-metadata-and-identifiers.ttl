@@ -1,0 +1,42 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:invalid-metadata
+  a conx-doc:Document ;
+  conx-doc:title "   ", 42 ;
+  conx-doc:description " " ;
+  conx-doc:language "", "Deutsch"@de ;
+  conx-doc:version " ", "2" ;
+  conx-doc:created "2026-08-01", "2026-08-02"^^xsd:date ;
+  conx-doc:issued "issued yesterday" ;
+  conx-doc:modified 42 ;
+  conx-doc:validFrom "2026-01-01", "2026-01-02"^^xsd:date ;
+  conx-doc:validUntil "2026-12-31", "2027-12-31"^^xsd:date ;
+  adms:identifier ex:invalid-document-id ;
+.
+
+ex:reversed-validity
+  a conx-doc:Document ;
+  conx-doc:validFrom "2027-01-01"^^xsd:date ;
+  conx-doc:validUntil "2026-12-31"^^xsd:date ;
+.
+
+ex:invalid-document-id
+  skos:notation "ID-1", "ID-2" ;
+  adms:schemaAgency "Agency A", "Agency B" ;
+.
+
+ex:invalid-reference-identifier
+  a conx-doc:DocumentReference ;
+  dcterms:references <https://external.example.org/document/identifier> ;
+  adms:identifier ex:invalid-reference-id ;
+.
+
+ex:invalid-reference-id
+  a adms:Identifier ;
+  adms:schemaAgency 42 ;
+.

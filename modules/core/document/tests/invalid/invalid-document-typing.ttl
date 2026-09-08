@@ -1,0 +1,34 @@
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-status: <https://www.construct-x.org/vocab/document-status#> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:context-with-untyped-reference
+  conx-doc:hasDocumentReference ex:untyped-reference ;
+.
+
+ex:untyped-reference
+  dcterms:references <https://external.example.org/document/1> ;
+.
+
+ex:typed-reference
+  a conx-doc:DocumentReference ;
+  conx-doc:referencesDocument ex:untyped-document ;
+.
+
+ex:untyped-carrier
+  conx-doc:documentType document-type:report ;
+.
+
+ex:untyped-status-carrier
+  conx-doc:documentStatus document-status:draft ;
+.
+
+ex:untyped-distribution
+  conx-doc:fileName "untyped.pdf" ;
+.
+
+ex:literal-context
+  conx-doc:hasDocumentReference "not-a-resource" ;
+.

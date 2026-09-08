@@ -1,0 +1,26 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:structural-plan
+  a conx-doc:Document ;
+  conx-doc:title "Tragwerksplan Version 3"@de ;
+  conx-doc:documentType document-type:plan ;
+.
+
+ex:engineer
+  a conx-agent:Agent ;
+.
+
+ex:engineering-participation
+  a conx-part:Participation ;
+  conx-part:participant ex:engineer ;
+  conx-part:role part-role:EngineerRole ;
+  conx-part:context ex:structural-plan ;
+  conx-part:startDate "2026-08-01"^^xsd:date ;
+  conx-part:endDate "2026-08-31"^^xsd:date ;
+.

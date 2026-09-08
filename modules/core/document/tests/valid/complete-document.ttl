@@ -1,0 +1,41 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix document-status: <https://www.construct-x.org/vocab/document-status#> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+@prefix ex-scheme: <https://example.org/id-scheme/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:inspection-report
+  a conx-doc:Document ;
+  conx-doc:title "Pruefbericht Tragwerk"@de,
+                 "Structural inspection report"@en ;
+  conx-doc:description "Freigegebener Bericht zur Tragwerkspruefung."@de ;
+  conx-doc:language "de", "en" ;
+  conx-doc:documentType document-type:report ;
+  conx-doc:documentStatus document-status:issued ;
+  conx-doc:version "1.0" ;
+  conx-doc:created "2026-08-20T09:30:00Z"^^xsd:dateTime ;
+  conx-doc:issued "2026-08-22"^^xsd:date ;
+  conx-doc:modified "2026-08-22T14:00:00Z"^^xsd:dateTime ;
+  conx-doc:validFrom "2026-08-22"^^xsd:date ;
+  conx-doc:validUntil "2027-08-21"^^xsd:date ;
+  conx-doc:hasDistribution ex:inspection-report-pdf ;
+  adms:identifier ex:inspection-report-id ;
+.
+
+ex:inspection-report-id
+  a adms:Identifier ;
+  skos:notation "PR-2026-0042"^^ex-scheme:report-number ;
+  adms:schemaAgency "Pruefstelle Beispiel" ;
+.
+
+ex:inspection-report-pdf
+  a conx-doc:DocumentDistribution ;
+  conx-doc:fileName "inspection-report-0042.pdf" ;
+  dcat:accessURL <https://example.org/documents/inspection-report-0042> ;
+  dcat:downloadURL <https://example.org/files/inspection-report-0042.pdf> ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
+.

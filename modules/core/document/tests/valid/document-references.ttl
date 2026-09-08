@@ -1,0 +1,50 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:order-123
+  conx-doc:hasDocumentReference ex:contract-reference,
+                                ex:external-reference,
+                                ex:distribution-reference ;
+.
+
+ex:contract-reference
+  a conx-doc:DocumentReference ;
+  conx-doc:title "Vertragsanlage A"@de ;
+  conx-doc:documentType document-type:contract ;
+  conx-doc:referencesDocument ex:contract-annex-a ;
+  adms:identifier ex:contract-reference-id ;
+.
+
+ex:contract-reference-id
+  a adms:Identifier ;
+  skos:notation "ANLAGE-A" ;
+.
+
+ex:contract-annex-a
+  a conx-doc:Document ;
+  conx-doc:title "Vertragsanlage A"@de ;
+  conx-doc:documentType document-type:contract ;
+.
+
+ex:external-reference
+  a conx-doc:DocumentReference ;
+  dcterms:references <https://external.example.org/documents/permit-42> ;
+.
+
+ex:distribution-reference
+  a conx-doc:DocumentReference ;
+  conx-doc:documentType document-type:evidenceDocument ;
+  conx-doc:hasDistribution ex:evidence-pdf ;
+.
+
+ex:evidence-pdf
+  a conx-doc:DocumentDistribution ;
+  conx-doc:fileName "evidence.pdf" ;
+  dcat:downloadURL <https://example.org/files/evidence.pdf> ;
+  dcat:mediaType <https://www.iana.org/assignments/media-types/application/pdf> ;
+.

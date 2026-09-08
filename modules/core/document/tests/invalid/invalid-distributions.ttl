@@ -1,0 +1,17 @@
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:document-with-invalid-distribution
+  a conx-doc:Document ;
+  conx-doc:hasDistribution "not-a-resource" ;
+.
+
+ex:invalid-distribution
+  a conx-doc:DocumentDistribution ;
+  conx-doc:fileName "   ", "second-name.pdf" ;
+  dcat:accessURL "https://example.org/access" ;
+  dcat:downloadURL "https://example.org/download.pdf" ;
+  dcat:mediaType "application/pdf",
+                 <https://www.iana.org/assignments/media-types/application/pdf> ;
+.

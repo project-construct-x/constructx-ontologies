@@ -1,0 +1,38 @@
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-status: <https://www.construct-x.org/vocab/document-status#> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:invalid-controlled-document
+  a conx-doc:Document ;
+  conx-doc:documentType document-type:report,
+                        ex:unknown-document-type ;
+  conx-doc:documentStatus document-status:draft,
+                          ex:unknown-document-status ;
+.
+
+ex:unknown-document-type
+  a conx-doc:DocumentType, skos:Concept ;
+.
+
+ex:unknown-document-status
+  a conx-doc:DocumentStatus, skos:Concept ;
+.
+
+ex:literal-document-type
+  a conx-doc:Document ;
+  conx-doc:documentType "report" ;
+.
+
+ex:literal-document-status
+  a conx-doc:Document ;
+  conx-doc:documentStatus "issued" ;
+.
+
+ex:invalid-reference-type
+  a conx-doc:DocumentReference ;
+  conx-doc:documentType ex:unknown-document-type ;
+  dcterms:references <https://external.example.org/document/unknown> ;
+.

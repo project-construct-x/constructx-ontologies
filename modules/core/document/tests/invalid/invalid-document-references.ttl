@@ -1,0 +1,53 @@
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:no-target
+  a conx-doc:DocumentReference ;
+.
+
+ex:literal-document-target
+  a conx-doc:DocumentReference ;
+  conx-doc:referencesDocument "not-a-document-resource" ;
+.
+
+ex:too-many-document-targets
+  a conx-doc:DocumentReference ;
+  conx-doc:referencesDocument ex:document-a,
+                              ex:document-b ;
+.
+
+ex:document-a a conx-doc:Document .
+ex:document-b a conx-doc:Document .
+
+ex:literal-external-target
+  a conx-doc:DocumentReference ;
+  dcterms:references "not-an-iri" ;
+.
+
+ex:too-many-external-targets
+  a conx-doc:DocumentReference ;
+  dcterms:references <https://external.example.org/document/a>,
+                     <https://external.example.org/document/b> ;
+.
+
+ex:invalid-distribution-target
+  a conx-doc:DocumentReference ;
+  conx-doc:hasDistribution ex:not-typed-as-distribution ;
+.
+
+ex:invalid-reference-type
+  a conx-doc:DocumentReference ;
+  conx-doc:documentType ex:unknown-type ;
+  dcterms:references <https://external.example.org/document/c> ;
+.
+
+ex:unknown-type a conx-doc:DocumentType .
+
+ex:too-many-reference-types
+  a conx-doc:DocumentReference ;
+  conx-doc:documentType document-type:contract,
+                        document-type:report ;
+  dcterms:references <https://external.example.org/document/d> ;
+.

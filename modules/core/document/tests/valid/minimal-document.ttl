@@ -1,0 +1,6 @@
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:minimal-document a conx-doc:Document .
+
+[] a conx-doc:Document .
