@@ -14,3 +14,11 @@ Please remember and follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
 - Add a license header to your files
 - Use [Conventional Commits](https://www.conventionalcommits.org/en) (preferred)
 - [Sign your commits](https://docs.github.com/en/authentication/managing-commit-signature-verification/signing-commits) (preferred)
+
+## Ontology Contributions
+
+- Keep T-Box ontologies, SHACL Shapes, examples and reference data separated.
+- Update the module documentation and changelog together with semantic changes.
+- Do not add Domain ontologies, application profiles or Alignments to this Core repository.
+- Validate the repository with `uv run python scripts/validate.py`.
+- Run the Core test suite with `uv run pytest` before opening a pull request.

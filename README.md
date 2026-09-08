@@ -1,37 +1,70 @@
-# Construct-X Template Repository
+# Construct-X Core Ontologies
 
-Template repository for Construct-X.
+Dieses Repository stellt die fachübergreifend wiederverwendbaren
+Core-Ontologien von Construct-X bereit. Es enthält bewusst keine Domain-
+Ontologien, anwendungsspezifischen Profile oder optionalen Alignments.
 
-## About
-Use this template during repository creation to include relevant files and a default configuration. For your project, please add a description with additional details about your project here.
+**Status:** Draft
+**Aktueller Modulstand:** `0.1.0`
 
-## Documentation
-This documentation is located in the `/docs` folder.
+## Core-Module
 
-## Getting Started
-Relevant prerequisites and installation instructions are introduced.
+| Modul | Inhalt |
+| --- | --- |
+| [Address](modules/core/address/README.md) | strukturierte Adressen und Adresszuordnungen |
+| [Agent](modules/core/agent/README.md) | gemeinsame Oberklasse für handelnde Akteure |
+| [Contact](modules/core/contact/README.md) | Kontaktpunkte und Kontaktmethoden |
+| [Document](modules/core/document/README.md) | Dokumente, Referenzen und technische Distributionen |
+| [Identifier](modules/core/identifier/README.md) | gemeinsamer ADMS/SKOS-Kennungsvertrag |
+| [Organization](modules/core/organization/README.md) | Organisationen, Einheiten, Mitgliedschaften und Vertretungen |
+| [Participation](modules/core/participation/README.md) | Rollen von Agenten in fachlichen Kontexten |
+| [Person](modules/core/person/README.md) | intrinsische Kerndaten natürlicher Personen |
+| [VSO](modules/core/vso/README.md) | Zuweisung von Merkmalen, Werten und Einheiten |
 
-### Prerequisites
-To run and work with this project, the following prerequisites are needed:
-- Tool 1
-- Tool 2
+## Repository-Struktur
 
-### Installation
-To run this project, execute the following steps:
-1. Clone this repository
-   ```sh
-   git clone https://github.com/Projekt-Construct-X/XXX.git
-   ```
-2. Do this
-   ```sh
-   cd XXX
-   ```
-3. Do that
-   ```sh
-   docker compose up
-   ```
+```text
+modules/core/       Ontologien, Shapes, Dokumentation und Testdaten
+datasets/reference/ kontrollierte Werte und administrative Referenzdaten
+docs/               Architektur- und Einstiegshilfen
+network/            dokumentierte externe Abhängigkeiten
+scripts/            Validierung und Build
+tests/              automatisierte Core-Prüfungen
+```
 
-## License
-All code files are distributed under the Apache 2.0 license. See [LICENSE](./LICENSE) for more information.
+## Einstieg
 
-All non-code files are distributed under the Creative Commons Attribution 4.0 International license. See [LICENSE_non-code](./LICENSE_non-code) for more information.
+Vorausgesetzt werden Python 3.12 oder neuer und
+[uv](https://docs.astral.sh/uv/).
+
+```bash
+git clone https://github.com/project-construct-x/constructx-ontologies.git
+cd constructx-ontologies
+uv sync --locked
+```
+
+Repository validieren und Tests ausführen:
+
+```bash
+uv run python scripts/validate.py
+uv run pytest
+```
+
+Ein auslieferbares Paket wird unter `dist/` erzeugt:
+
+```bash
+uv run python scripts/build.py
+```
+
+## Dokumentation
+
+Der Einstieg liegt unter [docs/README.md](docs/README.md). Jedes Core-Modul
+enthält zusätzlich eine kompakte `docs/confluence-overview.md` sowie die
+ausführlichen fachlichen und technischen Dokumente.
+
+## Lizenz
+
+Code steht unter Apache License 2.0, siehe [LICENSE](LICENSE). Ontologien,
+Dokumentation und weitere Nicht-Code-Inhalte stehen unter CC BY 4.0, siehe
+[LICENSE_non-code](LICENSE_non-code). Quellen und abweichende Hinweise stehen
+in den jeweiligen Metadaten und in [NOTICE.md](NOTICE.md).
