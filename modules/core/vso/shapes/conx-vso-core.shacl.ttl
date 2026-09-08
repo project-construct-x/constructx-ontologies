@@ -1,0 +1,122 @@
+# baseURI: https://www.construct-x.org/shapes/vso/core
+# prefix: conx-vso-sh
+
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix conx-vso-sh: <https://www.construct-x.org/shapes/vso/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/vso/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-09-01"^^xsd:date ;
+  dcterms:description "Validierungsregeln für den systemneutralen Kernvertrag der Construct-X Value Semantics Ontology."@de ;
+  dcterms:description "Validation rules for the system-neutral core contract of the Construct-X Value Semantics Ontology."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X VSO Core Shapes"@de ;
+  dcterms:title "Construct-X VSO Core Shapes"@en ;
+  owl:versionIRI <https://www.construct-x.org/shapes/vso/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+## Node shapes
+
+conx-vso-sh:ResourceWithAssignedPropertyShape
+  a sh:NodeShape ;
+  sh:name "Bezugsobjekt mit Merkmalszuweisung"@de ;
+  sh:name "Resource with property assignment"@en ;
+  sh:targetSubjectsOf conx-vso:hasProperty ;
+  sh:property conx-vso-sh:HasPropertyPropertyShape ;
+.
+
+conx-vso-sh:AssignedPropertyShape
+  a sh:NodeShape ;
+  sh:class conx-vso:AssignedProperty ;
+  sh:name "Merkmalszuweisung"@de ;
+  sh:name "Assigned property"@en ;
+  sh:targetClass conx-vso:AssignedProperty ;
+  sh:targetObjectsOf conx-vso:hasProperty ;
+  sh:targetSubjectsOf conx-vso:hasPropertyReference,
+                      conx-vso:hasPropertyState ;
+  sh:property conx-vso-sh:AssignedPropertyOwnerPropertyShape,
+              conx-vso-sh:PropertyReferencePropertyShape,
+              conx-vso-sh:PropertyStatePropertyShape ;
+.
+
+conx-vso-sh:PropertyStateShape
+  a sh:NodeShape ;
+  sh:class conx-vso:PropertyState ;
+  sh:name "Merkmalszustand"@de ;
+  sh:name "Property state"@en ;
+  sh:targetClass conx-vso:PropertyState ;
+  sh:targetObjectsOf conx-vso:hasPropertyState ;
+  sh:targetSubjectsOf schema:value,
+                      conx-vso:hasUsedUnit ;
+  sh:property conx-vso-sh:ValuePropertyShape,
+              conx-vso-sh:UsedUnitPropertyShape ;
+.
+
+## Property shapes
+
+conx-vso-sh:HasPropertyPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-vso:hasProperty ;
+  sh:class conx-vso:AssignedProperty ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[VSO-LINK-001] Jeder Wert von hasProperty muss eine Merkmalszuweisung als Ressource sein."@de ;
+  sh:message "[VSO-LINK-001] Every hasProperty value must be a property assignment resource."@en ;
+.
+
+conx-vso-sh:AssignedPropertyOwnerPropertyShape
+  a sh:PropertyShape ;
+  sh:path [ sh:inversePath conx-vso:hasProperty ] ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:message "[VSO-ASSIGN-001] Jede Merkmalszuweisung muss genau einem Bezugsobjekt gehören."@de ;
+  sh:message "[VSO-ASSIGN-001] Every property assignment must belong to exactly one resource."@en ;
+.
+
+conx-vso-sh:PropertyReferencePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-vso:hasPropertyReference ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[VSO-ASSIGN-010] Jede Merkmalszuweisung muss genau eine Merkmalsdefinition per IRI referenzieren."@de ;
+  sh:message "[VSO-ASSIGN-010] Every property assignment must reference exactly one property definition by IRI."@en ;
+.
+
+conx-vso-sh:PropertyStatePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-vso:hasPropertyState ;
+  sh:class conx-vso:PropertyState ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:message "[VSO-ASSIGN-020] Jede Merkmalszuweisung muss genau einen Merkmalszustand besitzen."@de ;
+  sh:message "[VSO-ASSIGN-020] Every property assignment must have exactly one property state."@en ;
+.
+
+conx-vso-sh:ValuePropertyShape
+  a sh:PropertyShape ;
+  sh:path schema:value ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:message "[VSO-STATE-010] Jeder Merkmalszustand muss genau einen schema:value besitzen."@de ;
+  sh:message "[VSO-STATE-010] Every property state must have exactly one schema:value."@en ;
+.
+
+conx-vso-sh:UsedUnitPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-vso:hasUsedUnit ;
+  sh:class qudt:Unit ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:message "[VSO-STATE-020] Eine optionale Einheit muss genau eine per IRI referenzierte qudt:Unit sein."@de ;
+  sh:message "[VSO-STATE-020] An optional unit must be exactly one IRI-referenced qudt:Unit."@en ;
+.

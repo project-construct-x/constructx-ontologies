@@ -1,0 +1,9 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:orphan-assignment
+  a conx-vso:AssignedProperty ;
+  conx-vso:hasPropertyReference ex:property-definition ;
+.
+
+ex:empty-state a conx-vso:PropertyState .

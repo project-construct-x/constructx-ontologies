@@ -1,0 +1,18 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+@prefix schema: <https://schema.org/> .
+
+ex:door
+  conx-vso:hasProperty ex:fire-resistance-assignment ;
+.
+
+ex:fire-resistance-assignment
+  a conx-vso:AssignedProperty ;
+  conx-vso:hasPropertyReference ex:fire-resistance-definition ;
+  conx-vso:hasPropertyState ex:fire-resistance-state ;
+.
+
+ex:fire-resistance-state
+  a conx-vso:PropertyState ;
+  schema:value "F90" ;
+.

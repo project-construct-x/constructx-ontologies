@@ -1,0 +1,23 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+@prefix schema: <https://schema.org/> .
+
+ex:resource conx-vso:hasProperty ex:assignment .
+
+ex:assignment
+  a conx-vso:AssignedProperty ;
+  conx-vso:hasPropertyReference ex:first-definition,
+                                ex:second-definition ;
+  conx-vso:hasPropertyState ex:first-state,
+                            ex:second-state ;
+.
+
+ex:first-state
+  a conx-vso:PropertyState ;
+  schema:value "first" ;
+.
+
+ex:second-state
+  a conx-vso:PropertyState ;
+  schema:value "second" ;
+.
