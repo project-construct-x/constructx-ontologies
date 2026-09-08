@@ -1,0 +1,16 @@
+﻿id: technical-test
+title: Technical Test Module
+type: foundation
+status: draft
+version: 0.1.0
+ontology_iri: null
+version_iri: null
+namespace: null
+dependencies: []
+maintainers:
+  - test
+artifacts:
+  ontology: ontology/missing.ttl
+  core_shapes: null
+  strict_shapes: null
+  documentation: docs/index.md
