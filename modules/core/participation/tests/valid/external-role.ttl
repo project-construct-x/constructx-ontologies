@@ -1,0 +1,18 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:agent-a a conx-agent:Agent .
+
+ex:ExampleDocumentRole
+  a conx-part:Role, skos:Concept ;
+  skos:inScheme ex:ExampleRoleScheme ;
+.
+
+ex:external-role-participation
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role ex:ExampleDocumentRole ;
+  conx-part:context ex:document-a ;
+.

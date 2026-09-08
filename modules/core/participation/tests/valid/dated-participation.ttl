@@ -1,0 +1,41 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:agent-a a conx-agent:Agent .
+
+ex:bounded
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:EngineerRole ;
+  conx-part:context ex:project-a ;
+  conx-part:startDate "2026-01-15"^^xsd:date ;
+  conx-part:endDate "2026-12-31"^^xsd:date ;
+.
+
+ex:start-only
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ArchitectRole ;
+  conx-part:context ex:project-a ;
+  conx-part:startDate "2026-01-15"^^xsd:date ;
+.
+
+ex:end-only
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:SupplierRole ;
+  conx-part:context ex:project-a ;
+  conx-part:endDate "2026-12-31"^^xsd:date ;
+.
+
+ex:same-day
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ClientRole ;
+  conx-part:context ex:project-a ;
+  conx-part:startDate "2026-05-12"^^xsd:date ;
+  conx-part:endDate "2026-05-12"^^xsd:date ;
+.

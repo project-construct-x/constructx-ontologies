@@ -1,0 +1,48 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:agent-a a conx-agent:Agent .
+
+ex:multiple-starts
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ClientRole ;
+  conx-part:context ex:context-a ;
+  conx-part:startDate "2026-01-01"^^xsd:date, "2026-02-01"^^xsd:date ;
+.
+
+ex:invalid-start-type
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ContractorRole ;
+  conx-part:context ex:context-b ;
+  conx-part:startDate "2026-01-01" ;
+.
+
+ex:multiple-ends
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:SupplierRole ;
+  conx-part:context ex:context-c ;
+  conx-part:endDate "2026-11-30"^^xsd:date, "2026-12-31"^^xsd:date ;
+.
+
+ex:invalid-end-type
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ArchitectRole ;
+  conx-part:context ex:context-d ;
+  conx-part:endDate "2026-12-31T12:00:00Z"^^xsd:dateTime ;
+.
+
+ex:reversed-dates
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:EngineerRole ;
+  conx-part:context ex:context-e ;
+  conx-part:startDate "2026-12-31"^^xsd:date ;
+  conx-part:endDate "2026-01-01"^^xsd:date ;
+.

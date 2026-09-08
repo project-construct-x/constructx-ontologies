@@ -1,0 +1,15 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:SpecializedAgent rdfs:subClassOf conx-agent:Agent .
+ex:specialized-agent a ex:SpecializedAgent .
+
+ex:subclass-participation
+  a conx-part:Participation ;
+  conx-part:participant ex:specialized-agent ;
+  conx-part:role part-role:EngineerRole ;
+  conx-part:context ex:project-a ;
+.

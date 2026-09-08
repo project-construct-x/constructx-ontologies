@@ -1,0 +1,70 @@
+id: participation
+title: Construct-X Participation Ontology
+type: core
+status: draft
+version: 0.1.0
+
+ontology_iri: https://www.construct-x.org/ontology/participation
+version_iri: https://www.construct-x.org/ontology/participation/0.1.0
+namespace: https://www.construct-x.org/ontology/participation#
+preferred_namespace_prefix: conx-part
+created: 2026-08-27
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+shape_sets:
+  core:
+    graph_iri: https://www.construct-x.org/shapes/participation/core
+    version_iri: https://www.construct-x.org/shapes/participation/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/participation/core#
+    version: 0.1.0
+    artifact: shapes/conx-part-core.shacl.ttl
+
+dependencies:
+  - id: agent
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/agent
+    version_iri: https://www.construct-x.org/ontology/agent/0.1.0
+    namespace: https://www.construct-x.org/ontology/agent#
+    used_terms:
+      - conx-agent:Agent
+  - id: participation-role
+    relation: referenced-not-imported
+    vocabulary_iri: https://www.construct-x.org/vocab/participation-role
+    version_iri: https://www.construct-x.org/vocab/participation-role/0.1.0
+    namespace: https://www.construct-x.org/vocab/participation-role#
+    used_terms:
+      - part-role:ClientRole
+      - part-role:ContractorRole
+      - part-role:SupplierRole
+      - part-role:ArchitectRole
+      - part-role:EngineerRole
+  - id: skos
+    relation: referenced-not-imported
+    ontology_iri: http://www.w3.org/2004/02/skos/core
+    namespace: http://www.w3.org/2004/02/skos/core#
+    used_terms:
+      - skos:Concept
+      - skos:ConceptScheme
+
+maintainers:
+  - AP 3.4
+
+artifacts:
+  readme: README.md
+  changelog: CHANGELOG.md
+  ontology: ontology/conx-part.ttl
+  core_shapes: shapes/conx-part-core.shacl.ttl
+  strict_shapes: null
+  documentation: docs/index.md
+  confluence_overview: docs/confluence-overview.md
+  html_documentation: docs/participation.html
+  source_analysis: docs/source-analysis.md
+  scope_and_competency_questions: docs/scope-and-competency-questions.md
+  module_boundaries: docs/module-boundaries.md
+  term_catalog: docs/term-catalog.md
+  shacl_requirements: docs/shacl-requirements.md
+  core_shapes_documentation: docs/core-shapes.md
+  concept_model: docs/concept-model.md
+  concept_model_diagram: docs/diagrams/concept-model.md
+  detailed_concept_diagram: docs/diagrams/participation-concept-model.md

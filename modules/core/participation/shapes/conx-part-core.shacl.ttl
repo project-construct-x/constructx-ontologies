@@ -1,0 +1,256 @@
+# baseURI: https://www.construct-x.org/shapes/participation/core
+# prefix: conx-part-sh
+
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix conx-part-sh: <https://www.construct-x.org/shapes/participation/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/participation/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Validierungsregeln fuer die allgemeinen, anwendungsfallunabhaengigen Vertraege der Construct-X Participation-Ontologie."@de ;
+  dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Participation Ontology."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Participation Core Shapes"@de ;
+  dcterms:title "Construct-X Participation Core Shapes"@en ;
+  owl:versionIRI <https://www.construct-x.org/shapes/participation/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+## Participation target and node contracts
+
+conx-part-sh:ParticipationIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-001] Eine Participation muss durch eine IRI referenziert werden."@de ;
+  sh:message "[PART-001] A Participation must be referenced by an IRI."@en ;
+.
+
+conx-part-sh:ExplicitParticipationTypeShape
+  a sh:NodeShape ;
+  sh:class conx-part:Participation ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-002] Eine Ressource mit Participation-Properties muss explizit als conx-part:Participation typisiert sein."@de ;
+  sh:message "[PART-002] A resource using Participation properties must be explicitly typed as conx-part:Participation."@en ;
+.
+
+conx-part-sh:ParticipationShape
+  a sh:NodeShape ;
+  sh:name "Beteiligung"@de ;
+  sh:name "Participation"@en ;
+  sh:targetClass conx-part:Participation ;
+  sh:targetSubjectsOf conx-part:participant,
+                      conx-part:role,
+                      conx-part:context,
+                      conx-part:startDate,
+                      conx-part:endDate ;
+  sh:node conx-part-sh:ParticipationIriShape,
+          conx-part-sh:ExplicitParticipationTypeShape ;
+  sh:property conx-part-sh:ParticipantMinCountPropertyShape,
+              conx-part-sh:ParticipantMaxCountPropertyShape,
+              conx-part-sh:ParticipantIriPropertyShape,
+              conx-part-sh:ParticipantAgentTypePropertyShape,
+              conx-part-sh:RoleMinCountPropertyShape,
+              conx-part-sh:RoleMaxCountPropertyShape,
+              conx-part-sh:RoleIriPropertyShape,
+              conx-part-sh:RoleTypePropertyShape,
+              conx-part-sh:ContextMinCountPropertyShape,
+              conx-part-sh:ContextMaxCountPropertyShape,
+              conx-part-sh:ContextResourcePropertyShape,
+              conx-part-sh:StartDateMaxCountPropertyShape,
+              conx-part-sh:StartDateDatatypePropertyShape,
+              conx-part-sh:EndDateMaxCountPropertyShape,
+              conx-part-sh:EndDateDatatypePropertyShape,
+              conx-part-sh:DateOrderPropertyShape ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:severity sh:Violation ;
+      sh:select """
+        SELECT DISTINCT $this
+        WHERE {
+          $this <https://www.construct-x.org/ontology/participation#participant> ?agent ;
+                <https://www.construct-x.org/ontology/participation#role> ?role ;
+                <https://www.construct-x.org/ontology/participation#context> ?context .
+          ?other a <https://www.construct-x.org/ontology/participation#Participation> ;
+                 <https://www.construct-x.org/ontology/participation#participant> ?agent ;
+                 <https://www.construct-x.org/ontology/participation#role> ?role ;
+                 <https://www.construct-x.org/ontology/participation#context> ?context .
+          FILTER (?other != $this)
+          FILTER (STR(?other) < STR($this))
+        }
+      """ ;
+      sh:message "[PART-050] Eine zweite Participation mit derselben Kombination aus participant, role und context ist nicht zulaessig."@de ;
+      sh:message "[PART-050] A second Participation with the same combination of participant, role, and context is not allowed."@en ;
+    ] ;
+.
+
+## Participant property contracts
+
+conx-part-sh:ParticipantMinCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:participant ;
+  sh:minCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-010] Eine Participation muss genau einen participant besitzen."@de ;
+  sh:message "[PART-010] A Participation must have exactly one participant."@en ;
+.
+
+conx-part-sh:ParticipantMaxCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:participant ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-011] Eine Participation darf hoechstens einen participant besitzen."@de ;
+  sh:message "[PART-011] A Participation must have at most one participant."@en ;
+.
+
+conx-part-sh:ParticipantIriPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:participant ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-012] participant muss auf eine IRI verweisen."@de ;
+  sh:message "[PART-012] participant must refer to an IRI."@en ;
+.
+
+conx-part-sh:ParticipantAgentTypePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:participant ;
+  sh:class conx-agent:Agent ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-013] participant muss als conx-agent:Agent oder bekannte Unterklasse typisiert sein."@de ;
+  sh:message "[PART-013] participant must be typed as conx-agent:Agent or a known subclass."@en ;
+.
+
+## Role property contracts
+
+conx-part-sh:RoleMinCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:role ;
+  sh:minCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-020] Eine Participation muss genau eine role besitzen."@de ;
+  sh:message "[PART-020] A Participation must have exactly one role."@en ;
+.
+
+conx-part-sh:RoleMaxCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:role ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-021] Eine Participation darf hoechstens eine role besitzen."@de ;
+  sh:message "[PART-021] A Participation must have at most one role."@en ;
+.
+
+conx-part-sh:RoleIriPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:role ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-022] role muss auf eine IRI verweisen."@de ;
+  sh:message "[PART-022] role must refer to an IRI."@en ;
+.
+
+conx-part-sh:RoleTypePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:role ;
+  sh:class conx-part:Role ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-023] role muss explizit als conx-part:Role typisiert sein; skos:Concept allein reicht nicht."@de ;
+  sh:message "[PART-023] role must be explicitly typed as conx-part:Role; skos:Concept alone is insufficient."@en ;
+.
+
+## Context property contracts
+
+conx-part-sh:ContextMinCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:context ;
+  sh:minCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-030] Eine Participation muss genau einen context besitzen."@de ;
+  sh:message "[PART-030] A Participation must have exactly one context."@en ;
+.
+
+conx-part-sh:ContextMaxCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:context ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-031] Eine Participation darf hoechstens einen context besitzen."@de ;
+  sh:message "[PART-031] A Participation must have at most one context."@en ;
+.
+
+conx-part-sh:ContextResourcePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:context ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-032] context muss auf eine IRI oder einen Blank Node verweisen."@de ;
+  sh:message "[PART-032] context must refer to an IRI or blank node."@en ;
+.
+
+## Temporal property contracts
+
+conx-part-sh:StartDateMaxCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:startDate ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-040] startDate darf hoechstens einmal vorkommen."@de ;
+  sh:message "[PART-040] startDate must occur at most once."@en ;
+.
+
+conx-part-sh:StartDateDatatypePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:startDate ;
+  sh:datatype xsd:date ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-041] startDate muss ein xsd:date sein."@de ;
+  sh:message "[PART-041] startDate must be an xsd:date."@en ;
+.
+
+conx-part-sh:EndDateMaxCountPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:endDate ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-042] endDate darf hoechstens einmal vorkommen."@de ;
+  sh:message "[PART-042] endDate must occur at most once."@en ;
+.
+
+conx-part-sh:EndDateDatatypePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:endDate ;
+  sh:datatype xsd:date ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-043] endDate muss ein xsd:date sein."@de ;
+  sh:message "[PART-043] endDate must be an xsd:date."@en ;
+.
+
+conx-part-sh:DateOrderPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-part:startDate ;
+  sh:lessThanOrEquals conx-part:endDate ;
+  sh:severity sh:Violation ;
+  sh:message "[PART-044] startDate darf nicht nach endDate liegen."@de ;
+  sh:message "[PART-044] startDate must not be later than endDate."@en ;
+.

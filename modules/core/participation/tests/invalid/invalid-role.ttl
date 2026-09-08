@@ -1,0 +1,29 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:agent-a a conx-agent:Agent .
+ex:not-a-role a skos:Concept .
+
+ex:multiple-roles
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ClientRole, part-role:ContractorRole ;
+  conx-part:context ex:context-a ;
+.
+
+ex:literal-role
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role "Supplier" ;
+  conx-part:context ex:context-b ;
+.
+
+ex:skos-only-role
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role ex:not-a-role ;
+  conx-part:context ex:context-c ;
+.

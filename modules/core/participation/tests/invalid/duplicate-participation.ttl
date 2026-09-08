@@ -1,0 +1,23 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:agent-a a conx-agent:Agent .
+
+ex:duplicate-a
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ContractorRole ;
+  conx-part:context ex:contract-x ;
+  conx-part:startDate "2026-01-01"^^xsd:date ;
+.
+
+ex:duplicate-b
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a ;
+  conx-part:role part-role:ContractorRole ;
+  conx-part:context ex:contract-x ;
+  conx-part:startDate "2026-07-01"^^xsd:date ;
+.

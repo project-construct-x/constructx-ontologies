@@ -1,0 +1,27 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:person-a
+  a conx-person:Person ;
+.
+
+ex:organization-a
+  a conx-org:Organization ;
+.
+
+ex:person-participation
+  a conx-part:Participation ;
+  conx-part:participant ex:person-a ;
+  conx-part:role part-role:ArchitectRole ;
+  conx-part:context ex:project-a ;
+.
+
+ex:organization-participation
+  a conx-part:Participation ;
+  conx-part:participant ex:organization-a ;
+  conx-part:role part-role:ContractorRole ;
+  conx-part:context ex:contract-a ;
+.

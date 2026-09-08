@@ -1,0 +1,28 @@
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:agent-a a conx-agent:Agent .
+ex:agent-b a conx-agent:Agent .
+
+ex:multiple-agents
+  a conx-part:Participation ;
+  conx-part:participant ex:agent-a, ex:agent-b ;
+  conx-part:role part-role:ClientRole ;
+  conx-part:context ex:context-a ;
+.
+
+ex:literal-agent
+  a conx-part:Participation ;
+  conx-part:participant "Agent A" ;
+  conx-part:role part-role:ContractorRole ;
+  conx-part:context ex:context-b ;
+.
+
+ex:untyped-agent
+  a conx-part:Participation ;
+  conx-part:participant ex:not-an-agent ;
+  conx-part:role part-role:SupplierRole ;
+  conx-part:context ex:context-c ;
+.
