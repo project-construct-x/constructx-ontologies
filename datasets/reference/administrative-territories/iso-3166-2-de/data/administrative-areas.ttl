@@ -1,0 +1,337 @@
+# Generated from ISO identifiers published in the EU ATU authority table.
+
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX areas: <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de#>
+PREFIX conx-addr: <https://www.construct-x.org/ontology/address#>
+PREFIX countries: <https://www.construct-x.org/vocab/country#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX id-scheme: <https://www.construct-x.org/vocab/identifier-scheme#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+areas:DE-BB
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_BB> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Brandenburg"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-BB"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-BE
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_STS_BE> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Stadtstaat Berlin"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-BE"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-BW
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_BW> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Baden-Württemberg"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-BW"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-BY
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_BY> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Bayern"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-BY"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-HB
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_STS_HB> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Stadtstaat Bremen"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-HB"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-HE
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_HE> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Hessen"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-HE"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-HH
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_STS_HH> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Stadtstaat Hamburg"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-HH"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-MV
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_MV> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Mecklenburg-Vorpommern"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-MV"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-NI
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_NI> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Niedersachsen"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-NI"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-NW
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_NW> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Nordrhein-Westfalen"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-NW"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-RP
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_RP> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Rheinland-Pfalz"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-RP"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-SH
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_SH> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Schleswig-Holstein"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-SH"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-SL
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_SL> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Saarland"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-SL"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-SN
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_SN> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Freistaat Sachsen"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-SN"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-ST
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_ST> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Land Sachsen-Anhalt"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-ST"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+areas:DE-TH
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <http://publications.europa.eu/resource/authority/atu/DEU_LD_TH> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    skos:prefLabel "Freistaat Thüringen"@de ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE-TH"^^id-scheme:iso-3166-2 ;
+            adms:schemaAgency "International Organization for Standardization (ISO)" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+<https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de>
+    a
+        owl:Ontology ,
+        skos:ConceptScheme ;
+    dcterms:created "2026-08-18"^^xsd:date ;
+    dcterms:creator
+        [
+            a schema:Person ;
+            schema:email <mailto:sven.zentgraf@rub.de> ;
+            schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+            schema:memberOf
+                [
+                    schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+                    schema:name "Ruhr University Bochum" ;
+                ] ;
+            schema:name "Sven Zentgraf" ;
+        ] ;
+    dcterms:description
+        "Die 16 Länder der Bundesrepublik Deutschland mit ISO-3166-2-Kennung."@de ,
+        "The 16 states of the Federal Republic of Germany with ISO 3166-2 codes."@en ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:modified "2026-08-18"^^xsd:date ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+    dcterms:source
+        <http://publications.europa.eu/resource/dataset/atu> ,
+        <https://www.iso.org/iso-3166-country-codes.html> ;
+    dcterms:title
+        "Deutsche Länder nach ISO 3166-2"@de ,
+        "German states according to ISO 3166-2"@en ;
+    skos:hasTopConcept
+        areas:DE-BB ,
+        areas:DE-BE ,
+        areas:DE-BW ,
+        areas:DE-BY ,
+        areas:DE-HB ,
+        areas:DE-HE ,
+        areas:DE-HH ,
+        areas:DE-MV ,
+        areas:DE-NI ,
+        areas:DE-NW ,
+        areas:DE-RP ,
+        areas:DE-SH ,
+        areas:DE-SL ,
+        areas:DE-SN ,
+        areas:DE-ST ,
+        areas:DE-TH ;
+    schema:version "0.1.0" ;
+    owl:versionIRI <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+.
+
+
