@@ -1,0 +1,481 @@
+# baseURI: https://www.construct-x.org/shapes/organization/core
+# prefix: conx-org-sh
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-id-sh: <https://www.construct-x.org/shapes/identifier/core#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix conx-org-sh: <https://www.construct-x.org/shapes/organization/core#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/organization/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Validierungsregeln für die allgemeinen, anwendungsfallunabhängigen Verträge der Construct-X Organisationsontologie."@de ;
+  dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Organization Ontology."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Organization Core Shapes"@de ;
+  dcterms:title "Construct-X Organization Core Shapes"@en ;
+  owl:imports <https://www.construct-x.org/shapes/identifier/core/0.1.0> ;
+  owl:versionIRI <https://www.construct-x.org/shapes/organization/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+## Reusable contracts
+
+conx-org-sh:StringOrLangStringShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+.
+
+conx-org-sh:NonEmptyStringOrLangStringShape
+  a sh:NodeShape ;
+  sh:node conx-org-sh:StringOrLangStringShape ;
+  sh:pattern "\\S" ;
+.
+
+conx-org-sh:LegalAddressAssignmentShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:class conx-addr:AddressAssignment ;
+  sh:property [
+      sh:path conx-addr:addressRole ;
+      sh:hasValue roles:LegalAddressRole ;
+    ] ;
+.
+
+## Organization contract
+
+conx-org-sh:OrganizationIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[ORG-001] Eine Organisation muss durch eine IRI referenziert werden."@de ;
+  sh:message "[ORG-001] An Organization must be referenced by an IRI."@en ;
+.
+
+conx-org-sh:ExplicitOrganizationTypeShape
+  a sh:NodeShape ;
+  sh:class conx-org:Organization ;
+  sh:message "[ORG-002] Eine Ressource mit Organisationseigenschaften muss als conx-org:Organization oder bestätigte Unterklasse typisiert sein."@de ;
+  sh:message "[ORG-002] A resource using Organization properties must be typed as conx-org:Organization or an established subclass."@en ;
+.
+
+conx-org-sh:OrganizationContractShape
+  a sh:NodeShape ;
+  sh:node conx-org-sh:OrganizationIriShape ;
+  sh:node conx-org-sh:ExplicitOrganizationTypeShape ;
+  sh:property conx-org-sh:NamePropertyShape ;
+  sh:property conx-org-sh:AlternativeNamePropertyShape ;
+  sh:property conx-org-sh:ActivityPropertyShape ;
+  sh:property conx-org-sh:OrganizationIdentifierPropertyShape ;
+  sh:property conx-org-sh:SubOrganizationOfPropertyShape ;
+  sh:property conx-org-sh:HasSubOrganizationPropertyShape ;
+  sh:property conx-org-sh:HasUnitPropertyShape ;
+.
+
+conx-org-sh:OrganizationShape
+  a sh:NodeShape ;
+  sh:name "Organisation"@de ;
+  sh:name "Organization"@en ;
+  sh:targetClass conx-org:Organization ;
+  sh:targetSubjectsOf conx-org:name,
+                      conx-org:alternativeName,
+                      conx-org:activity,
+                      conx-org:subOrganizationOf,
+                      conx-org:hasSubOrganization,
+                      conx-org:hasUnit ;
+  sh:node conx-org-sh:OrganizationContractShape ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:select """
+        SELECT $this
+        WHERE {
+          {
+            $this <https://www.construct-x.org/ontology/organization#subOrganizationOf> $this .
+          }
+          UNION
+          {
+            $this <https://www.construct-x.org/ontology/organization#hasSubOrganization> $this .
+          }
+        }
+      """ ;
+      sh:message "[ORG-042] Eine Organisation darf nicht unmittelbar sich selbst über- oder untergeordnet sein."@de ;
+      sh:message "[ORG-042] An Organization must not be its own direct parent or subordinate organization."@en ;
+    ] ;
+.
+
+conx-org-sh:NamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:name ;
+  sh:minCount 1 ;
+  sh:node conx-org-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-010] Eine Organisation muss mindestens einen nicht leeren Namen besitzen."@de ;
+  sh:message "[ORG-010] An Organization must have at least one non-empty name."@en ;
+.
+
+conx-org-sh:AlternativeNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:alternativeName ;
+  sh:node conx-org-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-011] Jeder alternative Name muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[ORG-011] Every alternative name must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-org-sh:ActivityPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:activity ;
+  sh:nodeKind sh:IRI ;
+  sh:class skos:Concept ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-020] Jede Tätigkeit muss auf ein referenzierbares SKOS-Konzept verweisen."@de ;
+  sh:message "[ORG-020] Every activity must reference a SKOS concept by IRI."@en ;
+.
+
+conx-org-sh:OrganizationIdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:identifier ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierShape ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-030] Jeder Organisationsidentifikator muss eine gültig strukturierte ADMS-Identifier-Ressource sein."@de ;
+  sh:message "[ORG-030] Every Organization identifier must be a valid structured ADMS Identifier resource."@en ;
+.
+
+conx-org-sh:SubOrganizationOfPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:subOrganizationOf ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-org:Organization ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-040] Jede übergeordnete Organisation muss durch eine Organization-IRI referenziert werden."@de ;
+  sh:message "[ORG-040] Every parent organization must be referenced by an Organization IRI."@en ;
+.
+
+conx-org-sh:HasSubOrganizationPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:hasSubOrganization ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-org:Organization ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-041] Jede untergeordnete Organisation muss durch eine Organization-IRI referenziert werden."@de ;
+  sh:message "[ORG-041] Every subordinate organization must be referenced by an Organization IRI."@en ;
+.
+
+conx-org-sh:HasUnitPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:hasUnit ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-org:OrganizationalUnit ;
+  sh:severity sh:Violation ;
+  sh:message "[ORG-043] Jeder Wert von hasUnit muss auf eine OrganizationalUnit-IRI verweisen."@de ;
+  sh:message "[ORG-043] Every hasUnit value must reference an OrganizationalUnit IRI."@en ;
+.
+
+## Legal Entity contract
+
+conx-org-sh:LegalEntityIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[LE-001] Eine Legal Entity muss durch eine IRI referenziert werden."@de ;
+  sh:message "[LE-001] A Legal Entity must be referenced by an IRI."@en ;
+.
+
+conx-org-sh:ExplicitLegalEntityTypeShape
+  a sh:NodeShape ;
+  sh:class conx-org:LegalEntity ;
+  sh:message "[LE-002] Eine Ressource mit Legal-Entity-Eigenschaften muss explizit als conx-org:LegalEntity typisiert sein."@de ;
+  sh:message "[LE-002] A resource using Legal Entity properties must be explicitly typed as conx-org:LegalEntity."@en ;
+.
+
+conx-org-sh:LegalEntityOrganizationContractShape
+  a sh:NodeShape ;
+  sh:node conx-org-sh:OrganizationContractShape ;
+  sh:message "[LE-003] Eine Legal Entity muss den allgemeinen Organization-Vertrag erfüllen."@de ;
+  sh:message "[LE-003] A Legal Entity must conform to the general Organization contract."@en ;
+.
+
+conx-org-sh:LegalEntityShape
+  a sh:NodeShape ;
+  sh:name "Rechtliche Einheit"@de ;
+  sh:name "Legal Entity"@en ;
+  sh:targetClass conx-org:LegalEntity ;
+  sh:targetSubjectsOf conx-org:legalName,
+                      conx-org:legalForm,
+                      conx-org:registrationDate ;
+  sh:targetObjectsOf conx-org:representedOrganization ;
+  sh:node conx-org-sh:LegalEntityIriShape ;
+  sh:node conx-org-sh:ExplicitLegalEntityTypeShape ;
+  sh:node conx-org-sh:LegalEntityOrganizationContractShape ;
+  sh:property conx-org-sh:LegalNamePropertyShape ;
+  sh:property conx-org-sh:RegistrationDatePropertyShape ;
+  sh:property conx-org-sh:LegalFormPropertyShape ;
+  sh:property conx-org-sh:LegalEntityIdentifierPropertyShape ;
+  sh:property conx-org-sh:LegalAddressPropertyShape ;
+.
+
+conx-org-sh:LegalNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:legalName ;
+  sh:minCount 1 ;
+  sh:node conx-org-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[LE-010] Eine Legal Entity muss mindestens einen nicht leeren rechtlichen Namen besitzen."@de ;
+  sh:message "[LE-010] A Legal Entity must have at least one non-empty legal name."@en ;
+.
+
+conx-org-sh:RegistrationDatePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:registrationDate ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:datatype xsd:date ;
+  sh:severity sh:Violation ;
+  sh:message "[LE-020] Eine Legal Entity muss genau ein Registrierungsdatum mit dem Datentyp xsd:date besitzen."@de ;
+  sh:message "[LE-020] A Legal Entity must have exactly one registration date using datatype xsd:date."@en ;
+.
+
+conx-org-sh:LegalFormPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:legalForm ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:class skos:Concept ;
+  sh:severity sh:Violation ;
+  sh:message "[LE-030] Die Rechtsform darf höchstens einmal vorkommen und muss auf ein SKOS-Konzept verweisen."@de ;
+  sh:message "[LE-030] The legal form may occur at most once and must reference a SKOS concept."@en ;
+.
+
+conx-org-sh:LegalEntityIdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:identifier ;
+  sh:minCount 1 ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierShape ;
+  sh:severity sh:Violation ;
+  sh:message "[LE-040] Eine Legal Entity muss mindestens einen gültig strukturierten ADMS-Identifier besitzen."@de ;
+  sh:message "[LE-040] A Legal Entity must have at least one valid structured ADMS Identifier."@en ;
+.
+
+conx-org-sh:LegalAddressPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasAddressAssignment ;
+  sh:qualifiedValueShape conx-org-sh:LegalAddressAssignmentShape ;
+  sh:qualifiedMinCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[LE-050] Eine Legal Entity muss mindestens eine AddressAssignment mit der Rolle LegalAddressRole besitzen."@de ;
+  sh:message "[LE-050] A Legal Entity must have at least one AddressAssignment with the LegalAddressRole."@en ;
+.
+
+## Organizational Unit contract
+
+conx-org-sh:OrganizationalUnitIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[UNIT-001] Eine Organisationseinheit muss durch eine IRI referenziert werden."@de ;
+  sh:message "[UNIT-001] An Organizational Unit must be referenced by an IRI."@en ;
+.
+
+conx-org-sh:ExplicitOrganizationalUnitTypeShape
+  a sh:NodeShape ;
+  sh:class conx-org:OrganizationalUnit ;
+  sh:message "[UNIT-002] Eine Ressource mit Unit-Eigenschaften muss explizit als conx-org:OrganizationalUnit typisiert sein."@de ;
+  sh:message "[UNIT-002] A resource using Organizational Unit properties must be explicitly typed as conx-org:OrganizationalUnit."@en ;
+.
+
+conx-org-sh:OrganizationalUnitOrganizationContractShape
+  a sh:NodeShape ;
+  sh:node conx-org-sh:OrganizationContractShape ;
+  sh:message "[UNIT-003] Eine Organisationseinheit muss den allgemeinen Organization-Vertrag erfüllen."@de ;
+  sh:message "[UNIT-003] An Organizational Unit must conform to the general Organization contract."@en ;
+.
+
+conx-org-sh:OrganizationalUnitShape
+  a sh:NodeShape ;
+  sh:name "Organisationseinheit"@de ;
+  sh:name "Organizational Unit"@en ;
+  sh:targetClass conx-org:OrganizationalUnit ;
+  sh:targetSubjectsOf conx-org:unitOf ;
+  sh:targetObjectsOf conx-org:hasUnit ;
+  sh:node conx-org-sh:OrganizationalUnitIriShape ;
+  sh:node conx-org-sh:ExplicitOrganizationalUnitTypeShape ;
+  sh:node conx-org-sh:OrganizationalUnitOrganizationContractShape ;
+  sh:property conx-org-sh:UnitOfPropertyShape ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:select """
+        SELECT $this
+        WHERE {
+          $this <https://www.construct-x.org/ontology/organization#unitOf> $this .
+        }
+      """ ;
+      sh:message "[UNIT-011] Eine Organisationseinheit darf nicht unitOf ihrer selbst sein."@de ;
+      sh:message "[UNIT-011] An Organizational Unit must not be unitOf itself."@en ;
+    ] ;
+.
+
+conx-org-sh:UnitOfPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:unitOf ;
+  sh:minCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-org:Organization ;
+  sh:severity sh:Violation ;
+  sh:message "[UNIT-010] Eine Organisationseinheit muss mindestens einer Organization über unitOf zugeordnet sein."@de ;
+  sh:message "[UNIT-010] An Organizational Unit must be assigned to at least one Organization through unitOf."@en ;
+.
+
+## Membership contract
+
+conx-org-sh:MembershipIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[MEM-001] Eine Membership muss durch eine IRI referenziert werden."@de ;
+  sh:message "[MEM-001] A Membership must be referenced by an IRI."@en ;
+.
+
+conx-org-sh:ExplicitMembershipTypeShape
+  a sh:NodeShape ;
+  sh:class conx-org:Membership ;
+  sh:message "[MEM-002] Eine Mitgliedschaftsressource muss explizit als conx-org:Membership typisiert sein."@de ;
+  sh:message "[MEM-002] A membership resource must be explicitly typed as conx-org:Membership."@en ;
+.
+
+conx-org-sh:MembershipShape
+  a sh:NodeShape ;
+  sh:name "Mitgliedschaft"@de ;
+  sh:name "Membership"@en ;
+  sh:targetClass conx-org:Membership ;
+  sh:targetSubjectsOf conx-org:member,
+                      conx-org:membershipOrganization ;
+  sh:node conx-org-sh:MembershipIriShape ;
+  sh:node conx-org-sh:ExplicitMembershipTypeShape ;
+  sh:property conx-org-sh:MemberPropertyShape ;
+  sh:property conx-org-sh:MembershipOrganizationPropertyShape ;
+  sh:property conx-org-sh:MembershipIdentifierPropertyShape ;
+  sh:sparql [
+      a sh:SPARQLConstraint ;
+      sh:select """
+        SELECT $this
+        WHERE {
+          $this <https://www.construct-x.org/ontology/organization#member> ?same ;
+                <https://www.construct-x.org/ontology/organization#membershipOrganization> ?same .
+        }
+      """ ;
+      sh:message "[MEM-020] Eine Organisation darf nicht Mitglied ihrer selbst sein."@de ;
+      sh:message "[MEM-020] An Organization must not be a member of itself."@en ;
+    ] ;
+.
+
+conx-org-sh:MemberPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:member ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-agent:Agent ;
+  sh:severity sh:Violation ;
+  sh:message "[MEM-010] Eine Membership muss genau einen durch eine Agent-IRI referenzierten Member besitzen."@de ;
+  sh:message "[MEM-010] A Membership must have exactly one member referenced by an Agent IRI."@en ;
+.
+
+conx-org-sh:MembershipOrganizationPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:membershipOrganization ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-org:Organization ;
+  sh:severity sh:Violation ;
+  sh:message "[MEM-011] Eine Membership muss genau eine aufnehmende Organization besitzen."@de ;
+  sh:message "[MEM-011] A Membership must have exactly one membership Organization."@en ;
+.
+
+conx-org-sh:MembershipIdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:identifier ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierShape ;
+  sh:severity sh:Violation ;
+  sh:message "[MEM-012] Jeder Mitgliedschaftsidentifikator muss eine gültig strukturierte ADMS-Identifier-Ressource sein."@de ;
+  sh:message "[MEM-012] Every Membership identifier must be a valid structured ADMS Identifier resource."@en ;
+.
+
+## Legal Representation contract
+
+conx-org-sh:LegalRepresentationIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[REP-001] Eine LegalRepresentation muss durch eine IRI referenziert werden."@de ;
+  sh:message "[REP-001] A LegalRepresentation must be referenced by an IRI."@en ;
+.
+
+conx-org-sh:ExplicitLegalRepresentationTypeShape
+  a sh:NodeShape ;
+  sh:class conx-org:LegalRepresentation ;
+  sh:message "[REP-002] Eine Vertretungsressource muss explizit als conx-org:LegalRepresentation typisiert sein."@de ;
+  sh:message "[REP-002] A representation resource must be explicitly typed as conx-org:LegalRepresentation."@en ;
+.
+
+conx-org-sh:LegalRepresentationShape
+  a sh:NodeShape ;
+  sh:name "Rechtliche Vertretung"@de ;
+  sh:name "Legal Representation"@en ;
+  sh:targetClass conx-org:LegalRepresentation ;
+  sh:targetSubjectsOf conx-org:representedOrganization,
+                      conx-org:representative ;
+  sh:node conx-org-sh:LegalRepresentationIriShape ;
+  sh:node conx-org-sh:ExplicitLegalRepresentationTypeShape ;
+  sh:property conx-org-sh:RepresentedOrganizationPropertyShape ;
+  sh:property conx-org-sh:RepresentativePropertyShape ;
+.
+
+conx-org-sh:RepresentedOrganizationPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:representedOrganization ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-org:LegalEntity ;
+  sh:severity sh:Violation ;
+  sh:message "[REP-010] Eine LegalRepresentation muss genau eine Legal Entity als vertretene Organisation referenzieren."@de ;
+  sh:message "[REP-010] A LegalRepresentation must reference exactly one Legal Entity as the represented organization."@en ;
+.
+
+conx-org-sh:RepresentativePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-org:representative ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-person:Person ;
+  sh:severity sh:Violation ;
+  sh:message "[REP-011] Eine LegalRepresentation muss genau eine Person als rechtliche Vertretung referenzieren."@de ;
+  sh:message "[REP-011] A LegalRepresentation must reference exactly one Person as its legal representative."@en ;
+.

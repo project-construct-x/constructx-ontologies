@@ -1,0 +1,34 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:self-parent
+  a conx-org:Organization ;
+  conx-org:name "Selbsthierarchie" ;
+  conx-org:subOrganizationOf ex:self-parent ;
+.
+
+ex:wrong-parent
+  a conx-org:Organization ;
+  conx-org:name "Falsche Oberorganisation" ;
+  conx-org:subOrganizationOf ex:not-an-organization ;
+.
+
+ex:wrong-child
+  a conx-org:Organization ;
+  conx-org:name "Falsche Unterorganisation" ;
+  conx-org:hasSubOrganization ex:not-an-organization ;
+.
+
+ex:wrong-unit-target
+  a conx-org:Organization ;
+  conx-org:name "Falsches Unit-Ziel" ;
+  conx-org:hasUnit ex:not-a-unit ;
+.
+
+ex:not-an-organization a skos:Concept .
+
+ex:not-a-unit
+  a conx-org:Organization ;
+  conx-org:name "Keine Organisationseinheit" ;
+.

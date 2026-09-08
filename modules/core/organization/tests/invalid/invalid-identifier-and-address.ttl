@@ -1,0 +1,28 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:invalid-company
+  a conx-org:LegalEntity ;
+  conx-org:name "Kennungs- und Adressfehler" ;
+  conx-org:legalName "Kennungs- und Adressfehler GmbH" ;
+  conx-org:registrationDate "2021-05-06"^^xsd:date ;
+  adms:identifier ex:broken-identifier ;
+  conx-addr:hasAddressAssignment ex:postal-only-assignment ;
+.
+
+ex:broken-identifier
+  adms:schemaAgency "Erste Registerstelle",
+                    "Zweite Registerstelle"@de ;
+.
+
+ex:postal-only-assignment
+  a conx-addr:AddressAssignment ;
+  conx-addr:assignedAddress ex:postal-address ;
+  conx-addr:addressRole roles:PostalAddressRole ;
+.
+
+ex:postal-address a conx-addr:Address .

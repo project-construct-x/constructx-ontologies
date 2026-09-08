@@ -1,0 +1,20 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:baugruppe
+  a conx-org:Organization ;
+  conx-org:name "Baugruppe"@de ;
+  conx-org:hasUnit ex:central-procurement ;
+.
+
+ex:planungsgesellschaft
+  a conx-org:Organization ;
+  conx-org:name "Planungsgesellschaft"@de ;
+.
+
+ex:central-procurement
+  a conx-org:OrganizationalUnit ;
+  conx-org:name "Zentraler Einkauf"@de ;
+  conx-org:unitOf ex:baugruppe,
+                  ex:planungsgesellschaft ;
+.

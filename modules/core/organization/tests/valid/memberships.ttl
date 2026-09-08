@@ -1,0 +1,41 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix ex-scheme: <https://example.org/id-scheme/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:bauverband
+  a conx-org:Organization ;
+  conx-org:name "Bauverband Beispielregion"@de ;
+.
+
+ex:bauunternehmen
+  a conx-org:Organization ;
+  conx-org:name "Bauunternehmen Beispiel"@de ;
+.
+
+ex:maria-beispiel
+  a conx-person:Person ;
+  conx-person:fullName "Maria Beispiel" ;
+  conx-person:givenName "Maria" ;
+.
+
+ex:organization-membership
+  a conx-org:Membership ;
+  conx-org:member ex:bauunternehmen ;
+  conx-org:membershipOrganization ex:bauverband ;
+  adms:identifier ex:membership-number-4711 ;
+.
+
+ex:membership-number-4711
+  a adms:Identifier ;
+  skos:notation "4711"^^ex-scheme:association-membership-number ;
+  adms:schemaAgency "Bauverband Beispielregion" ;
+.
+
+ex:person-membership
+  a conx-org:Membership ;
+  conx-org:member ex:maria-beispiel ;
+  conx-org:membershipOrganization ex:bauverband ;
+.

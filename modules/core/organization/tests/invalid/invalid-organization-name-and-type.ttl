@@ -1,0 +1,27 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+[]
+  a conx-org:Organization ;
+  conx-org:name "Blank-Node-Organisation" ;
+.
+
+ex:untyped-organization
+  conx-org:alternativeName "Ungetypt" ;
+.
+
+ex:missing-name
+  a conx-org:Organization ;
+.
+
+ex:invalid-alternative-name
+  a conx-org:Organization ;
+  conx-org:name "Gültiger Name" ;
+  conx-org:alternativeName "   " ;
+.
+
+ex:invalid-activity
+  a conx-org:Organization ;
+  conx-org:name "Ungültige Tätigkeit" ;
+  conx-org:activity "Bauwirtschaft" ;
+.

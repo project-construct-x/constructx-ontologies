@@ -1,0 +1,15 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+[]
+  a conx-org:LegalEntity ;
+  conx-org:name "Blank Legal Entity" ;
+.
+
+ex:untyped-legal-entity
+  conx-org:legalName "Ungetypte Legal Entity" ;
+.
+
+ex:incomplete-legal-entity
+  a conx-org:LegalEntity ;
+.

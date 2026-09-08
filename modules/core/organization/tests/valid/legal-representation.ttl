@@ -1,0 +1,38 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:bau-gmbh
+  a conx-org:LegalEntity ;
+  conx-org:name "Bau Beispiel"@de ;
+  conx-org:legalName "Bau Beispiel GmbH"@de ;
+  conx-org:registrationDate "2018-04-12"^^xsd:date ;
+  adms:identifier [
+      a adms:Identifier ;
+      skos:notation "HRB 12345" ;
+    ] ;
+  conx-addr:hasAddressAssignment [
+      a conx-addr:AddressAssignment ;
+      conx-addr:assignedAddress ex:bau-gmbh-address ;
+      conx-addr:addressRole roles:LegalAddressRole ;
+    ] ;
+.
+
+ex:bau-gmbh-address a conx-addr:Address .
+
+ex:maria-beispiel
+  a conx-person:Person ;
+  conx-person:fullName "Maria Beispiel" ;
+  conx-person:givenName "Maria" ;
+.
+
+ex:representation-1
+  a conx-org:LegalRepresentation ;
+  conx-org:representedOrganization ex:bau-gmbh ;
+  conx-org:representative ex:maria-beispiel ;
+.

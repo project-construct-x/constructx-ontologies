@@ -1,0 +1,28 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:not-a-legal-entity
+  a conx-org:Organization ;
+  conx-org:name "Keine Legal Entity" ;
+.
+
+ex:not-a-person
+  a conx-org:Organization ;
+  conx-org:name "Keine Person" ;
+.
+
+[]
+  a conx-org:LegalRepresentation ;
+  conx-org:representedOrganization ex:not-a-legal-entity ;
+  conx-org:representative ex:not-a-person ;
+.
+
+ex:untyped-representation
+  conx-org:representedOrganization ex:not-a-legal-entity ;
+  conx-org:representative ex:not-a-person ;
+.
+
+ex:incomplete-representation
+  a conx-org:LegalRepresentation ;
+  conx-org:representedOrganization ex:not-a-legal-entity ;
+.

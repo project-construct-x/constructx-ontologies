@@ -1,0 +1,7 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:bauverband
+  a conx-org:Organization ;
+  conx-org:name "Bauverband Beispielregion"@de ;
+.

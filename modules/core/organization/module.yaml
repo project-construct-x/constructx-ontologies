@@ -1,0 +1,125 @@
+id: organization
+title: Construct-X Organization Ontology
+type: core
+status: draft
+version: 0.1.0
+
+ontology_iri: https://www.construct-x.org/ontology/organization
+version_iri: https://www.construct-x.org/ontology/organization/0.1.0
+namespace: https://www.construct-x.org/ontology/organization#
+preferred_namespace_prefix: conx-org
+created: 2026-08-27
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+shape_sets:
+  core:
+    graph_iri: https://www.construct-x.org/shapes/organization/core
+    version_iri: https://www.construct-x.org/shapes/organization/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/organization/core#
+    version: 0.1.0
+    artifact: shapes/conx-org-core.shacl.ttl
+
+dependencies:
+  - id: identifier
+    relation: shape-imported
+    shape_graph_iri: https://www.construct-x.org/shapes/identifier/core
+    version_iri: https://www.construct-x.org/shapes/identifier/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/identifier/core#
+    used_terms:
+      - conx-id-sh:ADMSIdentifierShape
+  - id: agent
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/agent
+    version_iri: https://www.construct-x.org/ontology/agent/0.1.0
+    namespace: https://www.construct-x.org/ontology/agent#
+    used_terms:
+      - conx-agent:Agent
+  - id: person
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/person
+    version_iri: https://www.construct-x.org/ontology/person/0.1.0
+    namespace: https://www.construct-x.org/ontology/person#
+    used_terms:
+      - conx-person:Person
+  - id: address
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/address
+    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+    namespace: https://www.construct-x.org/ontology/address#
+    used_terms:
+      - conx-addr:AddressAssignment
+      - conx-addr:hasAddressAssignment
+      - conx-addr:addressRole
+  - id: contact
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/contact
+    version_iri: https://www.construct-x.org/ontology/contact/0.1.0
+    namespace: https://www.construct-x.org/ontology/contact#
+    used_terms:
+      - conx-contact:hasContactPoint
+  - id: address-roles
+    relation: referenced-not-imported
+    vocabulary_iri: https://www.construct-x.org/vocab/address-role
+    version_iri: https://www.construct-x.org/vocab/address-role/0.2.0
+    namespace: https://www.construct-x.org/vocab/address-role#
+    used_terms:
+      - roles:LegalAddressRole
+  - id: adms
+    relation: referenced-not-imported
+    ontology_iri: http://www.w3.org/ns/adms
+    namespace: http://www.w3.org/ns/adms#
+    used_terms:
+      - adms:Identifier
+      - adms:identifier
+      - adms:schemaAgency
+  - id: skos
+    relation: referenced-not-imported
+    ontology_iri: http://www.w3.org/2004/02/skos/core
+    namespace: http://www.w3.org/2004/02/skos/core#
+    used_terms:
+      - skos:Concept
+      - skos:notation
+  - id: org
+    relation: referenced-not-imported
+    ontology_iri: http://www.w3.org/ns/org
+    namespace: http://www.w3.org/ns/org#
+    used_terms:
+      - org:Organization
+      - org:OrganizationalUnit
+      - org:Membership
+      - org:subOrganizationOf
+      - org:hasSubOrganization
+      - org:unitOf
+      - org:hasUnit
+      - org:member
+      - org:organization
+  - id: schema-org
+    relation: referenced-not-imported
+    namespace: https://schema.org/
+    used_terms:
+      - schema:name
+      - schema:legalName
+      - schema:alternateName
+
+maintainers:
+  - AP 3.4
+
+artifacts:
+  readme: README.md
+  changelog: CHANGELOG.md
+  ontology: ontology/conx-org.ttl
+  core_shapes: shapes/conx-org-core.shacl.ttl
+  strict_shapes: null
+  documentation: docs/index.md
+  confluence_overview: docs/confluence-overview.md
+  html_documentation: docs/organization.html
+  source_analysis: docs/source-analysis.md
+  scope_and_competency_questions: docs/scope-and-competency-questions.md
+  module_boundaries: docs/module-boundaries.md
+  term_catalog: docs/term-catalog.md
+  shacl_requirements: docs/shacl-requirements.md
+  core_shapes_documentation: docs/core-shapes.md
+  concept_model: docs/concept-model.md
+  concept_model_diagram: docs/diagrams/concept-model.md
+  detailed_concept_diagram: docs/diagrams/organization-concept-model.md

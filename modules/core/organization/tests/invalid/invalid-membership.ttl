@@ -1,0 +1,48 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:host
+  a conx-org:Organization ;
+  conx-org:name "Aufnehmende Organisation" ;
+.
+
+ex:member-one
+  a conx-org:Organization ;
+  conx-org:name "Mitglied Eins" ;
+.
+
+ex:member-two
+  a conx-org:Organization ;
+  conx-org:name "Mitglied Zwei" ;
+.
+
+[]
+  a conx-org:Membership ;
+  conx-org:member ex:member-one ;
+  conx-org:membershipOrganization ex:host ;
+.
+
+ex:untyped-membership
+  conx-org:member ex:member-one ;
+  conx-org:membershipOrganization ex:host ;
+.
+
+ex:ambiguous-membership
+  a conx-org:Membership ;
+  conx-org:member ex:member-one,
+                  ex:member-two ;
+.
+
+ex:membership-with-invalid-id
+  a conx-org:Membership ;
+  conx-org:member ex:member-one ;
+  conx-org:membershipOrganization ex:host ;
+  adms:identifier "MEM-4711" ;
+.
+
+ex:self-membership
+  a conx-org:Membership ;
+  conx-org:member ex:host ;
+  conx-org:membershipOrganization ex:host ;
+.

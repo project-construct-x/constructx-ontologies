@@ -1,0 +1,29 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:invalid-registration
+  a conx-org:LegalEntity ;
+  conx-org:name "Datumsfehler" ;
+  conx-org:legalName "Datumsfehler GmbH" ;
+  conx-org:registrationDate "2020"^^xsd:gYear,
+                            "2020-01-02"^^xsd:date ;
+  conx-org:legalForm "GmbH",
+                     ex:legal-form-gmbh ;
+  adms:identifier [
+      a adms:Identifier ;
+      skos:notation "REG-1" ;
+    ] ;
+  conx-addr:hasAddressAssignment [
+      a conx-addr:AddressAssignment ;
+      conx-addr:assignedAddress ex:address ;
+      conx-addr:addressRole roles:LegalAddressRole ;
+    ] ;
+.
+
+ex:legal-form-gmbh a skos:Concept .
+ex:address a conx-addr:Address .

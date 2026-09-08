@@ -1,0 +1,44 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+@prefix ex-scheme: <https://example.org/id-scheme/> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:bau-gmbh
+  a conx-org:LegalEntity ;
+  conx-org:name "Bau Beispiel"@de ;
+  conx-org:legalName "Bau Beispiel GmbH"@de ;
+  conx-org:alternativeName "Bau Beispiel" ;
+  conx-org:registrationDate "2018-04-12"^^xsd:date ;
+  conx-org:legalForm ex:legal-form-gmbh ;
+  conx-org:activity ex:construction-activity ;
+  adms:identifier ex:bau-gmbh-register-id ;
+  conx-addr:hasAddressAssignment ex:bau-gmbh-legal-address ;
+.
+
+ex:legal-form-gmbh a skos:Concept .
+ex:construction-activity a skos:Concept .
+
+ex:bau-gmbh-register-id
+  a adms:Identifier ;
+  skos:notation "HRB 12345"^^ex-scheme:local-register-number ;
+  adms:schemaAgency "Zuständige Registerstelle" ;
+.
+
+ex:bau-gmbh-legal-address
+  a conx-addr:AddressAssignment ;
+  conx-addr:assignedAddress ex:bau-gmbh-address ;
+  conx-addr:addressRole roles:LegalAddressRole,
+                        roles:RegistrationAddressRole ;
+.
+
+ex:bau-gmbh-address
+  a conx-addr:Address ;
+  conx-addr:streetName "Beispielstraße" ;
+  conx-addr:houseNumber "12" ;
+  conx-addr:postalCode "44787" ;
+  conx-addr:localityName "Bochum" ;
+.

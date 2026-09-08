@@ -1,0 +1,34 @@
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:parent
+  a conx-org:Organization ;
+  conx-org:name "Übergeordnete Organisation" ;
+.
+
+[]
+  a conx-org:OrganizationalUnit ;
+  conx-org:name "Blank Unit" ;
+  conx-org:unitOf ex:parent ;
+.
+
+ex:untyped-unit
+  conx-org:name "Ungetypte Einheit" ;
+  conx-org:unitOf ex:parent ;
+.
+
+ex:unit-without-name
+  a conx-org:OrganizationalUnit ;
+  conx-org:unitOf ex:parent ;
+.
+
+ex:orphan-unit
+  a conx-org:OrganizationalUnit ;
+  conx-org:name "Verwaiste Einheit" ;
+.
+
+ex:self-unit
+  a conx-org:OrganizationalUnit ;
+  conx-org:name "Selbstbezug" ;
+  conx-org:unitOf ex:self-unit ;
+.

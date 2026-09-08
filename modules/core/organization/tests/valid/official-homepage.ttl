@@ -1,0 +1,25 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix conx-org: <https://www.construct-x.org/ontology/organization#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:bauverband
+  a conx-org:Organization ;
+  conx-org:name "Bauverband Beispielregion"@de ;
+  conx-contact:hasContactPoint ex:bauverband-official-contact ;
+.
+
+ex:bauverband-official-contact
+  a conx-contact:ContactPoint ;
+  conx-contact:contactUsage contact-usage:official ;
+  conx-contact:contactPurpose contact-purpose:general ;
+  conx-contact:hasContactMethod ex:bauverband-website ;
+.
+
+ex:bauverband-website
+  a conx-contact:ContactMethod ;
+  conx-contact:contactChannel contact-channel:website ;
+  conx-contact:contactURI <https://example.org/> ;
+.
