@@ -1,0 +1,103 @@
+# baseURI: https://www.construct-x.org/vocab/participation-role
+# prefix: part-role
+
+@prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
+@prefix part-role: <https://www.construct-x.org/vocab/participation-role#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/participation-role>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer allgemeine Rollen von Agenten in Participations."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for general roles of agents in Participations."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://ifc43-docs.standards.buildingsmart.org/IFC/RELEASE/IFC4x3/HTML/lexical/IfcActorRole.htm> ;
+  dcterms:title "Construct-X Participation Roles"@en ;
+  dcterms:title "Construct-X Participation-Rollen"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "part-role" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/participation-role#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/participation-role/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept part-role:ClientRole,
+                     part-role:ContractorRole,
+                     part-role:SupplierRole,
+                     part-role:ArchitectRole,
+                     part-role:EngineerRole ;
+.
+
+part-role:ClientRole
+  a conx-part:Role, skos:Concept ;
+  skos:definition "Agent, in dessen Auftrag oder Interesse der jeweilige Kontext bearbeitet wird."@de ;
+  skos:definition "Agent on whose behalf or in whose interest the respective context is handled."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/participation-role> ;
+  skos:notation "client" ;
+  skos:prefLabel "Auftraggeber"@de ;
+  skos:prefLabel "Client"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/participation-role> ;
+.
+
+part-role:ContractorRole
+  a conx-part:Role, skos:Concept ;
+  skos:definition "Agent, der im Kontext vertraglich zur Ausfuehrung vereinbarter Leistungen verpflichtet ist."@de ;
+  skos:definition "Agent contractually obliged to perform agreed services within the context."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/participation-role> ;
+  skos:notation "contractor" ;
+  skos:prefLabel "Auftragnehmer"@de ;
+  skos:prefLabel "Contractor"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/participation-role> ;
+.
+
+part-role:SupplierRole
+  a conx-part:Role, skos:Concept ;
+  skos:definition "Agent, der im Kontext Gueter, Materialien oder Betriebsmittel bereitstellt."@de ;
+  skos:definition "Agent that provides goods, materials, or equipment within the context."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/participation-role> ;
+  skos:notation "supplier" ;
+  skos:prefLabel "Lieferant"@de ;
+  skos:prefLabel "Supplier"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/participation-role> ;
+.
+
+part-role:ArchitectRole
+  a conx-part:Role, skos:Concept ;
+  skos:definition "Agent, der im Kontext eine architektonische Planungs- oder Gestaltungsfunktion wahrnimmt."@de ;
+  skos:definition "Agent that performs an architectural planning or design function within the context."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/participation-role> ;
+  skos:notation "architect" ;
+  skos:prefLabel "Architekt"@de ;
+  skos:prefLabel "Architect"@en ;
+  skos:scopeNote "Die Rolle klassifiziert den Agenten nicht als Beruf oder Organisationstyp."@de ;
+  skos:scopeNote "The role does not classify the agent as a profession or organization type."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/participation-role> ;
+.
+
+part-role:EngineerRole
+  a conx-part:Role, skos:Concept ;
+  skos:definition "Agent, der im Kontext eine ingenieurtechnische Planungs-, Berechnungs- oder Gestaltungsfunktion wahrnimmt."@de ;
+  skos:definition "Agent that performs an engineering planning, calculation, or design function within the context."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/participation-role> ;
+  skos:notation "engineer" ;
+  skos:prefLabel "Ingenieur"@de ;
+  skos:prefLabel "Engineer"@en ;
+  skos:scopeNote "Die Rolle klassifiziert den Agenten nicht als Beruf oder Organisationstyp."@de ;
+  skos:scopeNote "The role does not classify the agent as a profession or organization type."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/participation-role> ;
+.

@@ -1,0 +1,24 @@
+id: participation-role
+title: Construct-X Participation Roles
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/participation-role
+version_iri: https://www.construct-x.org/vocab/participation-role/0.1.0
+namespace: https://www.construct-x.org/vocab/participation-role#
+preferred_namespace_prefix: part-role
+created: 2026-08-27
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+dependencies:
+  - id: participation
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/participation
+    version_iri: https://www.construct-x.org/ontology/participation/0.1.0
+
+artifacts:
+  data: participation-role.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md

@@ -1,0 +1,110 @@
+# baseURI: https://www.construct-x.org/vocab/document-status
+# prefix: document-status
+
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-status: <https://www.construct-x.org/vocab/document-status#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/document-status>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer dokumentbezogene Zustaende, getrennt von Workflowstatus."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for document-related states, separate from workflow status."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Document Statuses"@en ;
+  dcterms:title "Construct-X Dokumentstatus"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "document-status" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/document-status#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/document-status/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept document-status:draft,
+                     document-status:issued,
+                     document-status:superseded,
+                     document-status:withdrawn,
+                     document-status:expired,
+                     document-status:archived ;
+.
+
+document-status:draft
+  a conx-doc:DocumentStatus, skos:Concept ;
+  skos:definition "Das Dokument befindet sich in Bearbeitung und wurde noch nicht fuer seinen vorgesehenen Gebrauch ausgegeben."@de ;
+  skos:definition "The document is being prepared and has not yet been issued for its intended use."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-status> ;
+  skos:notation "draft" ;
+  skos:prefLabel "Entwurf"@de ;
+  skos:prefLabel "Draft"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-status> ;
+.
+
+document-status:issued
+  a conx-doc:DocumentStatus, skos:Concept ;
+  skos:definition "Das Dokument wurde fuer seinen vorgesehenen fachlichen Gebrauch ausgegeben. Der Status behauptet keine rechtliche oder technische Pruefung."@de ;
+  skos:definition "The document has been issued for its intended semantic use. The status does not assert legal or technical verification."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-status> ;
+  skos:notation "issued" ;
+  skos:prefLabel "Ausgegeben"@de ;
+  skos:prefLabel "Issued"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-status> ;
+.
+
+document-status:superseded
+  a conx-doc:DocumentStatus, skos:Concept ;
+  skos:definition "Das Dokument wurde durch eine neuere oder anderweitig massgebliche Fassung ersetzt."@de ;
+  skos:definition "The document has been replaced by a newer or otherwise authoritative version."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-status> ;
+  skos:notation "superseded" ;
+  skos:prefLabel "Ersetzt"@de ;
+  skos:prefLabel "Superseded"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-status> ;
+.
+
+document-status:withdrawn
+  a conx-doc:DocumentStatus, skos:Concept ;
+  skos:definition "Das Dokument wurde vom vorgesehenen fachlichen Gebrauch zurueckgezogen, ohne damit seine Loeschung zu behaupten."@de ;
+  skos:definition "The document has been withdrawn from its intended semantic use without implying its deletion."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-status> ;
+  skos:notation "withdrawn" ;
+  skos:prefLabel "Zurueckgezogen"@de ;
+  skos:prefLabel "Withdrawn"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-status> ;
+.
+
+document-status:expired
+  a conx-doc:DocumentStatus, skos:Concept ;
+  skos:definition "Die fachliche Gueltigkeit des Dokuments ist abgelaufen."@de ;
+  skos:definition "The semantic validity of the document has expired."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-status> ;
+  skos:notation "expired" ;
+  skos:prefLabel "Abgelaufen"@de ;
+  skos:prefLabel "Expired"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-status> ;
+.
+
+document-status:archived
+  a conx-doc:DocumentStatus, skos:Concept ;
+  skos:definition "Das Dokument wird als nicht regulaer aktiver Bestand aufbewahrt. Der Status beschreibt weder Speicherort noch Aufbewahrungsregel."@de ;
+  skos:definition "The document is retained as a record that is no longer in regular active use. The status describes neither storage location nor retention policy."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-status> ;
+  skos:notation "archived" ;
+  skos:prefLabel "Archiviert"@de ;
+  skos:prefLabel "Archived"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-status> ;
+.

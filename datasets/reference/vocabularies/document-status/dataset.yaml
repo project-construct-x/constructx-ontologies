@@ -1,0 +1,24 @@
+id: document-status
+title: Construct-X Document Statuses
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/document-status
+version_iri: https://www.construct-x.org/vocab/document-status/0.1.0
+namespace: https://www.construct-x.org/vocab/document-status#
+preferred_namespace_prefix: document-status
+created: 2026-08-27
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+dependencies:
+  - id: document
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/document
+    version_iri: https://www.construct-x.org/ontology/document/0.1.0
+
+artifacts:
+  data: document-status.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md

@@ -1,0 +1,137 @@
+# baseURI: https://www.construct-x.org/vocab/contact-platform
+# prefix: contact-platform
+
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-platform: <https://www.construct-x.org/vocab/contact-platform#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/contact-platform>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Startvokabular fuer Plattformen von Social-, Messenger- und Webkontaktmethoden."@de ;
+  dcterms:description "Controlled Construct-X initial vocabulary for platforms of social, messenger, and web contact methods."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  dcterms:title "Construct-X Contact Platforms"@en ;
+  dcterms:title "Construct-X Kontaktplattformen"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "contact-platform" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/contact-platform#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/contact-platform/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept contact-platform:linkedin,
+                     contact-platform:instagram,
+                     contact-platform:x,
+                     contact-platform:facebook,
+                     contact-platform:github,
+                     contact-platform:whatsapp,
+                     contact-platform:signal,
+                     contact-platform:microsoftTeams ;
+.
+
+contact-platform:linkedin
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "LinkedIn als Plattform fuer berufliche Profile oder Nachrichtenkontakte."@de ;
+  skos:definition "LinkedIn as a platform for professional profiles or messaging contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "linkedin" ;
+  skos:prefLabel "LinkedIn"@de ;
+  skos:prefLabel "LinkedIn"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:instagram
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "Instagram als Plattform fuer Social-Media-Profile oder Nachrichtenkontakte."@de ;
+  skos:definition "Instagram as a platform for social media profiles or messaging contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "instagram" ;
+  skos:prefLabel "Instagram"@de ;
+  skos:prefLabel "Instagram"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:x
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:altLabel "Twitter"@de ;
+  skos:altLabel "Twitter"@en ;
+  skos:definition "X, frueher Twitter, als Plattform fuer Social-Media-Profile oder Nachrichtenkontakte."@de ;
+  skos:definition "X, formerly Twitter, as a platform for social media profiles or messaging contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "x" ;
+  skos:prefLabel "X"@de ;
+  skos:prefLabel "X"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:facebook
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "Facebook als Plattform fuer Social-Media-Profile oder Nachrichtenkontakte."@de ;
+  skos:definition "Facebook as a platform for social media profiles or messaging contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "facebook" ;
+  skos:prefLabel "Facebook"@de ;
+  skos:prefLabel "Facebook"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:github
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "GitHub als Plattform fuer Entwicklungsprofile oder projektbezogene technische Kontakte."@de ;
+  skos:definition "GitHub as a platform for development profiles or project-related technical contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "github" ;
+  skos:prefLabel "GitHub"@de ;
+  skos:prefLabel "GitHub"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:whatsapp
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "WhatsApp als Plattform fuer Messenger-Kontakte."@de ;
+  skos:definition "WhatsApp as a platform for messenger contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "whatsapp" ;
+  skos:prefLabel "WhatsApp"@de ;
+  skos:prefLabel "WhatsApp"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:signal
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "Signal als Plattform fuer Messenger-Kontakte."@de ;
+  skos:definition "Signal as a platform for messenger contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "signal" ;
+  skos:prefLabel "Signal"@de ;
+  skos:prefLabel "Signal"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.
+
+contact-platform:microsoftTeams
+  a conx-contact:ContactPlatform, skos:Concept ;
+  skos:definition "Microsoft Teams als Plattform fuer Messenger- oder Kollaborationskontakte."@de ;
+  skos:definition "Microsoft Teams as a platform for messenger or collaboration contacts."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-platform> ;
+  skos:notation "microsoft-teams" ;
+  skos:prefLabel "Microsoft Teams"@de ;
+  skos:prefLabel "Microsoft Teams"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-platform> ;
+.

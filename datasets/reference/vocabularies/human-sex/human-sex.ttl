@@ -1,0 +1,104 @@
+# baseURI: https://www.construct-x.org/vocab/human-sex
+# prefix: human-sex
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix human-sex: <https://www.construct-x.org/vocab/human-sex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/human-sex>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-25"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular für die sprachunabhängigen Codes zur Darstellung menschlichen Geschlechts gemäß ISO/IEC 5218:2022."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for the language-independent codes representing human sexes according to ISO/IEC 5218:2022."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-25"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://www.iso.org/standard/81682.html> ;
+  dcterms:title "Construct-X Human Sex"@en ;
+  dcterms:title "Construct-X menschliches Geschlecht"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "human-sex" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/human-sex#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/human-sex/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept human-sex:notKnown,
+                     human-sex:male,
+                     human-sex:female,
+                     human-sex:notApplicable ;
+.
+
+human-sex:iso-iec-5218
+  a rdfs:Datatype ;
+  rdfs:comment "Datentyp für sprachunabhängige einstellige Codes gemäß ISO/IEC 5218:2022."@de ;
+  rdfs:comment "Datatype for language-independent single-digit codes according to ISO/IEC 5218:2022."@en ;
+  rdfs:isDefinedBy <https://www.construct-x.org/vocab/human-sex> ;
+  rdfs:label "ISO/IEC 5218 code"@en ;
+  rdfs:label "ISO/IEC-5218-Code"@de ;
+.
+
+human-sex:notKnown
+  a skos:Concept ;
+  dcterms:source <https://www.iso.org/standard/81682.html> ;
+  skos:definition "Der Wert für das menschliche Geschlecht ist im übermittelnden Kontext ausdrücklich nicht bekannt."@de ;
+  skos:definition "The human sex value is explicitly not known in the communicating context."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/human-sex> ;
+  skos:notation "0"^^human-sex:iso-iec-5218 ;
+  skos:prefLabel "Nicht bekannt"@de ;
+  skos:prefLabel "Not known"@en ;
+  skos:scopeNote "Dieser Wert ist eine ausdrückliche Aussage und unterscheidet sich vom vollständigen Fehlen einer Geschlechtsangabe."@de ;
+  skos:scopeNote "This value is an explicit statement and differs from the complete absence of a sex statement."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/human-sex> ;
+.
+
+human-sex:male
+  a skos:Concept ;
+  dcterms:source <https://www.iso.org/standard/81682.html> ;
+  skos:definition "ISO/IEC-5218-Klassifikationswert für männlich im Informationsaustausch über menschliches Geschlecht."@de ;
+  skos:definition "ISO/IEC 5218 classification value for male in the interchange of human sex information."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/human-sex> ;
+  skos:notation "1"^^human-sex:iso-iec-5218 ;
+  skos:prefLabel "Männlich"@de ;
+  skos:prefLabel "Male"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/human-sex> ;
+.
+
+human-sex:female
+  a skos:Concept ;
+  dcterms:source <https://www.iso.org/standard/81682.html> ;
+  skos:definition "ISO/IEC-5218-Klassifikationswert für weiblich im Informationsaustausch über menschliches Geschlecht."@de ;
+  skos:definition "ISO/IEC 5218 classification value for female in the interchange of human sex information."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/human-sex> ;
+  skos:notation "2"^^human-sex:iso-iec-5218 ;
+  skos:prefLabel "Weiblich"@de ;
+  skos:prefLabel "Female"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/human-sex> ;
+.
+
+human-sex:notApplicable
+  a skos:Concept ;
+  dcterms:source <https://www.iso.org/standard/81682.html> ;
+  skos:definition "Die Klassifikation menschlichen Geschlechts ist im übermittelnden Kontext ausdrücklich nicht anwendbar."@de ;
+  skos:definition "The human sex classification is explicitly not applicable in the communicating context."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/human-sex> ;
+  skos:notation "9"^^human-sex:iso-iec-5218 ;
+  skos:prefLabel "Nicht anwendbar"@de ;
+  skos:prefLabel "Not applicable"@en ;
+  skos:scopeNote "Dieser Wert darf nicht als Ersatz für nicht-binäre oder genderdiverse Identitäten verwendet werden."@de ;
+  skos:scopeNote "This value must not be used as a substitute for non-binary or gender-diverse identities."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/human-sex> ;
+.

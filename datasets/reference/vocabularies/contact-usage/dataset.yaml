@@ -1,0 +1,24 @@
+id: contact-usage
+title: Construct-X Contact Usage
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/contact-usage
+version_iri: https://www.construct-x.org/vocab/contact-usage/0.1.0
+namespace: https://www.construct-x.org/vocab/contact-usage#
+preferred_namespace_prefix: contact-usage
+created: 2026-08-27
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+dependencies:
+  - id: contact
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/contact
+    version_iri: https://www.construct-x.org/ontology/contact/0.1.0
+
+artifacts:
+  data: contact-usage.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md

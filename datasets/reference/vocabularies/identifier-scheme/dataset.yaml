@@ -1,0 +1,20 @@
+id: identifier-scheme
+title: Construct-X Identifier Scheme Datatypes
+type: reference-vocabulary
+status: draft
+version: 0.2.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/identifier-scheme
+version_iri: https://www.construct-x.org/vocab/identifier-scheme/0.2.0
+namespace: https://www.construct-x.org/vocab/identifier-scheme#
+preferred_namespace_prefix: id-scheme
+created: 2026-08-18
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+dependencies: []
+
+artifacts:
+  data: identifier-scheme.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md

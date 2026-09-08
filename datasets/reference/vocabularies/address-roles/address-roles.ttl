@@ -1,0 +1,201 @@
+# baseURI: https://www.construct-x.org/vocab/address-role
+# prefix: roles
+
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/address-role>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-18"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Referenzvokabular für Rollen, in denen eine Adresse innerhalb einer Construct-X-Adresszuordnung verwendet wird."@de ;
+  dcterms:description "Controlled reference vocabulary for roles in which an address is used within a Construct-X address assignment."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-20"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  dcterms:title "Construct-X address roles"@en ;
+  dcterms:title "Construct-X Adressrollen"@de ;
+  schema:version "0.2.0" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/address-role/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
+  skos:hasTopConcept roles:ConstructionSiteAccessRole,
+                     roles:ConstructionSiteAddressRole,
+                     roles:DeliveryAddressRole,
+                     roles:HeadquartersAddressRole,
+                     roles:InvoiceAddressRole,
+                     roles:LegalAddressRole,
+                     roles:PhysicalLocationAddressRole,
+                     roles:PostalAddressRole,
+                     roles:RegistrationAddressRole,
+                     roles:ResidenceAddressRole,
+                     roles:ReturnAddressRole ;
+.
+
+roles:DeliveryAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  skos:definition "Adresse, an die Waren, Materialien oder Geräte geliefert werden."@de ;
+  skos:definition "An address to which goods, materials, or equipment are delivered."@en ;
+  skos:editorialNote "Die englische Vorzugsbezeichnung ist an UBL 2.5 cac:DeliveryAddress angelehnt."@de ;
+  skos:editorialNote "The English preferred label is aligned with UBL 2.5 cac:DeliveryAddress."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "delivery" ;
+  skos:prefLabel "Lieferadresse"@de ;
+  skos:prefLabel "Delivery address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:InvoiceAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  skos:definition "Adresse, die für den Empfang oder die Bearbeitung von Rechnungen bestimmt ist."@de ;
+  skos:definition "An address designated for the receipt or processing of invoices."@en ;
+  skos:editorialNote "UBL 2.5 enthält keinen eigenständigen CAC-Begriff InvoiceAddress; Rechnungsparteien und ihre Anschriften werden dort kontextbezogen modelliert."@de ;
+  skos:editorialNote "UBL 2.5 has no dedicated CAC term InvoiceAddress; invoice parties and their addresses are modeled contextually."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "invoice" ;
+  skos:prefLabel "Rechnungsadresse"@de ;
+  skos:prefLabel "Invoice address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:PostalAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  skos:definition "Postanschrift einer Partei für allgemeine Korrespondenz."@de ;
+  skos:definition "The postal address of a party for general correspondence."@en ;
+  skos:editorialNote "Die englische Vorzugsbezeichnung ist an UBL 2.5 cac:PostalAddress angelehnt."@de ;
+  skos:editorialNote "The English preferred label is aligned with UBL 2.5 cac:PostalAddress."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "postal" ;
+  skos:prefLabel "Postanschrift"@de ;
+  skos:prefLabel "Postal address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:RegistrationAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  skos:altLabel "Meldeadresse"@de ;
+  skos:definition "Adresse, unter der eine Partei in einem amtlichen, Unternehmens- oder Steuerregister geführt wird."@de ;
+  skos:definition "The address at which a party is registered in an official, corporate, or tax registration scheme."@en ;
+  skos:editorialNote "Bezeichnung und Bedeutung bündeln die UBL-2.5-Verwendungen von cac:RegistrationAddress für Unternehmens- und Steuerregistrierungen."@de ;
+  skos:editorialNote "The label and scope consolidate the UBL 2.5 uses of cac:RegistrationAddress for corporate and tax registrations."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "registration" ;
+  skos:prefLabel "Registrierungsadresse"@de ;
+  skos:prefLabel "Registration address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:ReturnAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  skos:definition "Adresse, an die eine Sendung oder zurückgesandte Ware zurückgeschickt werden soll."@de ;
+  skos:definition "The address to which a shipment or returned goods should be returned."@en ;
+  skos:editorialNote "Die englische Vorzugsbezeichnung ist an UBL 2.5 cac:ReturnAddress angelehnt."@de ;
+  skos:editorialNote "The English preferred label is aligned with UBL 2.5 cac:ReturnAddress."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "return" ;
+  skos:prefLabel "Rücksendeadresse"@de ;
+  skos:prefLabel "Return address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:ResidenceAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  skos:definition "Adresse, an der eine Person wohnt."@de ;
+  skos:definition "A person's address of residence."@en ;
+  skos:editorialNote "Die englische Vorzugsbezeichnung ist an UBL 2.5 cac:ResidenceAddress angelehnt."@de ;
+  skos:editorialNote "The English preferred label is aligned with UBL 2.5 cac:ResidenceAddress."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "residence" ;
+  skos:prefLabel "Wohnadresse"@de ;
+  skos:prefLabel "Residence address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:ConstructionSiteAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  skos:definition "Adresse, die eine Baustelle als Ganzes identifiziert."@de ;
+  skos:definition "An address identifying a construction site as a whole."@en ;
+  skos:editorialNote "Für diese Construct-X-spezifische Rolle wurde in UBL 2.5 kein direkter CAC-Adressbegriff identifiziert."@de ;
+  skos:editorialNote "No direct UBL 2.5 CAC address term was identified for this Construct-X-specific role."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "construction-site" ;
+  skos:prefLabel "Baustellenadresse"@de ;
+  skos:prefLabel "Construction site address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:ConstructionSiteAccessRole
+  a conx-addr:AddressRole, skos:Concept ;
+  skos:definition "Adresse, die einen bestimmten Eingang, ein Tor, eine Anmeldung oder eine Lieferzufahrt zu einer Baustelle identifiziert."@de ;
+  skos:definition "An address identifying a specific entrance, gate, check-in point, or delivery access to a construction site."@en ;
+  skos:editorialNote "Für diese Construct-X-spezifische Rolle wurde in UBL 2.5 kein direkter CAC-Adressbegriff identifiziert."@de ;
+  skos:editorialNote "No direct UBL 2.5 CAC address term was identified for this Construct-X-specific role."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "construction-site-access" ;
+  skos:prefLabel "Baustellenzufahrtsadresse"@de ;
+  skos:prefLabel "Construction site access address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:LegalAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.gaia-x.eu/ontology/development/classes/Address/> ;
+  skos:definition "Rechtlich maßgebliche Adresse einer natürlichen oder juristischen Person beziehungsweise Organisation."@de ;
+  skos:definition "The legally authoritative address of a natural or legal person or organization."@en ;
+  skos:editorialNote "Die Rolle ist an die Gaia-X-Verwendung legalAddress angelehnt und nicht mit einer Registeradresse gleichgesetzt."@de ;
+  skos:editorialNote "The role is aligned with the Gaia-X legalAddress use and is not asserted to be identical to a registration address."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "legal" ;
+  skos:prefLabel "Rechtliche Adresse"@de ;
+  skos:prefLabel "Legal address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:HeadquartersAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.gaia-x.eu/ontology/development/classes/Address/> ;
+  skos:definition "Adresse des Hauptsitzes einer Organisation."@de ;
+  skos:definition "The address of an organization's headquarters."@en ;
+  skos:editorialNote "Die Rolle ist an die Gaia-X-Verwendung headquartersAddress angelehnt."@de ;
+  skos:editorialNote "The role is aligned with the Gaia-X headquartersAddress use."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "headquarters" ;
+  skos:prefLabel "Hauptsitzadresse"@de ;
+  skos:prefLabel "Headquarters address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+roles:PhysicalLocationAddressRole
+  a conx-addr:AddressRole, skos:Concept ;
+  dcterms:source <https://docs.gaia-x.eu/ontology/development/classes/Address/> ;
+  skos:definition "Adresse, die den physischen Standort einer Ressource bezeichnet."@de ;
+  skos:definition "An address denoting the physical location of a resource."@en ;
+  skos:editorialNote "Die Rolle ist an die Gaia-X-Verwendung location fuer physische Ressourcen und Standorte angelehnt."@de ;
+  skos:editorialNote "The role is aligned with the Gaia-X location use for physical resources and sites."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/address-role> ;
+  skos:notation "physical-location" ;
+  skos:prefLabel "Physische Standortadresse"@de ;
+  skos:prefLabel "Physical location address"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/address-role> ;
+.
+
+

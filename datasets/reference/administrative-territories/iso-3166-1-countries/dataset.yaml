@@ -1,0 +1,41 @@
+id: iso-3166-1-countries
+title: Construct-X ISO 3166-1 Countries
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/country
+version_iri: https://www.construct-x.org/vocab/country/0.1.0
+namespace: https://www.construct-x.org/vocab/country#
+preferred_namespace_prefix: countries
+created: 2026-08-18
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+source:
+  standard: ISO 3166-1
+  standard_url: https://www.iso.org/iso-3166-country-codes.html
+  extraction_dataset: EU Vocabularies Country authority table
+  extraction_url: http://publications.europa.eu/resource/dataset/country
+  extraction_version: 20260617-0
+
+dependencies:
+  - id: address
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/address
+    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+  - id: identifier-scheme
+    version: 0.2.0
+    vocabulary_iri: https://www.construct-x.org/vocab/identifier-scheme
+    version_iri: https://www.construct-x.org/vocab/identifier-scheme/0.2.0
+  - id: adms
+    version: "2.0"
+    namespace: http://www.w3.org/ns/adms#
+
+artifacts:
+  data: data/countries.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md
+
+
+

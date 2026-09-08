@@ -1,0 +1,82 @@
+# baseURI: https://www.construct-x.org/vocab/identifier-scheme
+# prefix: id-scheme
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix id-scheme: <https://www.construct-x.org/vocab/identifier-scheme#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/identifier-scheme>
+  a owl:Ontology ;
+  dcterms:created "2026-08-18"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Definiert stabile RDF-Datentyp-IRIs für fachliche Kennungssysteme, die im Construct-X-Ontologienetzwerk mit skos:notation verwendet werden."@de ;
+  dcterms:description "Defines stable RDF datatype IRIs for identifier schemes used with skos:notation in the Construct-X ontology network."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-20"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Identifier Scheme Datatypes"@en ;
+  dcterms:title "Construct-X-Datentypen für Kennungssysteme"@de ;
+  vann:preferredNamespacePrefix "id-scheme" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/identifier-scheme#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/identifier-scheme/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
+.
+
+id-scheme:iso-3166-1-alpha-2
+  a rdfs:Datatype ;
+  rdfs:comment "Datentyp für zweistellige ISO-3166-1-Alpha-2-Kennungen."@de ;
+  rdfs:comment "Datatype for two-letter ISO 3166-1 alpha-2 identifiers."@en ;
+  rdfs:isDefinedBy <https://www.construct-x.org/vocab/identifier-scheme> ;
+  rdfs:label "ISO 3166-1 alpha-2 identifier"@en ;
+  rdfs:label "ISO-3166-1-Alpha-2-Kennung"@de ;
+.
+
+id-scheme:iso-3166-1-alpha-3
+  a rdfs:Datatype ;
+  rdfs:comment "Datentyp für dreistellige ISO-3166-1-Alpha-3-Kennungen."@de ;
+  rdfs:comment "Datatype for three-letter ISO 3166-1 alpha-3 identifiers."@en ;
+  rdfs:isDefinedBy <https://www.construct-x.org/vocab/identifier-scheme> ;
+  rdfs:label "ISO 3166-1 alpha-3 identifier"@en ;
+  rdfs:label "ISO-3166-1-Alpha-3-Kennung"@de ;
+.
+
+id-scheme:iso-3166-1-numeric
+  a rdfs:Datatype ;
+  rdfs:comment "Datentyp für dreistellige numerische ISO-3166-1-Kennungen einschließlich führender Nullen."@de ;
+  rdfs:comment "Datatype for three-digit numeric ISO 3166-1 identifiers including leading zeroes."@en ;
+  rdfs:isDefinedBy <https://www.construct-x.org/vocab/identifier-scheme> ;
+  rdfs:label "ISO 3166-1 numeric identifier"@en ;
+  rdfs:label "Numerische ISO-3166-1-Kennung"@de ;
+.
+
+id-scheme:iso-3166-2
+  a rdfs:Datatype ;
+  rdfs:comment "Datentyp für ISO-3166-2-Kennungen administrativer Untereinheiten."@de ;
+  rdfs:comment "Datatype for ISO 3166-2 identifiers of administrative subdivisions."@en ;
+  rdfs:isDefinedBy <https://www.construct-x.org/vocab/identifier-scheme> ;
+  rdfs:label "ISO 3166-2 subdivision identifier"@en ;
+  rdfs:label "ISO-3166-2-Kennung einer administrativen Untereinheit"@de ;
+.
+
+id-scheme:nuts-2
+  a rdfs:Datatype ;
+  rdfs:comment "Datentyp fuer Kennungen von Regionen der Ebene 2 der Klassifikation der Gebietseinheiten fuer die Statistik (NUTS)."@de ;
+  rdfs:comment "Datatype for identifiers of level 2 regions in the Nomenclature of Territorial Units for Statistics (NUTS)."@en ;
+  rdfs:isDefinedBy <https://www.construct-x.org/vocab/identifier-scheme> ;
+  rdfs:label "NUTS-2-Kennung"@de ;
+  rdfs:label "NUTS 2 identifier"@en ;
+.

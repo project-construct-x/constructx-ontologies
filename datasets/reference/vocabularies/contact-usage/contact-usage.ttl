@@ -1,0 +1,77 @@
+# baseURI: https://www.construct-x.org/vocab/contact-usage
+# prefix: contact-usage
+
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/contact-usage>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer Nutzungskontexte von Kontaktpunkten."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for usage contexts of contact points."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://www.w3.org/TR/vcard-rdf/> ;
+  dcterms:title "Construct-X Contact Usage"@en ;
+  dcterms:title "Construct-X Kontaktnutzung"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "contact-usage" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/contact-usage#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/contact-usage/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept contact-usage:private,
+                     contact-usage:business,
+                     contact-usage:official ;
+.
+
+contact-usage:private
+  a conx-contact:ContactUsage, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer private Erreichbarkeit."@de ;
+  skos:definition "Contact point for private reachability."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-usage> ;
+  skos:notation "private" ;
+  skos:prefLabel "Privat"@de ;
+  skos:prefLabel "Private"@en ;
+  skos:scopeNote "Dieser Wert beschreibt den fachlichen Nutzungskontext und ist keine Zugriffsbeschraenkung."@de ;
+  skos:scopeNote "This value describes the business usage context and is not an access restriction."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-usage> ;
+.
+
+contact-usage:business
+  a conx-contact:ContactUsage, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer berufliche oder geschaeftliche Erreichbarkeit."@de ;
+  skos:definition "Contact point for professional or business reachability."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-usage> ;
+  skos:notation "business" ;
+  skos:prefLabel "Geschaeftlich"@de ;
+  skos:prefLabel "Business"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-usage> ;
+.
+
+contact-usage:official
+  a conx-contact:ContactUsage, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer offizielle, institutionelle oder registerbezogene Erreichbarkeit."@de ;
+  skos:definition "Contact point for official, institutional, or register-related reachability."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-usage> ;
+  skos:notation "official" ;
+  skos:prefLabel "Offiziell"@de ;
+  skos:prefLabel "Official"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-usage> ;
+.

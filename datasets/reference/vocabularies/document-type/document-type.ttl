@@ -1,0 +1,134 @@
+# baseURI: https://www.construct-x.org/vocab/document-type
+# prefix: document-type
+
+@prefix conx-doc: <https://www.construct-x.org/ontology/document#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix document-type: <https://www.construct-x.org/vocab/document-type#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/document-type>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer fachuebergreifende Dokumenttypen."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for cross-domain document types."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Document Types"@en ;
+  dcterms:title "Construct-X Dokumenttypen"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "document-type" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/document-type#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/document-type/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept document-type:contract,
+                     document-type:invoice,
+                     document-type:deliveryNote,
+                     document-type:certificate,
+                     document-type:report,
+                     document-type:plan,
+                     document-type:evidenceDocument,
+                     document-type:other ;
+.
+
+document-type:contract
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokument, das eine Vereinbarung oder vertragliche Regelung festhaelt."@de ;
+  skos:definition "Document recording an agreement or contractual arrangement."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "contract" ;
+  skos:prefLabel "Vertrag"@de ;
+  skos:prefLabel "Contract"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:invoice
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokument, mit dem eine finanzielle Forderung fuer Waren oder Leistungen ausgewiesen wird."@de ;
+  skos:definition "Document stating a financial claim for goods or services."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "invoice" ;
+  skos:prefLabel "Rechnung"@de ;
+  skos:prefLabel "Invoice"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:deliveryNote
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokument, das eine Lieferung und die darin enthaltenen Positionen begleitet oder bestaetigt."@de ;
+  skos:definition "Document accompanying or confirming a delivery and its contained items."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "delivery-note" ;
+  skos:prefLabel "Lieferschein"@de ;
+  skos:prefLabel "Delivery note"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:certificate
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokument, das eine Eigenschaft, Feststellung, Qualifikation oder Konformitaet bescheinigt."@de ;
+  skos:definition "Document certifying a property, finding, qualification, or conformity."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "certificate" ;
+  skos:prefLabel "Zertifikat"@de ;
+  skos:prefLabel "Certificate"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:report
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokument, das Ergebnisse, Beobachtungen oder einen Sachstand strukturiert darstellt."@de ;
+  skos:definition "Document presenting results, observations, or a state of affairs in a structured form."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "report" ;
+  skos:prefLabel "Bericht"@de ;
+  skos:prefLabel "Report"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:plan
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Planungs- oder Zeichnungsdokument, das eine vorgesehene oder beschriebene Ausfuehrung darstellt."@de ;
+  skos:definition "Planning or drawing document representing an intended or described realization."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "plan" ;
+  skos:prefLabel "Plan oder Zeichnung"@de ;
+  skos:prefLabel "Plan or drawing"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:evidenceDocument
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokument, das als Nachweis verwendet werden kann, ohne selbst die Semantik eines Evidence- oder Credential-Modells festzulegen."@de ;
+  skos:definition "Document that may be used as supporting evidence without itself defining evidence or credential semantics."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "evidence-document" ;
+  skos:prefLabel "Nachweisdokument"@de ;
+  skos:prefLabel "Evidence document"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.
+
+document-type:other
+  a conx-doc:DocumentType, skos:Concept ;
+  skos:definition "Dokumenttyp, der keinem anderen freigegebenen Startwert dieses Vokabulars entspricht."@de ;
+  skos:definition "Document type that does not match another approved initial value in this vocabulary."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/document-type> ;
+  skos:notation "other" ;
+  skos:prefLabel "Sonstiges Dokument"@de ;
+  skos:prefLabel "Other document"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/document-type> ;
+.

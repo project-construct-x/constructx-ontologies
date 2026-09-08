@@ -1,0 +1,21 @@
+id: human-sex
+title: Construct-X Human Sex
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/human-sex
+version_iri: https://www.construct-x.org/vocab/human-sex/0.1.0
+namespace: https://www.construct-x.org/vocab/human-sex#
+preferred_namespace_prefix: human-sex
+created: 2026-08-25
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+dependencies: []
+
+artifacts:
+  data: human-sex.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md
+

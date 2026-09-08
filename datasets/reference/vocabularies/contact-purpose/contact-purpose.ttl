@@ -1,0 +1,124 @@
+# baseURI: https://www.construct-x.org/vocab/contact-purpose
+# prefix: contact-purpose
+
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/contact-purpose>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer fachliche Zwecke von Kontaktpunkten."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for business purposes of contact points."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  dcterms:source <https://schema.org/ContactPoint> ;
+  dcterms:title "Construct-X Contact Purposes"@en ;
+  dcterms:title "Construct-X Kontaktzwecke"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "contact-purpose" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/contact-purpose#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/contact-purpose/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept contact-purpose:general,
+                     contact-purpose:delivery,
+                     contact-purpose:billing,
+                     contact-purpose:support,
+                     contact-purpose:sales,
+                     contact-purpose:technical,
+                     contact-purpose:emergency ;
+.
+
+contact-purpose:general
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer allgemeine Kontaktaufnahme ohne spezifischeren Zweck."@de ;
+  skos:definition "Contact point for general contact without a more specific purpose."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "general" ;
+  skos:prefLabel "Allgemein"@de ;
+  skos:prefLabel "General"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.
+
+contact-purpose:delivery
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer Lieferung, Warenannahme oder Zustellung."@de ;
+  skos:definition "Contact point for delivery, goods receipt, or dispatch."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "delivery" ;
+  skos:prefLabel "Lieferung"@de ;
+  skos:prefLabel "Delivery"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.
+
+contact-purpose:billing
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer Rechnungen, Zahlungen oder kaufmaennische Klaerung."@de ;
+  skos:definition "Contact point for invoices, payments, or commercial clarification."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "billing" ;
+  skos:prefLabel "Rechnung"@de ;
+  skos:prefLabel "Billing"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.
+
+contact-purpose:support
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer Support oder Serviceanfragen."@de ;
+  skos:definition "Contact point for support or service requests."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "support" ;
+  skos:prefLabel "Support"@de ;
+  skos:prefLabel "Support"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.
+
+contact-purpose:sales
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer Vertrieb, Angebot oder Verkaufskommunikation."@de ;
+  skos:definition "Contact point for sales, quotation, or sales communication."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "sales" ;
+  skos:prefLabel "Vertrieb"@de ;
+  skos:prefLabel "Sales"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.
+
+contact-purpose:technical
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer technische Rueckfragen oder Abstimmungen."@de ;
+  skos:definition "Contact point for technical questions or coordination."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "technical" ;
+  skos:prefLabel "Technisch"@de ;
+  skos:prefLabel "Technical"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.
+
+contact-purpose:emergency
+  a conx-contact:ContactPurpose, skos:Concept ;
+  skos:definition "Kontaktpunkt fuer Notfaelle, Eskalationen oder dringende Stoerungen."@de ;
+  skos:definition "Contact point for emergencies, escalations, or urgent incidents."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-purpose> ;
+  skos:notation "emergency" ;
+  skos:prefLabel "Notfall"@de ;
+  skos:prefLabel "Emergency"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-purpose> ;
+.

@@ -1,0 +1,93 @@
+# baseURI: https://www.construct-x.org/vocab/gender
+# prefix: gender
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gender: <https://www.construct-x.org/vocab/gender#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/gender>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-25"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Startvokabular für Genderidentität und die ausdrückliche Nichtoffenlegung einer Genderangabe."@de ;
+  dcterms:description "Controlled Construct-X initial vocabulary for gender identity and the explicit non-disclosure of a gender statement."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-25"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://semiceu.github.io/Core-Person-Vocabulary/releases/2.1.2/> ;
+  dcterms:title "Construct-X Gender"@en ;
+  dcterms:title "Construct-X Gender"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "gender" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/gender#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/gender/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept gender:man,
+                     gender:woman,
+                     gender:nonBinaryOrDiverse,
+                     gender:notDisclosed ;
+.
+
+gender:man
+  a skos:Concept ;
+  skos:definition "Genderidentität einer Person, die sich als Mann identifiziert."@de ;
+  skos:definition "Gender identity of a person who identifies as a man."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/gender> ;
+  skos:notation "man" ;
+  skos:prefLabel "Mann"@de ;
+  skos:prefLabel "Man"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/gender> ;
+.
+
+gender:woman
+  a skos:Concept ;
+  skos:definition "Genderidentität einer Person, die sich als Frau identifiziert."@de ;
+  skos:definition "Gender identity of a person who identifies as a woman."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/gender> ;
+  skos:notation "woman" ;
+  skos:prefLabel "Frau"@de ;
+  skos:prefLabel "Woman"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/gender> ;
+.
+
+gender:nonBinaryOrDiverse
+  a skos:Concept ;
+  skos:definition "Vorläufiger, erweiterbarer Oberbegriff für nicht-binäre oder genderdiverse Identitäten außerhalb der beiden binären Startwerte."@de ;
+  skos:definition "Provisional extensible broader concept for non-binary or gender-diverse identities outside the two initial binary values."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/gender> ;
+  skos:notation "non-binary-or-diverse" ;
+  skos:prefLabel "Nicht-binär oder divers"@de ;
+  skos:prefLabel "Non-binary or gender-diverse"@en ;
+  skos:scopeNote "Präzisere Genderidentitäten können in späteren Versionen als engere Konzepte ergänzt werden."@de ;
+  skos:scopeNote "More specific gender identities may be added as narrower concepts in later versions."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/gender> ;
+.
+
+gender:notDisclosed
+  a skos:Concept ;
+  skos:altLabel "Möchte keine Angabe machen"@de ;
+  skos:altLabel "Prefer not to say"@en ;
+  skos:definition "Die Person hat ausdrücklich entschieden, keine Genderangabe offenzulegen."@de ;
+  skos:definition "The person has explicitly chosen not to disclose a gender statement."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/gender> ;
+  skos:notation "not-disclosed" ;
+  skos:prefLabel "Keine Angabe"@de ;
+  skos:prefLabel "Not disclosed"@en ;
+  skos:scopeNote "Dieses Konzept ist keine Genderidentität und unterscheidet sich vom vollständigen Fehlen einer gender-Aussage."@de ;
+  skos:scopeNote "This concept is not a gender identity and differs from the complete absence of a gender statement."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/gender> ;
+.
+

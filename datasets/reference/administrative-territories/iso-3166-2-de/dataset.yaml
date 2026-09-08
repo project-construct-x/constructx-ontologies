@@ -1,0 +1,45 @@
+id: iso-3166-2-de
+title: Construct-X German States according to ISO 3166-2
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de
+version_iri: https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.1.0
+namespace: https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de#
+preferred_namespace_prefix: areas
+created: 2026-08-18
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+source:
+  standard: ISO 3166-2
+  standard_url: https://www.iso.org/iso-3166-country-codes.html
+  extraction_dataset: EU Vocabularies Administrative Territorial Units
+  extraction_url: http://publications.europa.eu/resource/dataset/atu
+  extraction_version: 20260617-0
+
+dependencies:
+  - id: address
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/address
+    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+  - id: iso-3166-1-countries
+    version: 0.1.0
+    vocabulary_iri: https://www.construct-x.org/vocab/country
+    version_iri: https://www.construct-x.org/vocab/country/0.1.0
+  - id: identifier-scheme
+    version: 0.2.0
+    vocabulary_iri: https://www.construct-x.org/vocab/identifier-scheme
+    version_iri: https://www.construct-x.org/vocab/identifier-scheme/0.2.0
+  - id: adms
+    version: "2.0"
+    namespace: http://www.w3.org/ns/adms#
+
+artifacts:
+  data: data/administrative-areas.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md
+
+
+

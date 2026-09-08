@@ -1,0 +1,139 @@
+# baseURI: https://www.construct-x.org/vocab/contact-channel
+# prefix: contact-channel
+
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/vocab/contact-channel>
+  a owl:Ontology, skos:ConceptScheme ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer Kommunikationskanaele von Kontaktmethoden."@de ;
+  dcterms:description "Controlled Construct-X reference vocabulary for communication channels of contact methods."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
+  dcterms:source <https://schema.org/ContactPoint> ;
+  dcterms:source <https://www.w3.org/TR/vcard-rdf/> ;
+  dcterms:title "Construct-X Contact Channels"@en ;
+  dcterms:title "Construct-X Kontaktkanaele"@de ;
+  schema:version "0.1.0" ;
+  vann:preferredNamespacePrefix "contact-channel" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/contact-channel#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/contact-channel/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept contact-channel:email,
+                     contact-channel:phone,
+                     contact-channel:mobilePhone,
+                     contact-channel:fax,
+                     contact-channel:website,
+                     contact-channel:messenger,
+                     contact-channel:socialProfile,
+                     contact-channel:postalAddress ;
+.
+
+contact-channel:email
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kommunikationskanal fuer E-Mail-Adressen."@de ;
+  skos:definition "Communication channel for email addresses."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "email" ;
+  skos:prefLabel "E-Mail"@de ;
+  skos:prefLabel "Email"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:phone
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Allgemeiner Kommunikationskanal fuer Telefonnummern."@de ;
+  skos:definition "General communication channel for telephone numbers."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "phone" ;
+  skos:prefLabel "Telefon"@de ;
+  skos:prefLabel "Phone"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:mobilePhone
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kommunikationskanal fuer Mobilfunknummern."@de ;
+  skos:definition "Communication channel for mobile phone numbers."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "mobile-phone" ;
+  skos:prefLabel "Mobiltelefon"@de ;
+  skos:prefLabel "Mobile phone"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:fax
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kommunikationskanal fuer Faxnummern."@de ;
+  skos:definition "Communication channel for fax numbers."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "fax" ;
+  skos:prefLabel "Fax"@de ;
+  skos:prefLabel "Fax"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:website
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kommunikationskanal fuer eine Website oder Web-Kontaktseite."@de ;
+  skos:definition "Communication channel for a website or web contact page."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "website" ;
+  skos:prefLabel "Website"@de ;
+  skos:prefLabel "Website"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:messenger
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kommunikationskanal fuer Messenger- oder Chat-Erreichbarkeit, angegeben als Handle oder URI."@de ;
+  skos:definition "Communication channel for messenger or chat reachability, given as a handle or URI."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "messenger" ;
+  skos:prefLabel "Messenger"@de ;
+  skos:prefLabel "Messenger"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:socialProfile
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kommunikationskanal fuer ein Social-Media- oder berufliches Profil."@de ;
+  skos:definition "Communication channel for a social media or professional profile."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "social-profile" ;
+  skos:prefLabel "Social-Media-Profil"@de ;
+  skos:prefLabel "Social media profile"@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
+
+contact-channel:postalAddress
+  a conx-contact:ContactChannel, skos:Concept ;
+  skos:definition "Kontaktkanal fuer postalische Erreichbarkeit ueber eine Construct-X-Adresszuordnung."@de ;
+  skos:definition "Contact channel for postal reachability via a Construct-X address assignment."@en ;
+  skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
+  skos:notation "postal-address" ;
+  skos:prefLabel "Postanschrift"@de ;
+  skos:prefLabel "Postal address"@en ;
+  skos:scopeNote "Die postalische Struktur wird nicht in diesem Vokabular modelliert, sondern ueber conx-contact:usesAddressAssignment referenziert."@de ;
+  skos:scopeNote "The postal structure is not modeled in this vocabulary, but referenced through conx-contact:usesAddressAssignment."@en ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
+.
