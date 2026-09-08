@@ -1,0 +1,272 @@
+# baseURI: https://www.construct-x.org/shapes/person/core
+# prefix: conx-person-sh
+
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-id-sh: <https://www.construct-x.org/shapes/identifier/core#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix conx-person-sh: <https://www.construct-x.org/shapes/person/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix gender: <https://www.construct-x.org/vocab/gender#> .
+@prefix human-sex: <https://www.construct-x.org/vocab/human-sex#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/person/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-08-25"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Validierungsregeln für die allgemeinen, anwendungsfallunabhängigen Verträge der Construct-X Personenontologie."@de ;
+  dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Person Ontology."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-25"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Person Core Shapes"@de ;
+  dcterms:title "Construct-X Person Core Shapes"@en ;
+  owl:imports <https://www.construct-x.org/shapes/identifier/core/0.1.0> ;
+  owl:versionIRI <https://www.construct-x.org/shapes/person/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+## Reusable literal contracts
+
+conx-person-sh:StringOrLangStringShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+.
+
+conx-person-sh:NonEmptyStringOrLangStringShape
+  a sh:NodeShape ;
+  sh:node conx-person-sh:StringOrLangStringShape ;
+  sh:pattern "\\S" ;
+.
+
+## Person target and node contracts
+
+conx-person-sh:PersonIriShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:IRI ;
+  sh:message "[PER-001] Eine Person muss durch eine IRI referenziert werden."@de ;
+  sh:message "[PER-001] A Person must be referenced by an IRI."@en ;
+.
+
+conx-person-sh:ExplicitPersonTypeShape
+  a sh:NodeShape ;
+  sh:class conx-person:Person ;
+  sh:message "[PER-002] Eine Ressource mit Personeneigenschaften muss explizit als conx-person:Person typisiert sein."@de ;
+  sh:message "[PER-002] A resource using Person properties must be explicitly typed as conx-person:Person."@en ;
+.
+
+conx-person-sh:PersonShape
+  a sh:NodeShape ;
+  sh:name "Person"@de ;
+  sh:name "Person"@en ;
+  sh:targetClass conx-person:Person ;
+  sh:targetSubjectsOf conx-person:fullName,
+                      conx-person:givenName,
+                      conx-person:familyName,
+                      conx-person:additionalName,
+                      conx-person:birthName,
+                      conx-person:birthDate,
+                      conx-person:birthPlaceName,
+                      conx-person:sex,
+                      conx-person:gender,
+                      conx-person:citizenship,
+                      conx-person:hasIdentityEvidence ;
+  sh:node conx-person-sh:PersonIriShape,
+          conx-person-sh:ExplicitPersonTypeShape ;
+  sh:property conx-person-sh:FullNamePropertyShape,
+              conx-person-sh:GivenNamePropertyShape,
+              conx-person-sh:FamilyNamePropertyShape,
+              conx-person-sh:AdditionalNamePropertyShape,
+              conx-person-sh:BirthNamePropertyShape,
+              conx-person-sh:BirthDatePropertyShape,
+              conx-person-sh:BirthPlaceNamePropertyShape,
+              conx-person-sh:SexPropertyShape,
+              conx-person-sh:GenderPropertyShape,
+              conx-person-sh:CitizenshipPropertyShape,
+              conx-person-sh:IdentifierPropertyShape,
+              conx-person-sh:IdentityEvidencePropertyShape ;
+.
+
+## Name and birth-data property shapes
+
+conx-person-sh:FullNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:fullName ;
+  sh:minCount 1 ;
+  sh:node conx-person-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-010] Eine Person muss mindestens einen nicht leeren vollständigen Namen besitzen."@de ;
+  sh:message "[PER-010] A Person must have at least one non-empty full name."@en ;
+.
+
+conx-person-sh:GivenNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:givenName ;
+  sh:minCount 1 ;
+  sh:node conx-person-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-011] Eine Person muss mindestens einen nicht leeren Vornamen besitzen."@de ;
+  sh:message "[PER-011] A Person must have at least one non-empty given name."@en ;
+.
+
+conx-person-sh:FamilyNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:familyName ;
+  sh:node conx-person-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-012] Jeder Familienname muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[PER-012] Every family name must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-person-sh:AdditionalNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:additionalName ;
+  sh:node conx-person-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-013] Jeder zusätzliche Name muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[PER-013] Every additional name must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-person-sh:BirthNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:birthName ;
+  sh:node conx-person-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-014] Jeder Geburtsname muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[PER-014] Every birth name must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-person-sh:BirthDatePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:birthDate ;
+  sh:datatype xsd:date ;
+  sh:maxCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-020] Eine Person darf höchstens ein vollständiges Geburtsdatum mit dem Datentyp xsd:date besitzen."@de ;
+  sh:message "[PER-020] A Person may have at most one complete birth date using datatype xsd:date."@en ;
+.
+
+conx-person-sh:BirthPlaceNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:birthPlaceName ;
+  sh:maxCount 1 ;
+  sh:node conx-person-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-021] Der Geburtsortname muss ein nicht leerer String oder sprachmarkierter String sein und darf höchstens einmal vorkommen."@de ;
+  sh:message "[PER-021] The birth place name must be a non-empty string or language-tagged string and may occur at most once."@en ;
+.
+
+## Controlled reference values
+
+conx-person-sh:HumanSexConceptShape
+  a sh:NodeShape ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      human-sex:notKnown
+      human-sex:male
+      human-sex:female
+      human-sex:notApplicable
+    ) ;
+  sh:message "[PER-030] sex muss auf einen freigegebenen ISO/IEC-5218-Wert verweisen."@de ;
+  sh:message "[PER-030] sex must reference an approved ISO/IEC 5218 value."@en ;
+.
+
+conx-person-sh:GenderConceptShape
+  a sh:NodeShape ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      gender:man
+      gender:woman
+      gender:nonBinaryOrDiverse
+      gender:notDisclosed
+    ) ;
+  sh:message "[PER-031] gender muss auf einen freigegebenen Genderwert verweisen."@de ;
+  sh:message "[PER-031] gender must reference an approved gender value."@en ;
+.
+
+conx-person-sh:CitizenshipCountryShape
+  a sh:NodeShape ;
+  sh:class conx-addr:Country ;
+  sh:nodeKind sh:IRI ;
+  sh:property [
+      sh:path skos:inScheme ;
+      sh:hasValue <https://www.construct-x.org/vocab/country> ;
+      sh:message "[PER-040] Die Länderressource muss zum freigegebenen Construct-X-Ländervokabular gehören."@de ;
+      sh:message "[PER-040] The country resource must belong to the approved Construct-X country vocabulary."@en ;
+    ] ;
+  sh:message "[PER-040] Jede Staatsangehörigkeit muss auf ein referenzierbares Construct-X-Land verweisen."@de ;
+  sh:message "[PER-040] Every citizenship value must reference a Construct-X country resource."@en ;
+.
+
+conx-person-sh:SexPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:sex ;
+  sh:maxCount 1 ;
+  sh:node conx-person-sh:HumanSexConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-030] sex darf höchstens einmal vorkommen und muss auf einen freigegebenen ISO/IEC-5218-Wert verweisen."@de ;
+  sh:message "[PER-030] sex may occur at most once and must reference an approved ISO/IEC 5218 value."@en ;
+.
+
+conx-person-sh:GenderPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:gender ;
+  sh:maxCount 1 ;
+  sh:node conx-person-sh:GenderConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-031] gender darf höchstens einmal vorkommen und muss auf einen freigegebenen Genderwert verweisen."@de ;
+  sh:message "[PER-031] gender may occur at most once and must reference an approved gender value."@en ;
+.
+
+conx-person-sh:CitizenshipPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:citizenship ;
+  sh:node conx-person-sh:CitizenshipCountryShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-040] Jede Staatsangehörigkeit muss auf ein Land des freigegebenen Construct-X-Ländervokabulars verweisen."@de ;
+  sh:message "[PER-040] Every citizenship value must reference a country from the approved Construct-X country vocabulary."@en ;
+.
+
+## Person identifier contract
+
+conx-person-sh:IdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path adms:identifier ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:node conx-id-sh:ADMSIdentifierShape ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-050] Jeder Personenidentifikator muss eine ADMS-Identifier-Ressource mit genau einer literalen Notation sein."@de ;
+  sh:message "[PER-050] Every Person identifier must be an ADMS Identifier resource with exactly one literal notation."@en ;
+.
+
+## External identity evidence
+
+conx-person-sh:IdentityEvidencePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-person:hasIdentityEvidence ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[PER-060] Jeder Identitätsnachweis muss durch eine externe IRI referenziert werden."@de ;
+  sh:message "[PER-060] Every identity evidence resource must be referenced by an external IRI."@en ;
+.

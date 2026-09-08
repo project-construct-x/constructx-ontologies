@@ -1,0 +1,19 @@
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:incomplete-birth-date
+  a conx-person:Person ;
+  conx-person:fullName "Kim Beispiel" ;
+  conx-person:givenName "Kim" ;
+  conx-person:birthDate "1985"^^xsd:gYear ;
+.
+
+ex:multiple-birth-dates
+  a conx-person:Person ;
+  conx-person:fullName "Robin Beispiel" ;
+  conx-person:givenName "Robin" ;
+  conx-person:birthDate "1985-04-23"^^xsd:date,
+                        "1985-04-24"^^xsd:date ;
+.
+

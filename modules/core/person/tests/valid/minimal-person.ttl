@@ -1,0 +1,10 @@
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:minimal-person
+  a conx-person:Person ;
+  conx-person:fullName "Kim Beispiel" ;
+  conx-person:givenName "Kim" ;
+  ex:applicationValue "Zusätzliche Properties bleiben zulässig"@de ;
+.
+

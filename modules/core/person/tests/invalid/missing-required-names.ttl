@@ -1,0 +1,23 @@
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:missing-full-name
+  a conx-person:Person ;
+  conx-person:givenName "Kim" ;
+.
+
+ex:missing-given-name
+  a conx-person:Person ;
+  conx-person:fullName "Kim Beispiel" ;
+.
+
+ex:person-properties-without-person-type
+  conx-person:fullName "Alex Beispiel" ;
+  conx-person:givenName "Alex" ;
+.
+
+[
+  a conx-person:Person ;
+  conx-person:fullName "Person ohne IRI" ;
+  conx-person:givenName "Person" ;
+] .

@@ -1,0 +1,55 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:identifier-as-literal
+  a conx-person:Person ;
+  conx-person:fullName "Kim Beispiel" ;
+  conx-person:givenName "Kim" ;
+  adms:identifier "P-4711" ;
+.
+
+ex:identifier-without-notation
+  a conx-person:Person ;
+  conx-person:fullName "Alex Beispiel" ;
+  conx-person:givenName "Alex" ;
+  adms:identifier [ a adms:Identifier ] ;
+.
+
+ex:identifier-without-adms-type
+  a conx-person:Person ;
+  conx-person:fullName "Taylor Beispiel" ;
+  conx-person:givenName "Taylor" ;
+  adms:identifier [ skos:notation "P-0" ] ;
+.
+
+ex:identifier-with-multiple-notations
+  a conx-person:Person ;
+  conx-person:fullName "Sam Beispiel" ;
+  conx-person:givenName "Sam" ;
+  adms:identifier [
+      a adms:Identifier ;
+      skos:notation "P-1",
+                    "P-2"
+    ] ;
+.
+
+ex:identifier-with-multiple-agencies
+  a conx-person:Person ;
+  conx-person:fullName "Robin Beispiel" ;
+  conx-person:givenName "Robin" ;
+  adms:identifier [
+      a adms:Identifier ;
+      skos:notation "P-3" ;
+      adms:schemaAgency "Agentur A",
+                        "Agentur B"
+    ] ;
+.
+
+ex:evidence-as-literal
+  a conx-person:Person ;
+  conx-person:fullName "Maria Beispiel" ;
+  conx-person:givenName "Maria" ;
+  conx-person:hasIdentityEvidence "Ausweisdokument 123" ;
+.

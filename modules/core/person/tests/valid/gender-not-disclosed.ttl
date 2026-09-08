@@ -1,0 +1,11 @@
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix gender: <https://www.construct-x.org/vocab/gender#> .
+
+ex:person-without-disclosed-gender
+  a conx-person:Person ;
+  conx-person:fullName "Robin Beispiel" ;
+  conx-person:givenName "Robin" ;
+  conx-person:gender gender:notDisclosed ;
+.
+

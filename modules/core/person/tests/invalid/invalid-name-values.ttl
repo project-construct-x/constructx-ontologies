@@ -1,0 +1,21 @@
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:invalid-name-values
+  a conx-person:Person ;
+  conx-person:fullName "   " ;
+  conx-person:givenName "Kim" ;
+  conx-person:familyName "" ;
+  conx-person:additionalName "42"^^xsd:integer ;
+  conx-person:birthName "   "@de ;
+  conx-person:birthPlaceName "" ;
+.
+
+ex:multiple-birth-place-names
+  a conx-person:Person ;
+  conx-person:fullName "Alex Beispiel" ;
+  conx-person:givenName "Alex" ;
+  conx-person:birthPlaceName "Bochum",
+                                 "Essen" ;
+.

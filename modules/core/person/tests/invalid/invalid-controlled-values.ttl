@@ -1,0 +1,57 @@
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix ex: <https://example.org/id/> .
+@prefix gender: <https://www.construct-x.org/vocab/gender#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+ex:sex-as-literal
+  a conx-person:Person ;
+  conx-person:fullName "Alex Beispiel" ;
+  conx-person:givenName "Alex" ;
+  conx-person:sex "female" ;
+.
+
+ex:unknown-gender
+  a conx-person:Person ;
+  conx-person:fullName "Sam Beispiel" ;
+  conx-person:givenName "Sam" ;
+  conx-person:gender ex:unknown-gender-value ;
+.
+
+ex:unknown-gender-value a skos:Concept .
+
+ex:multiple-gender-values
+  a conx-person:Person ;
+  conx-person:fullName "Robin Beispiel" ;
+  conx-person:givenName "Robin" ;
+  conx-person:gender gender:man,
+                     gender:nonBinaryOrDiverse ;
+.
+
+ex:country-code-as-literal
+  a conx-person:Person ;
+  conx-person:fullName "Kim Beispiel" ;
+  conx-person:givenName "Kim" ;
+  conx-person:citizenship "DE" ;
+.
+
+ex:region-instead-of-country
+  a conx-person:Person ;
+  conx-person:fullName "Maria Beispiel" ;
+  conx-person:givenName "Maria" ;
+  conx-person:citizenship ex:region ;
+.
+
+ex:region
+  a conx-addr:AdministrativeArea ;
+  skos:inScheme <https://www.construct-x.org/vocab/country> ;
+.
+
+ex:country-outside-approved-scheme
+  a conx-person:Person ;
+  conx-person:fullName "Taylor Beispiel" ;
+  conx-person:givenName "Taylor" ;
+  conx-person:citizenship ex:unlisted-country ;
+.
+
+ex:unlisted-country a conx-addr:Country .

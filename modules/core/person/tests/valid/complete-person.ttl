@@ -1,0 +1,31 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix conx-person: <https://www.construct-x.org/ontology/person#> .
+@prefix country: <https://www.construct-x.org/vocab/country#> .
+@prefix ex: <https://example.org/id/> .
+@prefix gender: <https://www.construct-x.org/vocab/gender#> .
+@prefix human-sex: <https://www.construct-x.org/vocab/human-sex#> .
+@prefix id-scheme: <https://www.construct-x.org/vocab/identifier-scheme#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:complete-person
+  a conx-person:Person ;
+  conx-person:fullName "Dr. Maria Anna Beispiel"@de ;
+  conx-person:givenName "Maria" ;
+  conx-person:familyName "Beispiel" ;
+  conx-person:additionalName "Anna" ;
+  conx-person:birthName "Maria Anna Altname" ;
+  conx-person:birthDate "1985-04-23"^^xsd:date ;
+  conx-person:birthPlaceName "Bochum"@de ;
+  conx-person:sex human-sex:female ;
+  conx-person:gender gender:woman ;
+  conx-person:citizenship country:DEU,
+                          country:FRA ;
+  conx-person:hasIdentityEvidence ex:credential-789 ;
+  adms:identifier [
+      a adms:Identifier ;
+      skos:notation "P-4711"^^id-scheme:project-person-id ;
+      adms:schemaAgency "Beispielorganisation"
+    ] ;
+.
+
