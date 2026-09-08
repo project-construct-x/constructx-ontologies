@@ -1,0 +1,46 @@
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix ex: <https://example.org/id/> .
+@prefix roles: <https://www.construct-x.org/vocab/address-role#> .
+
+ex:company-1
+    conx-contact:hasContactPoint ex:company-1-delivery-contact .
+
+ex:company-1-delivery-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactUsage contact-usage:business ;
+    conx-contact:contactPurpose contact-purpose:delivery ;
+    conx-contact:contactName "Wareneingang Tor 4"@de ;
+    conx-contact:departmentName "Logistik"@de ;
+    conx-contact:functionTitle "Schichtleitung"@de ;
+    conx-contact:availableLanguage "de" ;
+    conx-contact:availabilityNote "Mo-Fr 08:00-16:00"@de ;
+    conx-contact:hasContactMethod ex:company-1-delivery-email,
+                                  ex:company-1-delivery-phone,
+                                  ex:company-1-delivery-postal .
+
+ex:company-1-delivery-email
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:email ;
+    conx-contact:contactValue "wareneingang@example.org" .
+
+ex:company-1-delivery-phone
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:phone ;
+    conx-contact:contactValue "+49 234 123456" .
+
+ex:company-1-delivery-postal
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:postalAddress ;
+    conx-contact:usesAddressAssignment ex:company-1-delivery-address-assignment .
+
+ex:company-1-delivery-address-assignment
+    a conx-addr:AddressAssignment ;
+    conx-addr:assignedAddress ex:company-1-delivery-address ;
+    conx-addr:addressRole roles:DeliveryAddressRole .
+
+ex:company-1-delivery-address
+    a conx-addr:Address .

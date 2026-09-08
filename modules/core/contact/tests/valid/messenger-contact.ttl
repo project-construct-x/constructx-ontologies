@@ -1,0 +1,23 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix contact-platform: <https://www.construct-x.org/vocab/contact-platform#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:support-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactPurpose contact-purpose:support ;
+    conx-contact:hasContactMethod ex:support-chat-handle,
+                                  ex:support-chat-uri .
+
+ex:support-chat-handle
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:messenger ;
+    conx-contact:contactPlatform contact-platform:signal ;
+    conx-contact:contactValue "@support-desk" .
+
+ex:support-chat-uri
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:messenger ;
+    conx-contact:contactPlatform contact-platform:microsoftTeams ;
+    conx-contact:contactURI <https://teams.microsoft.com/l/chat/0/0?users=support@example.org> .

@@ -1,0 +1,28 @@
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:invalid-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:hasContactMethod ex:postal-literal,
+                                  ex:postal-direct-address,
+                                  ex:postal-wrong-resource .
+
+ex:postal-literal
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:postalAddress ;
+    conx-contact:contactValue "Musterstrasse 1, 12345 Berlin" .
+
+ex:postal-direct-address
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:postalAddress ;
+    conx-contact:usesAddress ex:address-1 .
+
+ex:postal-wrong-resource
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:postalAddress ;
+    conx-contact:usesAddressAssignment ex:address-1 .
+
+ex:address-1
+    a conx-addr:Address .

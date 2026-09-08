@@ -1,0 +1,37 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:invalid-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:hasContactMethod ex:website-as-string,
+                                  ex:email-as-uri,
+                                  ex:messenger-two-payloads,
+                                  ex:website-uri-literal,
+                                  ex:blank-phone .
+
+ex:website-as-string
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:website ;
+    conx-contact:contactValue "https://example.org/contact" .
+
+ex:email-as-uri
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:email ;
+    conx-contact:contactURI <mailto:contact@example.org> .
+
+ex:messenger-two-payloads
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:messenger ;
+    conx-contact:contactValue "@support" ;
+    conx-contact:contactURI <https://example.org/support-chat> .
+
+ex:website-uri-literal
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:website ;
+    conx-contact:contactURI "https://example.org/contact" .
+
+ex:blank-phone
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:phone ;
+    conx-contact:contactValue "   " .

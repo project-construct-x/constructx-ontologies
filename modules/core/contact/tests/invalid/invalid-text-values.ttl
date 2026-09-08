@@ -1,0 +1,25 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix ex: <https://example.org/id/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:invalid-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactName "   " ;
+    conx-contact:departmentName 123 ;
+    conx-contact:functionTitle "   "@de ;
+    conx-contact:availableLanguage "   " ;
+    conx-contact:availabilityNote true ;
+    conx-contact:hasContactMethod ex:valid-email .
+
+ex:valid-email
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:email ;
+    conx-contact:contactValue "contact@example.org" .
+
+ex:invalid-platform-method
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:socialProfile ;
+    conx-contact:contactPlatform ex:unsupported-platform,
+                                 ex:another-platform ;
+    conx-contact:contactURI <https://example.org/profile> .

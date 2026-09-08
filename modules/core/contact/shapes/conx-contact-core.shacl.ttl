@@ -1,0 +1,637 @@
+# baseURI: https://www.construct-x.org/shapes/contact/core
+# prefix: conx-contact-sh
+
+@prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix conx-contact-sh: <https://www.construct-x.org/shapes/contact/core#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix contact-platform: <https://www.construct-x.org/vocab/contact-platform#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/contact/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-08-27"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Validierungsregeln fuer die allgemeinen, anwendungsfallunabhaengigen Vertraege der Construct-X Kontaktontologie."@de ;
+  dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Contact Ontology."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Contact Core Shapes"@de ;
+  dcterms:title "Construct-X Contact Core Shapes"@en ;
+  owl:versionIRI <https://www.construct-x.org/shapes/contact/core/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
+## Reusable literal contracts
+
+conx-contact-sh:StringOrLangStringShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+.
+
+conx-contact-sh:NonEmptyStringOrLangStringShape
+  a sh:NodeShape ;
+  sh:node conx-contact-sh:StringOrLangStringShape ;
+  sh:pattern "\\S" ;
+.
+
+conx-contact-sh:NonEmptyStringShape
+  a sh:NodeShape ;
+  sh:datatype xsd:string ;
+  sh:pattern "\\S" ;
+.
+
+## Target and node contracts
+
+conx-contact-sh:ContactPointResourceShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[CON-CP-001] Ein ContactPoint muss eine Ressource sein und darf kein Literal sein."@de ;
+  sh:message "[CON-CP-001] A ContactPoint must be a resource and must not be a literal."@en ;
+.
+
+conx-contact-sh:ExplicitContactPointTypeShape
+  a sh:NodeShape ;
+  sh:class conx-contact:ContactPoint ;
+  sh:message "[CON-CP-002] Eine als Kontaktpunkt verwendete Ressource muss explizit als conx-contact:ContactPoint typisiert sein."@de ;
+  sh:message "[CON-CP-002] A resource used as contact point must be explicitly typed as conx-contact:ContactPoint."@en ;
+.
+
+conx-contact-sh:ContactMethodResourceShape
+  a sh:NodeShape ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[CON-CM-001] Eine ContactMethod muss eine Ressource sein und darf kein Literal sein."@de ;
+  sh:message "[CON-CM-001] A ContactMethod must be a resource and must not be a literal."@en ;
+.
+
+conx-contact-sh:ExplicitContactMethodTypeShape
+  a sh:NodeShape ;
+  sh:class conx-contact:ContactMethod ;
+  sh:message "[CON-CM-002] Eine als Kontaktmethode verwendete Ressource muss explizit als conx-contact:ContactMethod typisiert sein."@de ;
+  sh:message "[CON-CM-002] A resource used as contact method must be explicitly typed as conx-contact:ContactMethod."@en ;
+.
+
+conx-contact-sh:ContactCarrierShape
+  a sh:NodeShape ;
+  sh:name "Contact carrier"@en ;
+  sh:name "Kontakttraeger"@de ;
+  sh:targetSubjectsOf conx-contact:hasContactPoint ;
+  sh:property conx-contact-sh:HasContactPointPropertyShape ;
+.
+
+conx-contact-sh:ContactPointShape
+  a sh:NodeShape ;
+  sh:name "Contact point"@en ;
+  sh:name "Kontaktpunkt"@de ;
+  sh:targetClass conx-contact:ContactPoint ;
+  sh:targetObjectsOf conx-contact:hasContactPoint ;
+  sh:targetSubjectsOf conx-contact:hasContactMethod,
+                      conx-contact:contactUsage,
+                      conx-contact:contactPurpose,
+                      conx-contact:contactName,
+                      conx-contact:departmentName,
+                      conx-contact:functionTitle,
+                      conx-contact:availableLanguage,
+                      conx-contact:availabilityNote,
+                      conx-contact:isContactPointFor ;
+  sh:node conx-contact-sh:ContactPointResourceShape,
+          conx-contact-sh:ExplicitContactPointTypeShape ;
+  sh:property conx-contact-sh:HasContactMethodPropertyShape,
+              conx-contact-sh:ContactUsagePropertyShape,
+              conx-contact-sh:ContactPurposePropertyShape,
+              conx-contact-sh:ContactNamePropertyShape,
+              conx-contact-sh:DepartmentNamePropertyShape,
+              conx-contact-sh:FunctionTitlePropertyShape,
+              conx-contact-sh:AvailableLanguagePropertyShape,
+              conx-contact-sh:AvailabilityNotePropertyShape,
+              conx-contact-sh:IsContactPointForPropertyShape ;
+.
+
+conx-contact-sh:ContactMethodShape
+  a sh:NodeShape ;
+  sh:name "Contact method"@en ;
+  sh:name "Kontaktmethode"@de ;
+  sh:targetClass conx-contact:ContactMethod ;
+  sh:targetObjectsOf conx-contact:hasContactMethod ;
+  sh:targetSubjectsOf conx-contact:contactChannel,
+                      conx-contact:contactValue,
+                      conx-contact:contactURI,
+                      conx-contact:usesAddressAssignment,
+                      conx-contact:contactPlatform ;
+  sh:node conx-contact-sh:ContactMethodResourceShape,
+          conx-contact-sh:ExplicitContactMethodTypeShape ;
+  sh:property conx-contact-sh:ContactChannelPropertyShape,
+              conx-contact-sh:ContactValuePropertyShape,
+              conx-contact-sh:ContactUriPropertyShape,
+              conx-contact-sh:UsesAddressAssignmentPropertyShape,
+              conx-contact-sh:ContactPlatformPropertyShape ;
+  sh:xone (
+      conx-contact-sh:EmailPayloadShape
+      conx-contact-sh:PhonePayloadShape
+      conx-contact-sh:MobilePhonePayloadShape
+      conx-contact-sh:FaxPayloadShape
+      conx-contact-sh:WebsitePayloadShape
+      conx-contact-sh:SocialProfilePayloadShape
+      conx-contact-sh:MessengerValuePayloadShape
+      conx-contact-sh:MessengerUriPayloadShape
+      conx-contact-sh:PostalAddressPayloadShape
+    ) ;
+  sh:message "[CON-CM-020] Eine ContactMethod muss genau einen zum Kanal passenden Payload besitzen."@de ;
+  sh:message "[CON-CM-020] A ContactMethod must have exactly one payload matching its channel."@en ;
+.
+
+## Controlled reference values
+
+conx-contact-sh:ContactChannelConceptShape
+  a sh:NodeShape ;
+  sh:class conx-contact:ContactChannel ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      contact-channel:email
+      contact-channel:phone
+      contact-channel:mobilePhone
+      contact-channel:fax
+      contact-channel:website
+      contact-channel:messenger
+      contact-channel:socialProfile
+      contact-channel:postalAddress
+    ) ;
+  sh:message "[CON-CM-010] contactChannel muss auf einen freigegebenen Kontaktkanal verweisen."@de ;
+  sh:message "[CON-CM-010] contactChannel must reference an approved contact channel."@en ;
+.
+
+conx-contact-sh:ContactUsageConceptShape
+  a sh:NodeShape ;
+  sh:class conx-contact:ContactUsage ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      contact-usage:private
+      contact-usage:business
+      contact-usage:official
+    ) ;
+  sh:message "[CON-CP-020] contactUsage muss auf einen freigegebenen Usage-Wert verweisen."@de ;
+  sh:message "[CON-CP-020] contactUsage must reference an approved usage value."@en ;
+.
+
+conx-contact-sh:ContactPurposeConceptShape
+  a sh:NodeShape ;
+  sh:class conx-contact:ContactPurpose ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      contact-purpose:general
+      contact-purpose:delivery
+      contact-purpose:billing
+      contact-purpose:support
+      contact-purpose:sales
+      contact-purpose:technical
+      contact-purpose:emergency
+    ) ;
+  sh:message "[CON-CP-021] contactPurpose muss auf einen freigegebenen Purpose-Wert verweisen."@de ;
+  sh:message "[CON-CP-021] contactPurpose must reference an approved purpose value."@en ;
+.
+
+conx-contact-sh:ContactPlatformConceptShape
+  a sh:NodeShape ;
+  sh:class conx-contact:ContactPlatform ;
+  sh:class skos:Concept ;
+  sh:nodeKind sh:IRI ;
+  sh:in (
+      contact-platform:linkedin
+      contact-platform:instagram
+      contact-platform:x
+      contact-platform:facebook
+      contact-platform:github
+      contact-platform:whatsapp
+      contact-platform:signal
+      contact-platform:microsoftTeams
+    ) ;
+  sh:message "[CON-CM-033] contactPlatform muss auf eine freigegebene Plattform verweisen."@de ;
+  sh:message "[CON-CM-033] contactPlatform must reference an approved platform."@en ;
+.
+
+## ContactPoint property shapes
+
+conx-contact-sh:HasContactPointPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:hasContactPoint ;
+  sh:class conx-contact:ContactPoint ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CAR-001] Jeder Wert von hasContactPoint muss eine ContactPoint-Ressource sein."@de ;
+  sh:message "[CON-CAR-001] Every hasContactPoint value must be a ContactPoint resource."@en ;
+.
+
+conx-contact-sh:HasContactMethodPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:hasContactMethod ;
+  sh:class conx-contact:ContactMethod ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:minCount 1 ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-010] Ein ContactPoint muss mindestens eine ContactMethod besitzen."@de ;
+  sh:message "[CON-CP-010] A ContactPoint must have at least one ContactMethod."@en ;
+.
+
+conx-contact-sh:ContactUsagePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactUsage ;
+  sh:maxCount 1 ;
+  sh:node conx-contact-sh:ContactUsageConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-020] contactUsage darf hoechstens einmal vorkommen und muss auf einen freigegebenen Usage-Wert verweisen."@de ;
+  sh:message "[CON-CP-020] contactUsage may occur at most once and must reference an approved usage value."@en ;
+.
+
+conx-contact-sh:ContactPurposePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactPurpose ;
+  sh:node conx-contact-sh:ContactPurposeConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-021] Jeder contactPurpose-Wert muss auf einen freigegebenen Purpose-Wert verweisen."@de ;
+  sh:message "[CON-CP-021] Every contactPurpose value must reference an approved purpose value."@en ;
+.
+
+conx-contact-sh:ContactNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactName ;
+  sh:node conx-contact-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-030] contactName muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[CON-CP-030] contactName must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-contact-sh:DepartmentNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:departmentName ;
+  sh:node conx-contact-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-031] departmentName muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[CON-CP-031] departmentName must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-contact-sh:FunctionTitlePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:functionTitle ;
+  sh:node conx-contact-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-032] functionTitle muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[CON-CP-032] functionTitle must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-contact-sh:AvailableLanguagePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:availableLanguage ;
+  sh:node conx-contact-sh:NonEmptyStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-033] availableLanguage muss als nicht leerer Sprachcode angegeben werden."@de ;
+  sh:message "[CON-CP-033] availableLanguage must be provided as a non-empty language code."@en ;
+.
+
+conx-contact-sh:AvailabilityNotePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:availabilityNote ;
+  sh:node conx-contact-sh:NonEmptyStringOrLangStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-034] availabilityNote muss ein nicht leerer String oder sprachmarkierter String sein."@de ;
+  sh:message "[CON-CP-034] availabilityNote must be a non-empty string or language-tagged string."@en ;
+.
+
+conx-contact-sh:IsContactPointForPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:isContactPointFor ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CP-040] isContactPointFor darf nur auf Ressourcen zeigen."@de ;
+  sh:message "[CON-CP-040] isContactPointFor may only reference resources."@en ;
+.
+
+## ContactMethod property shapes
+
+conx-contact-sh:ContactChannelPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactChannel ;
+  sh:minCount 1 ;
+  sh:maxCount 1 ;
+  sh:node conx-contact-sh:ContactChannelConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CM-010] Eine ContactMethod muss genau einen freigegebenen Kontaktkanal besitzen."@de ;
+  sh:message "[CON-CM-010] A ContactMethod must have exactly one approved contact channel."@en ;
+.
+
+conx-contact-sh:ContactPlatformPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactPlatform ;
+  sh:maxCount 1 ;
+  sh:node conx-contact-sh:ContactPlatformConceptShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CM-033] contactPlatform darf hoechstens einmal vorkommen und muss auf eine freigegebene Plattform verweisen."@de ;
+  sh:message "[CON-CM-033] contactPlatform may occur at most once and must reference an approved platform."@en ;
+.
+
+conx-contact-sh:ContactValuePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactValue ;
+  sh:node conx-contact-sh:NonEmptyStringShape ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CM-030] contactValue muss als nicht leerer String angegeben werden."@de ;
+  sh:message "[CON-CM-030] contactValue must be provided as a non-empty string."@en ;
+.
+
+conx-contact-sh:ContactUriPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:contactURI ;
+  sh:nodeKind sh:IRI ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CM-031] contactURI muss eine IRI sein."@de ;
+  sh:message "[CON-CM-031] contactURI must be an IRI."@en ;
+.
+
+conx-contact-sh:UsesAddressAssignmentPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-contact:usesAddressAssignment ;
+  sh:class conx-addr:AddressAssignment ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:severity sh:Violation ;
+  sh:message "[CON-CM-032] usesAddressAssignment muss auf eine conx-addr:AddressAssignment-Ressource verweisen."@de ;
+  sh:message "[CON-CM-032] usesAddressAssignment must reference a conx-addr:AddressAssignment resource."@en ;
+.
+
+## Payload alternatives
+
+conx-contact-sh:EmailPayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:email ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node conx-contact-sh:NonEmptyStringShape ;
+      sh:message "[CON-CM-030] contactValue muss als nicht leerer String angegeben werden, wenn der Kanal einen Literalwert verlangt."@de ;
+      sh:message "[CON-CM-030] contactValue must be provided as a non-empty string when the channel requires a literal value."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine E-Mail-Kontaktmethode darf keinen contactURI-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] An email contact method must not have a contactURI payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine E-Mail-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] An email contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:PhonePayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:phone ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node conx-contact-sh:NonEmptyStringShape ;
+      sh:message "[CON-CM-030] contactValue muss als nicht leerer String angegeben werden, wenn der Kanal einen Literalwert verlangt."@de ;
+      sh:message "[CON-CM-030] contactValue must be provided as a non-empty string when the channel requires a literal value."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Telefon-Kontaktmethode darf keinen contactURI-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A phone contact method must not have a contactURI payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Telefon-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A phone contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:MobilePhonePayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:mobilePhone ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node conx-contact-sh:NonEmptyStringShape ;
+      sh:message "[CON-CM-030] contactValue muss als nicht leerer String angegeben werden, wenn der Kanal einen Literalwert verlangt."@de ;
+      sh:message "[CON-CM-030] contactValue must be provided as a non-empty string when the channel requires a literal value."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Mobiltelefon-Kontaktmethode darf keinen contactURI-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A mobile phone contact method must not have a contactURI payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Mobiltelefon-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A mobile phone contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:FaxPayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:fax ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node conx-contact-sh:NonEmptyStringShape ;
+      sh:message "[CON-CM-030] contactValue muss als nicht leerer String angegeben werden, wenn der Kanal einen Literalwert verlangt."@de ;
+      sh:message "[CON-CM-030] contactValue must be provided as a non-empty string when the channel requires a literal value."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Fax-Kontaktmethode darf keinen contactURI-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A fax contact method must not have a contactURI payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Fax-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A fax contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:WebsitePayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:website ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:message "[CON-CM-031] contactURI muss eine IRI sein, wenn der Kanal eine URI verlangt."@de ;
+      sh:message "[CON-CM-031] contactURI must be an IRI when the channel requires a URI."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Website-Kontaktmethode darf keinen contactValue-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A website contact method must not have a contactValue payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Website-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A website contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:SocialProfilePayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:socialProfile ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:message "[CON-CM-031] contactURI muss eine IRI sein, wenn der Kanal eine URI verlangt."@de ;
+      sh:message "[CON-CM-031] contactURI must be an IRI when the channel requires a URI."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Social-Profile-Kontaktmethode darf keinen contactValue-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A social profile contact method must not have a contactValue payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Social-Profile-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A social profile contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:MessengerValuePayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:messenger ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:node conx-contact-sh:NonEmptyStringShape ;
+      sh:message "[CON-CM-030] contactValue muss als nicht leerer String angegeben werden, wenn der Kanal einen Literalwert verlangt."@de ;
+      sh:message "[CON-CM-030] contactValue must be provided as a non-empty string when the channel requires a literal value."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf nicht gleichzeitig contactValue und contactURI besitzen."@de ;
+      sh:message "[CON-CM-020] A messenger contact method must not have both contactValue and contactURI."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A messenger contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:MessengerUriPayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:messenger ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:nodeKind sh:IRI ;
+      sh:message "[CON-CM-031] contactURI muss eine IRI sein, wenn der Kanal eine URI verlangt."@de ;
+      sh:message "[CON-CM-031] contactURI must be an IRI when the channel requires a URI."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf nicht gleichzeitig contactURI und contactValue besitzen."@de ;
+      sh:message "[CON-CM-020] A messenger contact method must not have both contactURI and contactValue."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A messenger contact method must not have an address assignment."@en ;
+    ] ;
+.
+
+conx-contact-sh:PostalAddressPayloadShape
+  a sh:NodeShape ;
+  sh:property [
+      sh:path conx-contact:contactChannel ;
+      sh:hasValue contact-channel:postalAddress ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:usesAddressAssignment ;
+      sh:minCount 1 ;
+      sh:maxCount 1 ;
+      sh:class conx-addr:AddressAssignment ;
+      sh:nodeKind sh:BlankNodeOrIRI ;
+      sh:message "[CON-CM-032] Eine postalische Kontaktmethode muss genau eine conx-addr:AddressAssignment referenzieren."@de ;
+      sh:message "[CON-CM-032] A postal contact method must reference exactly one conx-addr:AddressAssignment."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactValue ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine postalische Kontaktmethode darf keinen contactValue-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A postal contact method must not have a contactValue payload."@en ;
+    ] ;
+  sh:property [
+      sh:path conx-contact:contactURI ;
+      sh:maxCount 0 ;
+      sh:message "[CON-CM-020] Eine postalische Kontaktmethode darf keinen contactURI-Payload besitzen."@de ;
+      sh:message "[CON-CM-020] A postal contact method must not have a contactURI payload."@en ;
+    ] ;
+.

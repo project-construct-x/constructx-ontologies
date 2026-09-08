@@ -1,0 +1,15 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:resource-1
+    conx-contact:hasContactPoint ex:resource-1-contact .
+
+ex:resource-1-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:hasContactMethod ex:resource-1-email .
+
+ex:resource-1-email
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:email ;
+    conx-contact:contactValue "contact@example.org" .

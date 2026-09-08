@@ -1,0 +1,28 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:invalid-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactUsage contact-usage:private,
+                              contact-usage:business ;
+    conx-contact:contactPurpose contact-purpose:general,
+                                ex:unsupported-purpose ;
+    conx-contact:hasContactMethod ex:valid-email .
+
+ex:valid-email
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:email ;
+    conx-contact:contactValue "contact@example.org" .
+
+ex:literal-usage-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactUsage "private" ;
+    conx-contact:hasContactMethod ex:valid-phone .
+
+ex:valid-phone
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:phone ;
+    conx-contact:contactValue "+49 234 123456" .

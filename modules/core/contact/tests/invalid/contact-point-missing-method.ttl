@@ -1,0 +1,10 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:resource-1
+    conx-contact:hasContactPoint ex:invalid-contact .
+
+ex:invalid-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactUsage contact-usage:private .

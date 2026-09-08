@@ -1,0 +1,27 @@
+@prefix conx-contact: <https://www.construct-x.org/ontology/contact#> .
+@prefix contact-channel: <https://www.construct-x.org/vocab/contact-channel#> .
+@prefix contact-platform: <https://www.construct-x.org/vocab/contact-platform#> .
+@prefix contact-purpose: <https://www.construct-x.org/vocab/contact-purpose#> .
+@prefix contact-usage: <https://www.construct-x.org/vocab/contact-usage#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:organization-1
+    conx-contact:hasContactPoint ex:organization-1-public-contact .
+
+ex:organization-1-public-contact
+    a conx-contact:ContactPoint ;
+    conx-contact:contactUsage contact-usage:official ;
+    conx-contact:contactPurpose contact-purpose:general ;
+    conx-contact:hasContactMethod ex:organization-1-website,
+                                  ex:organization-1-linkedin .
+
+ex:organization-1-website
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:website ;
+    conx-contact:contactURI <https://example.org/contact> .
+
+ex:organization-1-linkedin
+    a conx-contact:ContactMethod ;
+    conx-contact:contactChannel contact-channel:socialProfile ;
+    conx-contact:contactPlatform contact-platform:linkedin ;
+    conx-contact:contactURI <https://www.linkedin.com/company/example> .
