@@ -2,11 +2,11 @@
 
 ## Unreleased - 2026-09-03
 
-- Kompakte `docs/confluence-overview.md` als alleinige Veröffentlichungsquelle der Confluence-Modulseite ergänzt.
-- Dokumentationspaket nach dem gemeinsamen Core-Standard vereinheitlicht und um verständliche Beispiele ergänzt.
+- Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.
+- Standardized the documentation package and added accessible examples.
 
 ## 0.1.0 - 2026-08-27
 
-- Initiale Contact-T-Box für Kontaktpunkte, Kontaktmethoden, Kanäle, Nutzungskontexte, Zwecke und Plattformen angelegt.
-- Postalische Kontaktmethoden auf `usesAddressAssignment -> conx-addr:AddressAssignment` festgelegt.
-- `hasContactPoint` ohne harte RDFS-Domain modelliert.
+- Added the initial Contact T-Box for contact points, contact methods, channels, usage contexts, purposes, and platforms.
+- Defined postal contact methods through `usesAddressAssignment -> conx-addr:AddressAssignment`.
+- Modeled `hasContactPoint` without a strict RDFS domain.

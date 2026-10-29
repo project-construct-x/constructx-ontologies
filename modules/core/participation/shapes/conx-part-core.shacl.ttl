@@ -27,12 +27,12 @@
   dcterms:description "Validierungsregeln fuer die allgemeinen, anwendungsfallunabhaengigen Vertraege der Construct-X Participation-Ontologie."@de ;
   dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Participation Ontology."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:modified "2026-10-07"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:title "Construct-X Participation Core Shapes"@de ;
   dcterms:title "Construct-X Participation Core Shapes"@en ;
-  owl:versionIRI <https://www.construct-x.org/shapes/participation/core/0.1.0> ;
-  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://www.construct-x.org/shapes/participation/core/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
 .
 
 ## Participation target and node contracts
@@ -253,4 +253,30 @@ conx-part-sh:DateOrderPropertyShape
   sh:severity sh:Violation ;
   sh:message "[PART-044] startDate darf nicht nach endDate liegen."@de ;
   sh:message "[PART-044] startDate must not be later than endDate."@en ;
+.
+
+## Optional navigation from a context; context remains explicitly required.
+
+conx-part-sh:HasParticipationShape
+  a sh:NodeShape ;
+  sh:targetSubjectsOf conx-part:hasParticipation ;
+  sh:property [
+    sh:path conx-part:hasParticipation ;
+    sh:nodeKind sh:IRI ;
+    sh:node conx-part-sh:ParticipationShape ;
+    sh:message "[PART-060] hasParticipation muss auf eine gültige Participation-IRI verweisen."@de ;
+    sh:message "[PART-060] hasParticipation must reference a valid Participation IRI."@en ;
+  ] ;
+  sh:sparql [
+    sh:message "[PART-061] Der context der verknüpften Participation muss das Ausgangsobjekt sein."@de ;
+    sh:message "[PART-061] The linked Participation must explicitly identify the source resource as its context."@en ;
+    sh:select """
+      SELECT $this ?value WHERE {
+        $this <https://www.construct-x.org/ontology/participation#hasParticipation> ?value .
+        FILTER NOT EXISTS {
+          ?value <https://www.construct-x.org/ontology/participation#context> $this .
+        }
+      }
+    """ ;
+  ] ;
 .

@@ -1,39 +1,39 @@
-# Construct-X Identifier Core-Modul
+# Construct-X Identifier Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul stellt den gemeinsamen ADMS/SKOS-Vertrag für fachliche Kennungen
-bereit, ohne eine parallele Construct-X-Identifier-Klasse einzuführen.
+The module provides the shared ADMS/SKOS contract for domain identifiers
+without introducing a parallel Construct-X Identifier class.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Die Registernummer „HRB 1234“ wird als eigene Kennungsressource gespeichert.
-> Dadurch können Wert, Kennungssystem und herausgebende Stelle gemeinsam
-> beschrieben werden.
+> The commercial register number "HRB 1234" is stored as a dedicated
+> identifier resource. This allows the value, identifier scheme, and issuing
+> agency to be described together.
 
 ```text
-Organisation -> Identifier -> HRB 1234
+Organization -> Identifier -> HRB 1234
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Jede Kennung ist ein `adms:Identifier` mit genau einer `skos:notation`.
-`adms:schemaAgency` ist optional. Fachmodule bestimmen selbst, welche
-Kennungen sie verlangen.
+Each identifier is an `adms:Identifier` with exactly one `skos:notation`.
+`adms:schemaAgency` is optional. Domain modules decide which identifiers they
+require.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie-Metadaten: `ontology/conx-id.ttl`
+- Ontology metadata: `ontology/conx-id.ttl`
 - Core Shapes: `shapes/conx-id-core.shacl.ttl`
-- Beispiele: `tests/valid/`
-- Fehlerbeispiele: `tests/invalid/`
+- Valid examples: `tests/valid/`
+- Invalid examples: `tests/invalid/`

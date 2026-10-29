@@ -1,24 +1,24 @@
-# Fachliches Kontakt-Konzeptdiagramm
+# Domain Concept Diagram for Contact
 
-**Status:** Fachliches Modell der T-Box und Core Shapes 0.1.0  
-**Stand:** 27. August 2026
+**Status:** Domain model of T-Box and Core Shapes 0.1.0  
+**As of:** 27 August 2026
 
-Die Diagramme zeigen das umgesetzte Kontaktmodell in fünf Sichten: Kernmodell, private/berufliche Kontakte, postalische Adresse, Referenzvokabulare und Quellenabbildung.
+The diagrams show the implemented contact model from five perspectives: core model, private/business contacts, postal address, reference vocabularies, and source mappings.
 
-## 1. Kernmodell
+## 1. Core Model
 
 ```mermaid
 flowchart LR
-    Carrier["Kontaktträger<br/>fachlich Agent"]
+    Carrier["Entity holding contact information: conceptually an Agent"]
 
     subgraph CONTACT["core/contact"]
         direction LR
-        Point["ContactPoint<br/>Kontaktblock"]
-        Method["ContactMethod<br/>ein Kanal"]
-        Usage["ContactUsage<br/>private / business / official"]
-        Purpose["ContactPurpose<br/>general / delivery / billing / ..."]
-        Channel["ContactChannel<br/>email / phone / website / ..."]
-        Platform["ContactPlatform<br/>LinkedIn / Signal / ..."]
+        Point["ContactPoint: contact information block"]
+        Method["ContactMethod: one channel"]
+        Usage["ContactUsage: private / business / official"]
+        Purpose["ContactPurpose: general / delivery / billing / ..."]
+        Channel["ContactChannel: email / phone / website / ..."]
+        Platform["ContactPlatform: LinkedIn / Signal / ..."]
     end
 
     Carrier -->|"hasContactPoint 0..*"| Point
@@ -28,7 +28,7 @@ flowchart LR
     Point -->|"contactPurpose 0..*"| Purpose
     Method -->|"contactChannel 1"| Channel
     Method -->|"contactPlatform 0..1"| Platform
-    Method -->|"contactValue / contactURI / usesAddressAssignment"| Value["Wert oder Referenz"]
+    Method -->|"contactValue / contactURI / usesAddressAssignment"| Value["Value or reference"]
 
     classDef carrier fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
     classDef core fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -41,29 +41,29 @@ flowchart LR
     class Value value;
 ```
 
-## 2. Private und berufliche Erreichbarkeit
+## 2. Private and Business Contactability
 
 ```mermaid
 flowchart TB
-    Person["Person<br/>conx-person:Person"]
+    Person["Person: conx-person:Person"]
 
-    subgraph PRIVATE["Privater Kontaktpunkt"]
+    subgraph PRIVATE["Private contact point"]
         direction TB
-        PrivatePoint["ContactPoint<br/>usage: private<br/>purpose: general"]
-        PrivateEmail["ContactMethod<br/>channel: email<br/>value: max@example.org"]
-        PrivateMobile["ContactMethod<br/>channel: mobilePhone<br/>value: +49 ..."]
-        PrivatePostal["ContactMethod<br/>channel: postalAddress<br/>usesAddressAssignment"]
+        PrivatePoint["ContactPoint: usage private; purpose general"]
+        PrivateEmail["ContactMethod: channel email; value max@example.org"]
+        PrivateMobile["ContactMethod: channel mobilePhone; value +49 ..."]
+        PrivatePostal["ContactMethod: channel postalAddress; usesAddressAssignment"]
         PrivatePoint --> PrivateEmail
         PrivatePoint --> PrivateMobile
         PrivatePoint --> PrivatePostal
     end
 
-    subgraph BUSINESS["Beruflicher Kontaktpunkt"]
+    subgraph BUSINESS["Business contact point"]
         direction TB
-        BusinessPoint["ContactPoint<br/>usage: business<br/>purpose: delivery"]
-        BusinessName["contactName<br/>Wareneingang Tor 4"]
-        BusinessEmail["ContactMethod<br/>channel: email<br/>value: wareneingang@example.org"]
-        BusinessPhone["ContactMethod<br/>channel: phone<br/>value: +49 ..."]
+        BusinessPoint["ContactPoint: usage business; purpose delivery"]
+        BusinessName["contactName: Goods Receiving Gate 4"]
+        BusinessEmail["ContactMethod: channel email; value wareneingang@example.org"]
+        BusinessPhone["ContactMethod: channel phone; value +49 ..."]
         BusinessPoint --> BusinessName
         BusinessPoint --> BusinessEmail
         BusinessPoint --> BusinessPhone
@@ -83,24 +83,24 @@ flowchart TB
     class BusinessName label;
 ```
 
-## 3. Postalische Kontaktadresse
+## 3. Postal Contact Address
 
 ```mermaid
 flowchart LR
-    Method["ContactMethod<br/>channel: postalAddress"]
+    Method["ContactMethod: channel postalAddress"]
 
     subgraph ADDRESS["core/address"]
         direction LR
-        Assignment["AddressAssignment<br/>Rolle + Zustellhinweise"]
-        Address["Address<br/>strukturierte Anschrift"]
-        Role["AddressRole<br/>delivery / billing / residence / ..."]
+        Assignment["AddressAssignment: role and delivery instructions"]
+        Address["Address: structured address"]
+        Role["AddressRole: delivery / billing / residence / ..."]
         Assignment -->|"assignedAddress"| Address
         Assignment -->|"addressRole"| Role
     end
 
     Method -->|"usesAddressAssignment"| Assignment
 
-    Decision["Entschieden:<br/>postalische Kontaktmethoden<br/>zeigen auf AddressAssignment,<br/>damit Rollen und Zustellhinweise<br/>erhalten bleiben."]
+    Decision["Decision: postal contact methods reference AddressAssignment to preserve roles and delivery instructions."]
     Decision -.-> Method
 
     classDef contact fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -112,7 +112,7 @@ flowchart LR
     class Decision note;
 ```
 
-## 4. A-Box-Vokabulare
+## 4. A-Box Vocabularies
 
 ```mermaid
 flowchart TB
@@ -120,7 +120,7 @@ flowchart TB
     Point["ContactPoint"]
 
     subgraph CHANNEL["contact-channel"]
-        direction LR
+        direction TB
         Email["email"]
         Phone["phone"]
         Mobile["mobilePhone"]
@@ -132,14 +132,14 @@ flowchart TB
     end
 
     subgraph USAGE["contact-usage"]
-        direction LR
+        direction TB
         Private["private"]
         Business["business"]
         Official["official"]
     end
 
     subgraph PURPOSE["contact-purpose"]
-        direction LR
+        direction TB
         General["general"]
         Delivery["delivery"]
         Billing["billing"]
@@ -150,7 +150,7 @@ flowchart TB
     end
 
     subgraph PLATFORM["contact-platform"]
-        direction LR
+        direction TB
         Linkedin["linkedin"]
         Instagram["instagram"]
         X["x"]
@@ -172,7 +172,7 @@ flowchart TB
     class Email,Phone,Mobile,Fax,Website,Messenger,Social,Postal,Private,Business,Official,General,Delivery,Billing,Support,Sales,Technical,Emergency,Linkedin,Instagram,X,Github,WhatsApp,Signal,Teams vocab;
 ```
 
-## 5. Quellenabbildung
+## 5. Source Mappings
 
 ```mermaid
 flowchart LR
@@ -183,7 +183,7 @@ flowchart LR
 
     ContactPoint["conx-contact:ContactPoint"]
     ContactMethod["conx-contact:ContactMethod"]
-    Vocab["SKOS-Vokabulare<br/>Channel / Usage / Purpose / Platform"]
+    Vocab["SKOS vocabularies: Channel / Usage / Purpose / Platform"]
     Address["core/address"]
 
     UBLContact --> ContactPoint
@@ -205,13 +205,13 @@ flowchart LR
     class Address address;
 ```
 
-## 6. Modellentscheidungen
+## 6. Modeling Decisions
 
-1. `ContactPoint` ist ein Kontaktblock, kein einzelnes Telefonnummernfeld.
-2. `ContactMethod` ist die kleinste validierbare Einheit eines konkreten Kommunikationskanals.
-3. Privat, beruflich und offiziell werden am Kontaktpunkt modelliert.
-4. Lieferung, Rechnung und Support sind Zwecke und keine Nutzungskontexte.
-5. Social Profiles werden generisch modelliert und können über Plattformressourcen typisiert werden.
-6. Postalische Kontaktadressen referenzieren `conx-addr:AddressAssignment`.
-7. Die inverse Beziehung bleibt optional.
-8. `hasContactPoint` besitzt keine harte `rdfs:domain`, damit spätere Kontaktträger nicht unbeabsichtigt als Agent inferiert werden.
+1. `ContactPoint` is a contact information block, rather than a single telephone number field.
+2. `ContactMethod` is the smallest independently validatable unit of a specific communication channel.
+3. Private, business, and official usage are modeled on the contact point.
+4. Delivery, billing, and support are purposes rather than usage contexts.
+5. Social profiles are modeled generically and may be classified through platform resources.
+6. Postal contact addresses reference `conx-addr:AddressAssignment`.
+7. The inverse relationship remains optional.
+8. `hasContactPoint` has no restrictive `rdfs:domain`, preventing future entities holding contact information from being unintentionally inferred as Agents.

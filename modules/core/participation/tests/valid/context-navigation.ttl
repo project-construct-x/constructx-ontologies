@@ -1,0 +1,10 @@
+@prefix ex: <https://example.org/participation-navigation/> .
+@prefix part: <https://www.construct-x.org/ontology/participation#> .
+@prefix agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix role: <https://www.construct-x.org/vocab/participation-role#> .
+
+ex:contract part:hasParticipation ex:participation .
+ex:participation a part:Participation ;
+    part:participant ex:supplier ; part:role role:SupplierRole ;
+    part:context ex:contract .
+ex:supplier a agent:Agent .

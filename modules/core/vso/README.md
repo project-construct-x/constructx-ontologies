@@ -1,37 +1,37 @@
-# Construct-X VSO Core-Modul
+# Construct-X VSO Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Die Value Semantics Ontology beschreibt, wie eine Merkmalsdefinition mit einem
-konkreten Wert an eine Ressource gebunden wird.
+The Value Semantics Ontology describes how a property definition and a
+concrete value are assigned to a resource.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Eine Wand besitzt das Merkmal „Höhe“. Ihre konkrete Merkmalszuweisung trägt
-> den Wert 2,80 und verweist auf die Einheit Meter.
+> A wall has the property "Height". Its concrete property assignment carries
+> the value 2.80 and references the unit metre.
 
 ```text
-Wand -> AssignedProperty „Höhe“ -> PropertyState -> 2,80 m
+Wall -> AssignedProperty "Height" -> PropertyState -> 2.80 m
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Der Core umfasst Merkmalszuweisung, Merkmalsreferenz, Zustand, Wert und
-optionale Einheit. Fachliche Wertetypen und ISOProps-Regeln liegen in Profilen.
+The Core contains property assignment, property reference, state, value, and
+an optional unit. Domain value types and ISOProps rules belong in profiles.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-vso.ttl`
+- Ontology: `ontology/conx-vso.ttl`
 - Core Shapes: `shapes/conx-vso-core.shacl.ttl`
-- Beispiele: `examples/measured-property.ttl` und `examples/text-property.ttl`
-- Tests: `tests/valid/` und `tests/invalid/`
+- Examples: `examples/measured-property.ttl` and `examples/text-property.ttl`
+- Tests: `tests/valid/` and `tests/invalid/`

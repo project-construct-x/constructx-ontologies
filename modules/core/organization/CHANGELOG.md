@@ -2,13 +2,13 @@
 
 ## Unreleased - 2026-09-03
 
-- Kompakte `docs/confluence-overview.md` als alleinige Veröffentlichungsquelle der Confluence-Modulseite ergänzt.
-- Dokumentationspaket nach dem gemeinsamen Core-Standard vereinheitlicht und um verständliche Beispiele ergänzt.
+- Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.
+- Standardized the documentation package and added accessible examples.
 
 ## 0.1.0 - 2026-08-27
 
-- Erste Organisations-T-Box mit `Organization`, `LegalEntity`, `OrganizationalUnit`, `Membership` und `LegalRepresentation` implementiert.
-- Namen, Rechtsform, Registerdatum, Tätigkeit, Hierarchie, Mitgliedschaft und rechtliche Vertretung modelliert.
-- Bestehende Agent-, Person-, Address-, Contact- und Identifier-Core-Verträge wiederverwendet.
-- Organization Core Shapes mit 36 stabilen, zweisprachigen Fehlercodes implementiert.
-- Gültige und ungültige Integrationsgraphen sowie automatisierte OWL- und PySHACL-Tests ergänzt.
+- Implemented the initial Organization T-Box with `Organization`, `LegalEntity`, `OrganizationalUnit`, `Membership`, and `LegalRepresentation`.
+- Modeled names, legal form, registration date, activity, hierarchy, membership, and legal representation.
+- Reused the existing Agent, Person, Address, Contact, and Identifier Core contracts.
+- Implemented Organization Core Shapes with 36 stable bilingual validation codes.
+- Added valid and invalid integration graphs and automated OWL and PySHACL tests.

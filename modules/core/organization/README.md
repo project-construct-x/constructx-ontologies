@@ -1,18 +1,18 @@
-# Construct-X Organization Core-Modul
+# Construct-X Organization Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul beschreibt Organisationen, rechtliche Einheiten, interne
-Organisationseinheiten, Mitgliedschaften und rechtliche Vertretungen.
+The module describes organizations, legal entities, internal organizational
+units, memberships, and legal representations.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Die Beispiel Bau GmbH ist eine rechtliche Einheit. Sie besitzt eine interne
-> Abteilung, Anna Müller ist Mitglied und vertritt die GmbH rechtlich.
+> Example Construction Ltd. is a legal entity. It has an internal department;
+> Anna Miller is a member and legally represents the company.
 
 ```text
 LegalEntity -> OrganizationalUnit
@@ -20,21 +20,21 @@ Membership: Person -> Organization
 LegalRepresentation: Person -> LegalEntity
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Zum Core gehören Namen, Rechtsform, Registerdatum, Tätigkeit, Hierarchien,
-Membership und LegalRepresentation. Kontakt, Adresse und Identifier werden aus
-den zuständigen Core-Modulen verwendet.
+The Core contains names, legal form, registration date, activity, hierarchies,
+Membership, and LegalRepresentation. Contact, Address, and Identifier are used
+from their responsible Core modules.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-org.ttl`
+- Ontology: `ontology/conx-org.ttl`
 - Core Shapes: `shapes/conx-org-core.shacl.ttl`
-- Beispiele und Tests: `tests/valid/` und `tests/invalid/`
-- Integrationen: Agent, Person, Address, Contact und Identifier
+- Examples and tests: `tests/valid/` and `tests/invalid/`
+- Integrations: Agent, Person, Address, Contact, and Identifier

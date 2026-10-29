@@ -1,37 +1,37 @@
-# Fachliches Personendiagramm
+# Person Domain Diagram
 
-**Status:** Fachliches Modell der implementierten T-Box 0.1.0 und ihrer Core-Modulübergänge  
-**Stand:** 25. August 2026
+**Status:** Domain model of the implemented T-Box 0.1.0 and its connections to other Core modules  
+**As of:** 25 August 2026
 
-Die Darstellung ist in drei Sichten gegliedert. Dadurch bleiben der Personenkern, die Kontaktmodellierung und die übrigen Modulübergänge jeweils für sich lesbar.
+The representation is divided into three views so that the Person core, contact modeling, and connections to other modules remain readable independently.
 
-## 1. Personenkern
+## 1. Person Core
 
 ```mermaid
 flowchart TB
-    Agent["Agent<br/>gemeinsame Oberklasse"]
+    Agent["Agent: common superclass"]
 
     subgraph PERSON["core/person - T-Box 0.1.0"]
         direction TB
-        Person["Person<br/>reale natürliche Person"]
+        Person["Person: real natural person"]
 
-        subgraph ATTRIBUTES["Literalattribute"]
+        subgraph ATTRIBUTES["Literal Attributes"]
             direction LR
-            Names["Namen<br/>fullName 1..* - Pflicht<br/>givenName 1..* - Pflicht<br/>familyName 0..*<br/>additionalName 0..*<br/>birthName 0..*"]
-            Birth["Geburtsdaten<br/>birthDate 0..1 - xsd:date<br/>birthPlaceName 0..1 - Literal"]
+            Names["Names: fullName 1..* required; givenName 1..* required; familyName 0..*; additionalName 0..*; birthName 0..*"]
+            Birth["Birth details: birthDate 0..1, xsd:date; birthPlaceName 0..1, literal"]
         end
 
         Person --- Names
         Person --- Birth
     end
 
-    subgraph REFERENCE["Referenzdaten und externe Strukturen"]
+    subgraph REFERENCE["Reference Data and External Structures"]
         direction LR
-        Sex["Human Sex Concept<br/>ISO/IEC 5218<br/>0 / 1 / 2 / 9"]
-        Gender["Gender Concept<br/>Man / Woman<br/>Non-binary or gender-diverse<br/>Not disclosed"]
-        Country["Country<br/>Construct-X ISO 3166-1"]
-        Identifier["adms:Identifier<br/>Schema + Notation + Agentur"]
-        Evidence["Identity Evidence<br/>externe Nachweisressource"]
+        Sex["Human Sex Concept: ISO/IEC 5218; 0 / 1 / 2 / 9"]
+        Gender["Gender Concept: Man / Woman; Non-binary or gender-diverse; Not disclosed"]
+        Country["Country: Construct-X ISO 3166-1"]
+        Identifier["adms:Identifier: scheme + notation + agency"]
+        Evidence["Identity Evidence: external evidence resource"]
     end
 
     Person -->|"rdfs:subClassOf"| Agent
@@ -54,7 +54,7 @@ flowchart TB
     class Evidence identity;
 ```
 
-## 2. Private und berufliche Kontaktdaten
+## 2. Private and Business Contact Details
 
 ```mermaid
 flowchart LR
@@ -62,11 +62,11 @@ flowchart LR
 
     subgraph CONTACT["core/contact - T-Box 0.1.0"]
         direction LR
-        Point["ContactPoint<br/>Kontaktblock"]
-        Method["ContactMethod<br/>ein Kanal"]
-        Usage["ContactUsage<br/>private / business / official"]
-        Purpose["ContactPurpose<br/>general / delivery / billing / support"]
-        Channel["ContactChannel<br/>E-Mail / Telefon / Website / postalAddress"]
+        Point["ContactPoint: contact block"]
+        Method["ContactMethod: one channel"]
+        Usage["ContactUsage: private / business / official"]
+        Purpose["ContactPurpose: general / delivery / billing / support"]
+        Channel["ContactChannel: email / telephone / website / postalAddress"]
 
         Point -->|"hasContactMethod 1..*"| Method
         Point -->|"contactUsage 0..1"| Usage
@@ -76,7 +76,7 @@ flowchart LR
 
     Person -->|"hasContactPoint 0..*"| Point
 
-    Reuse["Dasselbe Muster ist auch für<br/>Organisation, Projekt, Stelle<br/>oder andere Ressourcen verwendbar.<br/>Keine feste OWL-Domain Agent."]
+    Reuse["The same pattern can also be used for an organization, project, position, or other resources. No fixed OWL domain of Agent."]
     Reuse -.-> Point
 
     classDef person fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -92,7 +92,7 @@ flowchart LR
     class Reuse note;
 ```
 
-### Beispiel eines privaten Kontaktpunkts
+### Example of a Private Contact Point
 
 ```turtle
 ex:person-123
@@ -110,9 +110,9 @@ ex:email-1
     conx-contact:contactValue "maria@example.org" .
 ```
 
-`contact-usage:private` beschreibt den Verwendungskontext des Kontaktpunkts. Es ist keine Zugriffskontrolle und keine Aussage darüber, wer die Kontaktdaten lesen darf.
+`contact-usage:private` describes the usage context of the contact point. It does not provide access control or state who may read the contact details.
 
-## 3. Übergänge zu weiteren Modulen
+## 3. Connections to Other Modules
 
 ```mermaid
 flowchart TB
@@ -121,11 +121,11 @@ flowchart TB
 
     Person -->|"rdfs:subClassOf"| Agent
 
-    subgraph ADDRESS["core/address - vorhanden"]
+    subgraph ADDRESS["core/address - existing"]
         direction LR
         AddressAssignment["AddressAssignment"]
         Address["Address"]
-        AddressRole["AddressRole<br/>Registration / Residence / Postal"]
+        AddressRole["AddressRole: Registration / Residence / Postal"]
 
         AddressAssignment -->|"assignedAddress 1"| Address
         AddressAssignment -->|"addressRole 1..*"| AddressRole
@@ -133,7 +133,7 @@ flowchart TB
 
     subgraph ORGANIZATION["core/organization - T-Box 0.1.0"]
         direction LR
-        Membership["Membership<br/>Agent + Organization"]
+        Membership["Membership: Agent + Organization"]
         Organization["Organization"]
 
         Membership -->|"membershipOrganization 1"| Organization
@@ -141,8 +141,8 @@ flowchart TB
 
     subgraph PARTICIPATION["core/participation - T-Box 0.1.0"]
         direction LR
-        Participation["Participation<br/>Agent + Rolle + Kontext"]
-        Context["fachlicher Kontext"]
+        Participation["Participation: Agent + role + context"]
+        Context["Domain context"]
 
         Participation -->|"context 1"| Context
     end
@@ -162,17 +162,17 @@ flowchart TB
     class Membership,Organization,Participation,Context related;
 ```
 
-## 4. Modellentscheidungen
+## 4. Modeling Decisions
 
-1. Der Personenkern enthält nur intrinsische Personendaten und Verweise auf Referenz- oder Nachweisressourcen.
-2. Kontakt wird ausgehend vom Kontaktträger gelesen: `Person -> hasContactPoint -> ContactPoint -> hasContactMethod -> ContactMethod`.
-3. Privat oder beruflich ist ein Nutzungskontext des Kontaktpunkts und keine intrinsische Eigenschaft des einzelnen Kontaktwerts.
-4. Der Kontaktzweck wird getrennt vom privaten oder beruflichen Kontext modelliert.
-5. `hasContactPoint` erhält im offenen Kern keine harte OWL-Domain. Dadurch können auch Organisationen, Projekte, Stellen oder andere identifizierbare Ressourcen das Muster verwenden, ohne als `Agent` inferiert zu werden.
-6. Eine inverse Beziehung `isContactPointFor` ist in Version 0.1.0 nicht enthalten.
-7. Adressen verwenden weiterhin das vorhandene `AddressAssignment`-Muster.
-8. Mitgliedschaften bleiben im Organisationsmodul; allgemeine kontextuelle Rollen werden mit `core/participation` modelliert.
+1. The Person core contains only intrinsic personal data and references to reference or evidence resources.
+2. The contact model is read starting from the entity holding the contact information: `Person -> hasContactPoint -> ContactPoint -> hasContactMethod -> ContactMethod`.
+3. Private or business use is a usage context of the contact point rather than an intrinsic property of an individual contact value.
+4. The contact purpose is modeled separately from the private or business context.
+5. `hasContactPoint` has no restrictive OWL domain in the open Core. This allows organizations, projects, positions, or other identifiable resources to use the pattern without being inferred to be an `Agent`.
+6. An inverse relationship, `isContactPointFor`, is not included in version 0.1.0.
+7. Addresses continue to use the existing `AddressAssignment` pattern.
+8. Memberships remain in the Organization module; general contextual roles are modeled using `core/participation`.
 
-## 5. Erweiterungspunkt
+## 5. Extension Point
 
-Das Gender-Vokabular startet mit `man`, `woman`, `nonBinaryOrDiverse` und `notDisclosed`. Der dritte Wert ist als breiter Oberbegriff geplant und kann später durch präzisere, untergeordnete Genderkonzepte erweitert werden. `notDisclosed` bezeichnet eine ausdrückliche Nichtoffenlegung und keine Genderidentität.
+The Gender vocabulary initially contains `man`, `woman`, `nonBinaryOrDiverse`, and `notDisclosed`. The third value is intended as a broad umbrella concept and can later be extended with more precise, subordinate gender concepts. `notDisclosed` denotes an explicit decision not to disclose and does not represent a gender identity.

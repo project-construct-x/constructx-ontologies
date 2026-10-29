@@ -1,39 +1,40 @@
-# Fachliche Participation-Diagramme
+# Participation Domain Diagrams
 
-**Status:** Konzeptdiagramme der implementierten Version 0.1.0  
-**Stand:** 27. August 2026
+**Status:** Conceptual diagrams of the implemented version 0.2.0  
+**Version:** 0.2.0  
+**Scope:** `core/participation`  
+**As of:** 7 October 2026
 
-Die Mermaid-Diagramme zeigen das bestätigte Participation-Modell in sechs
-Sichten: Kernmodell, getrennte Kombinationen, offener Kontext, zeitliche
-Gültigkeit, Rollen-Vokabular und Modulgrenzen.
+The Mermaid diagrams show the confirmed Participation model from six perspectives: the core model, separate combinations, unrestricted context, temporal validity, role vocabulary, and module boundaries.
 
-## 1. Kernmodell
+## 1. Core Model
 
 ```mermaid
 flowchart LR
     subgraph AGENT_CORE["core/agent"]
         direction TB
-        Agent["Agent<br/>Person oder Organisation"]
+        Agent["Agent: person or organization"]
     end
 
     subgraph PARTICIPATION_CORE["core/participation"]
         direction TB
-        Participation["Participation<br/>qualifizierte Rollenzuordnung"]
-        Role["Role<br/>lokale SKOS-Klasse"]
-        Start["startDate 0..1<br/>xsd:date"]
-        End["endDate 0..1<br/>xsd:date"]
+        Participation["Participation: qualified role assignment"]
+        Role["Role: local SKOS class"]
+        Start["startDate 0..1: xsd:date"]
+        End["endDate 0..1: xsd:date"]
 
-        Participation -->|"role genau 1"| Role
+        Participation -->|"role exactly 1"| Role
         Participation --> Start
         Participation --> End
     end
 
-    Context["Fachlicher Kontext<br/>Typ bleibt offen"]
+    Context["Domain context: type remains unrestricted"]
 
-    Participation -->|"participant genau 1"| Agent
-    Participation -->|"context genau 1"| Context
+    Participation -->|"participant exactly 1"| Agent
+    Participation -->|"context exactly 1"| Context
+    Context -->|"hasParticipation 0..*"| Participation
 
-    Meaning["Eine Instanz behauptet eine<br/>tatsächlich geltende oder<br/>historisch gegoltene Zuordnung."]
+    Meaning["An instance asserts an assignment that currently holds or held historically."]
     Meaning -.-> Participation
 
     classDef agent fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -51,28 +52,28 @@ flowchart LR
     class Meaning note;
 ```
 
-### Leseregeln
+### Reading Guidelines
 
-1. Jede Participation besitzt genau einen Agenten.
-2. Jede Participation besitzt genau einen Rollenwert.
-3. Jede Participation besitzt genau einen Kontext.
-4. Start- und Enddatum sind optional und beschreiben nur die Gültigkeit.
-5. Der Kontext wird nicht durch eine lokale Klasse eingeschränkt.
+1. Each Participation has exactly one Agent.
+2. Each Participation has exactly one role value.
+3. Each Participation has exactly one context.
+4. Start and end dates are optional and describe validity only.
+5. The context is not restricted by a local class.
 
-## 2. Eine Instanz pro Kombination
+## 2. One Instance per Combination
 
 ```mermaid
 flowchart TB
-    AgentA["Organisation A"]
-    AgentB["Organisation B"]
-    Project["Projekt X<br/>gemeinsamer Kontext"]
+    AgentA["Organization A"]
+    AgentB["Organization B"]
+    Project["Project X: shared context"]
 
     P1["Participation P1"]
     P2["Participation P2"]
     P3["Participation P3"]
 
-    Contractor["ContractorRole<br/>Auftragnehmer"]
-    Supplier["SupplierRole<br/>Lieferant"]
+    Contractor["ContractorRole: contractor"]
+    Supplier["SupplierRole: supplier"]
 
     P1 -->|"participant"| AgentA
     P1 -->|"role"| Contractor
@@ -86,7 +87,7 @@ flowchart TB
     P3 -->|"role"| Contractor
     P3 -->|"context"| Project
 
-    Unique["Fachlicher Schlüssel je Instanz:<br/>participant + role + context"]
+    Unique["Domain key for each instance: participant + role + context"]
     Unique -.-> P1
     Unique -.-> P2
     Unique -.-> P3
@@ -104,38 +105,36 @@ flowchart TB
     class Unique note;
 ```
 
-### Aussage des Diagramms
+### Meaning of the Diagram
 
-- Organisation A besitzt zwei Rollen im selben Projekt und deshalb zwei
-  Participations.
-- Organisation A und Organisation B besitzen dieselbe Rolle im selben Projekt
-  und deshalb jeweils eine eigene Participation.
-- Keine Participation bündelt mehrere Agenten oder Rollen.
+- Organization A has two roles in the same project and therefore two Participations.
+- Organization A and Organization B have the same role in the same project and therefore each have their own Participation.
+- No Participation combines multiple Agents or roles.
 
-## 3. Offener fachlicher Kontext
+## 3. Unrestricted Domain Context
 
 ```mermaid
 flowchart LR
     Participation["Participation"]
 
-    subgraph CONTEXTS["Mögliche Kontextressourcen aus zuständigen Modulen"]
+    subgraph CONTEXTS["Possible context resources from the responsible modules"]
         direction TB
-        Contract["Vertrag"]
-        Project["Projekt"]
-        Document["Dokument"]
-        Delivery["Lieferschein"]
-        Product["Produkt oder Asset"]
-        Other["Weitere fachliche Ressource"]
+        Contract["Contract"]
+        Project["Project"]
+        Document["Document"]
+        Delivery["Delivery note"]
+        Product["Product or asset"]
+        Other["Other domain resource"]
     end
 
-    Participation -->|"context genau 1"| Contract
-    Participation -.->|"alternativ"| Project
-    Participation -.->|"alternativ"| Document
-    Participation -.->|"alternativ"| Delivery
-    Participation -.->|"alternativ"| Product
-    Participation -.->|"alternativ"| Other
+    Participation -->|"context exactly 1"| Contract
+    Participation -.->|"alternatively"| Project
+    Participation -.->|"alternatively"| Document
+    Participation -.->|"alternatively"| Delivery
+    Participation -.->|"alternatively"| Product
+    Participation -.->|"alternatively"| Other
 
-    NoClass["Keine lokale Klasse Context.<br/>Das jeweilige Fachprofil darf<br/>zulässige Kontexttypen begrenzen."]
+    NoClass["No local Context class. The applicable domain profile may restrict permitted context types."]
     NoClass -.-> Participation
 
     classDef participation fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -147,28 +146,27 @@ flowchart LR
     class NoClass note;
 ```
 
-Die gestrichelten Kanten zeigen Alternativen. Eine einzelne Participation
-verwendet immer genau eine dieser Kontextressourcen.
+The dashed edges indicate alternatives. An individual Participation always uses exactly one of these context resources.
 
-## 4. Optionale zeitliche Gültigkeit
+## 4. Optional Temporal Validity
 
 ```mermaid
 flowchart LR
-    UnknownStart["Beginn nicht angegeben"]
-    Start["startDate<br/>2026-01-15"]
-    Participation["Participation<br/>Gültigkeit der Rollenzuordnung"]
-    End["endDate<br/>2026-12-31"]
-    UnknownEnd["Ende nicht angegeben"]
+    UnknownStart["Start not specified"]
+    Start["startDate: 2026-01-15"]
+    Participation["Participation: validity of the role assignment"]
+    End["endDate: 2026-12-31"]
+    UnknownEnd["End not specified"]
 
     UnknownStart -.-> Start
     Start --> Participation
     Participation --> End
     End -.-> UnknownEnd
 
-    Rule["Wenn beide Daten vorhanden sind:<br/>endDate darf nicht vor startDate liegen."]
+    Rule["If both dates are present: endDate must not precede startDate."]
     Rule -.-> Participation
 
-    NotActivity["Die Daten begrenzen keine Aktivität<br/>und nicht die Laufzeit des Kontexts."]
+    NotActivity["The dates do not delimit an activity or the duration of the context."]
     NotActivity -.-> Participation
 
     classDef date fill:#e9f3f1,stroke:#39706a,color:#17312e,stroke-width:2px;
@@ -182,28 +180,28 @@ flowchart LR
     class Rule,NotActivity note;
 ```
 
-### Erlaubte Datumsvarianten
+### Permitted Date Combinations
 
-| Startdatum | Enddatum | Bedeutung |
+| Start date | End date | Meaning |
 | --- | --- | --- |
-| fehlt | fehlt | Zeitliche Grenzen sind nicht angegeben |
-| vorhanden | fehlt | Beginn ist angegeben, Ende nicht |
-| fehlt | vorhanden | Ende ist angegeben, Beginn nicht |
-| vorhanden | vorhanden | Gültigkeit ist beidseitig begrenzt |
+| Absent | Absent | Temporal boundaries are not specified |
+| Present | Absent | The start is specified, but the end is not |
+| Absent | Present | The end is specified, but the start is not |
+| Present | Present | Validity is bounded at both ends |
 
-## 5. Rollen als SKOS-Individuen
+## 5. Roles as SKOS Individuals
 
 ```mermaid
 flowchart TB
     SkosConcept["skos:Concept"]
     RoleClass["conx-part:Role"]
-    Scheme["Participation Role Concept Scheme<br/>separates Referenzvokabular"]
+    Scheme["Participation Role Concept Scheme: separate reference vocabulary"]
 
-    Client["ClientRole<br/>Auftraggeber"]
-    Contractor["ContractorRole<br/>Auftragnehmer"]
-    Supplier["SupplierRole<br/>Lieferant"]
-    Architect["ArchitectRole<br/>Architekt"]
-    Engineer["EngineerRole<br/>Ingenieur"]
+    Client["ClientRole: client"]
+    Contractor["ContractorRole: contractor"]
+    Supplier["SupplierRole: supplier"]
+    Architect["ArchitectRole: architect"]
+    Engineer["EngineerRole: engineer"]
 
     RoleClass -->|"rdfs:subClassOf"| SkosConcept
     Scheme -->|"skos:hasTopConcept"| Client
@@ -218,7 +216,7 @@ flowchart TB
     Architect -->|"rdf:type"| RoleClass
     Engineer -->|"rdf:type"| RoleClass
 
-    Note["Rollen sind Individuen.<br/>Neue Rollen erweitern das Vokabular,<br/>nicht die Participation-T-Box."]
+    Note["Roles are individuals. New roles extend the vocabulary, not the Participation T-Box."]
     Note -.-> Scheme
 
     classDef classNode fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -232,28 +230,27 @@ flowchart TB
     class Note note;
 ```
 
-Die dargestellten fünf Rollen sind der Vorschlag des Begriffskatalogs. Das
-Diagramm behauptet noch keinen implementierten Datensatz.
+The five roles shown are the proposal from the term catalog. The diagram does not yet assert that a dataset has been implemented.
 
-## 6. Modulgrenzen
+## 6. Module Boundaries
 
 ```mermaid
 flowchart TB
-    Agent["core/agent<br/>Agentenidentität"]
-    Participation["core/participation<br/>Rolle eines Agenten im Kontext"]
-    Membership["core/organization<br/>Membership"]
-    Activity["Spätere Aktivitätsontologie<br/>Ausführung und Ereignisteilnahme"]
-    ContextModule["Zuständiges Fachmodul<br/>Semantik der Kontextressource"]
-    RoleVocab["Rollen-Vokabular<br/>konkrete Rollenindividuen"]
+    Agent["core/agent: Agent identity"]
+    Participation["core/participation: role of an Agent in a context"]
+    Membership["core/organization: Membership"]
+    Activity["Future activity ontology: execution and event participation"]
+    ContextModule["Responsible domain module: semantics of the context resource"]
+    RoleVocab["Role vocabulary: concrete role individuals"]
 
     Participation -->|"participant"| Agent
     Participation -->|"context"| ContextModule
     Participation -->|"role"| RoleVocab
 
-    Membership -.->|"bleibt getrennt"| Participation
-    Activity -.->|"keine Aktivitätsinferenz"| Participation
+    Membership -.->|"remains separate"| Participation
+    Activity -.->|"no activity inference"| Participation
 
-    Excluded["Nicht im Participation-Modul:<br/>Status / Nachweis / Provenienz<br/>Vollmacht / Berechtigung<br/>rollenspezifische Kurzproperties"]
+    Excluded["Outside the Participation module: status, evidence, provenance, power of attorney, authorization, role-specific shortcut properties"]
     Excluded -.-> Participation
 
     classDef external fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -269,14 +266,14 @@ flowchart TB
     class Excluded excluded;
 ```
 
-## 7. Modellentscheidungen
+## 7. Modeling Decisions
 
-1. Participation ist eine qualifizierte Rollenzuordnung und keine
-   Aktivitätsteilnahme.
-2. Agent, Rolle und Kontext kommen pro Participation jeweils genau einmal vor.
-3. Die Kombination aus diesen drei Werten ist fachlich eindeutig.
-4. Rollen sind Individuen einer lokalen, SKOS-basierten Klasse.
-5. Kontexttypen werden von Fachprofilen und nicht vom Core festgelegt.
-6. Start- und Enddatum sind optionale Grenzen der Zuordnungsgültigkeit.
-7. Membership und Participation bleiben unabhängig.
-8. Es gibt keine rollenspezifischen Kurzproperties, Status- oder Nachweiswerte.
+1. Participation is a qualified role assignment rather than participation in an activity.
+2. Each Participation has exactly one Agent, one role, and one context.
+3. The combination of these three values is unique within the domain.
+4. Roles are individuals of a local, SKOS-based class.
+5. Context types are defined by domain profiles rather than the Core.
+6. Start and end dates are optional boundaries of assignment validity.
+7. Membership and Participation remain independent.
+8. The Core contains no role-specific shortcut properties, status values, or evidence values.
+9. `hasParticipation` is the optional reverse relationship from the context; the three core relationships on Participation remain explicitly present.

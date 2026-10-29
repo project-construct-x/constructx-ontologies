@@ -1,26 +1,24 @@
-# Fachliches Document-Konzeptdiagramm
+# Domain Concept Diagram for Document
 
-**Status:** Umgesetztes fachliches Zielbild 0.1.0  
-**Stand:** 1. September 2026
+**Status:** Implemented domain target model 0.1.0  
+**As of:** 1 September 2026
 
-Die Diagramme zeigen das umgesetzte Document-Core-Modell in fünf Sichten:
-Kernmodell, Kontextreferenz, Distributionen, Akteursrollen und
-Modulabgrenzung.
+The diagrams show the implemented Document Core model from five perspectives: core model, contextual reference, distributions, actor roles, and module boundaries.
 
-## 1. Kernmodell
+## 1. Core Model
 
 ```mermaid
 flowchart LR
-    Context["Fachlicher Kontext<br/>beliebige Ressource"]
+    Context["Domain context: any resource"]
 
     subgraph DOC["core/document"]
         direction LR
-        Ref["DocumentReference<br/>kontextbezogene Referenz"]
-        Document["Document<br/>dokumentartiges Informationsobjekt"]
-        Distribution["DocumentDistribution<br/>Datei / Bereitstellung"]
-        Type["DocumentType<br/>kontrollierter Typ"]
-        Status["DocumentStatus<br/>kontrollierter Status"]
-        Metadata["Metadaten<br/>Titel / Sprache / Version / Daten / Gültigkeit"]
+        Ref["DocumentReference: contextual reference"]
+        Document["Document: document-like information object"]
+        Distribution["DocumentDistribution: file / technical delivery form"]
+        Type["DocumentType: controlled type"]
+        Status["DocumentStatus: controlled status"]
+        Metadata["Metadata: title / language / version / dates / validity"]
     end
 
     Context -->|"hasDocumentReference 0..*"| Ref
@@ -42,21 +40,21 @@ flowchart LR
     class Metadata meta;
 ```
 
-## 2. Dokumentreferenz im fachlichen Kontext
+## 2. Document Reference in a Domain Context
 
 ```mermaid
 flowchart TB
-    Order["Bestellung 123<br/>fachlicher Kontext"]
-    Ref["DocumentReference<br/>Referenz auf Vertragsanlage"]
-    Doc["Document<br/>Vertragsanlage A"]
-    Pdf["DocumentDistribution<br/>contract-annex-a.pdf"]
+    Order["Order 123: domain context"]
+    Ref["DocumentReference: reference to a contract annex"]
+    Doc["Document: contract annex A"]
+    Pdf["DocumentDistribution: contract-annex-a.pdf"]
 
     Order -->|"hasDocumentReference"| Ref
     Ref -->|"referencesDocument"| Doc
     Ref -->|"hasDistribution"| Pdf
     Doc -->|"hasDistribution"| Pdf
 
-    Note["Die Pflicht, dass eine Bestellung<br/>bestimmte Dokumente referenziert,<br/>gehört in ein Profil,<br/>nicht in den Document Core."]
+    Note["The requirement for an order to reference particular documents belongs in a profile, rather than the Document Core."]
     Note -.-> Order
 
     classDef context fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -68,24 +66,24 @@ flowchart TB
     class Note note;
 ```
 
-## 3. Distributionen
+## 3. Distributions
 
 ```mermaid
 flowchart LR
-    Document["Document<br/>Prüfbericht"]
+    Document["Document: inspection report"]
 
-    subgraph DIST["technische Ausprägungen"]
+    subgraph DIST["Technical manifestations"]
         direction TB
-        Pdf["DocumentDistribution<br/>PDF<br/>dcat:mediaType application/pdf"]
-        Xml["DocumentDistribution<br/>XML<br/>dcat:mediaType application/xml"]
-        Html["DocumentDistribution<br/>HTML<br/>dcat:mediaType text/html"]
+        Pdf["DocumentDistribution: PDF; dcat:mediaType application/pdf"]
+        Xml["DocumentDistribution: XML; dcat:mediaType application/xml"]
+        Html["DocumentDistribution: HTML; dcat:mediaType text/html"]
     end
 
     Document -->|"hasDistribution"| Pdf
     Document -->|"hasDistribution"| Xml
     Document -->|"hasDistribution"| Html
 
-    Dcat["DCAT-nahe Trennung:<br/>Dokumentinhalt und konkrete Datei<br/>sind nicht dasselbe."]
+    Dcat["DCAT-oriented separation: document content and a specific file are distinct."]
     Dcat -.-> DIST
 
     classDef doc fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -97,22 +95,22 @@ flowchart LR
     class Dcat note;
 ```
 
-## 4. Akteursrollen über Participation
+## 4. Actor Roles through Participation
 
 ```mermaid
 flowchart LR
-    AgentA["Organisation A<br/>Agent"]
-    AgentB["Organisation B<br/>Agent"]
-    PersonX["Person X<br/>Agent"]
+    AgentA["Organization A: Agent"]
+    AgentB["Organization B: Agent"]
+    PersonX["Person X: Agent"]
 
     subgraph PART["core/participation"]
         direction TB
-        Issuer["Participation<br/>role: issuer"]
-        Recipient["Participation<br/>role: recipient"]
-        Author["Participation<br/>role: author"]
+        Issuer["Participation: role issuer"]
+        Recipient["Participation: role recipient"]
+        Author["Participation: role author"]
     end
 
-    Document["Document<br/>Rechnung oder Plan"]
+    Document["Document: invoice or drawing"]
 
     AgentA --> Issuer
     AgentB --> Recipient
@@ -121,7 +119,7 @@ flowchart LR
     Recipient -->|"context"| Document
     Author -->|"context"| Document
 
-    NoProps["Keine direkten Document-Properties<br/>für issuer, sender,<br/>receiver, author oder publisher."]
+    NoProps["No direct Document properties for issuer, sender, receiver, author, or publisher."]
     NoProps -.-> Document
 
     classDef agent fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -135,24 +133,24 @@ flowchart LR
     class NoProps note;
 ```
 
-## 5. Modulabgrenzung
+## 5. Module Boundaries
 
 ```mermaid
-flowchart TB
-    DocumentCore["core/document<br/>Document / Reference / Distribution"]
-    Participation["core/participation<br/>Agentenrollen"]
-    Prov["Provenienzprofil<br/>Erzeugung / Ableitung / Revision"]
-    Evidence["Evidence-/Credential-Profil<br/>Nachweis / Credential / Proof"]
-    Policy["Policy-Profil<br/>Rechte / Zugriff"]
-    Domain["Domain-Module<br/>fachliche Pflichtdokumente"]
-    UBL["UBL<br/>nur Vergleichsquelle"]
+flowchart LR
+    DocumentCore["core/document: Document / Reference / Distribution"]
+    Participation["core/participation: actor roles"]
+    Prov["Provenance profile: generation / derivation / revision"]
+    Evidence["Evidence/Credential profile: evidence / credential / proof"]
+    Policy["Policy profile: rights / access"]
+    Domain["Domain modules: domain-specific mandatory documents"]
+    UBL["UBL: comparative source only"]
 
-    Participation -->|"Rollen am Dokument"| DocumentCore
-    Prov -->|"Entstehung und Ableitung"| DocumentCore
-    Evidence -->|"Nachweissemantik"| DocumentCore
-    Policy -->|"Zugriffs- und Rechtefragen"| DocumentCore
-    Domain -->|"verpflichtet bestimmte Referenzen"| DocumentCore
-    UBL -.->|"Vergleich, kein Mapping"| DocumentCore
+    Participation -->|"Roles associated with a document"| DocumentCore
+    Prov -->|"Generation and derivation"| DocumentCore
+    Evidence -->|"Evidence semantics"| DocumentCore
+    Policy -->|"Access and rights"| DocumentCore
+    Domain -->|"Requires particular references"| DocumentCore
+    UBL -.->|"Comparison, no mapping"| DocumentCore
 
     classDef core fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
     classDef related fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -163,18 +161,14 @@ flowchart TB
     class UBL external;
 ```
 
-## 6. Modellentscheidungen
+## 6. Modeling Decisions
 
-1. `Document` ist eine eigene Construct-X-Klasse.
-2. `DocumentReference` ist ein eigener Beziehungsknoten für kontextbezogene
-   Dokumentverweise.
-3. `DocumentDistribution` trennt konkrete Dateien vom dokumentartigen Inhalt.
-4. Dokumenttyp und Dokumentstatus werden kontrollierte Vokabulare.
-5. Aussteller, Sender, Empfänger, Autor und Publisher werden über
-   `core/participation` modelliert.
-6. PROV-O ist nur für Entstehung, Ableitung, Revision und Verarbeitung
-   relevant.
-7. UBL bleibt Vergleichsquelle und wird nicht als Abhängigkeit eingeführt.
-8. Gültigkeit wird optional über `validFrom` und `validUntil` beschrieben.
-9. Distributionen verwenden `dcat:accessURL`, `dcat:downloadURL` und
-   `dcat:mediaType` direkt.
+1. `Document` is a dedicated Construct-X class.
+2. `DocumentReference` is a separate relationship node for contextual document references.
+3. `DocumentDistribution` separates specific files from document-like content.
+4. Document type and document status are represented through controlled vocabularies.
+5. Issuer, sender, recipient, author, and publisher are modeled through `core/participation`.
+6. PROV-O is relevant only to generation, derivation, revision, and processing.
+7. UBL remains a comparative source and is not introduced as a dependency.
+8. Validity is optionally described through `validFrom` and `validUntil`.
+9. Distributions directly use `dcat:accessURL`, `dcat:downloadURL`, and `dcat:mediaType`.

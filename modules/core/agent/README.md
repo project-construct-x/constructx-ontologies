@@ -1,39 +1,38 @@
-# Construct-X Agent Core-Modul
+# Construct-X Agent Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul stellt mit `conx-agent:Agent` eine gemeinsame Oberklasse für Personen
-und Organisationen bereit.
+The module provides `conx-agent:Agent` as the common superclass for persons and
+organizations.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Eine Beteiligung kann von einer Person oder Organisation wahrgenommen
-> werden. Beide sind Agenten und können daher über dieselbe Beziehung
-> referenziert werden.
+> A participation can be held by a person or an organization. Both are agents
+> and can therefore be referenced through the same relationship.
 
 ```text
 Participation -> Agent <- Person
                        <- Organization
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Der Core enthält genau eine Klasse und keine eigenen Properties. Konkrete
-Stammdaten bleiben in Person, Organization, Contact und Address.
+The Core contains exactly one class and no properties of its own. Concrete
+master data remains in Person, Organization, Contact, and Address.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-agent.ttl`
-- Core Shapes: nicht erforderlich
-- Fachliche Spezifikation: `docs/agent-specification.md`
-- Tests: repositoryweite Agent-Ontologietests
+- Ontology: `ontology/conx-agent.ttl`
+- Core Shapes: not required
+- Domain specification: `docs/10_agent-specification.md`
+- Tests: repository-wide Agent ontology tests

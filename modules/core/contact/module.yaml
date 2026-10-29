@@ -107,15 +107,15 @@ artifacts:
   ontology: ontology/conx-contact.ttl
   core_shapes: shapes/conx-contact-core.shacl.ttl
   strict_shapes: null
-  documentation: docs/index.md
-  confluence_overview: docs/confluence-overview.md
+  documentation: docs/00_index.md
+  confluence_overview: docs/09_confluence-overview.md
   html_documentation: docs/contact.html
-  source_analysis: docs/source-analysis.md
-  scope_and_competency_questions: docs/scope-and-competency-questions.md
-  module_boundaries: docs/module-boundaries.md
-  term_catalog: docs/term-catalog.md
-  shacl_requirements: docs/shacl-requirements.md
-  core_shapes_documentation: docs/core-shapes.md
-  concept_model: docs/concept-model.md
-  concept_model_diagram: docs/diagrams/concept-model.md
+  source_analysis: docs/01_source-analysis.md
+  scope_and_competency_questions: docs/02_scope-and-competency-questions.md
+  module_boundaries: docs/04_module-boundaries.md
+  term_catalog: docs/05_term-catalog.md
+  shacl_requirements: docs/06_shacl-requirements.md
+  core_shapes_documentation: docs/07_core-shapes.md
+  concept_model: docs/03_concept-model.md
+  concept_model_diagram: docs/08_concept-diagram.md
   detailed_concept_diagram: docs/diagrams/contact-concept-model.md

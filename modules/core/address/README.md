@@ -1,42 +1,42 @@
-# Construct-X Address Core-Modul
+# Construct-X Address Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul beschreibt strukturierte Adressen und ihre kontextbezogene Zuordnung
-zu Personen, Organisationen oder anderen Ressourcen.
+The module describes structured addresses and their contextual assignment to
+persons, organizations, or other resources.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Eine Organisation kann dieselbe Anschrift als Liefer- und Rechnungsadresse
-> verwenden. Die Anschrift wird nur einmal gespeichert; ihre Rollen stehen an
-> der Adresszuordnung.
+> An organization can use the same address as both a delivery address and a
+> billing address. The address is stored once; its roles belong to the address
+> assignment.
 
 ```text
-Organisation -> AddressAssignment -> Address
-                    +-> Lieferadresse
-                    +-> Rechnungsadresse
+Organization -> AddressAssignment -> Address
+                     +-> Delivery address
+                     +-> Billing address
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Zum Core gehören `Address`, `AddressAssignment`, `AddressRole` und
-administrative Gebiete. Kontaktkanäle und Koordinatenmodelle bleiben in ihren
-zuständigen Modulen.
+The Core contains `Address`, `AddressAssignment`, `AddressRole`, and
+administrative territories. Contact channels and coordinate models remain in
+their responsible modules.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-addr.ttl`
+- Ontology: `ontology/conx-addr.ttl`
 - Core Shapes: `shapes/conx-addr-core.shacl.ttl`
-- Beispiele: `examples/`
-- Tests: `tests/valid/` und `tests/invalid/`
-- Referenzdaten: Adressrollen sowie ISO- und NUTS-Gebiete unter `datasets/reference/`
+- Examples: `examples/`
+- Tests: `tests/valid/` and `tests/invalid/`
+- Reference data: address roles and ISO and NUTS territories under `datasets/reference/`

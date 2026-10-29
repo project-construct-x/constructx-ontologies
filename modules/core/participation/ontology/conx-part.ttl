@@ -13,8 +13,8 @@
 
 <https://www.construct-x.org/ontology/participation>
   a owl:Ontology ;
-  dcterms:bibliographicCitation "Construct-X Participation Ontology, version 0.1.0"@en ;
-  dcterms:bibliographicCitation "Construct-X Participation-Ontologie, Version 0.1.0"@de ;
+  dcterms:bibliographicCitation "Construct-X Participation Ontology, version 0.2.0"@en ;
+  dcterms:bibliographicCitation "Construct-X Participation-Ontologie, Version 0.2.0"@de ;
   dcterms:contributor "Construction-X Arbeitspaket 3.4"@de ;
   dcterms:created "2026-08-27"^^xsd:date ;
   dcterms:creator [
@@ -30,7 +30,7 @@
   dcterms:description "Definiert eine allgemeine qualifizierte Zuordnung genau eines Agenten zu genau einer Rolle in genau einem fachlichen Kontext."@de ;
   dcterms:description "Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:modified "2026-10-07"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:source <https://www.w3.org/TR/swbp-n-aryRelations/> ;
   dcterms:source <https://www.w3.org/TR/vocab-org/> ;
@@ -39,8 +39,8 @@
   dcterms:title "Construct-X Participation-Ontologie"@de ;
   vann:preferredNamespacePrefix "conx-part" ;
   vann:preferredNamespaceUri "https://www.construct-x.org/ontology/participation#" ;
-  owl:versionIRI <https://www.construct-x.org/ontology/participation/0.1.0> ;
-  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/participation/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
 .
 
 ## Classes
@@ -91,6 +91,15 @@ conx-part:context
   rdfs:domain conx-part:Participation ;
   rdfs:label "context"@en ;
   rdfs:label "Kontext"@de ;
+.
+
+conx-part:hasParticipation
+  a owl:ObjectProperty ;
+  rdfs:label "hat Beteiligung"@de, "has participation"@en ;
+  rdfs:comment "Verknüpft einen fachlichen Kontext mit einer Beteiligungsinstanz, nicht unmittelbar mit einem Agenten. Optionale Navigation in Gegenrichtung zu context."@de ;
+  rdfs:comment "Links a domain context to a participation instance, not directly to an agent. Optional navigation in the inverse direction of context."@en ;
+  rdfs:range conx-part:Participation ;
+  owl:inverseOf conx-part:context ;
 .
 
 ## Datatype properties

@@ -2,11 +2,11 @@
 
 ## Unreleased - 2026-09-03
 
-- Kompakte `docs/confluence-overview.md` als alleinige Veröffentlichungsquelle der Confluence-Modulseite ergänzt.
-- Dokumentationspaket nach dem gemeinsamen Core-Standard vervollständigt und um verständliche Beispiele ergänzt.
+- Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.
+- Completed the documentation package according to the shared Core standard and added accessible examples.
 
 ## 0.1.0 - 2026-08-25
 
-- Minimale Klasse `conx-agent:Agent` eingeführt.
-- Konservatives Subklassen-Alignment zu `foaf:Agent` ergänzt.
-- Modulmetadaten und fachliche Dokumentation vervollständigt.
+- Introduced the minimal `conx-agent:Agent` class.
+- Added a conservative subclass alignment with `foaf:Agent`.
+- Completed module metadata and domain documentation.

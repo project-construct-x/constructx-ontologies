@@ -55,8 +55,8 @@ conx-vso-sh:PropertyStateShape
   sh:name "Property state"@en ;
   sh:targetClass conx-vso:PropertyState ;
   sh:targetObjectsOf conx-vso:hasPropertyState ;
-  sh:targetSubjectsOf schema:value,
-                      conx-vso:hasUsedUnit ;
+  # schema:value is shared with quantities and must not globally select VSO states.
+  sh:targetSubjectsOf conx-vso:hasUsedUnit ;
   sh:property conx-vso-sh:ValuePropertyShape,
               conx-vso-sh:UsedUnitPropertyShape ;
 .

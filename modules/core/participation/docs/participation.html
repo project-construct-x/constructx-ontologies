@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Construct-X Participation Ontology</title>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Participation Ontology", "termSet": "https://www.construct-x.org/ontology/participation#", "url": "https://www.construct-x.org/ontology/participation"}, "author": [{"@type": "Person", "affiliation": "Ruhr University Bochum", "email": "mailto:sven.zentgraf@rub.de", "identifier": "https://orcid.org/0000-0001-6058-7614", "name": "Sven Zentgraf"}], "citation": "Construct-X Participation Ontology, version 0.1.0", "contributor": [{"@type": "Person", "name": "Construction-X Arbeitspaket 3.4"}], "dateCreated": "2026-08-27", "dateModified": "2026-08-27", "description": "Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context.", "encoding": [{"@type": "MediaObject", "contentUrl": "../ontology/conx-part.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "conx-agent", "url": "https://www.construct-x.org/ontology/agent#"}, {"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "schema", "url": "https://schema.org/"}, {"@type": "CreativeWork", "name": "skos", "url": "http://www.w3.org/2004/02/skos/core#"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Participation Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/participation", "version": "0.1.0"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Participation Ontology", "termSet": "https://www.construct-x.org/ontology/participation#", "url": "https://www.construct-x.org/ontology/participation"}, "author": [{"@type": "Person", "affiliation": "Ruhr University Bochum", "email": "mailto:sven.zentgraf@rub.de", "identifier": "https://orcid.org/0000-0001-6058-7614", "name": "Sven Zentgraf"}], "citation": "Construct-X Participation Ontology, version 0.2.0", "contributor": [{"@type": "Person", "name": "Construction-X Arbeitspaket 3.4"}], "dateCreated": "2026-08-27", "dateModified": "2026-10-07", "description": "Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context.", "encoding": [{"@type": "MediaObject", "contentUrl": "../ontology/conx-part.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "conx-agent", "url": "https://www.construct-x.org/ontology/agent#"}, {"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "schema", "url": "https://schema.org/"}, {"@type": "CreativeWork", "name": "skos", "url": "http://www.w3.org/2004/02/skos/core#"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Participation Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/participation", "version": "0.2.0"}</script>
   <script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
   <style>
     :root {
@@ -599,8 +599,8 @@
       <div class="hero-copy">
         <h1>Construct-X Participation Ontology</h1>
 <p class="subtitle">Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context.</p>        <div class="hero-meta">
-<span class="version">Version 0.1.0</span><span class="hero-stat">Prefix conx-part</span>          <span class="hero-stat">2 classes</span>
-          <span class="hero-stat">5 properties</span>
+<span class="version">Version 0.2.0</span><span class="hero-stat">Prefix conx-part</span>          <span class="hero-stat">2 classes</span>
+          <span class="hero-stat">6 properties</span>
         </div>
       </div>
     </div>
@@ -632,6 +632,10 @@
         <li>
     <a href="#context">context</a>
         <span class="toc-alt">Kontext <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasParticipation">has participation</a>
+        <span class="toc-alt">hat Beteiligung <span lang="de">[de]</span></span>
   </li>
         <li>
     <a href="#participant">participant</a>
@@ -682,7 +686,7 @@
         </tr>
         <tr class="">
           <th>Version IRI</th>
-          <td><a href="https://www.construct-x.org/ontology/participation/0.1.0">https://www.construct-x.org/ontology/participation/0.1.0</a></td>
+          <td><a href="https://www.construct-x.org/ontology/participation/0.2.0">https://www.construct-x.org/ontology/participation/0.2.0</a></td>
         </tr>
         <tr class="">
           <th>Prefix</th>
@@ -698,11 +702,11 @@
         </tr>
         <tr class="">
           <th>Citation</th>
-          <td>Construct-X Participation Ontology, version 0.1.0 <span class="lang">[en]</span><br>Construct-X Participation-Ontologie, Version 0.1.0 <span class="lang">[de]</span></td>
+          <td>Construct-X Participation Ontology, version 0.2.0 <span class="lang">[en]</span><br>Construct-X Participation-Ontologie, Version 0.2.0 <span class="lang">[de]</span></td>
         </tr>
         <tr class="">
           <th>Modification Date</th>
-          <td>2026-08-27</td>
+          <td>2026-10-07</td>
         </tr>
         <tr class="">
           <th>Source</th>
@@ -714,7 +718,7 @@
         </tr>
         <tr class="">
           <th>Version info</th>
-          <td>0.1.0</td>
+          <td>0.2.0</td>
         </tr>
         <tr class="missing-mandatory">
           <th>Previous version</th>
@@ -790,9 +794,9 @@
     <section id="quality-report">
       <h2>Quality Report</h2>
       <div class="quality-summary">
-        <div class="quality-stat"><strong>11</strong>Total issues</div>
+        <div class="quality-stat"><strong>12</strong>Total issues</div>
         <div class="quality-stat"><strong>1</strong>Errors</div>
-        <div class="quality-stat"><strong>10</strong>Warnings</div>
+        <div class="quality-stat"><strong>11</strong>Warnings</div>
       </div>
         <details class="quality-section" open>
           <summary>Metadata (10)</summary>
@@ -830,11 +834,14 @@
           </ul>
         </details>
         <details class="quality-section" open>
-          <summary>Missing property domain/range (1)</summary>
+          <summary>Missing property domain/range (2)</summary>
           <ul class="quality-list">
             <li>
               <span class="quality-badge warning">warning</span>
 <a href="#context">conx-part:context has no range</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#hasParticipation">conx-part:hasParticipation has no domain</a>            </li>
           </ul>
         </details>
     </section>
@@ -916,7 +923,7 @@
       <h2>Overview</h2>
       <table>
         <tr><th>Classes</th><td>2</td></tr>
-        <tr><th>Object properties</th><td>3</td></tr>
+        <tr><th>Object properties</th><td>4</td></tr>
         <tr><th>Datatype properties</th><td>2</td></tr>
         <tr><th>Annotation properties</th><td>0</td></tr>
         <tr><th>RDF properties</th><td>0</td></tr>
@@ -1021,6 +1028,44 @@ Specifies the domain resource in relation to which the role assignment applies. 
       
       
       
+    </table>
+  </article>
+  <article id="hasParticipation" class="term">
+    <h3>has participation</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-part:hasParticipation</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/participation#hasParticipation">https://www.construct-x.org/ontology/participation#hasParticipation</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has participation <span class="lang">[en]</span><br>hat Beteiligung <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Links a domain context to a participation instance, not directly to an agent. Optional navigation in the inverse direction of context. <span class="lang">[en]</span><br>Verknüpft einen fachlichen Kontext mit einer Beteiligungsinstanz, nicht unmittelbar mit einem Agenten. Optionale Navigation in Gegenrichtung zu context. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+      
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/participation#Participation">Participation</a>    </td>
+  </tr>
+
+      
+        <tr>
+    <th>Inverse of</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/participation#context">context</a>    </td>
+  </tr>
+
     </table>
   </article>
   <article id="participant" class="term">

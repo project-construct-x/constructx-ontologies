@@ -1,32 +1,30 @@
-# Fachliches Organisationsdiagramm
+# Domain Organization Diagram
 
-**Status:** Fachliches Modell der implementierten Version 0.1.0  
-**Stand:** 27. August 2026  
-**Umsetzungsstand:** T-Box und Core Shapes 0.1.0 implementiert
+**Status:** Domain model of implemented version 0.1.0  
+**As of:** 27 August 2026  
+**Implementation status:** T-Box and Core Shapes 0.1.0 implemented
 
-Die Darstellung ist in vier Sichten gegliedert. Dadurch bleiben
-Klassenhierarchie, Stammdaten, Organisationsteile und Prozessrollen getrennt
-lesbar.
+The model is presented from four perspectives, keeping the class hierarchy, master data, organizational parts, and process roles separately readable.
 
-## 1. Klassen und Beziehungen
+## 1. Classes and Relationships
 
 ```mermaid
 flowchart TB
-    subgraph AGENTS["Bestehende Agententypen"]
+    subgraph AGENTS["Existing Agent types"]
         direction LR
-        Agent["Agent<br/>gemeinsame Oberklasse"]
-        Person["Person<br/>natürliche Person"]
+        Agent["Agent: common superclass"]
+        Person["Person: natural person"]
         Person -->|"rdfs:subClassOf"| Agent
     end
 
     subgraph ORGANIZATION["core/organization - MVP 0.1.0"]
         direction TB
-        Org["Organization<br/>organisierter kollektiver Akteur"]
-        Legal["LegalEntity<br/>eigene rechtliche Identität"]
-        Unit["OrganizationalUnit<br/>interne organisatorische Einheit"]
+        Org["Organization: organized collective actor"]
+        Legal["LegalEntity: separate legal identity"]
+        Unit["OrganizationalUnit: internal organizational unit"]
 
-        Membership["Membership<br/>Mitgliedschaftsbeziehung"]
-        Representation["LegalRepresentation<br/>rechtliche Vertretungsbeziehung"]
+        Membership["Membership: membership relationship"]
+        Representation["LegalRepresentation: legal representation relationship"]
 
         Legal -->|"rdfs:subClassOf"| Org
         Unit -->|"rdfs:subClassOf"| Org
@@ -39,7 +37,7 @@ flowchart TB
 
     Org -->|"rdfs:subClassOf"| Agent
 
-    Deferred["Nicht im MVP<br/>EconomicActor / Enterprise<br/>FormalOrganization / Post<br/>Credential-Klasse"]
+    Deferred["Outside the MVP: EconomicActor / Enterprise; FormalOrganization / Post; Credential class"]
     Deferred -.-> Org
 
     classDef agent fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -57,23 +55,22 @@ flowchart TB
     class Deferred deferred;
 ```
 
-### Leseregeln
+### How to Read the Diagram
 
-1. `Organization` ist die gemeinsame lokale Organisationsklasse.
-2. `LegalEntity` und `OrganizationalUnit` sind unterschiedliche Spezialisierungen.
-3. Mitgliedschaft und Vertretung sind Ressourcen, keine direkten Textattribute.
-4. Eine Person kann Mitglied oder rechtliche Vertretung sein, ohne
-   Organisationsinstanz zu werden.
+1. `Organization` is the common local organization class.
+2. `LegalEntity` and `OrganizationalUnit` are distinct specializations.
+3. Membership and representation are resources rather than direct text attributes.
+4. A Person may be a member or legal representative without becoming an Organization instance.
 
-## 2. Organisationsstammdaten und Modulübergänge
+## 2. Organizational Master Data and Connections Between Modules
 
 ```mermaid
 flowchart LR
-    subgraph CORE["Organisationskern"]
+    subgraph CORE["Organization core"]
         direction TB
         Legal["LegalEntity"]
-        Names["Namen<br/>name 1..*<br/>legalName 1..*<br/>alternativeName 0..*"]
-        Registration["Registrierung<br/>registrationDate 1<br/>legalForm 0..1<br/>activity 0..*"]
+        Names["Names: name 1..*; legalName 1..*; alternativeName 0..*"]
+        Registration["Registration: registrationDate 1; legalForm 0..1; activity 0..*"]
 
         Legal --- Names
         Legal --- Registration
@@ -82,7 +79,7 @@ flowchart LR
     subgraph IDENTIFIERS["ADMS"]
         direction TB
         Identifier["adms:Identifier"]
-        Notation["skos:notation 1<br/>typisiertes Kennungsschema"]
+        Notation["skos:notation 1: typed identification scheme"]
         Agency["adms:schemaAgency 0..1"]
         Identifier --> Notation
         Identifier --> Agency
@@ -92,15 +89,15 @@ flowchart LR
         direction TB
         AddressAssignment["AddressAssignment"]
         Address["Address"]
-        AddressRole["AddressRole<br/>Legal / Headquarters<br/>Registration / Postal"]
+        AddressRole["AddressRole: Legal / Headquarters / Registration / Postal"]
         AddressAssignment -->|"assignedAddress 1"| Address
         AddressAssignment -->|"addressRole 1..*"| AddressRole
     end
 
     subgraph CONTACT["core/contact"]
         direction TB
-        ContactPoint["ContactPoint<br/>usage: official<br/>purpose: general"]
-        Website["ContactMethod<br/>channel: website<br/>contactURI: Web-IRI"]
+        ContactPoint["ContactPoint: usage official; purpose general"]
+        Website["ContactMethod: channel website; contactURI web IRI"]
         ContactPoint -->|"hasContactMethod"| Website
     end
 
@@ -108,7 +105,7 @@ flowchart LR
     Legal -->|"hasAddressAssignment 0..*"| AddressAssignment
     Legal -->|"hasContactPoint 0..*"| ContactPoint
 
-    Note["Keine lokalen Properties für<br/>Straße, PLZ, E-Mail oder Homepage"]
+    Note["No local properties for street, postal code, email, or homepage"]
     Note -.-> Legal
 
     classDef core fill:#fff4d6,stroke:#8c6d1f,color:#392d0e,stroke-width:2px;
@@ -126,46 +123,45 @@ flowchart LR
     class Note note;
 ```
 
-### Homepage-Beispiel
+### Homepage Example
 
-```text
-LegalEntity
-  -> hasContactPoint
-       -> contactUsage: official
-       -> contactPurpose: general
-       -> hasContactMethod
-            -> contactChannel: website
-            -> contactURI: https://example.org/
-```
+| Resource | Property | Value or Target |
+| --- | --- | --- |
+| `LegalEntity` | `hasContactPoint` | `ContactPoint` |
+| `ContactPoint` | `contactUsage` | `official` |
+| `ContactPoint` | `contactPurpose` | `general` |
+| `ContactPoint` | `hasContactMethod` | `ContactMethod` |
+| `ContactMethod` | `contactChannel` | `website` |
+| `ContactMethod` | `contactURI` | `https://example.org/` |
 
-Die Homepage ist damit vollständig im bestehenden Kontaktmodell abgebildet.
+The homepage is therefore represented entirely within the existing Contact model.
 
-## 3. Organisationseinheit, Standort oder Legal Entity
+## 3. Organizational Unit, Location, or Legal Entity
 
 ```mermaid
 flowchart TB
-    Subject["Zu modellierender Gegenstand"]
+    Subject["Subject to be modeled"]
 
-    LegalQuestion{"Eigene rechtliche Identität<br/>und eigenes Rechtssubjekt?"}
-    FunctionQuestion{"Eigene organisatorische<br/>Funktion oder Zuständigkeit?"}
-    PlaceQuestion{"Physischer Ort mit Adresse,<br/>Koordinaten oder Zugang?"}
+    LegalQuestion{"Separate legal identity and legal personality?"}
+    FunctionQuestion{"Own organizational function or responsibility?"}
+    PlaceQuestion{"Physical place with an address, coordinates, or access point?"}
 
-    Legal["LegalEntity<br/>z. B. Tochter-GmbH"]
-    Unit["OrganizationalUnit<br/>z. B. Einkauf oder Niederlassung"]
-    Place["Standortressource<br/>z. B. Werk, Depot, Baustelle"]
-    Combined["Getrennte Ressourcen verknüpfen<br/>z. B. Werksorganisation + Werksstandort"]
-    General["Organization<br/>z. B. Verbund oder ARGE<br/>ohne bestätigte eigene Rechtspersönlichkeit"]
+    Legal["LegalEntity: for example, a subsidiary GmbH"]
+    Unit["OrganizationalUnit: for example, procurement or a branch"]
+    Place["Location resource: for example, a plant, depot, or construction site"]
+    Combined["Link separate resources: for example, plant organization and plant location"]
+    General["Organization: for example, a grouping or consortium without confirmed separate legal personality"]
 
     Subject --> LegalQuestion
-    LegalQuestion -->|"ja"| Legal
-    LegalQuestion -->|"nein"| FunctionQuestion
-    FunctionQuestion -->|"ja"| Unit
-    FunctionQuestion -->|"nein"| PlaceQuestion
-    PlaceQuestion -->|"ja"| Place
-    PlaceQuestion -->|"nein, aber kollektiver Akteur"| General
+    LegalQuestion -->|"yes"| Legal
+    LegalQuestion -->|"no"| FunctionQuestion
+    FunctionQuestion -->|"yes"| Unit
+    FunctionQuestion -->|"no"| PlaceQuestion
+    PlaceQuestion -->|"yes"| Place
+    PlaceQuestion -->|"no, but a collective actor"| General
 
-    Unit -.->|"zusätzlicher physischer Ort"| Combined
-    Place -.->|"zusätzliche organisatorische Funktion"| Combined
+    Unit -.->|"additional physical place"| Combined
+    Place -.->|"additional organizational function"| Combined
 
     classDef question fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
     classDef legal fill:#fff4d6,stroke:#8c6d1f,color:#392d0e,stroke-width:2px;
@@ -182,25 +178,25 @@ flowchart TB
     class General general;
 ```
 
-### Typische Zuordnung
+### Typical Classification
 
-| Gegenstand | Ergebnis |
+| Subject | Result |
 | --- | --- |
-| Tochtergesellschaft | `LegalEntity` |
-| Abteilung | `OrganizationalUnit` |
-| Niederlassung ohne eigene Rechtspersönlichkeit | `OrganizationalUnit` plus Standort |
-| Werk oder Depot | Standort; zusätzlich Organisationseinheit bei eigener Funktion |
-| Baustelle | Standort beziehungsweise Projektort |
-| Konzern oder Organisationsverbund | `Organization`, nicht automatisch `LegalEntity` |
+| Subsidiary | `LegalEntity` |
+| Department | `OrganizationalUnit` |
+| Branch without separate legal personality | `OrganizationalUnit` plus location |
+| Plant or depot | Location; additionally an Organizational Unit if it has its own function |
+| Construction site | Location or project site |
+| Corporate group or organizational grouping | `Organization`, not automatically `LegalEntity` |
 
-## 4. Mitgliedschaft, Vertretung und Prozessrolle
+## 4. Membership, Representation, and Process Role
 
 ```mermaid
 flowchart TB
     Person["Person"]
-    MemberOrg["Organization oder LegalEntity<br/>als Mitglied"]
-    HostOrg["Organization<br/>Verband / Innung / Berufsgenossenschaft"]
-    Legal["LegalEntity<br/>vertretene Organisation"]
+    MemberOrg["Organization or LegalEntity as a member"]
+    HostOrg["Organization: association / guild / statutory accident insurance institution"]
+    Legal["LegalEntity: represented organization"]
 
     MembershipPerson["Membership"]
     MembershipOrg["Membership"]
@@ -213,11 +209,11 @@ flowchart TB
     Representation -->|"representative"| Person
     Representation -->|"representedOrganization"| Legal
 
-    subgraph PROCESS["Außerhalb core/organization"]
+    subgraph PROCESS["Outside core/organization"]
         direction LR
-        Context["Geschäftskontext<br/>Lieferschein / Vertrag / Projekt"]
+        Context["Business context: delivery note / contract / project"]
         Assignment["AgentRoleAssignment"]
-        Role["Rollenwert<br/>seller / buyer / carrier / ..."]
+        Role["Role value: seller / buyer / carrier / ..."]
         Context --> Assignment
         Assignment --> Role
     end
@@ -225,7 +221,7 @@ flowchart TB
     Assignment -->|"assignedAgent"| Person
     Assignment -->|"assignedAgent"| MemberOrg
 
-    NoEconomicActor["Keine Klasse EconomicActor<br/>Person und Organisation können<br/>dieselben Prozessrollen übernehmen"]
+    NoEconomicActor["No EconomicActor class: people and organizations may hold the same process roles"]
     NoEconomicActor -.-> Assignment
 
     classDef person fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -243,32 +239,24 @@ flowchart TB
     class NoEconomicActor note;
 ```
 
-### Abgrenzung
+### Boundaries
 
-- `Membership` beschreibt Zugehörigkeit zu einer Organisation.
-- `LegalRepresentation` beschreibt rechtliche Vertretung einer Legal Entity.
-- `AgentRoleAssignment` beschreibt eine Funktion in einem konkreten Vorgang.
-- `Post` würde eine dauerhaft eingerichtete Stelle beschreiben und ist nicht im
-  MVP enthalten.
+- `Membership` describes membership in an Organization.
+- `LegalRepresentation` describes legal representation of a Legal Entity.
+- `AgentRoleAssignment` describes a function within a specific transaction or process.
+- `Post` would describe a permanent position and is outside the MVP.
 
-## 5. Modellentscheidungen
+## 5. Modeling Decisions
 
-1. `Organization` ist Unterklasse des vorhandenen `Agent`.
-2. `LegalEntity` und `OrganizationalUnit` sind keine Synonyme.
-3. Eine Organisationseinheit ist nicht automatisch ein Standort; beide werden
-   bei Bedarf als getrennte Ressourcen verknüpft.
-4. Eine Tochtergesellschaft mit eigener rechtlicher Identität ist
-   `LegalEntity`, keine bloße `OrganizationalUnit`.
-5. Einzelunternehmen und Freiberufler bleiben Personen.
-6. Wirtschaftliches Handeln wird über Prozessrollen ausgedrückt; es gibt keine
-   lokale Klasse `EconomicActor`.
-7. Mitgliedschaft und rechtliche Vertretung sind eigenständige
-   Beziehungsressourcen.
-8. Vertretungsdaten referenzieren eine Person und duplizieren keine
-   Personeneigenschaften.
-9. Mitgliedsnummern identifizieren die Membership, nicht pauschal das Mitglied.
-10. Adressen, Kontakte und Identifier verwenden bestehende Module und
-    Vokabulare.
-11. Eine Homepage ist eine offizielle allgemeine Website-Kontaktmethode.
-12. `FormalOrganization`, `Post`, Credential-Klasse und Jurisdiktionsprofile
-    bleiben außerhalb des MVP.
+1. `Organization` is a subclass of the existing `Agent`.
+2. `LegalEntity` and `OrganizationalUnit` are not synonyms.
+3. An Organizational Unit is not automatically a location; the two are linked as separate resources where required.
+4. A subsidiary with its own legal identity is a `LegalEntity`, rather than merely an `OrganizationalUnit`.
+5. Sole traders and freelancers remain people.
+6. Economic activity is expressed through process roles; there is no local `EconomicActor` class.
+7. Membership and legal representation are separate relationship resources.
+8. Representation data references a Person without duplicating personal properties.
+9. Membership numbers identify the Membership rather than generally identifying the member.
+10. Addresses, contacts, and identifiers use existing modules and vocabularies.
+11. A homepage is an official general website contact method.
+12. `FormalOrganization`, `Post`, a Credential class, and jurisdiction profiles remain outside the MVP.

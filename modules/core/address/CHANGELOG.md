@@ -1,10 +1,9 @@
-﻿# Changelog
+# Changelog
 
 ## Unreleased
 
-- Core-only-Publikationspaket auf ISO-3166-Referenzdaten begrenzt und das abgelöste ausführliche Confluence-Bestandsdokument entfernt.
-- Kompakte `docs/confluence-overview.md` als alleinige Veröffentlichungsquelle der Confluence-Modulseite ergänzt.
-- Dokumentationspaket nach dem gemeinsamen Core-Standard vereinheitlicht und um verständliche Beispiele ergänzt.
+- Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.
+- Standardized the documentation package and added accessible examples.
 - Aligned Address Shapes and all related reference vocabularies with the network-wide Shape-Set, SemVer graph and hash-namespace conventions.
 - Added the versioned Identifier Scheme Datatype vocabulary used by the ISO reference datasets.
 - Replaced the ontology creator organization with structured creator metadata for Sven Zentgraf, including email, ORCID and affiliation.

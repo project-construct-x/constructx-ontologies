@@ -1,39 +1,39 @@
-# Construct-X Contact Core-Modul
+# Construct-X Contact Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul beschreibt Kontaktpunkte und konkrete Kontaktmethoden für Personen,
-Organisationen und weitere kontaktierbare Ressourcen.
+The module describes contact points and concrete contact methods for persons,
+organizations, and other contactable resources.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Die Buchhaltung einer Firma ist für Rechnungen per E-Mail und Telefon
-> erreichbar. Der Kontaktpunkt beschreibt Zweck und Nutzung; die beiden
-> Kontaktmethoden enthalten die konkreten Werte.
+> A company's accounting department can be reached by email and telephone for
+> invoice questions. The contact point describes purpose and usage; the two
+> contact methods contain the concrete values.
 
 ```text
-Firma -> ContactPoint „Buchhaltung“ -> E-Mail
-                                    -> Telefon
+Company -> ContactPoint "Accounting" -> Email
+                                      -> Telephone
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Der Core trennt `ContactPoint`, `ContactMethod`, Kanal, Nutzung, Zweck und
-Plattform. Postalische Kontakte verweisen auf eine AddressAssignment.
+The Core separates `ContactPoint`, `ContactMethod`, channel, usage, purpose,
+and platform. Postal contacts reference an AddressAssignment.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-contact.ttl`
+- Ontology: `ontology/conx-contact.ttl`
 - Core Shapes: `shapes/conx-contact-core.shacl.ttl`
-- Beispiele und Tests: `tests/valid/` und `tests/invalid/`
-- Referenzvokabulare: Kanal, Nutzung, Zweck und Plattform
+- Examples and tests: `tests/valid/` and `tests/invalid/`
+- Reference vocabularies: channel, usage, purpose, and platform

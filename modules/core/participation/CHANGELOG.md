@@ -1,14 +1,21 @@
 # Changelog
 
+## 0.2.0 - 2026-10-07
+
+- Added the optional context-side `hasParticipation` property as `owl:inverseOf context`; no role-specific Core properties were introduced.
+- Added PART-060 and PART-061 to check valid Participation IRIs and matching explicit context back-references.
+- Kept the Participation contract backward compatible; existing data without outgoing links remains valid.
+- Updated the concept, documentation package, Turtle example, and Mermaid diagrams; the role vocabulary remains at 0.1.0.
+
 ## Unreleased - 2026-09-03
 
-- Kompakte `docs/confluence-overview.md` als alleinige Veröffentlichungsquelle der Confluence-Modulseite ergänzt.
-- Dokumentationspaket nach dem gemeinsamen Core-Standard vereinheitlicht und um verständliche Beispiele ergänzt.
+- Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.
+- Standardized the documentation package and added accessible examples.
 
 ## 0.1.0 - 2026-08-27
 
-- Initiale Participation-T-Box für qualifizierte Agentenrollenzuordnungen angelegt.
-- Agent, Rolle und offener fachlicher Kontext als drei Kernbeziehungen festgelegt.
-- Optionale Start- und Enddaten für die Gültigkeit der Zuordnung ergänzt.
-- Minimales Rollen-Vokabular und Core-SHACL-Profil getrennt von der T-Box umgesetzt.
-- Positive und negative SHACL-Testfälle einschliesslich konkreter Person- und Organization-Teilnehmer ergänzt.
+- Added the initial Participation T-Box for qualified agent-role assignments.
+- Defined agent, role, and open domain context as the three core relationships.
+- Added optional start and end dates for the assignment's validity.
+- Implemented the minimal role vocabulary and Core SHACL profile separately from the T-Box.
+- Added positive and negative SHACL cases, including concrete Person and Organization participants.

@@ -1,40 +1,42 @@
-# Construct-X Participation Core-Modul
+# Construct-X Participation Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
-**Version:** 0.1.0  
-**Stand:** 3. September 2026
+**Status:** Draft, domain-reviewed, and implemented  
+**Version:** 0.2.0  
+**As of:** 7 October 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul beschreibt eine tatsächlich geltende oder historisch geltende Rolle
-eines Agenten in einem fachlichen Kontext.
+The module describes a currently or historically valid role held by an agent
+in a domain context.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Anna Müller wirkt in einem Bauvorhaben als Architektin mit. Participation
-> verbindet Anna, die Rolle „Architektin“ und das Bauvorhaben.
+> Anna Miller participates in a construction project as an architect.
+> Participation connects Anna, the "Architect" role, and the project.
 
 ```text
 Participation -> Person
-              -> Rolle: Architect
-              -> fachlicher Kontext
+              -> Role: Architect
+              -> Domain context
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Jede Participation besitzt genau einen Agenten, eine Rolle und einen Kontext.
-Start- und Enddatum sind optional. Aktivitäten, Berechtigungen und Membership
-bleiben außerhalb des Moduls.
+Each Participation has exactly one agent, role, and context. Start and end
+dates are optional. Activities, permissions, and Membership remain outside the
+module. `hasParticipation` optionally exposes participations from the context.
+The properties still belong to the Participation instance, not to the
+referenced resource.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-part.ttl`
+- Ontology: `ontology/conx-part.ttl`
 - Core Shapes: `shapes/conx-part-core.shacl.ttl`
-- Beispiele und Tests: `tests/valid/` und `tests/invalid/`
-- Referenzvokabular: allgemeine Participation-Rollen
+- Examples and tests: `tests/valid/` and `tests/invalid/`
+- Reference vocabulary: general Participation roles

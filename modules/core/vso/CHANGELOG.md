@@ -2,8 +2,12 @@
 
 ## Unreleased
 
-- Kompakte `docs/confluence-overview.md` als alleinige Veröffentlichungsquelle der Confluence-Modulseite ergänzt.
-- Dokumentationspaket auf die gemeinsame deutsche Core-Struktur umgestellt und um verständliche Beispiele ergänzt.
+- 2026-10-06: PropertyStateShape now selects only VSO states and VSO links,
+  rather than arbitrary resources with `schema:value`. Quantities can therefore
+  be validated alongside property states.
+
+- Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.
+- Migrated the documentation package to the shared Core structure and added accessible examples.
 - Added and integrated the VSO 0.1.0 ontology.
 - Confirmed the OPM subclass and subproperty alignments.
 - Retained `schema:value` as the single value predicate.

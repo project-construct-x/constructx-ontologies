@@ -1,39 +1,39 @@
-# Construct-X Document Core-Modul
+# Construct-X Document Core Module
 
-**Status:** Draft, fachlich bestätigt und implementiert  
+**Status:** Draft, domain-reviewed, and implemented  
 **Version:** 0.1.0  
-**Stand:** 3. September 2026
+**As of:** 3 September 2026
 
-## 1. Kurzbeschreibung
+## 1. Summary
 
-Das Modul trennt ein fachliches Dokument, seine kontextbezogene Referenz und
-seine technische Bereitstellung als Datei.
+The module separates a domain document, its contextual reference, and its
+technical provision as a file.
 
-## 2. Verständliches Beispiel
+## 2. Accessible Example
 
-> Ein Vertrag verweist auf einen Prüfbericht. Der Bericht ist das Dokument;
-> seine PDF- und XML-Dateien sind zwei Distributionen desselben Dokuments.
+> A contract references an inspection report. The report is the document; its
+> PDF and XML files are two distributions of the same document.
 
 ```text
-Vertrag -> DocumentReference -> Document -> PDF
-                                      +-> XML
+Contract -> DocumentReference -> Document -> PDF
+                                        +-> XML
 ```
 
-## 3. Modellumfang
+## 3. Model Scope
 
-Der Core umfasst `Document`, `DocumentReference`, `DocumentDistribution`,
-Metadaten, Status, Typ, Gültigkeit und Kennungen. Akteursrollen werden über
-Participation modelliert.
+The Core contains `Document`, `DocumentReference`, `DocumentDistribution`,
+metadata, status, type, validity, and identifiers. Agent roles are modeled
+through Participation.
 
-## 4. Dokumentation
+## 4. Documentation
 
-Der zentrale Einstieg ist [docs/index.md](docs/index.md). Die gemeinsame Form
-aller Core-Dokumentationen beschreibt der
-[Dokumentationsstandard](../DOCUMENTATION.md).
+The central entry point is the [documentation index](docs/00_index.md). The
+[documentation standard](../DOCUMENTATION.md) defines the common structure for
+all Core modules.
 
-## 5. Technische Artefakte
+## 5. Technical Artifacts
 
-- Ontologie: `ontology/conx-doc.ttl`
+- Ontology: `ontology/conx-doc.ttl`
 - Core Shapes: `shapes/conx-doc-core.shacl.ttl`
-- Beispiele und Tests: `tests/valid/` und `tests/invalid/`
-- Referenzvokabulare: Dokumenttyp und Dokumentstatus
+- Examples and tests: `tests/valid/` and `tests/invalid/`
+- Reference vocabularies: document type and document status

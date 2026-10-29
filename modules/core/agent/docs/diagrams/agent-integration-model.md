@@ -1,26 +1,24 @@
-# Agent-Integrationsmodell
+# Agent Integration Model
 
-**Status:** Dokumentationssicht auf den implementierten Netzwerkstand 0.1.0  
-**Stand:** 27. August 2026
+**Status:** Documentation view of the implemented network version 0.1.0  
+**As of:** 27 August 2026
 
-Dieses Diagramm beschreibt keine zusätzlichen OWL-Axiome. Es zeigt, wie
-`conx-agent:Agent` aktuell als minimale Oberklasse verwendet wird und welche
-fachlichen Beziehungen in anderen Modulen bleiben.
+This diagram does not describe any additional OWL axioms. It shows how `conx-agent:Agent` is currently used as a minimal superclass and which domain-specific relationships remain in other modules.
 
 ```mermaid
 flowchart TB
     subgraph AGENT["core/agent"]
-        Agent["Agent<br/>gemeinsame Oberklasse"]
+        Agent["Agent: common superclass"]
     end
 
     subgraph PERSON["core/person"]
-        Person["Person<br/>natürliche Person"]
-        PersonData["Personendaten<br/>Name, Geburt, Sex, Gender,<br/>Staatsangehörigkeit, Identitätsnachweis"]
+        Person["Person: natural person"]
+        PersonData["Personal data: name, birth, sex, gender, citizenship, identity evidence"]
         Person --- PersonData
     end
 
     subgraph ORGANIZATION["core/organization"]
-        Org["Organization<br/>organisierter kollektiver Akteur"]
+        Org["Organization: organized collective actor"]
         Legal["LegalEntity"]
         Unit["OrganizationalUnit"]
         Membership["Membership"]
@@ -56,7 +54,7 @@ flowchart TB
     Person -.->|"hasAddressAssignment"| AddressAssignment
     Org -.->|"hasAddressAssignment"| AddressAssignment
 
-    Note["Keine Agent-Properties im MVP<br/>Contact und Address bleiben domänenoffen"]
+    Note["No Agent properties in the MVP; Contact and Address remain unrestricted in domain"]
     Note -.-> Agent
 
     classDef agent fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
@@ -74,14 +72,10 @@ flowchart TB
     class Note note;
 ```
 
-## Leseregeln
+## How to Read the Diagram
 
-1. `Agent` ist nur die gemeinsame Oberklasse, kein Stammdatencontainer.
-2. `Person` und `Organization` sind die derzeit implementierten lokalen
-   Agent-Spezialisierungen.
-3. `hasContactPoint` gehört zu `core/contact` und bleibt ohne harte
-   `rdfs:domain`.
-4. `hasAddressAssignment` gehört zu `core/address` und bleibt ohne harte
-   `rdfs:domain`.
-5. `Membership` und `LegalRepresentation` gehören zu `core/organization`, weil
-   sie Organisationsbeziehungen beschreiben.
+1. `Agent` is only the common superclass, not a master data container.
+2. `Person` and `Organization` are the currently implemented local specializations of Agent.
+3. `hasContactPoint` belongs to `core/contact` and remains without a restrictive `rdfs:domain`.
+4. `hasAddressAssignment` belongs to `core/address` and remains without a restrictive `rdfs:domain`.
+5. `Membership` and `LegalRepresentation` belong to `core/organization` because they describe organizational relationships.

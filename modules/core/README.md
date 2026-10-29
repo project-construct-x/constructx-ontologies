@@ -1,21 +1,22 @@
-# Core-Module
+# Core Modules
 
-Core-Module enthalten fachübergreifend wiederverwendbare Ontologien. Sie bilden gemeinsame Grundlagen, die von mehreren fachlichen Modulen verwendet werden können.
+Core modules contain reusable ontologies that apply across domains. They form
+shared foundations that can be used by multiple domain modules.
 
-Die gemeinsame Form, die Pflichtdokumente und die Anforderungen an
-verständliche Beispiele sind im
-[Dokumentationsstandard](DOCUMENTATION.md) festgelegt.
+The common structure, required documents, and expectations for accessible
+examples are defined in the [documentation standard](DOCUMENTATION.md).
 
-Aktuelle Core-Module:
+Current Core modules:
 
 - `vso`: Construct-X Value Semantics Ontology
 - `address`: Construct-X Address Ontology
-- `agent`: minimale gemeinsame Oberklasse für Akteure
-- `identifier`: gemeinsamer ADMS/SKOS-Vertrag für fachliche Kennungen
-- `person`: Kerndaten realer natürlicher Personen
-- `contact`: Kontaktpunkte und Kommunikationskanäle
-- `organization`: Organisationen, rechtliche Einheiten, Organisationseinheiten, Mitgliedschaften und rechtliche Vertretungen
-- `participation`: qualifizierte Rollen von Agenten in fachlichen Kontexten
-- `document`: Dokumente, kontextbezogene Referenzen, technische Distributionen, Dokumenttypen und Dokumentstatus
+- `agent`: minimal common superclass for agents
+- `identifier`: shared ADMS/SKOS contract for domain identifiers
+- `person`: core data of real natural persons
+- `contact`: contact points and communication channels
+- `organization`: organizations, legal entities, organizational units, memberships, and legal representations
+- `participation`: qualified roles of agents in domain contexts
+- `document`: documents, contextual references, technical distributions, document types, and document statuses
 
-Core-Module dürfen keine Domain-Module importieren. Externe Ontologien dürfen nur verwendet werden, wenn ihre Imports, Versionen und Rollen nachvollziehbar dokumentiert sind.
+Core modules must not import domain modules. External ontologies may only be
+used when their imports, versions, and roles are documented transparently.
