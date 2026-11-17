@@ -2,6 +2,12 @@
 
 ## Unreleased
 
+- 2026-11-03: Aligned the concise Confluence summary and its index entry with
+  the shared Core module documentation pattern. Supplementary analysis and
+  review documents remain available through the documentation index.
+- 2026-11-03: Translated the VSO Confluence publication source into German;
+  all detailed repository documentation remains in English.
+
 - 2026-10-06: PropertyStateShape now selects only VSO states and VSO links,
   rather than arbitrary resources with `schema:value`. Quantities can therefore
   be validated alongside property states.

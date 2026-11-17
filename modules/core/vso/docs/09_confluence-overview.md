@@ -1,101 +1,102 @@
-# Construct-X VSO Core Module
+# Construct-X Core-Modul VSO
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/vso`
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/vso`
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-## 1. Purpose
+## 1. Zweck
 
-The Value Semantics Ontology describes how a property definition and a
-concrete value are assigned to a resource through a domain-independent pattern.
+Die Value Semantics Ontology beschreibt, wie eine Merkmalsdefinition und ein
+konkreter Wert über ein domänenunabhängiges Muster einer Ressource zugewiesen
+werden.
 
-## 2. Everyday Example
+## 2. Alltagsbeispiel
 
-> A wall has the property "Height". The concrete assignment references the
-> Height definition, contains the value 2.80, and uses the unit metre.
+> Eine Wand besitzt das Merkmal „Höhe“. Die konkrete Zuweisung verweist auf
+> die Merkmalsdefinition „Höhe“, enthält den Wert 2,80 und verwendet die
+> Einheit Meter.
 
-VSO describes how value and unit are connected. A domain profile decides
-whether every wall must have a height.
+VSO beschreibt, wie Wert und Einheit miteinander verbunden werden. Ein
+Fachprofil legt fest, ob beispielsweise jede Wand eine Höhe besitzen muss.
 
-## 3. Scope and Boundaries
+## 3. Umfang und Abgrenzung
 
-The module contains the assignment of a property to a resource, the reference
-to a property definition, a state with exactly one value, and an optional QUDT
-unit. It does not contain property definitions, ISOProps identifiers and
-metadata, domain-specific value ranges, or requirements for particular object
-types.
+Das Modul umfasst die Zuweisung eines Merkmals zu einer Ressource, den Verweis
+auf eine Merkmalsdefinition, einen Zustand mit genau einem Wert und eine
+optionale QUDT-Einheit. Es enthält keine Merkmalsdefinitionen, keine
+ISOProps-Identifikatoren oder -Metadaten, keine domänenspezifischen
+Wertebereiche und keine Anforderungen an bestimmte Objekttypen.
 
-## 4. Model Overview
+## 4. Modellübersicht
 
 ```text
-Resource -> AssignedProperty -> Property definition
+Ressource -> AssignedProperty -> Merkmalsdefinition
                     |
                     +-> PropertyState
                            +-> schema:value
-                           +-> hasUsedUnit -> optional QUDT unit
+                           +-> hasUsedUnit -> optionale QUDT-Einheit
 ```
 
-The assignment resource keeps the relationship extensible and separates the
-general definition from a concrete value.
+Die Zuweisung wird als eigene Ressource modelliert. Dadurch bleibt die
+Beziehung erweiterbar und die allgemeine Definition wird vom konkreten Wert
+getrennt.
 
-## 5. Key Classes and Relationships
+## 5. Zentrale Klassen und Beziehungen
 
-| Term | Plain-language meaning |
+| Begriff | Bedeutung |
 | --- | --- |
-| `AssignedProperty` | Concrete assignment of a property definition |
-| `PropertyState` | State that carries the concrete value |
-| `hasProperty` | Links a resource to its assignment |
-| `hasPropertyReference` | Points to the property definition |
-| `hasPropertyState` | Links assignment and value state |
-| `schema:value` | Carries the concrete value |
-| `hasUsedUnit` | Optionally points to a QUDT unit |
+| `AssignedProperty` | Konkrete Zuweisung einer Merkmalsdefinition |
+| `PropertyState` | Zustand, der den konkreten Wert trägt |
+| `hasProperty` | Verknüpft eine Ressource mit ihrer Merkmalszuweisung |
+| `hasPropertyReference` | Verweist auf die Merkmalsdefinition |
+| `hasPropertyState` | Verknüpft die Zuweisung mit dem Wertzustand |
+| `schema:value` | Enthält den konkreten Wert |
+| `hasUsedUnit` | Verweist optional auf eine QUDT-Einheit |
 
-## 6. Validation in Plain Language
+## 6. Validierung in Alltagssprache
 
-Each assignment belongs to exactly one resource, references exactly one
-property definition, and has exactly one state. The state contains exactly one
-value and at most one unit.
+Jede Merkmalszuweisung gehört genau zu einer Ressource, verweist auf genau
+eine Merkmalsdefinition und besitzt genau einen Zustand. Der Zustand enthält
+genau einen Wert und höchstens eine Einheit.
 
-> A height assignment with two current states is invalid because the current
-> value is ambiguous. A textual property without a unit can be fully valid.
+> Eine Höhenzuweisung mit zwei aktuellen Zuständen ist ungültig, weil der
+> aktuelle Wert nicht eindeutig wäre. Ein textuelles Merkmal ohne Einheit
+> kann vollständig gültig sein.
 
-## 7. Dependencies
+## 7. Abhängigkeiten
 
-OPM provides the basic property concepts, QUDT the units, and Schema.org the
-value property. These ontologies are referenced rather than imported in full.
-The separate `vso-isoprops` profile can add ISOProps rules without changing the
-open VSO Core.
+OPM stellt die grundlegenden Merkmalskonzepte bereit, QUDT die Einheiten und
+Schema.org die Werteigenschaft. Diese Ontologien werden referenziert, aber
+nicht vollständig importiert. Das separate Profil `vso-isoprops` kann
+ISOProps-Regeln ergänzen, ohne den offenen VSO Core zu verändern.
 
-## 8. Version, Status, and Artifacts
+## 8. Version, Status und Artefakte
 
-| Property | Value |
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/vso` |
-| Prefix | `conx-vso` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/vso` |
+| Präfix | `conx-vso` |
 
-- [Ontology](../ontology/conx-vso.ttl)
+- [Ontologie](../ontology/conx-vso.ttl)
 - [Core Shapes](../shapes/conx-vso-core.shacl.ttl)
-- [HTML documentation](vso.html)
-- [Measured property example](../examples/measured-property.ttl)
-- [Text property example](../examples/text-property.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](vso.html)
+- [Beispiel einer Messgröße](../examples/measured-property.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+## 9. Weiterführende Dokumentation
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
-- [Integration Analysis](10_integration-analysis.md)
-- [Review Report](11_review-report.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

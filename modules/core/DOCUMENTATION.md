@@ -100,6 +100,9 @@ surrounding text.
 ## 7. Language and Terminology
 
 - Prose and headings are written in English.
+- A localized `docs/09_confluence-overview.md` may use the agreed Confluence
+  publication language. The module index records this exception; all detailed
+  repository documents remain in English.
 - Classes, properties, prefixes, and public IRIs remain unchanged.
 - The repository uses the term "Construct-X Core module".
 - Chapters use consecutive numbering.
