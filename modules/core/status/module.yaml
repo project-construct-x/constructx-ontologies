@@ -1,0 +1,86 @@
+id: status
+title: Construct-X Status Ontology
+type: core
+status: draft
+version: 0.1.0
+ontology_iri: https://www.construct-x.org/ontology/status
+version_iri: https://www.construct-x.org/ontology/status/0.1.0
+namespace: https://www.construct-x.org/ontology/status#
+preferred_namespace_prefix: conx-status
+created: 2026-11-10
+modified: 2026-11-11
+validation_bundle: status
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+shape_sets:
+  core:
+    graph_iri: https://www.construct-x.org/shapes/status/core
+    version_iri: https://www.construct-x.org/shapes/status/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/status/core#
+    version: 0.1.0
+    artifact: shapes/conx-status-core.shacl.ttl
+dependencies:
+  - id: agent
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/agent
+    version_iri: https://www.construct-x.org/ontology/agent/0.1.0
+    namespace: https://www.construct-x.org/ontology/agent#
+    used_terms: [conx-agent:Agent]
+  - id: vso
+    relation: referenced-not-imported
+    ontology_iri: https://www.construct-x.org/ontology/vso
+    version_iri: https://www.construct-x.org/ontology/vso/0.1.0
+    namespace: https://www.construct-x.org/ontology/vso#
+    used_terms: [conx-vso:AssignedProperty, conx-vso:PropertyState]
+  - id: vso-core-shapes
+    relation: validated-with
+    shape_graph_iri: https://www.construct-x.org/shapes/vso/core
+    version_iri: https://www.construct-x.org/shapes/vso/core/0.1.0
+  - id: vso-isoprops
+    relation: validated-with
+    shape_graph_iri: https://www.construct-x.org/shapes/vso/isoprops
+    version_iri: https://www.construct-x.org/shapes/vso/isoprops/0.1.0
+  - id: skos
+    relation: referenced-not-imported
+    ontology_iri: http://www.w3.org/2004/02/skos/core
+    namespace: http://www.w3.org/2004/02/skos/core#
+    used_terms: [skos:Concept, skos:ConceptScheme]
+  - id: status-kind
+    relation: validated-with
+    vocabulary_iri: https://www.construct-x.org/vocab/status-kind
+    version_iri: https://www.construct-x.org/vocab/status-kind/0.1.0
+  - id: status-value
+    relation: validated-with
+    vocabulary_iri: https://www.construct-x.org/vocab/status-value
+    version_iri: https://www.construct-x.org/vocab/status-value/0.1.0
+  - id: status-reason
+    relation: validated-with
+    vocabulary_iri: https://www.construct-x.org/vocab/status-reason
+    version_iri: https://www.construct-x.org/vocab/status-reason/0.1.0
+maintainers: [AP 3.4]
+artifacts:
+  readme: README.md
+  changelog: CHANGELOG.md
+  ontology: ontology/conx-status.ttl
+  core_shapes: shapes/conx-status-core.shacl.ttl
+  strict_shapes: null
+  documentation: docs/00_index.md
+  source_analysis: docs/01_source-analysis.md
+  scope_and_competency_questions: docs/02_scope-and-competency-questions.md
+  concept_model: docs/03_concept-model.md
+  module_boundaries: docs/04_module-boundaries.md
+  term_catalog: docs/05_term-catalog.md
+  shacl_requirements: docs/06_shacl-requirements.md
+  core_shapes_documentation: docs/07_core-shapes.md
+  concept_model_diagram: docs/08_concept-diagram.md
+  confluence_overview: docs/09_confluence-overview.md
+  html_documentation: docs/status.html
+  minimal_example: examples/minimal-status.ttl
+  history_example: examples/status-history.ttl
+  current_status_example: examples/current-status-selection.ttl
+  multiple_kinds_example: examples/multiple-status-kinds.ttl
+  multiple_reasons_example: examples/multiple-status-reasons.ttl
+  condition_example: examples/status-with-condition.ttl
+  person_reporter_example: examples/reporting-actors/person-reporter.ttl
+  organization_reporter_example: examples/reporting-actors/organization-reporter.ttl
+  reporter_examples_documentation: examples/reporting-actors/README.md

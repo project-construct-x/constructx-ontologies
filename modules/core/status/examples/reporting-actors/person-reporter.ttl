@@ -1,0 +1,23 @@
+# A person reports that an object has been delivered.
+# Load modules/core/person/ontology/conx-person.ttl as additional context.
+# The Person -> Agent relationship comes from that Core ontology, not this data.
+@prefix s: <https://www.construct-x.org/ontology/status#> .
+@prefix person: <https://www.construct-x.org/ontology/person#> .
+@prefix kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/status/person-reporter/> .
+
+ex:delivery s:hasStatus ex:report .
+ex:report a s:StatusAssignment ;
+  s:hasStatusKind kind:TransportStatus ;
+  s:hasStatusValue value:Delivered ;
+  s:referenceDate "2026-11-11"^^xsd:date ;
+  s:referenceTime "10:00:00+01:00"^^xsd:time ;
+  s:reportedBy ex:alex .
+
+# Fictional example person; no redundant rdf:type Agent assertion is needed.
+ex:alex a person:Person ;
+  person:fullName "Alex Example" ;
+  person:givenName "Alex" ;
+  person:familyName "Example" .

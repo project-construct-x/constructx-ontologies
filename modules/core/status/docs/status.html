@@ -1,0 +1,2555 @@
+
+
+
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Construct-X Status Ontology</title>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Status Ontology", "termSet": "https://www.construct-x.org/ontology/status#", "url": "https://www.construct-x.org/ontology/status"}, "dateCreated": "2026-11-10", "dateModified": "2026-11-11", "description": "Defines timestamped status assignments, open status vocabularies, optional history navigation and VSO conditions.", "encoding": [{"@type": "MediaObject", "contentUrl": "downloads/conx-status.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "conx-agent", "url": "https://www.construct-x.org/ontology/agent#"}, {"@type": "CreativeWork", "name": "conx-vso", "url": "https://www.construct-x.org/ontology/vso#"}, {"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "skos", "url": "http://www.w3.org/2004/02/skos/core#"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Status Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/status", "version": "0.1.0"}</script>
+  <script src="https://unpkg.com/cytoscape@3.30.4/dist/cytoscape.min.js"></script>
+  <script src="assets/layout-base.js"></script>
+  <script src="assets/cose-base.js"></script>
+  <script src="assets/cytoscape-fcose.js"></script>
+  <script src="assets/graph-labels.js"></script>
+  <style>
+    :root {
+      --ink: #202124;
+      --muted: #5f6368;
+      --line: #d7dce2;
+      --panel: #f6f8fa;
+      --brand: #155c63;
+      --brand-dark: #0f4449;
+      --accent: #b84a39;
+      --code: #eef3f5;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      font: 16px/1.55 "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #fff;
+    }
+    header {
+      color: #fff;
+      background:
+        linear-gradient(120deg, rgba(15, 68, 73, .96), rgba(21, 92, 99, .92)),
+        radial-gradient(circle at 85% 20%, rgba(255, 255, 255, .16), transparent 34%);
+      border-bottom: 5px solid var(--accent);
+    }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .hero {
+      padding: 38px 0 34px;
+    }
+    .hero-copy { min-width: 0; }
+    h1 { margin: 0 0 10px; font-size: clamp(2rem, 4vw, 3.2rem); line-height: 1.1; }
+    .subtitle { max-width: 760px; margin: 0; color: #e8f2f3; white-space: pre-line; }
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 18px;
+    }
+    .version,
+    .hero-stat {
+      display: inline-block;
+      padding: 4px 10px;
+      border: 1px solid #b8d5d8;
+      border-radius: 4px;
+      color: #e8f2f3;
+      background: rgba(255, 255, 255, .08);
+    }
+    .figure-showcase {
+      padding: 0 0 10px;
+      background: #f8fafb;
+    }
+    .figure-stack {
+      display: grid;
+      gap: 18px;
+    }
+    .doc-figure {
+      position: relative;
+      margin: 0;
+      overflow: visible;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+    }
+    .doc-figure:hover {
+      z-index: 2;
+      transform: scale(1.035);
+      border-color: #aebbc4;
+      box-shadow: 0 18px 42px rgba(20, 28, 32, .18);
+    }
+    .doc-figure img {
+      display: block;
+      width: 100%;
+      max-height: min(72vh, 760px);
+      object-fit: contain;
+      padding: 18px;
+      background: #fff;
+      cursor: zoom-in;
+    }
+    .doc-figure figcaption {
+      padding: 11px 14px;
+      border-top: 1px solid var(--line);
+      color: var(--brand-dark);
+      background: #f4f7f8;
+      font-weight: 650;
+    }
+    .figure-zoom {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 28px;
+      background: rgba(20, 28, 32, .82);
+    }
+    .figure-zoom:target {
+      display: flex;
+    }
+    .figure-zoom img {
+      display: block;
+      max-width: min(1200px, 96vw);
+      max-height: 86vh;
+      object-fit: contain;
+      padding: 18px;
+      border-radius: 6px;
+      background: #fff;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .35);
+    }
+    .figure-zoom a {
+      position: absolute;
+      inset: 0;
+      cursor: zoom-out;
+    }
+    .figure-zoom span {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, .55);
+      display: grid;
+      place-items: center;
+      font-size: 1.6rem;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .page {
+      display: grid;
+      grid-template-columns: minmax(230px, 300px) minmax(0, 1fr);
+      gap: 32px;
+      align-items: start;
+      padding: 28px 0 56px;
+    }
+    main { min-width: 0; }
+    aside.toc {
+      position: sticky;
+      top: 18px;
+      max-height: calc(100vh - 36px);
+      overflow: auto;
+      padding: 18px 18px 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 6px;
+    }
+    .toc-title {
+      display: block;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--brand);
+      color: var(--brand-dark);
+      font-size: 1.15rem;
+    }
+    aside.toc ul { margin: 0; padding: 0; list-style: none; }
+    aside.toc li { margin: 0; }
+    aside.toc a { display: inline-block; overflow-wrap: anywhere; line-height: 1.25; }
+    .toc-group { padding: 12px 0 0; }
+    .toc-heading { font-weight: 700; color: var(--brand-dark); }
+    .toc-group > ul { padding: 7px 0 0 12px; }
+    .toc-group > ul > li { padding: 4px 0; }
+    .toc-alt {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .82rem;
+      line-height: 1.25;
+      overflow-wrap: anywhere;
+    }
+    h2 {
+      margin: 34px 0 12px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--line);
+      color: var(--brand-dark);
+      font-size: 1.55rem;
+    }
+    h3 { margin: 26px 0 10px; color: var(--brand-dark); font-size: 1.15rem; }
+    a { color: #0b5cad; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; margin: 10px 0 18px; }
+    th, td { padding: 9px 10px; border: 1px solid var(--line); vertical-align: top; text-align: left; }
+    th { width: 230px; background: var(--panel); font-weight: 650; }
+    .instance-details summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--brand-dark);
+      background: #f0f5f6;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .instance-details[open] summary { margin-bottom: 8px; }
+    .instance-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .instance-list li {
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fbfcfd;
+    }
+    .restriction-details summary {
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 9px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--brand-dark);
+      background: #e5f0f1;
+      font-weight: 700;
+      font-size: .9rem;
+    }
+    .restriction-details[open] summary {
+      margin-bottom: 8px;
+    }
+    .restriction-list {
+      display: block;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .restriction-list li {
+      display: block;
+      line-height: 1.7;
+      overflow-wrap: anywhere;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fbfcfd;
+    }
+    .restriction-list li + li { margin-top: 7px; }
+    .restriction-property { font-weight: 650; }
+    .restriction-condition { display: inline-block; white-space: nowrap; margin: 0 3px; }
+    .restriction-constraint {
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: #e5f0f1;
+      color: var(--brand-dark);
+      font-size: .86rem;
+      font-weight: 700;
+    }
+    .restriction-filler { color: var(--muted); }
+    code, .curie { padding: 2px 5px; background: var(--code); border-radius: 4px; font-family: Consolas, "Liberation Mono", monospace; font-size: .92em; }
+    .term {
+      margin: 14px 0 18px;
+      padding: 16px;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--brand);
+      border-radius: 6px;
+      background: #fff;
+    }
+    .term h3 { margin-top: 0; }
+    .term-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0 12px; }
+    .pill { padding: 3px 8px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: var(--panel); font-size: .88rem; }
+    .prefix-list { margin: 0; padding-left: 20px; }
+    .muted { color: var(--muted); }
+    .lang { color: var(--muted); font-size: .86em; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+    .quality-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      margin: 12px 0 16px;
+    }
+    .quality-stat {
+      padding: 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+    .quality-stat strong {
+      display: block;
+      color: var(--brand-dark);
+      font-size: 1.45rem;
+      line-height: 1.1;
+    }
+    .quality-section {
+      margin: 10px 0;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+    }
+    .quality-section summary {
+      cursor: pointer;
+      padding: 10px 12px;
+      color: var(--brand-dark);
+      font-weight: 700;
+      background: var(--panel);
+    }
+    .quality-list {
+      margin: 0;
+      padding: 8px 12px 12px 30px;
+    }
+    .quality-list li { margin: 5px 0; }
+    .quality-badge {
+      display: inline-block;
+      min-width: 58px;
+      margin-right: 6px;
+      padding: 1px 6px;
+      border-radius: 999px;
+      font-size: .78rem;
+      font-weight: 700;
+      text-align: center;
+    }
+    .quality-badge.error { color: #8a1f1f; background: #fde7e7; }
+    .quality-badge.warning { color: #6f5600; background: #fff1bd; }
+    .agent {
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--panel);
+    }
+    .agent-name {
+      display: block;
+      color: var(--brand-dark);
+      font-size: 1.02rem;
+      line-height: 1.25;
+    }
+    .agent-role {
+      display: inline-block;
+      margin: 7px 0 8px;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #e5f0f1;
+      color: var(--brand-dark);
+      font-size: .8rem;
+      font-weight: 650;
+    }
+    .agent-affiliation {
+      min-height: 1.35em;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .agent-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--brand-dark);
+    }
+    .icon-link:hover {
+      border-color: var(--brand);
+      text-decoration: none;
+    }
+    .icon-link svg { width: 18px; height: 18px; display: block; }
+    .orcid-icon text {
+      font: 700 8px "Segoe UI", Arial, sans-serif;
+      fill: #fff;
+    }
+    .missing-mandatory th,
+    .missing-mandatory td,
+    .agent.missing-mandatory { background: #fde7e7; border-color: #d98a8a; }
+    .missing-optional th,
+    .missing-optional td,
+    .agent.missing-optional { background: #fff6d8; border-color: #d7bd67; }
+    .downloads,
+    .used-list { margin: 0; padding-left: 20px; }
+    .used-list li,
+    .downloads li { margin: 6px 0; }
+    .relation { color: var(--muted); font-size: .9rem; }
+    .visualization-panel {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .visualization-toolbar { border-bottom: 1px solid var(--line); background: var(--page-bg, #fff); }
+    .visualization-actions {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 10px 16px; padding: 10px 14px;
+    }
+    .graph-filters { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 20px; min-width: 0; }
+    .graph-tools { display: flex; align-items: center; gap: 4px; margin-left: auto; }
+    .visualization-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 32px;
+      color: var(--ink);
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .visualization-toggle input {
+      width: 15px;
+      height: 15px;
+      accent-color: var(--brand);
+      cursor: pointer;
+      margin: 0;
+      flex-shrink: 0;
+    }
+    .graph-tool { display: inline-flex; align-items: center; justify-content: center; gap: 4px; box-sizing: border-box; width: 34px; height: 34px; padding: 0; border: 1px solid transparent; border-radius: 4px; background: transparent; color: var(--brand-dark); cursor: pointer; }
+    .graph-tool svg { flex-shrink: 0; pointer-events: none; }
+    .graph-tool:hover, .graph-tool[aria-pressed="true"], .graph-export[open] > summary { background: var(--panel); border-color: var(--line); }
+    .graph-tool:focus-visible, .graph-legend > summary:focus-visible, .graph-export-options button:focus-visible, #show-entire-graph:focus-visible { outline: 2px solid var(--brand); outline-offset: 2px; }
+    .graph-tool .graph-exit-icon, .graph-tool[aria-pressed="true"] .graph-enter-icon { display: none; }
+    .graph-tool[aria-pressed="true"] .graph-exit-icon { display: inline-flex; }
+    .graph-tool .graph-enter-icon { display: inline-flex; }
+    .graph-export { position: relative; margin-left: 6px; padding-left: 10px; border-left: 1px solid var(--line); }
+    .graph-export > summary { width: 48px; list-style: none; }
+    .graph-export > summary::-webkit-details-marker, .graph-legend > summary::-webkit-details-marker { display: none; }
+    .graph-export-options { position: absolute; z-index: 20; right: 0; top: calc(100% + 6px); width: 174px; padding: 4px; border: 1px solid var(--line); border-radius: 6px; background: var(--page-bg, #fff); box-shadow: 0 6px 20px #0002; }
+    .graph-export-options button { display: flex; justify-content: space-between; align-items: center; width: 100%; border: 0; border-radius: 3px; padding: 9px 10px; background: transparent; color: var(--ink); font: inherit; font-size: 13px; cursor: pointer; }
+    .graph-export-options button:hover { background: var(--panel); }
+    .graph-export-options span { color: var(--muted); font-size: 11px; }
+    .graph-focus-bar { display: flex; align-items: center; justify-content: space-between; gap: 10px 16px; padding: 9px 14px; border-top: 1px solid var(--line); background: var(--panel); }
+    .graph-focus-bar[hidden] { display: none; }
+    .graph-focus-description { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; min-width: 0; }
+    .graph-focus-label { color: var(--muted); font-size: 12px; }
+    #graph-focus-title { font-size: 13px; font-weight: 600; overflow-wrap: anywhere; min-width: 0; color: var(--brand-dark); }
+    #show-entire-graph { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; gap: 6px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 4px; background: var(--page-bg, #fff); color: var(--brand-dark); font: inherit; font-size: 12px; cursor: pointer; }
+    #show-entire-graph:hover { border-color: var(--brand); }
+    .graph-legend { border-top: 1px solid var(--line); background: var(--panel); }
+    .graph-legend > summary { display: flex; align-items: center; gap: 7px; width: fit-content; padding: 8px 14px; font-size: 12px; font-weight: 600; color: var(--brand-dark); cursor: pointer; list-style: none; }
+    .graph-legend > summary svg { width: 14px; height: 14px; transform: rotate(-90deg); }
+    .graph-legend[open] > summary svg { transform: rotate(0); }
+    .graph-legend-body { display: grid; gap: 10px; padding: 0 14px 12px; }
+    .graph-legend-row { display: grid; grid-template-columns: 72px minmax(0, 1fr); align-items: baseline; gap: 12px; }
+    .graph-legend-label { color: var(--muted); font-size: 11px; font-weight: 600; }
+    .legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px 14px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      min-height: 18px;
+    }
+    .graph-type-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 170px), 1fr)); width: 100%; max-width: 660px; gap: 6px 12px; }
+    .ontology-legend { flex-basis: 100%; min-width: 0; }
+    .ontology-legend .legend-item { min-width: 0; max-width: 100%; }
+    .ontology-legend-name { overflow-wrap: anywhere; }
+    .ontology-swatch { width: 10px; height: 10px; flex-shrink: 0; border: 1px solid var(--swatch-border); background: var(--swatch-color); border-radius: 2px; }
+    .legend-dot {
+      width: 18px;
+      height: 10px;
+      flex-shrink: 0;
+      border-radius: 3px;
+      display: inline-block;
+      border: 1px solid rgba(32, 33, 36, .25);
+    }
+    .legend-dot.class { background: var(--brand); border-color: var(--brand-dark); }
+    .legend-dot.literal { background: var(--page-bg, #fff); border-color: var(--brand); border-radius: 0; }
+    .legend-dot.object-property { width: 24px; height: 0; border: 0; border-top: 1.5px dashed currentColor; border-radius: 0; }
+    .legend-dot.datatype-property {
+      width: 24px;
+      height: 0;
+      border: 0;
+      border-top: 2px dotted currentColor;
+      border-radius: 0;
+    }
+    .legend-dot.equivalent-class { width: 24px; height: 4px; border: 0; border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; border-radius: 0; }
+    .layout-button {
+      border: 1px solid var(--line);
+      border-radius: 4px;
+      background: #fff;
+      color: var(--brand-dark);
+      padding: 5px 9px;
+      cursor: pointer;
+      font: inherit;
+      font-size: .9rem;
+    }
+    .layout-button:hover { border-color: var(--brand); }
+    .visualization-panel:fullscreen {
+      width: 100vw;
+      height: 100vh;
+      border: 0;
+      border-radius: 0;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+    .visualization-panel:fullscreen .visualization-stage {
+      flex: 1 1 auto;
+      height: auto;
+      min-height: 0;
+    }
+    .visualization-panel:fullscreen #ontology-graph { height: 100%; min-height: 0; }
+    .visualization-panel:fullscreen .visualization-toolbar {
+      flex: 0 0 auto;
+    }
+    .visualization-stage {
+      display: flex;
+      min-height: 460px;
+      height: min(74vh, 680px);
+    }
+    #ontology-graph {
+      position: relative;
+      flex: 1 1 auto;
+      min-width: 0;
+      height: min(74vh, 680px);
+      min-height: 460px;
+      background:
+        linear-gradient(rgba(15, 68, 73, .045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(15, 68, 73, .045) 1px, transparent 1px),
+        #fbfcfd;
+      background-size: 28px 28px;
+    }
+    .graph-node-links { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:5; }
+    .graph-node-link { position:absolute; display:grid; place-items:center; width:22px; height:22px; box-sizing:border-box; border-radius:3px; color:#fff; background:transparent; pointer-events:auto; transform-origin:center; }
+    .graph-node-link:hover, .graph-node-link:focus-visible { color:#fff; background:rgba(0,0,0,.22); outline:2px solid #fff; outline-offset:1px; }
+    .graph-node-link svg { pointer-events:none; }
+    @media (max-width: 600px) {
+      .visualization-actions { gap: 6px; padding: 8px 10px; }
+      .graph-filters { width: 100%; gap: 4px 16px; }
+      .graph-tools { margin-left: 0; }
+      .graph-export-options { left: 0; right: auto; }
+      .graph-legend-row { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+      .graph-focus-bar { flex-wrap: wrap; padding: 9px 10px; }
+      .graph-legend-body { padding-inline: 10px; }
+    }
+    @media print { .graph-node-links, .graph-focus-bar { display:none; } }
+    .datatype-inspector {
+      flex: 0 0 310px;
+      width: 310px;
+      padding: 16px;
+      border-left: 1px solid var(--line);
+      background: #fff;
+      overflow: auto;
+    }
+    .datatype-inspector[hidden] { display: none; }
+    .datatype-inspector-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 4px;
+    }
+    .datatype-inspector h3 {
+      margin: 0;
+      color: var(--brand-dark);
+      font-size: 1rem;
+    }
+    .datatype-inspector-route {
+      margin: 0 0 14px;
+      color: var(--muted);
+      font-size: .86rem;
+      overflow-wrap: anywhere;
+    }
+    .datatype-inspector-close {
+      width: 28px;
+      height: 28px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .datatype-inspector-close:hover { color: var(--brand-dark); }
+    .datatype-inspector-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .datatype-inspector-list li { border-top: 1px solid var(--line); }
+    .datatype-inspector-list a {
+      display: block;
+      padding: 9px 2px;
+      color: var(--brand-dark);
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .datatype-inspector-list a:hover { color: var(--accent-dark); }
+    .datatype-inspector-list small {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: .78rem;
+    }
+    .visualization-fallback {
+      padding: 14px;
+      color: var(--muted);
+      border-top: 1px solid var(--line);
+    }
+    footer { padding: 20px 0; color: var(--muted); border-top: 1px solid var(--line); }
+    @media (max-width: 700px) {
+      .wrap { width: min(100% - 24px, 1180px); }
+      .hero { padding: 28px 0 24px; }
+      .doc-figure img { padding: 10px; max-height: 62vh; }
+      .page { display: block; padding-top: 18px; }
+      aside.toc { position: static; max-height: none; margin-bottom: 22px; }
+      .visualization-stage { display: block; min-height: 0; height: auto; }
+      #ontology-graph { min-height: 380px; height: 65vh; }
+      .datatype-inspector {
+        width: auto;
+        max-height: 300px;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+      .visualization-actions { justify-content: flex-start; }
+      th, td { display: block; width: 100%; }
+      th { border-bottom: 0; }
+    }
+  </style>
+<style>
+  :root { color-scheme: light; --page-bg: #fff; }
+  :root[data-theme="dark"] {
+    color-scheme: dark; --page-bg: #171c20; --ink: #e0e8eb; --muted: #abbac0;
+    --line: #425159; --panel: #283238; --brand: #8ed3cc; --brand-dark: #a3dfd8;
+    --accent: #f0a58e; --code: #29383d;
+  }
+  body { background: var(--page-bg); }
+  .document-options { padding: 10px 20px; background: var(--panel); border-bottom: 1px solid var(--line); }
+  .document-options summary { cursor: pointer; font-size: 14px; }
+  .document-options label { display: flex; gap: 12px; align-items: center; margin-top: 10px; }
+  .document-options input { width: 20px; height: 20px; accent-color: var(--brand); }
+  html[data-theme="dark"] :is(.toc, .term, .quality-section, .quality-stat, .agent, .icon-link, .doc-figure, .figure-showcase, .visualization-panel, .datatype-inspector, .layout-button, .visualization-toggle) { background: var(--page-bg); }
+  html[data-theme="dark"] :is(.restriction-list li, .instance-list li, .restriction-constraint, .restriction-details summary, .instance-details summary, figcaption) { background: var(--panel); }
+  html[data-theme="dark"] :is(.missing-mandatory th, .missing-mandatory td, .agent.missing-mandatory, .quality-badge.error) { background: #362526; color: #f2adad; border-color: #ba6666; }
+  html[data-theme="dark"] :is(.missing-optional th, .missing-optional td, .agent.missing-optional, .quality-badge.warning) { background: #322e20; color: #edcf79; border-color: #b49a49; }
+  html[data-theme="dark"] .editorial-flow pre { background: var(--panel); color: var(--ink); }
+  html[data-theme="dark"] .editorial-flow blockquote { background: var(--panel); color: var(--ink); }
+  @media print { .document-options { display: none; } }
+</style></head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <div class="hero-copy">
+        <h1>Construct-X Status Ontology</h1>
+<p class="subtitle">Defines timestamped status assignments, open status vocabularies, optional history navigation and VSO conditions.</p>        <div class="hero-meta">
+<span class="version">Version 0.1.0</span><span class="hero-stat">Prefix conx-status</span>          <span class="hero-stat">4 classes</span>
+          <span class="hero-stat">15 properties</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap page">
+    <aside class="toc" aria-label="Table of contents">
+      <strong class="toc-title">Table of Contents</strong>
+      <ul>
+        <li class="toc-group"><a class="toc-heading" href="#metadata">Metadata</a></li>
+<li><a href="#agents">Creators and Contributors</a></li><li><a href="#quality-report">Quality Report</a></li><li><a href="#prefixes">Namespace Prefixes</a></li><li><a href="#used-ontologies">Used Ontologies</a></li><li><a href="#downloads">Downloads</a></li><li><a href="#visualization">Visualization</a></li>        <li><a href="#overview">Overview</a></li>
+          <li class="toc-group">
+    <a class="toc-heading" href="#classes">Classes</a>
+    <ul>
+        <li>
+    <a href="#StatusAssignment">Status assignment</a>
+        <span class="toc-alt">Statusangabe <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#StatusKind">Status kind</a>
+        <span class="toc-alt">Statusart <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#StatusReason">Status reason</a>
+        <span class="toc-alt">Statusgrund <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#StatusValue">Status value</a>
+        <span class="toc-alt">Statuswert <span lang="de">[de]</span></span>
+  </li>
+    </ul>
+  </li>
+
+          <li class="toc-group">
+    <a class="toc-heading" href="#object-properties">Object Properties</a>
+    <ul>
+        <li>
+    <a href="#hasAllowedStatusReason">has allowed status reason</a>
+        <span class="toc-alt">hat zugeordneten Statusgrund <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasAllowedStatusValue">has allowed status value</a>
+        <span class="toc-alt">hat zulässigen Statuswert <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasCondition">has condition</a>
+        <span class="toc-alt">hat Condition <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasCurrentStatus">has current status</a>
+        <span class="toc-alt">hat aktuelle Statusangabe <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasStatus">has status</a>
+        <span class="toc-alt">hat Statusangabe <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasStatusKind">has status kind</a>
+        <span class="toc-alt">hat Statusart <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasStatusReason">has status reason</a>
+        <span class="toc-alt">hat Statusgrund <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasStatusValue">has status value</a>
+        <span class="toc-alt">hat Statuswert <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#previousStatus">previous status</a>
+        <span class="toc-alt">unmittelbare vorherige Statusangabe <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#reportedBy">reported by</a>
+        <span class="toc-alt">gemeldet durch <span lang="de">[de]</span></span>
+  </li>
+    </ul>
+  </li>
+
+          <li class="toc-group">
+    <a class="toc-heading" href="#datatype-properties">Datatype Properties</a>
+    <ul>
+        <li>
+    <a href="#description">description</a>
+        <span class="toc-alt">Beschreibung <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#reasonText">reason text</a>
+        <span class="toc-alt">Begründungstext <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#recordedAt">recorded at</a>
+        <span class="toc-alt">erfasst am <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#referenceDate">reference date</a>
+        <span class="toc-alt">Bezugsdatum <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#referenceTime">reference time</a>
+        <span class="toc-alt">Bezugsuhrzeit <span lang="de">[de]</span></span>
+  </li>
+    </ul>
+  </li>
+
+        
+        
+      </ul>
+    </aside>
+
+    <main>
+    <section id="metadata">
+      <h2>Ontology Metadata</h2>
+      <table>
+        <tr><th>URI</th><td><a href="https://www.construct-x.org/ontology/status">https://www.construct-x.org/ontology/status</a></td></tr>
+        <tr class="">
+          <th>License</th>
+          <td><a href="https://creativecommons.org/licenses/by/4.0/">https://creativecommons.org/licenses/by/4.0/</a></td>
+        </tr>
+        <tr class="">
+          <th>Creation date</th>
+          <td>2026-11-10</td>
+        </tr>
+        <tr class="">
+          <th>Namespace URI</th>
+          <td>https://www.construct-x.org/ontology/status#</td>
+        </tr>
+        <tr class="">
+          <th>Version IRI</th>
+          <td><a href="https://www.construct-x.org/ontology/status/0.1.0">https://www.construct-x.org/ontology/status/0.1.0</a></td>
+        </tr>
+        <tr class="">
+          <th>Prefix</th>
+          <td>conx-status</td>
+        </tr>
+        <tr class="">
+          <th>Title</th>
+          <td>Construct-X Status Ontology <span class="lang">[en]</span><br>Construct-X Status-Ontologie <span class="lang">[de]</span></td>
+        </tr>
+        <tr class="">
+          <th>Description</th>
+          <td>Defines timestamped status assignments, open status vocabularies, optional history navigation and VSO conditions. <span class="lang">[en]</span><br>Definiert zeitbezogene Statusangaben, offene Statusvokabulare, optionale Historiennavigation und VSO-Conditions. <span class="lang">[de]</span></td>
+        </tr>
+        <tr class="">
+          <th>Modification Date</th>
+          <td>2026-11-11</td>
+        </tr>
+        <tr class="">
+          <th>Source</th>
+          <td><a href="https://docs.oasis-open.org/ubl/cs01-UBL-2.5/UBL-2.5.html">https://docs.oasis-open.org/ubl/cs01-UBL-2.5/UBL-2.5.html</a><br><a href="https://www.w3.org/TR/skos-reference/">https://www.w3.org/TR/skos-reference/</a></td>
+        </tr>
+        <tr class="">
+          <th>Publisher</th>
+          <td><a href="https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1">https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1</a></td>
+        </tr>
+        <tr class="">
+          <th>Version info</th>
+          <td>0.1.0</td>
+        </tr>
+        <tr class="missing-mandatory">
+          <th>Previous version</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-mandatory">
+          <th>Citation</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Abstract</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>See also</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Status</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Backward compatibility</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Incompatibility</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Issued date</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>DOI</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Logo</th>
+          <td>To be defined</td>
+        </tr>
+        <tr class="missing-optional">
+          <th>Diagram</th>
+          <td>To be defined</td>
+        </tr>
+      </table>
+    </section>
+
+    <section id="agents">
+      <h2>Creators and Contributors</h2>
+      <div class="grid">
+        <div class="agent missing-mandatory">
+          <strong class="agent-name">To be defined</strong>
+          <span class="agent-role">Creator</span>
+        </div>
+        <div class="agent missing-optional">
+          <strong class="agent-name">Max Mustermann (to be defined)</strong>
+          <span class="agent-role">Contributor</span>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="quality-report">
+      <h2>Quality Report</h2>
+      <div class="quality-summary">
+        <div class="quality-stat"><strong>17</strong>Total issues</div>
+        <div class="quality-stat"><strong>4</strong>Errors</div>
+        <div class="quality-stat"><strong>13</strong>Warnings</div>
+      </div>
+        <details class="quality-section" open>
+          <summary>Metadata (13)</summary>
+          <ul class="quality-list">
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#metadata">Missing recommended metadata: Previous version</a>            </li>
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#metadata">Missing recommended metadata: Citation</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Abstract</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: See also</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Status</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Backward compatibility</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Incompatibility</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Issued date</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: DOI</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Logo</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#metadata">Missing optional metadata: Diagram</a>            </li>
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#agents">Missing recommended metadata: Creator</a>            </li>
+            <li>
+              <span class="quality-badge error">error</span>
+<a href="#agents">Missing recommended metadata: Contributor</a>            </li>
+          </ul>
+        </details>
+        <details class="quality-section" open>
+          <summary>Missing property domain/range (4)</summary>
+          <ul class="quality-list">
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#hasCurrentStatus">conx-status:hasCurrentStatus has no domain</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#hasStatus">conx-status:hasStatus has no domain</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#description">conx-status:description has no range</a>            </li>
+            <li>
+              <span class="quality-badge warning">warning</span>
+<a href="#reasonText">conx-status:reasonText has no range</a>            </li>
+          </ul>
+        </details>
+    </section>
+
+    <section id="prefixes">
+      <h2>Namespace Prefixes</h2>
+      <ul class="prefix-list">
+        <li><span class="curie">conx-status</span> https://www.construct-x.org/ontology/status#</li>
+        <li><span class="curie">conx-agent</span> https://www.construct-x.org/ontology/agent#</li>
+        <li><span class="curie">conx-vso</span> https://www.construct-x.org/ontology/vso#</li>
+        <li><span class="curie">dcterms</span> http://purl.org/dc/terms/</li>
+        <li><span class="curie">owl</span> http://www.w3.org/2002/07/owl#</li>
+        <li><span class="curie">rdf</span> http://www.w3.org/1999/02/22-rdf-syntax-ns#</li>
+        <li><span class="curie">rdfs</span> http://www.w3.org/2000/01/rdf-schema#</li>
+        <li><span class="curie">skos</span> http://www.w3.org/2004/02/skos/core#</li>
+        <li><span class="curie">vann</span> http://purl.org/vocab/vann/</li>
+        <li><span class="curie">xsd</span> http://www.w3.org/2001/XMLSchema#</li>
+      </ul>
+    </section>
+
+    <section id="used-ontologies">
+      <h2>Used Ontologies</h2>
+      <ul class="used-list">
+        <li><a href="https://www.construct-x.org/ontology/agent#">conx-agent</a> <span class="relation">Referenced namespace</span></li>
+        <li><a href="https://www.construct-x.org/ontology/vso#">conx-vso</a> <span class="relation">Referenced namespace</span></li>
+        <li><a href="http://purl.org/dc/terms/">dcterms</a> <span class="relation">Referenced namespace</span></li>
+        <li><a href="http://www.w3.org/2004/02/skos/core#">skos</a> <span class="relation">Referenced namespace</span></li>
+        <li><a href="http://purl.org/vocab/vann/">vann</a> <span class="relation">Referenced namespace</span></li>
+      </ul>
+    </section>
+
+    <section id="downloads">
+      <h2>Downloads</h2>
+      <ul class="downloads">
+        <li><a href="downloads/conx-status.ttl">Turtle source</a> <span class="relation">text/turtle</span></li>
+      </ul>
+    </section>
+
+    <section id="visualization">
+      <h2>Visualization</h2>
+      <div class="visualization-panel">
+        <div class="visualization-toolbar">
+          <div class="visualization-actions">
+            <div class="graph-filters" role="group" aria-label="Visible elements">
+              <label class="visualization-toggle" title="Show or hide datatype properties and literal nodes">
+                <input type="checkbox" id="toggle-datatype-properties" checked>
+                Datatype properties
+              </label>
+              <label class="visualization-toggle">
+                <input type="checkbox" id="toggle-external-references" checked>
+                External references
+              </label>
+            </div>
+            <div class="graph-tools" role="group" aria-label="Graph tools">
+              <button class="graph-tool" type="button" id="reset-graph-layout" title="Reset layout" aria-label="Reset layout"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg></button>
+              <button class="graph-tool" type="button" id="fullscreen-graph" title="Fullscreen" aria-label="Fullscreen" aria-pressed="false"><span class="graph-enter-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg></span><span class="graph-exit-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3v3a2 2 0 0 1-2 2H3"/><path d="M21 8h-3a2 2 0 0 1-2-2V3"/><path d="M3 16h3a2 2 0 0 1 2 2v3"/><path d="M16 21v-3a2 2 0 0 1 2-2h3"/></svg></span></button>
+              <details class="graph-export" id="graph-export">
+                <summary class="graph-tool" title="Export graph" aria-label="Export graph"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></summary>
+                <div class="graph-export-options">
+                  <button type="button" id="export-graph-png" aria-label="Export PNG">PNG <span>3x</span></button>
+                  <button type="button" id="export-graph-jpg" aria-label="Export JPG">JPG <span>3x</span></button>
+                  <button type="button" id="export-graph-svg" aria-label="Export SVG">SVG <span>Vector</span></button>
+                </div>
+              </details>
+            </div>
+          </div>
+          <div class="graph-focus-bar" id="graph-focus-bar" hidden>
+            <div class="graph-focus-description"><span class="graph-focus-label">Neighborhood</span><strong id="graph-focus-title" role="status"></strong></div>
+            <button type="button" id="show-entire-graph" title="Show the entire graph" disabled><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>Entire graph</button>
+          </div>
+          <details class="graph-legend" open>
+            <summary><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>Legend</summary>
+            <div class="graph-legend-body">
+              <div class="graph-legend-row">
+                <span class="graph-legend-label">Elements</span>
+                <div class="legend graph-type-legend" aria-label="Visualization legend">
+                  <span class="legend-item"><span class="legend-dot class"></span>rdfs:Class</span>
+                  <span class="legend-item"><span class="legend-dot literal"></span>rdfs:Literal</span>
+                  <span class="legend-item subclass-legend"><svg width="24" height="14" viewBox="0 0 32 14" aria-hidden="true"><path d="M1 7H25" fill="none" stroke="currentColor" stroke-width="1.55"/><path d="M24 3L31 7L24 11Z" fill="currentColor"/></svg>rdfs:subClassOf</span>
+                  <span class="legend-item"><span class="legend-dot object-property"></span>owl:ObjectProperty</span>
+                  <span class="legend-item"><span class="legend-dot datatype-property"></span>owl:DatatypeProperty</span>
+                  <span class="legend-item"><span class="legend-dot equivalent-class"></span>owl:equivalentClass</span>
+                </div>
+              </div>
+              <div class="graph-legend-row">
+                <span class="graph-legend-label">Ontologies</span>
+                <div class="legend ontology-legend" aria-label="Ontology colors">
+                  <span class="legend-item" data-ontology="https://www.construct-x.org/ontology/status#" title="https://www.construct-x.org/ontology/status#"><span class="ontology-swatch" style="--swatch-color:#155c63;--swatch-border:#0f4247"></span><span class="ontology-legend-name">conx-status</span></span>
+                  <span class="legend-item" data-ontology="https://www.construct-x.org/ontology/agent#" title="https://www.construct-x.org/ontology/agent#"><span class="ontology-swatch" style="--swatch-color:#3c648c;--swatch-border:#2b4864"></span><span class="ontology-legend-name">conx-agent</span></span>
+                  <span class="legend-item" data-ontology="https://www.construct-x.org/ontology/vso#" title="https://www.construct-x.org/ontology/vso#"><span class="ontology-swatch" style="--swatch-color:#65763c;--swatch-border:#48542b"></span><span class="ontology-legend-name">conx-vso</span></span>
+                </div>
+              </div>
+            </div>
+          </details>
+        </div>
+        <div class="visualization-stage">
+          <div id="ontology-graph" role="region" aria-label="Ontology graph visualization"></div>
+<!--
+ISC License
+Copyright (c) for portions of Lucide are held by Cole Bemis 2013-2022 as part of Feather (MIT).
+All other copyright (c) for Lucide are held by Lucide Contributors 2022.
+Permission to use, copy, modify, and/or distribute this software for any purpose
+with or without fee is hereby granted, provided that the above copyright notice
+and this permission notice appear in all copies.
+THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH
+REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY
+AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT,
+INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM
+LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR
+OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
+PERFORMANCE OF THIS SOFTWARE.
+-->
+<template id="graph-document-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg></template>          <aside class="datatype-inspector" id="datatype-inspector" aria-live="polite" hidden>
+            <div class="datatype-inspector-header">
+              <h3 id="datatype-inspector-title">Datatype properties</h3>
+              <button class="datatype-inspector-close" id="datatype-inspector-close" type="button" aria-label="Close datatype property details" title="Close">&times;</button>
+            </div>
+            <p class="datatype-inspector-route" id="datatype-inspector-route"></p>
+            <ul class="datatype-inspector-list" id="datatype-inspector-list"></ul>
+          </aside>
+        </div>
+        <div class="visualization-fallback" id="visualization-fallback">
+          Loading Cytoscape.js visualization. If this stays visible, the CDN could not be reached.
+        </div>
+      </div>
+    </section>
+
+    <section id="overview">
+      <h2>Overview</h2>
+      <table>
+        <tr><th>Classes</th><td>4</td></tr>
+        <tr><th>Object properties</th><td>10</td></tr>
+        <tr><th>Datatype properties</th><td>5</td></tr>
+        <tr><th>Annotation properties</th><td>0</td></tr>
+        <tr><th>RDF properties</th><td>0</td></tr>
+      </table>
+    </section>
+
+    <section id="cross-reference">
+      <h2>Cross-reference</h2>
+      <p class="muted">This section provides details for each class and property defined by the ontology.</p>
+        <h3 id="classes">Classes</h3>
+  <article id="StatusAssignment" class="term">
+    <h3>Status assignment</h3>
+    <div class="term-meta">
+      <span class="pill">Class</span>
+      <span class="pill">conx-status:StatusAssignment</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#StatusAssignment">https://www.construct-x.org/ontology/status#StatusAssignment</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+Status assignment <span class="lang">[en]</span><br>Statusangabe <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+An identified statement of one status value for one status kind and one resource at a business reference date and time. The resource links to it through hasStatus. <span class="lang">[en]</span><br>Identifizierte Angabe genau eines Statuswerts einer Statusart für ein Bezugsobjekt zu einem fachlichen Datum und Zeitpunkt. Das Bezugsobjekt verweist mit hasStatus auf die Angabe. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:Class</span></td></tr>      
+      
+      
+      
+      
+      
+    </table>
+  </article>
+  <article id="StatusKind" class="term">
+    <h3>Status kind</h3>
+    <div class="term-meta">
+      <span class="pill">Class</span>
+      <span class="pill">conx-status:StatusKind</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#StatusKind">https://www.construct-x.org/ontology/status#StatusKind</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+Status kind <span class="lang">[en]</span><br>Statusart <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+A reusable status dimension, such as transport status or temperature inspection. Concrete kinds are vocabulary individuals. <span class="lang">[en]</span><br>Wiederverwendbare Statusdimension, etwa Transportstatus oder Temperaturprüfung. Konkrete Arten sind Vokabularindividuen. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:Class</span></td></tr>        <tr>
+    <th>Subclass of</th>
+    <td>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>    </td>
+  </tr>
+
+      
+      
+      
+      
+      
+    </table>
+  </article>
+  <article id="StatusReason" class="term">
+    <h3>Status reason</h3>
+    <div class="term-meta">
+      <span class="pill">Class</span>
+      <span class="pill">conx-status:StatusReason</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#StatusReason">https://www.construct-x.org/ontology/status#StatusReason</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+Status reason <span class="lang">[en]</span><br>Statusgrund <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+A reusable explanation for a status. Applicability declarations on kinds are positive and non-exhaustive. <span class="lang">[en]</span><br>Wiederverwendbare Begründung eines Status. Zuordnungen zu Statusarten sind positive, nicht abschließende Angaben. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:Class</span></td></tr>        <tr>
+    <th>Subclass of</th>
+    <td>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>    </td>
+  </tr>
+
+      
+      
+      
+      
+      
+    </table>
+  </article>
+  <article id="StatusValue" class="term">
+    <h3>Status value</h3>
+    <div class="term-meta">
+      <span class="pill">Class</span>
+      <span class="pill">conx-status:StatusValue</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#StatusValue">https://www.construct-x.org/ontology/status#StatusValue</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+Status value <span class="lang">[en]</span><br>Statuswert <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+A reusable state selected by an assignment; its applicability to a kind is declared with hasAllowedStatusValue. <span class="lang">[en]</span><br>Wiederverwendbarer Zustand einer Statusangabe; seine Verwendbarkeit für eine Statusart wird mit hasAllowedStatusValue erklärt. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:Class</span></td></tr>        <tr>
+    <th>Subclass of</th>
+    <td>
+<a href="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>    </td>
+  </tr>
+
+      
+      
+      
+      
+      
+    </table>
+  </article>
+
+        <h3 id="object-properties">Object Properties</h3>
+  <article id="hasAllowedStatusReason" class="term">
+    <h3>has allowed status reason</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasAllowedStatusReason</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasAllowedStatusReason">https://www.construct-x.org/ontology/status#hasAllowedStatusReason</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has allowed status reason <span class="lang">[en]</span><br>hat zugeordneten Statusgrund <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Declares a reason applicable to this kind without excluding unlisted reasons. This is not a closed allowlist. <span class="lang">[en]</span><br>Ordnet einen passenden Grund zu, ohne weitere Gründe auszuschließen. Die Zuordnung ist keine abgeschlossene Zulässigkeitsliste. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusKind">Status kind</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusReason">Status reason</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasAllowedStatusValue" class="term">
+    <h3>has allowed status value</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasAllowedStatusValue</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasAllowedStatusValue">https://www.construct-x.org/ontology/status#hasAllowedStatusValue</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has allowed status value <span class="lang">[en]</span><br>hat zulässigen Statuswert <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Declares a value usable for this kind. Every selected value must have this explicit compatibility link; values may be reused by multiple kinds. <span class="lang">[en]</span><br>Erklärt einen für diese Art verwendbaren Wert. Jeder ausgewählte Wert benötigt diese explizite Zuordnung; mehrere Arten können denselben Wert verwenden. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusKind">Status kind</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusValue">Status value</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasCondition" class="term">
+    <h3>has condition</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasCondition</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasCondition">https://www.construct-x.org/ontology/status#hasCondition</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has condition <span class="lang">[en]</span><br>hat Condition <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+References a VSO assignment describing a condition relevant to the status. The measured resource may differ from the status owner. Values and units are validated with the ISOProps profile. <span class="lang">[en]</span><br>Referenziert eine statusrelevante VSO-Merkmalszuordnung. Messobjekt und Statusbezugsobjekt dürfen verschieden sein. Datentyp und Einheit werden mit dem ISOProps-Profil geprüft. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/vso#AssignedProperty">conx-vso:AssignedProperty</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasCurrentStatus" class="term">
+    <h3>has current status</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasCurrentStatus</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasCurrentStatus">https://www.construct-x.org/ontology/status#hasCurrentStatus</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has current status <span class="lang">[en]</span><br>hat aktuelle Statusangabe <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Optionally identifies the uniquely latest known assignment per resource and status kind in the supplied data. Order uses referenceDate and referenceTime with UTC offsets, then explicit predecessor order for equal instants. Unresolved latest ties prohibit a current link; recordedAt does not determine order. Explicit hasStatus membership is required. Validation checks but does not set the link. <span class="lang">[en]</span><br>Bezeichnet optional die eindeutig neueste bekannte Angabe je Bezugsobjekt und Statusart im bereitgestellten Datenbestand. Maßgeblich sind referenceDate und referenceTime mit UTC-Offset sowie bei gleichen Zeitpunkten die explizite Vorgängerreihenfolge. Ungeklärte Gleichstände beim neuesten Stand erlauben keinen aktuellen Verweis; recordedAt bestimmt die Reihenfolge nicht. Ein explizites hasStatus ist erforderlich. Die Validierung prüft den Verweis, setzt ihn aber nicht. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+        <tr>
+    <th>Subproperty of</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#hasStatus">has status</a>    </td>
+  </tr>
+
+      
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasStatus" class="term">
+    <h3>has status</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasStatus</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasStatus">https://www.construct-x.org/ontology/status#hasStatus</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has status <span class="lang">[en]</span><br>hat Statusangabe <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Links a resource to its status assignments, including historical ones. Each assignment has exactly one owner in the validation graph. <span class="lang">[en]</span><br>Verknüpft ein Bezugsobjekt mit seinen aktuellen und historischen Statusangaben. Jede Angabe hat im Validierungsgraph genau ein Bezugsobjekt. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+      
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasStatusKind" class="term">
+    <h3>has status kind</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasStatusKind</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasStatusKind">https://www.construct-x.org/ontology/status#hasStatusKind</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has status kind <span class="lang">[en]</span><br>hat Statusart <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Identifies the single dimension described by this assignment. <span class="lang">[en]</span><br>Bestimmt die genau eine Statusdimension dieser Angabe. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusKind">Status kind</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasStatusReason" class="term">
+    <h3>has status reason</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasStatusReason</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasStatusReason">https://www.construct-x.org/ontology/status#hasStatusReason</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has status reason <span class="lang">[en]</span><br>hat Statusgrund <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+References zero or more explanations. A hasAllowedStatusReason link is not required. <span class="lang">[en]</span><br>Verweist auf beliebig viele optionale Begründungen. Eine Zuordnung über hasAllowedStatusReason ist nicht erforderlich. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusReason">Status reason</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasStatusValue" class="term">
+    <h3>has status value</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:hasStatusValue</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#hasStatusValue">https://www.construct-x.org/ontology/status#hasStatusValue</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+has status value <span class="lang">[en]</span><br>hat Statuswert <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Selects exactly one value allowed by the assignment&#39;s kind. <span class="lang">[en]</span><br>Wählt genau einen für die Statusart zulässigen Wert aus. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusValue">Status value</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="previousStatus" class="term">
+    <h3>previous status</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:previousStatus</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#previousStatus">https://www.construct-x.org/ontology/status#previousStatus</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+previous status <span class="lang">[en]</span><br>unmittelbare vorherige Statusangabe <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Optionally identifies the immediately preceding known assignment for the same resource and kind. Non-transitive, acyclic; equal timestamps can be ordered explicitly. <span class="lang">[en]</span><br>Bezeichnet optional die unmittelbar vorherige bekannte Angabe desselben Bezugsobjekts und derselben Art. Nicht transitiv und zyklenfrei; gleiche Zeitpunkte können explizit geordnet werden. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="reportedBy" class="term">
+    <h3>reported by</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill">conx-status:reportedBy</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#reportedBy">https://www.construct-x.org/ontology/status#reportedBy</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+reported by <span class="lang">[en]</span><br>gemeldet durch <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Identifies an optional reporting actor; it does not by itself identify the person performing a measurement. <span class="lang">[en]</span><br>Bezeichnet optional den meldenden Akteur; daraus folgt nicht, wer eine Messung durchgeführt hat. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/agent#Agent">conx-agent:Agent</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+
+        <h3 id="datatype-properties">Datatype Properties</h3>
+  <article id="description" class="term">
+    <h3>description</h3>
+    <div class="term-meta">
+      <span class="pill">Datatype Property</span>
+      <span class="pill">conx-status:description</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#description">https://www.construct-x.org/ontology/status#description</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+description <span class="lang">[en]</span><br>Beschreibung <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Optional plain or language-tagged descriptions of the assignment. <span class="lang">[en]</span><br>Optionale Beschreibungen der Angabe als Text mit oder ohne Sprachkennzeichnung. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+      
+      
+      
+    </table>
+  </article>
+  <article id="reasonText" class="term">
+    <h3>reason text</h3>
+    <div class="term-meta">
+      <span class="pill">Datatype Property</span>
+      <span class="pill">conx-status:reasonText</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#reasonText">https://www.construct-x.org/ontology/status#reasonText</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+reason text <span class="lang">[en]</span><br>Begründungstext <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Optional free-text explanations of the assignment as a whole, alongside or without coded reasons. <span class="lang">[en]</span><br>Optionale Freitextbegründungen der gesamten Angabe, zusätzlich zu oder ohne codierte Gründe. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+      
+      
+      
+    </table>
+  </article>
+  <article id="recordedAt" class="term">
+    <h3>recorded at</h3>
+    <div class="term-meta">
+      <span class="pill">Datatype Property</span>
+      <span class="pill">conx-status:recordedAt</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#recordedAt">https://www.construct-x.org/ontology/status#recordedAt</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+recorded at <span class="lang">[en]</span><br>erfasst am <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Optional recording timestamp, distinct from the business reference time. <span class="lang">[en]</span><br>Optionaler Erfassungszeitpunkt, getrennt vom fachlichen Bezugszeitpunkt. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="http://www.w3.org/2001/XMLSchema#dateTime">xsd:dateTime</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="referenceDate" class="term">
+    <h3>reference date</h3>
+    <div class="term-meta">
+      <span class="pill">Datatype Property</span>
+      <span class="pill">conx-status:referenceDate</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#referenceDate">https://www.construct-x.org/ontology/status#referenceDate</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+reference date <span class="lang">[en]</span><br>Bezugsdatum <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Mandatory business reference calendar date, without a separate timezone; referenceTime supplies the UTC offset. <span class="lang">[en]</span><br>Verpflichtendes fachliches Bezugsdatum ohne eigene Zeitzone; referenceTime enthält den UTC-Offset. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="referenceTime" class="term">
+    <h3>reference time</h3>
+    <div class="term-meta">
+      <span class="pill">Datatype Property</span>
+      <span class="pill">conx-status:referenceTime</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a href="https://www.construct-x.org/ontology/status#referenceTime">https://www.construct-x.org/ontology/status#referenceTime</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td>
+reference time <span class="lang">[en]</span><br>Bezugsuhrzeit <span class="lang">[de]</span>    </td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td>
+Mandatory business reference clock time with explicit UTC offset (Z or signed hh:mm), with at most six fractional second digits. It is not the recording time. <span class="lang">[en]</span><br>Verpflichtende fachliche Bezugsuhrzeit mit explizitem UTC-Offset (Z oder vorzeichenbehaftetes hh:mm) und höchstens sechs Nachkommastellen der Sekunden. Sie ist nicht der Erfassungszeitpunkt. <span class="lang">[de]</span>    </td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td>
+<a href="https://www.construct-x.org/ontology/status#StatusAssignment">Status assignment</a>    </td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td>
+<a href="http://www.w3.org/2001/XMLSchema#time">xsd:time</a>    </td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+
+      
+      
+    </section>
+
+    </main>
+  </div>
+
+  <footer>
+    <div class="wrap">Generated by OntoLens.</div>
+  </footer>
+  <script>
+    window.ontolensVisualization = {"counts": {"edges": 12, "nodes": 10}, "elements": {"edges": [{"data": {"edgeKind": "object-property", "href": "#hasAllowedStatusReason", "id": "has allowed status reason:https://www.construct-x.org/ontology/status#StatusKind-\u003ehttps://www.construct-x.org/ontology/status#StatusReason", "label": "has allowed status reason", "source": "https://www.construct-x.org/ontology/status#StatusKind", "target": "https://www.construct-x.org/ontology/status#StatusReason"}}, {"data": {"edgeKind": "object-property", "href": "#hasAllowedStatusValue", "id": "has allowed status value:https://www.construct-x.org/ontology/status#StatusKind-\u003ehttps://www.construct-x.org/ontology/status#StatusValue", "label": "has allowed status value", "source": "https://www.construct-x.org/ontology/status#StatusKind", "target": "https://www.construct-x.org/ontology/status#StatusValue"}}, {"data": {"edgeKind": "object-property", "href": "#hasCondition", "id": "has condition:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttps://www.construct-x.org/ontology/vso#AssignedProperty", "label": "has condition", "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "https://www.construct-x.org/ontology/vso#AssignedProperty"}}, {"data": {"edgeKind": "object-property", "href": "#hasStatusKind", "id": "has status kind:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttps://www.construct-x.org/ontology/status#StatusKind", "label": "has status kind", "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "https://www.construct-x.org/ontology/status#StatusKind"}}, {"data": {"edgeKind": "object-property", "href": "#hasStatusReason", "id": "has status reason:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttps://www.construct-x.org/ontology/status#StatusReason", "label": "has status reason", "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "https://www.construct-x.org/ontology/status#StatusReason"}}, {"data": {"edgeKind": "object-property", "href": "#hasStatusValue", "id": "has status value:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttps://www.construct-x.org/ontology/status#StatusValue", "label": "has status value", "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "https://www.construct-x.org/ontology/status#StatusValue"}}, {"data": {"edgeKind": "object-property", "href": "#previousStatus", "id": "previous status:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttps://www.construct-x.org/ontology/status#StatusAssignment", "label": "previous status", "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "https://www.construct-x.org/ontology/status#StatusAssignment"}}, {"data": {"edgeKind": "object-property", "href": "#reportedBy", "id": "reported by:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttps://www.construct-x.org/ontology/agent#Agent", "label": "reported by", "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "https://www.construct-x.org/ontology/agent#Agent"}}, {"data": {"edgeKind": "datatype-property", "id": "2 datatype properties:https://www.construct-x.org/ontology/status#StatusAssignment-\u003eliteral:Literal", "label": "2 datatype properties", "properties": [{"curie": "conx-status:description", "href": "#description", "title": "description"}, {"curie": "conx-status:reasonText", "href": "#reasonText", "title": "reason text"}], "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "literal:Literal"}}, {"data": {"edgeKind": "datatype-property", "id": "1 datatype property:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttp://www.w3.org/2001/XMLSchema#dateTime", "label": "1 datatype property", "properties": [{"curie": "conx-status:recordedAt", "href": "#recordedAt", "title": "recorded at"}], "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "http://www.w3.org/2001/XMLSchema#dateTime"}}, {"data": {"edgeKind": "datatype-property", "id": "1 datatype property:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttp://www.w3.org/2001/XMLSchema#date", "label": "1 datatype property", "properties": [{"curie": "conx-status:referenceDate", "href": "#referenceDate", "title": "reference date"}], "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "http://www.w3.org/2001/XMLSchema#date"}}, {"data": {"edgeKind": "datatype-property", "id": "1 datatype property:https://www.construct-x.org/ontology/status#StatusAssignment-\u003ehttp://www.w3.org/2001/XMLSchema#time", "label": "1 datatype property", "properties": [{"curie": "conx-status:referenceTime", "href": "#referenceTime", "title": "reference time"}], "source": "https://www.construct-x.org/ontology/status#StatusAssignment", "target": "http://www.w3.org/2001/XMLSchema#time"}}], "nodes": [{"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-status:StatusAssignment", "href": "#StatusAssignment", "id": "https://www.construct-x.org/ontology/status#StatusAssignment", "kind": "class", "label": "Status assignment", "ontology": "https://www.construct-x.org/ontology/status#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-status:StatusKind", "href": "#StatusKind", "id": "https://www.construct-x.org/ontology/status#StatusKind", "kind": "class", "label": "Status kind", "ontology": "https://www.construct-x.org/ontology/status#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-status:StatusReason", "href": "#StatusReason", "id": "https://www.construct-x.org/ontology/status#StatusReason", "kind": "class", "label": "Status reason", "ontology": "https://www.construct-x.org/ontology/status#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-status:StatusValue", "href": "#StatusValue", "id": "https://www.construct-x.org/ontology/status#StatusValue", "kind": "class", "label": "Status value", "ontology": "https://www.construct-x.org/ontology/status#"}}, {"data": {"border": "#48542b", "color": "#65763c", "curie": "conx-vso:AssignedProperty", "href": "https://www.construct-x.org/ontology/vso#AssignedProperty", "id": "https://www.construct-x.org/ontology/vso#AssignedProperty", "kind": "external-class", "label": "conx-vso:AssignedProperty", "ontology": "https://www.construct-x.org/ontology/vso#"}}, {"data": {"border": "#2b4864", "color": "#3c648c", "curie": "conx-agent:Agent", "href": "https://www.construct-x.org/ontology/agent#Agent", "id": "https://www.construct-x.org/ontology/agent#Agent", "kind": "external-class", "label": "conx-agent:Agent", "ontology": "https://www.construct-x.org/ontology/agent#"}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "Literal", "href": null, "id": "literal:Literal", "kind": "literal", "label": "Literal", "ontology": ""}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:dateTime", "href": null, "id": "http://www.w3.org/2001/XMLSchema#dateTime", "kind": "literal", "label": "xsd:dateTime", "ontology": ""}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:date", "href": null, "id": "http://www.w3.org/2001/XMLSchema#date", "kind": "literal", "label": "xsd:date", "ontology": ""}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:time", "href": null, "id": "http://www.w3.org/2001/XMLSchema#time", "kind": "literal", "label": "xsd:time", "ontology": ""}}]}, "ontologies": [{"border": "#0f4247", "color": "#155c63", "label": "conx-status", "uri": "https://www.construct-x.org/ontology/status#"}, {"border": "#2b4864", "color": "#3c648c", "label": "conx-agent", "uri": "https://www.construct-x.org/ontology/agent#"}, {"border": "#48542b", "color": "#65763c", "label": "conx-vso", "uri": "https://www.construct-x.org/ontology/vso#"}]};
+    (function () {
+      const fallback = document.getElementById("visualization-fallback");
+      const container = document.getElementById("ontology-graph");
+      if (!container || typeof cytoscape === "undefined") {
+        return;
+      }
+      fallback.hidden = true;
+      const labelContext = document.createElement("canvas").getContext("2d");
+      function classNodeWidth(node) {
+        labelContext.font = "600 10px system-ui, sans-serif";
+        const label = String(node.data("label") || "");
+        const longestWord = Math.max(0, ...label.split(/\s+/).map(word => labelContext.measureText(word).width));
+        return Math.max(48, longestWord, Math.min(160, labelContext.measureText(label).width)) + 32;
+      }
+      function neighborhoodLabel(node) {
+        const label = String(node.data("label") || "");
+        const namespace = node.data("ontology");
+        if (!/^https?:\/\//i.test(label) || !namespace || !label.startsWith(namespace)) return label;
+        const ontology = window.ontolensVisualization.ontologies.find(item => item.uri === namespace);
+        const prefix = String(ontology?.label || namespace).replace(/[/#]+$/, "").split("/").pop();
+        return `${prefix}:\n${label.slice(namespace.length)}`;
+      }
+      function neighborhoodNodeWidth(node) {
+        labelContext.font = "600 17px system-ui, sans-serif";
+        const label = neighborhoodLabel(node);
+        const longestWord = Math.max(0, ...label.split(/\s+/).map(word => labelContext.measureText(word).width));
+        return Math.max(100, longestWord, Math.min(180, labelContext.measureText(label).width)) + 32;
+      }
+      function neighborhoodEdgeLabel(edge) {
+        const label = String(edge.data("label") || "");
+        const href = edge.data("href") || "";
+        return label.length > 60 && href.startsWith("#") ? decodeURIComponent(href.slice(1)) : label;
+      }
+      const layoutOptions = {
+        name: "breadthfirst",
+        directed: true,
+        spacingFactor: 1.35,
+        padding: 34,
+        avoidOverlap: true,
+        nodeDimensionsIncludeLabels: true,
+        circle: false,
+        maximal: true
+      };
+      const cy = cytoscape({
+        container,
+        elements: window.ontolensVisualization.elements,
+        minZoom: 0.15,
+        maxZoom: 2.6,
+        wheelSensitivity: 0.18,
+        style: [
+          {
+            selector: "node",
+            style: {
+              "label": "data(label)",
+              "font-size": 10,
+              "font-weight": 600,
+              "text-wrap": "wrap",
+              "text-max-width": 160,
+              "text-valign": "center",
+              "text-halign": "center",
+              "color": "#fff",
+              "background-color": "data(color)",
+              "border-width": 1.5,
+              "border-color": "data(border)",
+              "shape": "round-rectangle",
+              "width": "label",
+              "height": 24,
+              "padding": "14px",
+              "text-margin-y": 1
+            }
+          },
+          {
+            selector: "node[kind = 'class'], node[kind = 'external-class']",
+            style: { "width": classNodeWidth, "text-margin-x": -16, "font-family": "system-ui, sans-serif" }
+          },
+          {
+            selector: "node[kind = 'literal']",
+            style: {
+              "background-color": "#fff",
+              "border-color": "#155c63",
+              "color": "#0f4449",
+              "shape": "rectangle",
+              "width": "label",
+              "height": 24,
+              "padding": "14px",
+              "font-size": 10
+            }
+          },
+          {
+            selector: "node[kind = 'missing-endpoint']",
+            style: {
+              "label": "",
+              "width": 24,
+              "height": 24
+            }
+          },
+          {
+            selector: "node[kind = 'external-class']",
+            style: {
+              "background-color": "data(color)",
+              "border-color": "data(border)",
+              "color": "#fff"
+            }
+          },
+          {
+            selector: "edge",
+            style: {
+              "curve-style": "bezier",
+              "control-point-distance": 28,
+              "control-point-weight": .5,
+              "target-arrow-shape": "triangle",
+              "target-arrow-color": "#111",
+              "line-color": "#111",
+              "width": 1.35,
+              "label": "data(label)",
+              "font-size": 10,
+              "font-family": "system-ui, sans-serif",
+              "text-wrap": "wrap",
+              "text-max-width": 150,
+              "text-overflow-wrap": "whitespace",
+              "line-height": 1.2,
+              "color": "#202124",
+              "text-background-color": "#fbfcfd",
+              "text-background-opacity": .92,
+              "text-background-padding": 3,
+              "text-rotation": "none",
+              "text-margin-y": -7
+            }
+          },
+          {
+            selector: "edge[edgeKind = 'subClassOf'], edge[edgeKind = 'subPropertyOf']",
+            style: {
+              "line-color": "#111",
+              "target-arrow-color": "#111",
+              "width": 1.55,
+              "line-style": "solid"
+            }
+          },
+          {
+            selector: "edge[edgeKind = 'subClassOf']",
+            style: { "label": "" }
+          },
+          {
+            selector: "edge[edgeKind = 'object-property']",
+            style: {
+              "line-color": "#0f4449",
+              "target-arrow-color": "#0f4449",
+              "line-style": "dashed"
+            }
+          },
+          {
+            selector: "edge[edgeKind = 'datatype-property']",
+            style: {
+              "line-color": "#66898c",
+              "target-arrow-color": "#66898c",
+              "line-style": "dotted",
+              "width": 1.65,
+              "color": "#315e62",
+              "font-size": 9,
+              "font-weight": 600,
+              "text-rotation": "none",
+              "text-margin-y": -11,
+              "text-background-color": "#ffffff",
+              "text-background-opacity": .96,
+              "text-background-padding": 4
+            }
+          },
+          {
+            selector: "edge[edgeKind = 'equivalent-class'], edge[edgeKind = 'equivalent-class-parallel']",
+            style: {
+              "curve-style": "segments",
+              "segment-distances": "data(offset)",
+              "segment-weights": .5,
+              "line-color": "#111",
+              "target-arrow-shape": "none",
+              "width": 1.3,
+              "line-style": "solid",
+              "text-rotation": "none",
+              "text-margin-y": -14
+            }
+          },
+          {
+            selector: "edge[edgeKind = 'equivalent'], edge[edgeKind = 'inverseOf']",
+            style: {
+              "line-color": "#111",
+              "target-arrow-color": "#111",
+              "line-style": "dashed"
+            }
+          },
+          {
+            selector: "node.neighborhood",
+            style: {
+              "label": neighborhoodLabel,
+              "font-size": 17,
+              "font-family": "system-ui, sans-serif",
+              "width": neighborhoodNodeWidth,
+              "height": "label",
+              "padding": 12,
+              "text-max-width": 180,
+              "text-overflow-wrap": "whitespace"
+            }
+          },
+          {
+            selector: "node.neighborhood[kind = 'missing-endpoint']",
+            style: { "label": "", "width": 30, "height": 30 }
+          },
+          {
+            selector: "edge.neighborhood",
+            style: {
+              "label": neighborhoodEdgeLabel,
+              "font-size": 14,
+              "text-wrap": "wrap",
+              "text-max-width": 150,
+              "text-overflow-wrap": "whitespace",
+              "text-rotation": "none",
+              "text-margin-y": -10
+            }
+          },
+          { selector: "node:selected", style: { "border-width": 4, "border-color": "#111827", "background-blacken": -.06 } },
+          { selector: "edge[edgeKind = 'datatype-property']:selected", style: { "line-color": "#0f4449", "target-arrow-color": "#0f4449", "width": 3 } }
+        ],
+        layout: layoutOptions
+      });
+
+      const originalElements = window.ontolensVisualization.elements;
+      const panel = container.closest(".visualization-panel");
+      const datatypeToggle = document.getElementById("toggle-datatype-properties");
+      const externalToggle = document.getElementById("toggle-external-references");
+      const fullscreenButton = document.getElementById("fullscreen-graph");
+      const datatypeInspector = document.getElementById("datatype-inspector");
+      const datatypeInspectorTitle = document.getElementById("datatype-inspector-title");
+      const datatypeInspectorRoute = document.getElementById("datatype-inspector-route");
+      const datatypeInspectorList = document.getElementById("datatype-inspector-list");
+      const entireGraphButton = document.getElementById("show-entire-graph");
+      const focusTitle = document.getElementById("graph-focus-title");
+      const focusBar = document.getElementById("graph-focus-bar");
+      const exportMenu = document.getElementById("graph-export");
+      let focusId = null;
+      let activeLayout = null;
+      let layoutRevision = 0;
+      let resizeFrame = null;
+      let edgeLabelFrame = null;
+      let edgeLabelPositions = new Map();
+
+      function neighborhoodElements(elements, id) {
+        if (!id || !elements.nodes.some(node => node.data.id === id)) return elements;
+        const neighbors = new Set([id]);
+        elements.edges.forEach(edge => {
+          if (edge.data.source === id) neighbors.add(edge.data.target);
+          if (edge.data.target === id) neighbors.add(edge.data.source);
+        });
+        return {
+          nodes: elements.nodes.filter(node => neighbors.has(node.data.id)),
+          edges: elements.edges.filter(edge => neighbors.has(edge.data.source) && neighbors.has(edge.data.target))
+        };
+      }
+
+      function visibleElements() {
+        const showDatatypeProperties = datatypeToggle?.checked !== false;
+        const showExternalReferences = externalToggle?.checked !== false;
+        const nodes = originalElements.nodes.filter(function (node) {
+          return (showDatatypeProperties || node.data.kind !== "literal") &&
+            (showExternalReferences || node.data.kind !== "external-class");
+        });
+        const visibleNodeIds = new Set(nodes.map(function (node) { return node.data.id; }));
+        const edges = originalElements.edges.filter(function (edge) {
+          return (showDatatypeProperties || edge.data.edgeKind !== "datatype-property") && visibleNodeIds.has(edge.data.source) && visibleNodeIds.has(edge.data.target);
+        });
+        return neighborhoodElements({ nodes, edges }, focusId);
+      }
+
+      function stopLayout() {
+        layoutRevision += 1;
+        cancelAnimationFrame(edgeLabelFrame);
+        edgeLabelFrame = null;
+        activeLayout?.stop();
+        activeLayout = null;
+        cy.stop();
+      }
+
+      function fitGraph() {
+        if (!cy.nodes().length) return;
+        cy.resize();
+        cy.fit(cy.elements(), focusId ? 24 : 34);
+        if (focusId && cy.zoom() > 1.8) {
+          cy.zoom(1.8);
+          cy.center(cy.elements());
+        }
+      }
+
+      function runLayout() {
+        stopLayout();
+        cy.resize();
+        const revision = layoutRevision;
+        // A local network avoids the very wide sibling rows of the overview.
+        const options = focusId ? {
+          name: cy.nodes().length > 1 ? "fcose" : "grid",
+          quality: "proof", randomize: true,
+          nodeDimensionsIncludeLabels: true, nodeSeparation: 70,
+          nodeRepulsion: () => 6500, idealEdgeLength: () => 140,
+          edgeElasticity: () => 0.45, gravity: 0.25, numIter: 2500
+        } : layoutOptions;
+        activeLayout = cy.layout({
+          ...options, fit: false, animate: false,
+          stop: function () {
+            if (revision !== layoutRevision) return;
+            activeLayout = null;
+            positionEdgeLabels();
+            fitGraph();
+          }
+        });
+        activeLayout.run();
+      }
+
+      function positionEdgeLabels() {
+        const labels = [];
+        const obstacles = cy.nodes().map(node => node.boundingBox({includeLabels: true, includeOverlays: false}));
+        cy.edges().forEach(edge => {
+          edge.removeStyle("curve-style segment-weights segment-distances edge-distances text-margin-x text-margin-y");
+          const text = focusId ? neighborhoodEdgeLabel(edge) : String(edge.style("label") || "");
+          if (!text) return;
+          const fontSize = parseFloat(edge.style("font-size"));
+          const weight = edge.style("font-weight");
+          const lines = graphTextLines(text, 150, fontSize, weight);
+          const width = Math.max(...lines.map(line => labelContext.measureText(line).width)) + 12;
+          labels.push({id: edge.id(), origin: edge.midpoint(),
+            source: edge.source().position(), target: edge.target().position(),
+            width,
+            height: lines.length * fontSize * 1.2 + 12});
+        });
+        edgeLabelPositions = OntolensGraphLabels.placeLabels(labels, obstacles);
+        edgeLabelPositions.forEach((point, id) => {
+          const edge = cy.getElementById(id);
+          const bend = OntolensGraphLabels.bendThrough(edge.source().position(), edge.target().position(), point);
+          if (bend && edge.source().id() !== edge.target().id() && !String(edge.data("edgeKind")).startsWith("equivalent")) {
+            edge.style({"curve-style": "segments", "edge-distances": "node-position",
+              "segment-weights": bend.weight, "segment-distances": bend.distance});
+          }
+          const midpoint = edge.midpoint();
+          edge.style({"text-margin-x": point.x - midpoint.x, "text-margin-y": point.y - midpoint.y});
+        });
+      }
+
+      function scheduleEdgeLabels() {
+        if (activeLayout || edgeLabelFrame !== null) return;
+        edgeLabelFrame = requestAnimationFrame(() => {
+          edgeLabelFrame = null;
+          if (!activeLayout) positionEdgeLabels();
+        });
+      }
+
+      function refreshGraph() {
+        stopLayout();
+        closeDatatypeInspector();
+        cy.elements().remove();
+        cy.add(visibleElements());
+        if (focusId && cy.getElementById(focusId).empty()) focusId = null;
+        entireGraphButton.disabled = !focusId;
+        focusBar.hidden = !focusId;
+        focusTitle.textContent = focusId ? cy.getElementById(focusId).data("label") : "";
+        cy.elements().toggleClass("neighborhood", Boolean(focusId));
+        if (focusId) cy.getElementById(focusId).select();
+        rebuildNodeLinks();
+        const visible = new Set(cy.nodes().map(node => node.data("ontology")));
+        panel.querySelectorAll(".ontology-legend [data-ontology]").forEach(item => {
+          item.style.display = visible.has(item.dataset.ontology) ? "" : "none";
+        });
+        runLayout();
+      }
+
+      const nodeLinks = document.createElement("div");
+      nodeLinks.className = "graph-node-links";
+      container.append(nodeLinks);
+      const linkElements = new Map();
+      let linkFrame = null;
+      function positionNodeLinks() {
+        linkFrame = null;
+        const zoom = cy.zoom();
+        linkElements.forEach((link, id) => {
+          const node = cy.getElementById(id);
+          if (node.empty()) { link.hidden = true; return; }
+          const box = node.renderedBoundingBox({includeLabels:false, includeOverlays:false});
+          link.hidden = box.x2 < 0 || box.y2 < 0 || box.x1 > cy.width() || box.y1 > cy.height();
+          link.style.left = `${box.x2 - 19 * zoom}px`;
+          link.style.top = `${(box.y1 + box.y2) / 2}px`;
+          link.style.transform = `translate(-50%, -50%) scale(${zoom})`;
+        });
+      }
+      function scheduleNodeLinks() {
+        if (linkFrame === null) linkFrame = requestAnimationFrame(positionNodeLinks);
+      }
+      function rebuildNodeLinks() {
+        nodeLinks.replaceChildren();
+        linkElements.clear();
+        cy.nodes().forEach(node => {
+          if (!["class", "external-class"].includes(node.data("kind"))) return;
+          const href = node.data("href") || node.id();
+          if (!href.startsWith("#") && !/^https?:\/\//i.test(href)) return;
+          const link = document.createElement("a");
+          link.className = "graph-node-link";
+          link.href = href;
+          link.title = `${href.startsWith("#") ? "Open documentation" : "Open external reference"}: ${node.data("label")}`;
+          link.setAttribute("aria-label", link.title);
+          link.append(document.getElementById("graph-document-icon").content.cloneNode(true));
+          if (!href.startsWith("#")) { link.target = "_blank"; link.rel = "noopener noreferrer"; }
+          ["pointerdown", "mousedown", "touchstart", "dblclick"].forEach(type => link.addEventListener(type, event => event.stopPropagation()));
+          link.addEventListener("click", async event => {
+            event.stopPropagation();
+            if (href.startsWith("#") && !event.ctrlKey && !event.metaKey && !event.shiftKey && !event.altKey) {
+              event.preventDefault();
+              if (document.fullscreenElement === panel) await document.exitFullscreen();
+              window.location.hash = href;
+              document.getElementById(decodeURIComponent(href.slice(1)))?.scrollIntoView({block:"start"});
+            }
+          });
+          nodeLinks.append(link);
+          linkElements.set(node.id(), link);
+        });
+        scheduleNodeLinks();
+      }
+      cy.on("render pan zoom position layoutstop resize", scheduleNodeLinks);
+      cy.on("drag dragfree", "node", scheduleEdgeLabels);
+      new ResizeObserver(() => {
+        cy.resize();
+        scheduleNodeLinks();
+        cancelAnimationFrame(resizeFrame);
+        resizeFrame = requestAnimationFrame(() => {
+          if (!activeLayout) {
+            if (focusId) runLayout();
+            else fitGraph();
+          }
+        });
+      }).observe(container);
+      rebuildNodeLinks();
+      positionEdgeLabels();
+      fitGraph();
+      entireGraphButton.addEventListener("click", () => { focusId = null; refreshGraph(); });
+
+      function ontologyLegendEntries() {
+        const visible = new Set(cy.nodes().map(node => node.data("ontology")));
+        return (window.ontolensVisualization.ontologies || []).filter(item => visible.has(item.uri));
+      }
+
+      function closeDatatypeInspector() {
+        if (datatypeInspector) {
+          datatypeInspector.hidden = true;
+        }
+        window.setTimeout(function () { cy.resize(); }, 0);
+      }
+
+      function showDatatypeInspector(edge) {
+        const properties = edge.data("properties") || [];
+        if (!datatypeInspector || !datatypeInspectorTitle || !datatypeInspectorRoute || !datatypeInspectorList || !properties.length) {
+          return;
+        }
+        const count = properties.length;
+        datatypeInspectorTitle.textContent = `${count} datatype ${count === 1 ? "property" : "properties"}`;
+        datatypeInspectorRoute.textContent = `${edge.source().data("label")} -> ${edge.target().data("label")}`;
+        datatypeInspectorList.replaceChildren(...properties.map(function (property) {
+          const item = document.createElement("li");
+          const link = document.createElement("a");
+          const curie = document.createElement("small");
+          link.href = property.href;
+          link.textContent = property.title;
+          curie.textContent = property.curie;
+          link.appendChild(curie);
+          item.appendChild(link);
+          return item;
+        }));
+        datatypeInspector.hidden = false;
+        window.setTimeout(function () {
+          fitGraph();
+        }, 0);
+      }
+
+      function safeFileName(extension) {
+        const base = (document.title || "ontology-graph").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "") || "ontology-graph";
+        return `${base}-graph.${extension}`;
+      }
+
+      function downloadBlob(blob, fileName) {
+        const link = document.createElement("a");
+        link.href = URL.createObjectURL(blob);
+        link.download = fileName;
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(function () { URL.revokeObjectURL(link.href); }, 1000);
+      }
+
+      function datatypeLegendGroups() {
+        return cy.edges().filter(function (edge) {
+          return edge.data("edgeKind") === "datatype-property" && (edge.data("properties") || []).length;
+        }).map(function (edge) {
+          return {
+            route: `${edge.source().data("label")} -> ${edge.target().data("label")}`,
+            properties: edge.data("properties") || []
+          };
+        });
+      }
+
+      function shortened(value, maxLength = 46) {
+        const text = String(value || "");
+        return text.length <= maxLength ? text : `${text.slice(0, maxLength - 1)}...`;
+      }
+
+      async function exportRaster(format) {
+        positionEdgeLabels();
+        fitGraph();
+        const scale = 3;
+        const groups = datatypeLegendGroups();
+        const ontologies = ontologyLegendEntries();
+        const ontologyHeight = 44 + ontologies.length * 24;
+        const hasSubclass = cy.edges("[edgeKind = 'subClassOf']").length > 0;
+        const relationHeight = hasSubclass ? 36 : 0;
+        const options = { full: true, scale, bg: "#ffffff", output: "blob" };
+        if (!groups.length && !ontologies.length && !hasSubclass) {
+          const graphOnly = format === "jpg" ? cy.jpg(options) : cy.png(options);
+          downloadBlob(graphOnly, safeFileName(format));
+          return;
+        }
+
+        const graphBlob = cy.png(options);
+        const bitmap = await createImageBitmap(graphBlob);
+        const legendWidth = 380 * scale;
+        const legendHeight = (54 + ontologyHeight + relationHeight + groups.reduce(function (height, group) {
+          return height + 38 + group.properties.length * 18;
+        }, 0)) * scale;
+        const canvas = document.createElement("canvas");
+        canvas.width = bitmap.width + legendWidth;
+        canvas.height = Math.max(bitmap.height, legendHeight);
+        const context = canvas.getContext("2d");
+        context.fillStyle = "#ffffff";
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        context.drawImage(bitmap, 0, 0);
+        context.scale(scale, scale);
+        const legendX = bitmap.width / scale;
+        context.strokeStyle = "#d8e0e1";
+        context.beginPath();
+        context.moveTo(legendX + .5, 0);
+        context.lineTo(legendX + .5, canvas.height / scale);
+        context.stroke();
+        context.fillStyle = "#0f4449";
+        context.font = "600 16px system-ui, sans-serif";
+        context.fillText("Ontologies", legendX + 24, 30);
+        ontologies.forEach(function (item, index) {
+          const y = 54 + index * 24;
+          context.fillStyle = item.color;
+          context.fillRect(legendX + 24, y - 10, 12, 12);
+          context.fillStyle = "#202124";
+          context.font = "12px system-ui, sans-serif";
+          context.fillText(shortened(item.label), legendX + 44, y);
+        });
+        context.fillStyle = "#0f4449";
+        context.font = "600 16px system-ui, sans-serif";
+        if (hasSubclass) {
+          const y = ontologyHeight + 12;
+          context.strokeStyle = context.fillStyle = "#111111";
+          context.lineWidth = 1.55;
+          context.beginPath(); context.moveTo(legendX + 24, y); context.lineTo(legendX + 50, y); context.stroke();
+          context.beginPath(); context.moveTo(legendX + 48, y - 4); context.lineTo(legendX + 55, y); context.lineTo(legendX + 48, y + 4); context.closePath(); context.fill();
+          context.font = "12px system-ui, sans-serif";
+          context.fillText("rdfs:subClassOf", legendX + 66, y + 4);
+        }
+        context.fillStyle = "#0f4449";
+        context.font = "600 16px system-ui, sans-serif";
+        if (groups.length) context.fillText("Datatype properties", legendX + 24, ontologyHeight + relationHeight + 30);
+        let y = ontologyHeight + relationHeight + 58;
+        groups.forEach(function (group) {
+          context.fillStyle = "#315e62";
+          context.font = "600 11px system-ui, sans-serif";
+          context.fillText(shortened(group.route), legendX + 24, y);
+          y += 20;
+          group.properties.forEach(function (property) {
+            context.fillStyle = "#202124";
+            context.font = "10px system-ui, sans-serif";
+            context.fillText(`- ${shortened(property.title)}`, legendX + 32, y);
+            y += 18;
+          });
+          y += 14;
+        });
+        canvas.toBlob(function (blob) {
+          if (blob) {
+            downloadBlob(blob, safeFileName(format));
+          }
+        }, format === "jpg" ? "image/jpeg" : "image/png", .95);
+      }
+
+      function xmlEscape(value) {
+        return String(value ?? "").replace(/[&<>"]/g, function (char) {
+          return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[char];
+        });
+      }
+
+      function graphTextLines(label, width, fontSize, weight = 400) {
+        labelContext.font = `${weight} ${fontSize}px system-ui, sans-serif`;
+        return String(label || "").split("\n").flatMap(paragraph => {
+          const lines = [];
+          let line = "";
+          paragraph.split(/\s+/).filter(Boolean).forEach(word => {
+            const next = line ? `${line} ${word}` : word;
+            if (line && labelContext.measureText(next).width > width) {
+              lines.push(line);
+              line = word;
+            } else line = next;
+          });
+          lines.push(line);
+          return lines;
+        });
+      }
+
+      function exportSvg() {
+        positionEdgeLabels();
+        const bounds = cy.elements().boundingBox({ includeLabels: true });
+        const padding = 48;
+        const minX = bounds.x1 - padding;
+        const minY = bounds.y1 - padding;
+        const groups = datatypeLegendGroups();
+        const ontologies = ontologyLegendEntries();
+        const ontologyHeight = ontologies.length ? 44 + ontologies.length * 24 : 0;
+        const hasSubclass = cy.edges("[edgeKind = 'subClassOf']").length > 0;
+        const relationHeight = hasSubclass ? 36 : 0;
+        const graphWidth = Math.max(bounds.w + padding * 2, 640);
+        const legendWidth = groups.length || ontologies.length || hasSubclass ? 380 : 0;
+        const legendHeight = 54 + ontologyHeight + relationHeight + groups.reduce(function (height, group) {
+          return height + 38 + group.properties.length * 18;
+        }, 0);
+        const width = graphWidth + legendWidth;
+        const height = Math.max(bounds.h + padding * 2, 420, legendHeight);
+        const edgeLabels = [];
+        const edgeSvg = cy.edges().map(function (edge) {
+          const source = edge.source().position();
+          const target = edge.target().position();
+          const edgeKind = edge.data("edgeKind");
+          const offset = Number(edge.data("offset") || 0);
+          const dx = target.x - source.x;
+          const dy = target.y - source.y;
+          const length = Math.max(Math.sqrt(dx * dx + dy * dy), 1);
+          const offsetX = -dy / length * offset;
+          const offsetY = dx / length * offset;
+          const x1 = source.x + offsetX;
+          const y1 = source.y + offsetY;
+          const x2 = target.x + offsetX;
+          const y2 = target.y + offsetY;
+          const stroke = edgeKind === "datatype-property" ? "#66898c" : edgeKind === "object-property" ? "#0f4449" : "#111111";
+          const dash = edgeKind === "object-property" ? " stroke-dasharray=\"7 5\"" : edgeKind === "datatype-property" ? " stroke-dasharray=\"2 5\"" : "";
+          const marker = edge.data("arrow") === "none" || edgeKind === "equivalent-class" || edgeKind === "equivalent-class-parallel" ? "" : " marker-end=\"url(#arrow)\"";
+          const placement = edgeLabelPositions.get(edge.id());
+          const labelX = placement?.x ?? (x1 + x2) / 2;
+          const labelY = placement?.y ?? (y1 + y2) / 2 - 8;
+          const labelText = focusId ? neighborhoodEdgeLabel(edge) : edge.data("label");
+          const fontSize = parseFloat(edge.style("font-size"));
+          const weight = edge.style("font-weight");
+          const lines = graphTextLines(labelText, 150, fontSize, weight);
+          const spans = lines.map((line, index) => `<tspan x="${labelX}" dy="${index ? fontSize * 1.2 : 0}">${xmlEscape(line)}</tspan>`).join("");
+          const box = placement?.box;
+          const background = box ? `<rect x="${box.x1}" y="${box.y1}" width="${box.x2 - box.x1}" height="${box.y2 - box.y1}" fill="#fbfcfd"/>` : "";
+          const label = labelText ? `${background}<text x="${labelX}" y="${labelY - (lines.length - 1) * fontSize * .6 + fontSize * .35}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fontSize}" font-weight="${weight}" fill="#202124"><title>${xmlEscape(edge.data("label"))}</title>${spans}</text>` : "";
+          const bends = edge.style("curve-style") === "segments" ? edge.segmentPoints() : [];
+          const points = bends?.length ? [edge.sourceEndpoint(), ...bends, edge.targetEndpoint()] : [{x:x1, y:y1}, {x:x2, y:y2}];
+          const route = points.map((point, index) => `${index ? 'L' : 'M'}${point.x} ${point.y}`).join(' ');
+          edgeLabels.push(label);
+          return `<path d="${route}" fill="none" stroke="${stroke}" stroke-width="1.6"${marker}${dash}/>`;
+        }).join("\n");
+        const nodeSvg = cy.nodes().map(function (node) {
+          const position = node.position();
+          const kind = node.data("kind");
+          const fontSize = parseFloat(node.style("font-size"));
+          const lines = graphTextLines(focusId ? neighborhoodLabel(node) : node.data("label"), parseFloat(node.style("text-max-width")), fontSize, 600).map(xmlEscape);
+          const width = node.outerWidth();
+          const height = node.outerHeight();
+          const fill = node.data("color");
+          const stroke = node.data("border");
+          const color = kind === "literal" ? "#0f4449" : "#ffffff";
+          const nodeDash = '';
+          const radius = kind === "literal" ? 0 : 5;
+          const fontWeight = 600;
+          const textY = position.y - ((lines.length - 1) * fontSize * .6);
+          const text = lines.map(function (line, index) { return `<tspan x="${position.x}" dy="${index === 0 ? 0 : fontSize * 1.2}">${line}</tspan>`; }).join("");
+          return `<rect x="${position.x - width / 2}" y="${position.y - height / 2}" width="${width}" height="${height}" rx="${radius}" fill="${fill}" stroke="${stroke}" stroke-width="1.5"${nodeDash}/><text x="${position.x}" y="${textY + fontSize * .35}" text-anchor="middle" font-family="system-ui, sans-serif" font-size="${fontSize}" font-weight="${fontWeight}" fill="${color}">${text}</text>`;
+        }).join("\n");
+        let legendY = minY + ontologyHeight + relationHeight + 58;
+        const legendX = minX + graphWidth;
+        const ontologySvg = ontologies.map(function (item, index) {
+          const y = minY + 54 + index * 24;
+          return `<rect x="${legendX + 24}" y="${y - 10}" width="12" height="12" fill="${item.color}"/><text x="${legendX + 44}" y="${y}" font-family="system-ui, sans-serif" font-size="12" fill="#202124">${xmlEscape(shortened(item.label))}</text>`;
+        }).join("");
+        const relationY = minY + ontologyHeight + 12;
+        const relationSvg = hasSubclass ? `<path d="M${legendX + 24} ${relationY}h26" fill="none" stroke="#111" stroke-width="1.55"/><path d="M${legendX + 48} ${relationY - 4}l7 4l-7 4Z" fill="#111"/><text x="${legendX + 66}" y="${relationY + 4}" font-family="system-ui, sans-serif" font-size="12" fill="#202124">rdfs:subClassOf</text>` : "";
+        const ontologyTitle = relationSvg + (ontologies.length ? `<text x="${legendX + 24}" y="${minY + 30}" font-family="system-ui, sans-serif" font-size="16" fill="#0f4449">Ontologies</text>` : "");
+        const legendSvg = groups.length ? `<line x1="${legendX}" y1="${minY}" x2="${legendX}" y2="${minY + height}" stroke="#d8e0e1"/><text x="${legendX + 24}" y="${minY + ontologyHeight + relationHeight + 30}" font-family="system-ui, sans-serif" font-size="16" font-weight="600" fill="#0f4449">Datatype properties</text>${groups.map(function (group) {
+          const routeY = legendY;
+          legendY += 20;
+          const propertyLines = group.properties.map(function (property) {
+            const line = `<text x="${legendX + 32}" y="${legendY}" font-family="system-ui, sans-serif" font-size="10" fill="#202124">- ${xmlEscape(shortened(property.title))}</text>`;
+            legendY += 18;
+            return line;
+          }).join("");
+          legendY += 14;
+          return `<text x="${legendX + 24}" y="${routeY}" font-family="system-ui, sans-serif" font-size="11" font-weight="600" fill="#315e62">${xmlEscape(shortened(group.route))}</text>${propertyLines}`;
+        }).join("")}` : "";
+        const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="${minX} ${minY} ${width} ${height}"><defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L7,3 z" fill="#111111"/></marker></defs><rect x="${minX}" y="${minY}" width="${width}" height="${height}" fill="#ffffff"/>${edgeSvg}${nodeSvg}${edgeLabels.join("\n")}${ontologyTitle}${ontologySvg}${legendSvg}</svg>`;
+        downloadBlob(new Blob([svg], { type: "image/svg+xml;charset=utf-8" }), safeFileName("svg"));
+      }
+
+      document.getElementById("reset-graph-layout")?.addEventListener("click", function () { runLayout(); });
+      datatypeToggle?.addEventListener("change", refreshGraph);
+      externalToggle?.addEventListener("change", refreshGraph);
+      document.getElementById("datatype-inspector-close")?.addEventListener("click", closeDatatypeInspector);
+      document.getElementById("export-graph-png")?.addEventListener("click", function () { exportRaster("png"); });
+      document.getElementById("export-graph-jpg")?.addEventListener("click", function () { exportRaster("jpg"); });
+      document.getElementById("export-graph-svg")?.addEventListener("click", exportSvg);
+      exportMenu.addEventListener("click", function (event) {
+        if (event.target.closest("button")) {
+          exportMenu.open = false;
+          exportMenu.querySelector("summary").focus();
+        }
+      });
+      document.addEventListener("click", function (event) {
+        if (!exportMenu.contains(event.target)) exportMenu.open = false;
+      });
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape" && exportMenu.open) {
+          exportMenu.open = false;
+          exportMenu.querySelector("summary").focus();
+        }
+      });
+      fullscreenButton?.addEventListener("click", function () {
+        if (!document.fullscreenElement && panel?.requestFullscreen) {
+          panel.requestFullscreen();
+        } else if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      });
+      document.addEventListener("fullscreenchange", function () {
+        const fullscreen = document.fullscreenElement === panel;
+        fullscreenButton.setAttribute("aria-pressed", String(fullscreen));
+        fullscreenButton.setAttribute("aria-label", fullscreen ? "Exit fullscreen" : "Fullscreen");
+        fullscreenButton.title = fullscreen ? "Exit fullscreen" : "Fullscreen";
+        window.setTimeout(function () {
+          fitGraph();
+        }, 80);
+      });
+      cy.on("dbltap", "node", function (event) {
+        if (!["class", "external-class"].includes(event.target.data("kind"))) return;
+        focusId = event.target.id();
+        refreshGraph();
+      });
+      cy.on("mouseover", "edge", event => { container.title = event.target.data("label") || ""; });
+      cy.on("mouseout", "edge", () => { container.removeAttribute("title"); });
+      cy.on("tap", "edge[edgeKind = 'datatype-property']", function (event) {
+        showDatatypeInspector(event.target);
+      });
+      cy.on("mouseover", "edge[edgeKind = 'datatype-property']", function () {
+        container.style.cursor = "pointer";
+      });
+      cy.on("mouseout", "edge[edgeKind = 'datatype-property']", function () {
+        container.style.cursor = "default";
+      });
+    })();
+  </script>
+</body>
+</html>

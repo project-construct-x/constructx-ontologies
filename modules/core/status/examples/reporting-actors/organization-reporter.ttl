@@ -1,0 +1,21 @@
+# An organization reports that an object has been shipped.
+# Load modules/core/organization/ontology/conx-org.ttl as additional context.
+# The Organization -> Agent relationship comes from that Core ontology.
+@prefix s: <https://www.construct-x.org/ontology/status#> .
+@prefix org: <https://www.construct-x.org/ontology/organization#> .
+@prefix kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/status/organization-reporter/> .
+
+ex:delivery s:hasStatus ex:report .
+ex:report a s:StatusAssignment ;
+  s:hasStatusKind kind:TransportStatus ;
+  s:hasStatusValue value:Shipped ;
+  s:referenceDate "2026-11-11"^^xsd:date ;
+  s:referenceTime "09:00:00+01:00"^^xsd:time ;
+  s:reportedBy ex:logistics .
+
+# Fictional example organization; no redundant rdf:type Agent assertion.
+ex:logistics a org:Organization ;
+  org:name "Example Logistics"@en .

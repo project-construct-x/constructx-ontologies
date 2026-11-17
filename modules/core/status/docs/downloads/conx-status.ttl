@@ -1,0 +1,153 @@
+# baseURI: https://www.construct-x.org/ontology/status
+# prefix: conx-status
+
+@prefix conx-status: <https://www.construct-x.org/ontology/status#> .
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/status> a owl:Ontology ;
+  dcterms:title "Construct-X Status Ontology"@en, "Construct-X Status-Ontologie"@de ;
+  dcterms:description "Defines timestamped status assignments, open status vocabularies, optional history navigation and VSO conditions."@en ;
+  dcterms:description "Definiert zeitbezogene Statusangaben, offene Statusvokabulare, optionale Historiennavigation und VSO-Conditions."@de ;
+  dcterms:created "2026-11-10"^^xsd:date ;
+  dcterms:modified "2026-11-11"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/UBL-2.5.html>,
+                 <https://www.w3.org/TR/skos-reference/> ;
+  vann:preferredNamespacePrefix "conx-status" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/ontology/status#" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/status/0.1.0> ;
+  owl:versionInfo "0.1.0" .
+
+conx-status:StatusAssignment a owl:Class ;
+  rdfs:label "Status assignment"@en, "Statusangabe"@de ;
+  rdfs:comment "An identified statement of one status value for one status kind and one resource at a business reference date and time. The resource links to it through hasStatus."@en, "Identifizierte Angabe genau eines Statuswerts einer Statusart für ein Bezugsobjekt zu einem fachlichen Datum und Zeitpunkt. Das Bezugsobjekt verweist mit hasStatus auf die Angabe."@de ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:StatusKind a owl:Class ;
+  rdfs:label "Status kind"@en, "Statusart"@de ;
+  rdfs:comment "A reusable status dimension, such as transport status or temperature inspection. Concrete kinds are vocabulary individuals."@en, "Wiederverwendbare Statusdimension, etwa Transportstatus oder Temperaturprüfung. Konkrete Arten sind Vokabularindividuen."@de ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> ;
+  rdfs:subClassOf skos:Concept .
+
+conx-status:StatusValue a owl:Class ;
+  rdfs:label "Status value"@en, "Statuswert"@de ;
+  rdfs:comment "A reusable state selected by an assignment; its applicability to a kind is declared with hasAllowedStatusValue."@en, "Wiederverwendbarer Zustand einer Statusangabe; seine Verwendbarkeit für eine Statusart wird mit hasAllowedStatusValue erklärt."@de ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> ;
+  rdfs:subClassOf skos:Concept .
+
+conx-status:StatusReason a owl:Class ;
+  rdfs:label "Status reason"@en, "Statusgrund"@de ;
+  rdfs:comment "A reusable explanation for a status. Applicability declarations on kinds are positive and non-exhaustive."@en, "Wiederverwendbare Begründung eines Status. Zuordnungen zu Statusarten sind positive, nicht abschließende Angaben."@de ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> ;
+  rdfs:subClassOf skos:Concept .
+
+conx-status:hasStatus a owl:ObjectProperty ;
+  rdfs:label "has status"@en, "hat Statusangabe"@de ;
+  rdfs:comment "Links a resource to its status assignments, including historical ones. Each assignment has exactly one owner in the validation graph."@en, "Verknüpft ein Bezugsobjekt mit seinen aktuellen und historischen Statusangaben. Jede Angabe hat im Validierungsgraph genau ein Bezugsobjekt."@de ;
+  rdfs:range conx-status:StatusAssignment ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:hasCurrentStatus a owl:ObjectProperty ;
+  rdfs:label "has current status"@en, "hat aktuelle Statusangabe"@de ;
+  rdfs:comment "Optionally identifies the uniquely latest known assignment per resource and status kind in the supplied data. Order uses referenceDate and referenceTime with UTC offsets, then explicit predecessor order for equal instants. Unresolved latest ties prohibit a current link; recordedAt does not determine order. Explicit hasStatus membership is required. Validation checks but does not set the link."@en, "Bezeichnet optional die eindeutig neueste bekannte Angabe je Bezugsobjekt und Statusart im bereitgestellten Datenbestand. Maßgeblich sind referenceDate und referenceTime mit UTC-Offset sowie bei gleichen Zeitpunkten die explizite Vorgängerreihenfolge. Ungeklärte Gleichstände beim neuesten Stand erlauben keinen aktuellen Verweis; recordedAt bestimmt die Reihenfolge nicht. Ein explizites hasStatus ist erforderlich. Die Validierung prüft den Verweis, setzt ihn aber nicht."@de ;
+  rdfs:range conx-status:StatusAssignment ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> ;
+  rdfs:subPropertyOf conx-status:hasStatus .
+
+conx-status:hasStatusKind a owl:ObjectProperty ;
+  rdfs:label "has status kind"@en, "hat Statusart"@de ;
+  rdfs:comment "Identifies the single dimension described by this assignment."@en, "Bestimmt die genau eine Statusdimension dieser Angabe."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range conx-status:StatusKind ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:hasStatusValue a owl:ObjectProperty ;
+  rdfs:label "has status value"@en, "hat Statuswert"@de ;
+  rdfs:comment "Selects exactly one value allowed by the assignment's kind."@en, "Wählt genau einen für die Statusart zulässigen Wert aus."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range conx-status:StatusValue ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:hasStatusReason a owl:ObjectProperty ;
+  rdfs:label "has status reason"@en, "hat Statusgrund"@de ;
+  rdfs:comment "References zero or more explanations. A hasAllowedStatusReason link is not required."@en, "Verweist auf beliebig viele optionale Begründungen. Eine Zuordnung über hasAllowedStatusReason ist nicht erforderlich."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range conx-status:StatusReason ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:hasAllowedStatusValue a owl:ObjectProperty ;
+  rdfs:label "has allowed status value"@en, "hat zulässigen Statuswert"@de ;
+  rdfs:comment "Declares a value usable for this kind. Every selected value must have this explicit compatibility link; values may be reused by multiple kinds."@en, "Erklärt einen für diese Art verwendbaren Wert. Jeder ausgewählte Wert benötigt diese explizite Zuordnung; mehrere Arten können denselben Wert verwenden."@de ;
+  rdfs:domain conx-status:StatusKind ;
+  rdfs:range conx-status:StatusValue ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:hasAllowedStatusReason a owl:ObjectProperty ;
+  rdfs:label "has allowed status reason"@en, "hat zugeordneten Statusgrund"@de ;
+  rdfs:comment "Declares a reason applicable to this kind without excluding unlisted reasons. This is not a closed allowlist."@en, "Ordnet einen passenden Grund zu, ohne weitere Gründe auszuschließen. Die Zuordnung ist keine abgeschlossene Zulässigkeitsliste."@de ;
+  rdfs:domain conx-status:StatusKind ;
+  rdfs:range conx-status:StatusReason ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:previousStatus a owl:ObjectProperty ;
+  rdfs:label "previous status"@en, "unmittelbare vorherige Statusangabe"@de ;
+  rdfs:comment "Optionally identifies the immediately preceding known assignment for the same resource and kind. Non-transitive, acyclic; equal timestamps can be ordered explicitly."@en, "Bezeichnet optional die unmittelbar vorherige bekannte Angabe desselben Bezugsobjekts und derselben Art. Nicht transitiv und zyklenfrei; gleiche Zeitpunkte können explizit geordnet werden."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range conx-status:StatusAssignment ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:reportedBy a owl:ObjectProperty ;
+  rdfs:label "reported by"@en, "gemeldet durch"@de ;
+  rdfs:comment "Identifies an optional reporting actor; it does not by itself identify the person performing a measurement."@en, "Bezeichnet optional den meldenden Akteur; daraus folgt nicht, wer eine Messung durchgeführt hat."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range conx-agent:Agent ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:hasCondition a owl:ObjectProperty ;
+  rdfs:label "has condition"@en, "hat Condition"@de ;
+  rdfs:comment "References a VSO assignment describing a condition relevant to the status. The measured resource may differ from the status owner. Values and units are validated with the ISOProps profile."@en, "Referenziert eine statusrelevante VSO-Merkmalszuordnung. Messobjekt und Statusbezugsobjekt dürfen verschieden sein. Datentyp und Einheit werden mit dem ISOProps-Profil geprüft."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range conx-vso:AssignedProperty ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:referenceDate a owl:DatatypeProperty ;
+  rdfs:label "reference date"@en, "Bezugsdatum"@de ;
+  rdfs:comment "Mandatory business reference calendar date, without a separate timezone; referenceTime supplies the UTC offset."@en, "Verpflichtendes fachliches Bezugsdatum ohne eigene Zeitzone; referenceTime enthält den UTC-Offset."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range xsd:date ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:referenceTime a owl:DatatypeProperty ;
+  rdfs:label "reference time"@en, "Bezugsuhrzeit"@de ;
+  rdfs:comment "Mandatory business reference clock time with explicit UTC offset (Z or signed hh:mm), with at most six fractional second digits. It is not the recording time."@en, "Verpflichtende fachliche Bezugsuhrzeit mit explizitem UTC-Offset (Z oder vorzeichenbehaftetes hh:mm) und höchstens sechs Nachkommastellen der Sekunden. Sie ist nicht der Erfassungszeitpunkt."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range xsd:time ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:recordedAt a owl:DatatypeProperty ;
+  rdfs:label "recorded at"@en, "erfasst am"@de ;
+  rdfs:comment "Optional recording timestamp, distinct from the business reference time."@en, "Optionaler Erfassungszeitpunkt, getrennt vom fachlichen Bezugszeitpunkt."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:range xsd:dateTime ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:description a owl:DatatypeProperty ;
+  rdfs:label "description"@en, "Beschreibung"@de ;
+  rdfs:comment "Optional plain or language-tagged descriptions of the assignment."@en, "Optionale Beschreibungen der Angabe als Text mit oder ohne Sprachkennzeichnung."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .
+
+conx-status:reasonText a owl:DatatypeProperty ;
+  rdfs:label "reason text"@en, "Begründungstext"@de ;
+  rdfs:comment "Optional free-text explanations of the assignment as a whole, alongside or without coded reasons."@en, "Optionale Freitextbegründungen der gesamten Angabe, zusätzlich zu oder ohne codierte Gründe."@de ;
+  rdfs:domain conx-status:StatusAssignment ;
+  rdfs:isDefinedBy <https://www.construct-x.org/ontology/status> .

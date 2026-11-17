@@ -1,0 +1,13 @@
+@prefix s: <https://www.construct-x.org/ontology/status#> .
+@prefix kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/status/> .
+
+ex:delivery s:hasStatus ex:s1 .
+ex:s1 a s:StatusAssignment ;
+  s:hasStatusKind kind:TransportStatus ;
+  s:hasStatusValue value:InProgress ;
+  s:referenceDate "2026-11-11"^^xsd:date ;
+  s:referenceTime "10:00:00+01:00"^^xsd:time ;
+  s:recordedAt "2026-11-11T10:05:00"^^xsd:dateTime .

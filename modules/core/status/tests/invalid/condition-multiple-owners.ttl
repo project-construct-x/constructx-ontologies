@@ -1,0 +1,43 @@
+@prefix s: <https://www.construct-x.org/ontology/status#> .
+@prefix kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix reason: <https://www.construct-x.org/vocab/status-reason#> .
+@prefix agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix schema: <https://schema.org/> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/status/> .
+
+ex:delivery s:hasStatus ex:s1 ; s:hasCurrentStatus ex:s1 .
+ex:goods vso:hasProperty ex:measurement .
+ex:s1 a s:StatusAssignment ;
+  s:hasStatusKind kind:TemperatureInspection ;
+  s:hasStatusValue value:Failed ;
+  s:referenceDate "2026-11-10"^^xsd:date ;
+  s:referenceTime "10:00:00+01:00"^^xsd:time ;
+  s:hasStatusReason reason:TemperatureExceeded ;
+  s:hasCondition ex:measurement .
+
+
+ex:measurement a vso:AssignedProperty ;
+  vso:hasPropertyReference <https://properties.example.org/temperature/revision/1> ;
+  vso:hasPropertyState ex:measuredState .
+
+ex:measuredState a vso:PropertyState ;
+  schema:value "8.0"^^xsd:decimal ;
+  vso:hasUsedUnit unit:DEG_C .
+
+<https://properties.example.org/temperature/revision/1> a isoprops:Property ;
+  isoprops:globallyUniqueIdentifier "67c8f11c-8804-4ab5-843d-c365f36f6c68" ;
+  isoprops:versionNumber 1 ;
+  isoprops:revisionNumber 1 ;
+  isoprops:status "active" ;
+  isoprops:dataType "REAL" ;
+  isoprops:hasUnit unit:DEG_C .
+unit:DEG_C a qudt:Unit .
+ex:delivery vso:hasProperty ex:measurement .

@@ -1,0 +1,424 @@
+# baseURI: https://www.construct-x.org/shapes/status/core
+# prefix: conx-status-sh
+
+@prefix conx-status: <https://www.construct-x.org/ontology/status#> .
+@prefix conx-status-sh: <https://www.construct-x.org/shapes/status/core#> .
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix vso-sh: <https://www.construct-x.org/shapes/vso/core#> .
+@prefix isoprops-sh: <https://www.construct-x.org/shapes/vso/isoprops#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/shapes/status/core> a owl:Ontology ;
+  dcterms:title "Construct-X Status Core Shapes"@en, "Construct-X Status Core Shapes"@de ;
+  dcterms:description "Validation contracts for status assignments and managed reference vocabularies; condition constraints reuse scoped VSO and ISOProps shapes."@en ;
+  dcterms:description "Prüfverträge für Statusangaben und eigene Referenzvokabulare; Conditions verwenden gezielt eingebundene VSO- und ISOProps-Shapes."@de ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-11-10"^^xsd:date ;
+  dcterms:modified "2026-11-11"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  owl:versionIRI <https://www.construct-x.org/shapes/status/core/0.1.0> ;
+  owl:versionInfo "0.1.0" .
+
+# Dependency shape definitions are loaded without global targets by scripts/validate_status.py.
+# They are invoked below through sh:node; no remote imports or broad VSO targets are used.
+
+conx-status-sh:StatusAssignmentShape a sh:NodeShape ;
+  sh:targetClass conx-status:StatusAssignment ;
+  sh:targetObjectsOf conx-status:hasStatus, conx-status:hasCurrentStatus, conx-status:previousStatus ;
+  sh:targetSubjectsOf conx-status:hasStatusKind, conx-status:hasStatusValue, conx-status:hasStatusReason,
+    conx-status:referenceDate, conx-status:referenceTime, conx-status:recordedAt,
+    conx-status:description, conx-status:reasonText, conx-status:reportedBy,
+    conx-status:previousStatus, conx-status:hasCondition ;
+  sh:nodeKind sh:IRI ;
+  sh:class conx-status:StatusAssignment ;
+  sh:message "[STATUS-001] A status assignment must be an IRI typed as StatusAssignment."@en,
+             "[STATUS-001] Eine Statusangabe muss eine als StatusAssignment typisierte IRI sein."@de ;
+  sh:property conx-status-sh:OwnerShape, conx-status-sh:KindShape, conx-status-sh:ValueShape,
+    conx-status-sh:ReasonShape, conx-status-sh:ReferenceDateShape, conx-status-sh:ReferenceTimeShape,
+    conx-status-sh:RecordedAtShape, conx-status-sh:DescriptionShape, conx-status-sh:ReasonTextShape,
+    conx-status-sh:ReporterShape, conx-status-sh:PreviousShape, conx-status-sh:ConditionShape ;
+  sh:sparql conx-status-sh:AllowedValueConstraint, conx-status-sh:PreviousContextConstraint,
+    conx-status-sh:HistoryCycleConstraint, conx-status-sh:HistoryTimeConstraint,
+    conx-status-sh:ImmediatePreviousConstraint .
+
+conx-status-sh:OwnerShape a sh:PropertyShape ;
+  sh:path [ sh:inversePath conx-status:hasStatus ] ;
+  sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "[STATUS-010] Each assignment must have exactly one explicit hasStatus owner."@en,
+             "[STATUS-010] Jede Statusangabe muss genau ein explizites hasStatus-Bezugsobjekt besitzen."@de .
+
+conx-status-sh:KindShape a sh:PropertyShape ;
+  sh:path conx-status:hasStatusKind ;
+  sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class conx-status:StatusKind ;
+  sh:message "[STATUS-020] Exactly one IRI-valued StatusKind is required; provide referenced vocabulary data."@en,
+             "[STATUS-020] Genau eine StatusKind-IRI ist erforderlich; referenzierte Vokabulardaten müssen bereitgestellt werden."@de .
+
+conx-status-sh:ValueShape a sh:PropertyShape ;
+  sh:path conx-status:hasStatusValue ;
+  sh:minCount 1 ; sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class conx-status:StatusValue ;
+  sh:message "[STATUS-021] Exactly one IRI-valued StatusValue is required; provide referenced vocabulary data."@en,
+             "[STATUS-021] Genau eine StatusValue-IRI ist erforderlich; referenzierte Vokabulardaten müssen bereitgestellt werden."@de .
+
+conx-status-sh:ReasonShape a sh:PropertyShape ;
+  sh:path conx-status:hasStatusReason ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusReason ;
+  sh:message "[STATUS-023] Every optional reason must be a defined StatusReason IRI; kind applicability is not required."@en,
+             "[STATUS-023] Jeder optionale Grund muss eine definierte StatusReason-IRI sein; eine Zuordnung zur Statusart ist nicht erforderlich."@de .
+
+conx-status-sh:ReferenceDateShape a sh:PropertyShape ;
+  sh:path conx-status:referenceDate ;
+  sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:date ; sh:pattern "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" ;
+  sh:message "[STATUS-030] Exactly one valid calendar date (YYYY-MM-DD) is required; the offset belongs to referenceTime."@en,
+             "[STATUS-030] Genau ein gültiges Kalenderdatum (YYYY-MM-DD) ist erforderlich; der Offset gehört zu referenceTime."@de .
+
+conx-status-sh:ReferenceTimeShape a sh:PropertyShape ;
+  sh:path conx-status:referenceTime ;
+  sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:time ; sh:pattern "^([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]{1,6})?(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))$" ;
+  sh:message "[STATUS-031] Exactly one valid clock time with explicit UTC offset (Z or ±hh:mm, at most 14:00) and at most six fractional second digits is required."@en,
+             "[STATUS-031] Genau eine gültige Uhrzeit mit explizitem UTC-Offset (Z oder ±hh:mm, maximal 14:00) und höchstens sechs Nachkommastellen der Sekunden ist erforderlich."@de .
+
+conx-status-sh:RecordedAtShape a sh:PropertyShape ;
+  sh:path conx-status:recordedAt ;
+  sh:maxCount 1 ;
+  sh:or ( [ sh:datatype xsd:dateTime ] conx-status-sh:RecordedAtEndOfDayShape ) ;
+  # Datatype parsing alone accepts some non-XSD ISO-style forms. Check the
+  # lexical form as well; the timezone remains optional, as does recordedAt.
+  sh:pattern "^-?([0-9]{4}|[1-9][0-9]{4,})-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T(([01][0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]([.][0-9]+)?|24:00:00([.]0+)?)(Z|[+-]((0[0-9]|1[0-3]):[0-5][0-9]|14:00))?$" ;
+  sh:message "[STATUS-032] recordedAt is optional (at most one value). If supplied, it must be a valid xsd:dateTime with T between date and time; any optional UTC offset must be Z or ±hh:mm, at most 14:00."@en,
+             "[STATUS-032] recordedAt ist optional (höchstens ein Wert). Wenn angegeben, muss es ein gültiger xsd:dateTime-Wert mit T zwischen Datum und Uhrzeit sein; ein optionaler UTC-Offset muss Z oder ±hh:mm, maximal 14:00, sein."@de .
+
+# Some processors cannot represent XSD's hour 24 as a native datetime. This
+# narrowly scoped alternative validates the original date at hour 00, solely
+# to check its calendar validity. The input literal remains unchanged and
+# still denotes midnight at the start of the following day.
+conx-status-sh:RecordedAtEndOfDayShape a sh:NodeShape ;
+  sh:nodeKind sh:Literal ;
+  sh:sparql conx-status-sh:RecordedAtEndOfDayConstraint .
+
+conx-status-sh:RecordedAtEndOfDayConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-032] End-of-day notation requires an xsd:dateTime literal, a valid calendar date and exactly 24:00:00, with only zero fractional digits."@en,
+             "[STATUS-032] Die Tagesendschreibweise erfordert ein xsd:dateTime-Literal, ein gültiges Kalenderdatum und genau 24:00:00 mit ausschließlich nullwertigen Nachkommastellen."@de ;
+  sh:select """
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this WHERE {
+      BIND(xsd:dateTime(REPLACE(STR($this), "T24:00:00", "T00:00:00")) AS ?calendarCheck)
+      FILTER (!isLiteral($this) || DATATYPE($this) != xsd:dateTime ||
+        !REGEX(STR($this), "T24:00:00([.]0+)?(Z|[+-][0-9]{2}:[0-9]{2})?$") ||
+        !BOUND(?calendarCheck))
+    }
+  """ .
+
+conx-status-sh:DescriptionShape a sh:PropertyShape ;
+  sh:path conx-status:description ;
+  sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+  sh:message "[STATUS-033] description must be plain or language-tagged text."@en,
+             "[STATUS-033] description muss Text mit oder ohne Sprachkennzeichnung sein."@de .
+
+conx-status-sh:ReasonTextShape a sh:PropertyShape ;
+  sh:path conx-status:reasonText ;
+  sh:or ( [ sh:datatype xsd:string ] [ sh:datatype rdf:langString ] ) ;
+  sh:message "[STATUS-034] reasonText must be plain or language-tagged text."@en,
+             "[STATUS-034] reasonText muss Text mit oder ohne Sprachkennzeichnung sein."@de .
+
+conx-status-sh:ReporterShape a sh:PropertyShape ;
+  sh:path conx-status:reportedBy ;
+  sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class conx-agent:Agent ;
+  sh:message "[STATUS-040] reportedBy must be at most one Agent IRI (known subclasses are supported)."@en,
+             "[STATUS-040] reportedBy darf höchstens eine Agent-IRI enthalten (bekannte Unterklassen sind zulässig)."@de .
+
+conx-status-sh:PreviousShape a sh:PropertyShape ;
+  sh:path conx-status:previousStatus ;
+  sh:maxCount 1 ; sh:nodeKind sh:IRI ; sh:class conx-status:StatusAssignment ;
+  sh:message "[STATUS-050] previousStatus must be at most one StatusAssignment IRI."@en,
+             "[STATUS-050] previousStatus darf höchstens eine StatusAssignment-IRI enthalten."@de .
+
+conx-status-sh:ConditionShape a sh:PropertyShape ;
+  sh:path conx-status:hasCondition ;
+  sh:nodeKind sh:BlankNodeOrIRI ; sh:node conx-status-sh:ConditionAssignmentShape ;
+  sh:message "[STATUS-070] A condition must satisfy the VSO and ISOProps contracts."@en,
+             "[STATUS-070] Eine Condition muss die VSO- und ISOProps-Verträge erfüllen."@de .
+
+conx-status-sh:ConditionAssignmentShape a sh:NodeShape ;
+  sh:targetObjectsOf conx-status:hasCondition ;
+  sh:node vso-sh:AssignedPropertyShape, isoprops-sh:ISOPropsAssignmentShape ;
+  sh:property conx-status-sh:ConditionStateShape, conx-status-sh:ConditionDefinitionShape .
+
+conx-status-sh:ConditionStateShape a sh:PropertyShape ;
+  sh:path conx-vso:hasPropertyState ;
+  sh:node vso-sh:PropertyStateShape ;
+  sh:message "[STATUS-071] The condition state must satisfy the existing VSO state rules."@en,
+             "[STATUS-071] Der Condition-Zustand muss die bestehenden VSO-Zustandsregeln erfüllen."@de .
+
+conx-status-sh:ConditionDefinitionShape a sh:PropertyShape ;
+  sh:path conx-vso:hasPropertyReference ;
+  sh:node isoprops-sh:ISOPropsPropertyShape ;
+  sh:message "[STATUS-072] The referenced definition must satisfy the existing ISOProps metadata rules."@en,
+             "[STATUS-072] Die referenzierte Definition muss die bestehenden ISOProps-Metadatenregeln erfüllen."@de .
+
+conx-status-sh:AllowedValueConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-022] The selected value must have an explicit hasAllowedStatusValue link from the selected kind."@en,
+             "[STATUS-022] Der ausgewählte Wert muss der ausgewählten Statusart explizit über hasAllowedStatusValue zugeordnet sein."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this ?value WHERE {
+      $this s:hasStatusKind ?kind ; s:hasStatusValue ?value .
+      FILTER NOT EXISTS { ?kind s:hasAllowedStatusValue ?value }
+    }
+  """ .
+
+conx-status-sh:PreviousContextConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-051] The previous assignment must belong to the same resource and status kind."@en,
+             "[STATUS-051] Der Vorgänger muss zum selben Bezugsobjekt und zur selben Statusart gehören."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this ?value WHERE {
+      $this s:previousStatus ?value .
+      FILTER NOT EXISTS {
+        ?owner s:hasStatus $this, ?value .
+        $this s:hasStatusKind ?kind .
+        ?value s:hasStatusKind ?kind .
+      }
+    }
+  """ .
+
+conx-status-sh:HistoryCycleConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-052] previousStatus must not form a cycle, including self-links."@en,
+             "[STATUS-052] previousStatus darf keinen Zyklus bilden, auch keinen Selbstverweis."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this WHERE { $this s:previousStatus+ $this . }
+  """ .
+
+conx-status-sh:HistoryTimeConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-053] The predecessor must not be later than the assignment when UTC offsets are taken into account."@en,
+             "[STATUS-053] Der Vorgänger darf unter Berücksichtigung der UTC-Offsets nicht später als die Angabe liegen."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this ?value WHERE {
+      $this s:previousStatus ?value ; s:referenceDate ?date ; s:referenceTime ?time .
+      ?value s:referenceDate ?pd ; s:referenceTime ?pt .
+      BIND(xsd:dateTime(CONCAT(STR(?date), "T", STR(?time))) AS ?now)
+      BIND(xsd:dateTime(CONCAT(STR(?pd), "T", STR(?pt))) AS ?previous)
+      FILTER (?previous > ?now)
+    }
+  """ .
+
+conx-status-sh:ImmediatePreviousConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-054] previousStatus skips a known assignment ordered between the endpoints by time or explicit predecessor links for the same owner and kind."@en,
+             "[STATUS-054] previousStatus überspringt eine durch Zeit oder explizite Vorgängerbeziehungen dazwischen eingeordnete Angabe desselben Objekts und derselben Art."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT DISTINCT $this ?value WHERE {
+      $this s:previousStatus ?value ; s:hasStatusKind ?kind ; s:referenceDate ?d ; s:referenceTime ?t .
+      ?value s:referenceDate ?pd ; s:referenceTime ?pt .
+      ?owner s:hasStatus $this, ?value, ?middle .
+      ?middle s:hasStatusKind ?kind ; s:referenceDate ?md ; s:referenceTime ?mt .
+      BIND(xsd:dateTime(CONCAT(STR(?d), "T", STR(?t))) AS ?now)
+      BIND(xsd:dateTime(CONCAT(STR(?pd), "T", STR(?pt))) AS ?previous)
+      BIND(xsd:dateTime(CONCAT(STR(?md), "T", STR(?mt))) AS ?mid)
+      FILTER (?middle != $this && ?middle != ?value)
+      FILTER (?previous < ?mid || EXISTS { ?middle s:previousStatus+ ?value })
+      FILTER (?mid < ?now || EXISTS { $this s:previousStatus+ ?middle })
+    }
+  """ .
+
+conx-status-sh:ResourceStatusShape a sh:NodeShape ;
+  sh:targetSubjectsOf conx-status:hasStatus, conx-status:hasCurrentStatus ;
+  sh:property conx-status-sh:HasStatusShape, conx-status-sh:HasCurrentStatusShape ;
+  sh:sparql conx-status-sh:CurrentMembershipConstraint, conx-status-sh:CurrentKindUniquenessConstraint,
+    conx-status-sh:CurrentLatestConstraint, conx-status-sh:CurrentUnambiguousConstraint .
+
+conx-status-sh:HasStatusShape a sh:PropertyShape ;
+  sh:path conx-status:hasStatus ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusAssignment ;
+  sh:message "[STATUS-060] hasStatus must reference a typed StatusAssignment IRI."@en,
+             "[STATUS-060] hasStatus muss auf eine typisierte StatusAssignment-IRI verweisen."@de .
+
+conx-status-sh:HasCurrentStatusShape a sh:PropertyShape ;
+  sh:path conx-status:hasCurrentStatus ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusAssignment ;
+  sh:message "[STATUS-061] hasCurrentStatus must reference a typed StatusAssignment IRI."@en,
+             "[STATUS-061] hasCurrentStatus muss auf eine typisierte StatusAssignment-IRI verweisen."@de .
+
+conx-status-sh:CurrentMembershipConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-062] A current assignment must also be explicitly linked by hasStatus from this resource."@en,
+             "[STATUS-062] Eine aktuelle Angabe muss zusätzlich explizit über hasStatus mit diesem Bezugsobjekt verbunden sein."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this ?value WHERE {
+      $this s:hasCurrentStatus ?value .
+      FILTER NOT EXISTS { $this s:hasStatus ?value }
+    }
+  """ .
+
+conx-status-sh:CurrentKindUniquenessConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-063] At most one current assignment per resource and status kind is allowed."@en,
+             "[STATUS-063] Je Bezugsobjekt und Statusart ist höchstens eine aktuelle Angabe zulässig."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT DISTINCT $this WHERE {
+      $this s:hasCurrentStatus ?a, ?b .
+      ?a s:hasStatusKind ?kind .
+      ?b s:hasStatusKind ?kind .
+      FILTER (?a != ?b)
+    }
+  """ .
+
+conx-status-sh:CurrentLatestConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-064] hasCurrentStatus must not select an assignment superseded by a later business instant or an explicit successor at the same instant, for this resource and kind."@en,
+             "[STATUS-064] hasCurrentStatus darf keine Angabe auswählen, die für dieses Objekt und diese Art durch einen späteren fachlichen Zeitpunkt oder einen expliziten Nachfolger zum selben Zeitpunkt überholt ist."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT DISTINCT $this ?value WHERE {
+      $this s:hasCurrentStatus ?value ; s:hasStatus ?other .
+      ?value s:hasStatusKind ?kind ; s:referenceDate ?d ; s:referenceTime ?t .
+      ?other s:hasStatusKind ?kind ; s:referenceDate ?od ; s:referenceTime ?ot .
+      FILTER (?other != ?value)
+      BIND(xsd:dateTime(CONCAT(STR(?d), "T", STR(?t))) AS ?selectedTime)
+      BIND(xsd:dateTime(CONCAT(STR(?od), "T", STR(?ot))) AS ?otherTime)
+      FILTER (?otherTime > ?selectedTime ||
+        (?otherTime = ?selectedTime && EXISTS { ?other s:previousStatus+ ?value }))
+    }
+  """ .
+
+conx-status-sh:CurrentUnambiguousConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-065] Equal-time assignments for this resource and kind have no known order. Omit hasCurrentStatus until the latest assignment is unambiguous; recordedAt and status values do not break ties."@en,
+             "[STATUS-065] Für zeitgleiche Angaben dieses Objekts und dieser Art ist keine Reihenfolge bekannt. hasCurrentStatus muss fehlen, bis die neueste Angabe eindeutig ist; recordedAt und Statuswerte lösen keinen Gleichstand auf."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT DISTINCT $this ?value WHERE {
+      $this s:hasCurrentStatus ?value ; s:hasStatus ?other .
+      ?value s:hasStatusKind ?kind ; s:referenceDate ?d ; s:referenceTime ?t .
+      ?other s:hasStatusKind ?kind ; s:referenceDate ?od ; s:referenceTime ?ot .
+      FILTER (?other != ?value)
+      BIND(xsd:dateTime(CONCAT(STR(?d), "T", STR(?t))) AS ?selectedTime)
+      BIND(xsd:dateTime(CONCAT(STR(?od), "T", STR(?ot))) AS ?otherTime)
+      FILTER (?otherTime = ?selectedTime)
+      FILTER NOT EXISTS { ?value s:previousStatus+ ?other }
+      FILTER NOT EXISTS { ?other s:previousStatus+ ?value }
+    }
+  """ .
+
+conx-status-sh:KindConceptShape a sh:NodeShape ;
+  sh:targetClass conx-status:StatusKind ;
+  sh:targetObjectsOf conx-status:hasStatusKind ; sh:targetSubjectsOf conx-status:hasAllowedStatusValue, conx-status:hasAllowedStatusReason ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusKind ;
+  sh:message "[STATUS-080] A StatusKind reference must be a correctly typed IRI."@en,
+             "[STATUS-080] Ein StatusKind-Verweis muss eine korrekt typisierte IRI sein."@de ;
+  sh:node conx-status-sh:ManagedMetadataPolicyShape ;
+  sh:property conx-status-sh:AllowedValueLinkShape, conx-status-sh:AllowedReasonLinkShape .
+
+conx-status-sh:ValueConceptShape a sh:NodeShape ;
+  sh:targetClass conx-status:StatusValue ;
+  sh:targetObjectsOf conx-status:hasStatusValue, conx-status:hasAllowedStatusValue ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusValue ;
+  sh:message "[STATUS-080] A StatusValue reference must be a correctly typed IRI."@en,
+             "[STATUS-080] Ein StatusValue-Verweis muss eine korrekt typisierte IRI sein."@de ;
+  sh:node conx-status-sh:ManagedMetadataPolicyShape .
+
+conx-status-sh:ReasonConceptShape a sh:NodeShape ;
+  sh:targetClass conx-status:StatusReason ;
+  sh:targetObjectsOf conx-status:hasStatusReason, conx-status:hasAllowedStatusReason ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusReason ;
+  sh:message "[STATUS-080] A StatusReason reference must be a correctly typed IRI."@en,
+             "[STATUS-080] Ein StatusReason-Verweis muss eine korrekt typisierte IRI sein."@de ;
+  sh:node conx-status-sh:ManagedMetadataPolicyShape .
+
+conx-status-sh:AllowedValueLinkShape a sh:PropertyShape ;
+  sh:path conx-status:hasAllowedStatusValue ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusValue ;
+  sh:message "[STATUS-081] An allowed value must be a StatusValue IRI."@en,
+             "[STATUS-081] Ein zugeordneter Wert muss eine StatusValue-IRI sein."@de .
+
+conx-status-sh:AllowedReasonLinkShape a sh:PropertyShape ;
+  sh:path conx-status:hasAllowedStatusReason ;
+  sh:nodeKind sh:IRI ; sh:class conx-status:StatusReason ;
+  sh:message "[STATUS-082] An applicability declaration must reference a StatusReason IRI."@en,
+             "[STATUS-082] Eine Grundzuordnung muss eine StatusReason-IRI referenzieren."@de .
+
+conx-status-sh:ManagedMetadataPolicyShape a sh:NodeShape ;
+  sh:or (
+    [ sh:not [ sh:pattern "^https://www[.]construct-x[.]org/vocab/status-(kind|value|reason)#" ] ]
+    [ sh:node conx-status-sh:ManagedConceptMetadataShape ]
+  ) ;
+  sh:message "[STATUS-VOCAB-001] Construct-X status vocabulary terms must satisfy the managed publication metadata contract."@en,
+             "[STATUS-VOCAB-001] Begriffe der Construct-X-Statusvokabulare müssen den eigenen Metadatenvertrag erfüllen."@de .
+
+conx-status-sh:ManagedConceptMetadataShape a sh:NodeShape ;
+  sh:property conx-status-sh:PreferredLabelShape, conx-status-sh:DefinitionShape,
+    conx-status-sh:NotationShape, conx-status-sh:SchemeMembershipShape,
+    conx-status-sh:AlternativeLabelShape, conx-status-sh:ScopeNoteShape ;
+  sh:sparql conx-status-sh:UniqueNotationConstraint .
+
+conx-status-sh:PreferredLabelShape a sh:PropertyShape ;
+  sh:path skos:prefLabel ;
+  sh:minCount 1 ; sh:datatype rdf:langString ; sh:uniqueLang true ; sh:minLength 1 ; sh:disjoint skos:altLabel ;
+  sh:message "[STATUS-VOCAB-010] Provide at least one language-tagged preferred label, unique per language and distinct from alternative labels."@en,
+             "[STATUS-VOCAB-010] Mindestens eine sprachmarkierte Vorzugsbezeichnung ist erforderlich, eindeutig je Sprache und verschieden von Alternativbezeichnungen."@de .
+
+conx-status-sh:DefinitionShape a sh:PropertyShape ;
+  sh:path skos:definition ;
+  sh:minCount 1 ; sh:datatype rdf:langString ; sh:minLength 1 ;
+  sh:message "[STATUS-VOCAB-011] Provide at least one nonempty language-tagged definition."@en,
+             "[STATUS-VOCAB-011] Mindestens eine nichtleere sprachmarkierte Definition ist erforderlich."@de .
+
+conx-status-sh:NotationShape a sh:PropertyShape ;
+  sh:path skos:notation ;
+  sh:minCount 1 ; sh:maxCount 1 ; sh:datatype xsd:string ; sh:minLength 1 ;
+  sh:message "[STATUS-VOCAB-012] Provide exactly one nonempty string code."@en,
+             "[STATUS-VOCAB-012] Genau ein nichtleerer Zeichenketten-Code ist erforderlich."@de .
+
+conx-status-sh:SchemeMembershipShape a sh:PropertyShape ;
+  sh:path skos:inScheme ;
+  sh:minCount 1 ; sh:nodeKind sh:IRI ; sh:class skos:ConceptScheme ;
+  sh:message "[STATUS-VOCAB-013] Provide at least one IRI-valued, typed concept scheme membership."@en,
+             "[STATUS-VOCAB-013] Mindestens eine IRI-Zugehörigkeit zu einem typisierten ConceptScheme ist erforderlich."@de .
+
+conx-status-sh:AlternativeLabelShape a sh:PropertyShape ;
+  sh:path skos:altLabel ;
+  sh:datatype rdf:langString ; sh:minLength 1 ;
+  sh:message "[STATUS-VOCAB-014] Alternative labels must be nonempty language-tagged text."@en,
+             "[STATUS-VOCAB-014] Alternativbezeichnungen müssen nichtleere sprachmarkierte Texte sein."@de .
+
+conx-status-sh:ScopeNoteShape a sh:PropertyShape ;
+  sh:path skos:scopeNote ;
+  sh:datatype rdf:langString ; sh:minLength 1 ;
+  sh:message "[STATUS-VOCAB-015] Scope notes must be nonempty language-tagged text."@en,
+             "[STATUS-VOCAB-015] Verwendungshinweise müssen nichtleere sprachmarkierte Texte sein."@de .
+
+conx-status-sh:UniqueNotationConstraint a sh:SPARQLConstraint ;
+  sh:message "[STATUS-VOCAB-016] A managed code must be unique among concepts in each scheme."@en,
+             "[STATUS-VOCAB-016] Ein eigener Code muss innerhalb jedes Vokabulars eindeutig sein."@de ;
+  sh:select """
+    PREFIX s: <https://www.construct-x.org/ontology/status#>
+    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+    PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+    SELECT $this ?value WHERE {
+      $this skos:inScheme ?scheme ; skos:notation ?value .
+      ?other skos:inScheme ?scheme ; skos:notation ?value .
+      FILTER (?other != $this)
+    }
+  """ .

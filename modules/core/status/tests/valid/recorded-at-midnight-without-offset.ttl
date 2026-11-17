@@ -1,0 +1,14 @@
+@prefix s: <https://www.construct-x.org/ontology/status#> .
+@prefix kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/status/> .
+
+# End of leap day, equivalent to 2024-03-01T00:00:00 without a UTC offset.
+ex:delivery s:hasStatus ex:s1 .
+ex:s1 a s:StatusAssignment ;
+  s:hasStatusKind kind:TransportStatus ;
+  s:hasStatusValue value:InProgress ;
+  s:referenceDate "2024-02-29"^^xsd:date ;
+  s:referenceTime "23:59:00Z"^^xsd:time ;
+  s:recordedAt "2024-02-29T24:00:00.000"^^xsd:dateTime .
