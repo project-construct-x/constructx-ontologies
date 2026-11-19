@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 
 import yaml
 
@@ -24,6 +24,10 @@ def test_vso_module_yaml_can_be_read() -> None:
     assert metadata["artifacts"]["html_documentation"] == "docs/vso.html"
 
 
+
+
+
+
 def test_address_module_yaml_can_be_read() -> None:
     metadata = load_yaml(ROOT / "modules/core/address/module.yaml")
     assert metadata["id"] == "address"
@@ -44,5 +48,5 @@ def test_address_module_yaml_can_be_read() -> None:
         "artifact": "shapes/conx-addr-core.shacl.ttl",
     }
     assert metadata["artifacts"]["html_documentation"] == "docs/address.html"
-    assert metadata["artifacts"]["concept_model"] == "docs/concept-model.md"
-    assert metadata["artifacts"]["confluence_overview"] == "docs/confluence-overview.md"
+    for key in ("concept_model", "confluence_overview"):
+        assert (ROOT / "modules/core/address" / metadata["artifacts"][key]).is_file()
