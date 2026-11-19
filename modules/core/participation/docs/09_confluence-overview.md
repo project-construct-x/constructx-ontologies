@@ -1,100 +1,103 @@
-# Construct-X Participation Core Module
+<a id="construct-x-participation-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
-**Scope:** `core/participation`
+# Construct-X Core-Modul Participation
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.2.0<br>
+**Stand:** 7. Oktober 2026<br>
+**Geltungsbereich:** `core/participation`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Participation module describes an agent holding a particular role in a
-domain context. The context remains open and may be a contract, document, or
-another domain resource.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> Anna Miller participates in a construction project as an architect. Anna is
-> the participant, "Architect" is the role, and the project is the context.
-> The start and end of the assignment may also be recorded.
+Das Modul Participation beschreibt einen Agenten, der in einem fachlichen Kontext eine bestimmte Rolle innehat. Der Kontext bleibt offen und kann ein Vertrag, ein Dokument oder eine andere Fachressource sein.
 
-A second role for Anna in the same context is represented by a second
-Participation.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains the qualified relationship between agent, role, and
-context, a SKOS-based Role class, and optional validity dates. It does not
-contain actor master data, the definition of the context, activities,
-permissions, memberships, provenance, evidence, or merely planned roles.
+> Anna Müller ist als Architektin an einem Bauprojekt beteiligt. Anna ist die Beteiligte, „Architektin“ die Rolle und das Projekt der Kontext. Beginn und Ende der Zuordnung können zusätzlich erfasst werden.
 
-## 4. Model Overview
+Eine zweite Rolle für Anna im selben Kontext wird durch eine zweite Participation dargestellt.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst die qualifizierte Beziehung zwischen Agent, Rolle und Kontext, eine auf SKOS basierende Klasse Role sowie optionale Gültigkeitsdaten. Es umfasst keine Akteursstammdaten, Kontextdefinitionen, Tätigkeiten, Berechtigungen, Mitgliedschaften, Herkunftsangaben, Nachweise oder lediglich geplanten Rollen.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
-Agent <- participant - Participation - context -> Domain context
+Agent <- participant - Participation - context -> Fachlicher Kontext
                               |
                               +-> role -> Role
                               +-> startDate / endDate
 ```
 
-A Participation represents exactly one agent-role-context combination. The
-context may additionally point to it through `hasParticipation`.
+Eine Participation beschreibt genau eine Kombination aus Agent, Rolle und Kontext. Der Kontext kann zusätzlich über `hasParticipation` auf sie verweisen.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `Participation` | Current or historical role assignment |
-| `Role` | Controlled description of a role |
-| `participant` | References exactly one agent |
-| `role` | References exactly one role |
-| `context` | References exactly one domain context |
-| `hasParticipation` | Optional navigation from context to participation |
-| `startDate` / `endDate` | Optional validity interval |
+| `Participation` | Aktuelle oder historische Rollenzuordnung |
+| `Role` | Kontrollierte Beschreibung einer Rolle |
+| `participant` | Verweist auf genau einen Agenten |
+| `role` | Verweist auf genau eine Rolle |
+| `context` | Verweist auf genau einen fachlichen Kontext |
+| `hasParticipation` | Optionale Navigation vom Kontext zur Beteiligung |
+| `startDate` / `endDate` | Optionaler Gültigkeitszeitraum |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-Each Participation requires exactly one agent, role, and context. Start and end
-dates may occur at most once, and the start must not be after the end. The same
-combination must not occur twice in the validated data graph. When
-`hasParticipation` is used, the target Participation must explicitly name the
-same context.
+## 6. Validierung in Alltagssprache
 
-> "Anna is an architect" is incomplete when the context is missing. The
-> construction project makes clear where the role applies.
+Jede Participation benötigt genau einen Agenten, eine Rolle und einen Kontext. Anfangs- und Enddatum dürfen jeweils höchstens einmal vorkommen; der Beginn darf nicht nach dem Ende liegen. Dieselbe Kombination darf im geprüften Datengraphen nicht doppelt vorkommen. Wird `hasParticipation` verwendet, muss die Ziel-Participation ausdrücklich denselben Kontext nennen.
 
-## 7. Dependencies
+> „Anna ist Architektin“ ist ohne Kontext unvollständig. Das Bauprojekt macht deutlich, wo diese Rolle gilt.
 
-`participant` points to `Agent` from `core/agent`. Roles are based on SKOS, and
-general starter roles are maintained in a separately versioned vocabulary.
-Person, Organization, Document, and domain models can use Participation
-without becoming mandatory T-Box imports.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+`participant` verweist auf `Agent` aus `core/agent`. Rollen basieren auf SKOS; allgemeine Startrollen werden in einem separat versionierten Vokabular gepflegt. Person, Organization, Document und Domänenmodelle können Participation nutzen, ohne dadurch verpflichtende T-Box-Imports zu werden.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.2.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/participation` |
-| Prefix | `conx-part` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/participation` |
+| Präfix | `conx-part` |
 
-- [Ontology](../ontology/conx-part.ttl)
+- [Ontologie](../ontology/conx-part.ttl)
 - [Core Shapes](../shapes/conx-part-core.shacl.ttl)
-- [HTML documentation](participation.html)
-- [Dated participation example](../tests/valid/dated-participation.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](participation.html)
+- [Beteiligungsbeispiel mit Gültigkeitsdaten](../tests/valid/dated-participation.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

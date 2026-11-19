@@ -1,104 +1,107 @@
-# Construct-X Address Core Module
+<a id="construct-x-address-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/address`
+# Construct-X Core-Modul Address
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/address`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Address module describes structured addresses and their assignment to
-persons, organizations, or other resources. An address is stored independently
-of its purpose; delivery, billing, or business use is recorded on the
-assignment.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> A construction company uses the same address for deliveries and invoices.
-> The address is created once. Two roles on the assignment explain how it may
-> be used.
+Das Modul Address beschreibt strukturierte Adressen und ihre Zuordnung zu Personen, Organisationen oder anderen Ressourcen. Eine Adresse wird unabhängig von ihrem Verwendungszweck gespeichert; die Nutzung als Liefer-, Rechnungs- oder Geschäftsadresse wird an der Zuordnung festgehalten.
 
-This avoids contradictory copies of the same street, house number, and postal
-code.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains structured address parts, address assignments, assignment
-roles, countries, administrative territories, and an open link to a geographic
-position. It does not define contact channels, a coordinate reference system,
-person or organization master data, or country-specific postal rules.
+> Ein Bauunternehmen verwendet dieselbe Adresse für Lieferungen und Rechnungen. Die Adresse wird einmal angelegt. Zwei Rollen an der Zuordnung beschreiben, wofür sie genutzt werden kann.
 
-## 4. Model Overview
+So werden widersprüchliche Kopien derselben Straße, Hausnummer und Postleitzahl vermieden.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst strukturierte Adressbestandteile, Adresszuordnungen, Zuordnungsrollen, Länder, Verwaltungsgebiete und einen offenen Verweis auf eine geografische Position. Es definiert keine Kontaktkanäle, kein Koordinatenreferenzsystem, keine Personen- oder Organisationsstammdaten und keine länderspezifischen Postregeln.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
-Resource -> AddressAssignment -> Address
+Ressource -> AddressAssignment -> Address
                  |
                  +-> AddressRole
 
 Address -> Country
         -> AdministrativeArea
-        -> external geographic position
+        -> externe geografische Position
 ```
 
-`AddressAssignment` answers "for whom and for what purpose?"; `Address`
-answers "what is the address?".
+`AddressAssignment` beantwortet die Frage „für wen und zu welchem Zweck?“, `Address` die Frage „wie lautet die Adresse?“.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `Address` | Structured address |
-| `AddressAssignment` | Assignment of an address to a resource |
-| `AddressRole` | Purpose of the assignment, such as delivery address |
-| `Country` | Country from the reference dataset |
-| `AdministrativeArea` | Administrative territory within a country |
-| `assignedAddress` | Links the assignment to the address |
-| `addressRole` | States one or more purposes |
-| `hasGeographicPosition` | Optionally links to an external geographic model |
+| `Address` | Strukturierte Adresse |
+| `AddressAssignment` | Zuordnung einer Adresse zu einer Ressource |
+| `AddressRole` | Zweck der Zuordnung, etwa Lieferadresse |
+| `Country` | Land aus dem Referenzdatensatz |
+| `AdministrativeArea` | Verwaltungsgebiet innerhalb eines Landes |
+| `assignedAddress` | Verknüpft die Zuordnung mit der Adresse |
+| `addressRole` | Gibt einen oder mehrere Verwendungszwecke an |
+| `hasGeographicPosition` | Verweist optional auf ein externes geografisches Modell |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-An address assignment is complete only when it references exactly one address
-and has at least one role. Single-value fields must not be supplied with
-conflicting values, and linked roles and territories must be resources.
+## 6. Validierung in Alltagssprache
 
-> A delivery-address assignment without an address is invalid. Whether a
-> delivery address must contain a postal code is decided by a domain profile,
-> not by the open Core.
+Eine Adresszuordnung ist nur vollständig, wenn sie auf genau eine Adresse verweist und mindestens eine Rolle besitzt. Felder mit höchstens einem Wert dürfen keine widersprüchlichen Mehrfachwerte enthalten. Verknüpfte Rollen und Gebiete müssen Ressourcen sein.
 
-## 7. Dependencies
+> Eine Lieferadresszuordnung ohne Adresse ist ungültig. Ob eine Lieferadresse eine Postleitzahl enthalten muss, entscheidet ein Fachprofil, nicht der offene Core.
 
-The module has no mandatory dependency on another Construct-X Core module.
-Address roles and ISO and NUTS territories are versioned separately as
-reference data. Contact, Person, and Organization can reuse the Address model
-without copying its terms.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+Das Modul besitzt keine verpflichtende Abhängigkeit von einem anderen Construct-X Core-Modul. Adressrollen sowie ISO- und NUTS-Gebiete werden separat als Referenzdaten versioniert. Contact, Person und Organization können das Adressmodell wiederverwenden, ohne seine Begriffe zu kopieren.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/address` |
-| Prefix | `conx-addr` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/address` |
+| Präfix | `conx-addr` |
 
-- [Ontology](../ontology/conx-addr.ttl)
+- [Ontologie](../ontology/conx-addr.ttl)
 - [Core Shapes](../shapes/conx-addr-core.shacl.ttl)
-- [HTML documentation](address.html)
-- [Complete data example](../examples/rub-address.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](address.html)
+- [Vollständiges Datenbeispiel](../examples/rub-address.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

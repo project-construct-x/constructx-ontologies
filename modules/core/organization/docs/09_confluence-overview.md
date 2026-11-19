@@ -1,37 +1,39 @@
-# Construct-X Organization Core Module
+<a id="construct-x-organization-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/organization`
+# Construct-X Core-Modul Organization
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/organization`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Organization module describes organizations, legal entities, internal
-organizational units, memberships, and legal representations. It focuses on
-organization master data and structure.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> Example Construction Ltd. is a legal entity with an internal logistics unit.
-> Anna Miller is a member and may legally represent the company. Organization,
-> unit, membership, and representation are distinct connected resources.
+Das Modul Organization beschreibt Organisationen, rechtliche Einheiten, interne Organisationseinheiten, Mitgliedschaften und rechtliche Vertretungen. Der Schwerpunkt liegt auf Organisationsstammdaten und -strukturen.
 
-Anna's personal data is not copied into the membership or representation.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains organizations, legal entities, organizational units,
-names, legal form, registration data, hierarchies, memberships, and legal
-representations. It does not define intrinsic person data, address and contact
-structures, general project roles, bank accounts, credentials, insurance, or
-project master data.
+> Die Beispiel Bau GmbH ist eine rechtliche Einheit mit einer internen Logistikeinheit. Anna Müller ist Mitglied und darf das Unternehmen rechtlich vertreten. Organisation, Einheit, Mitgliedschaft und Vertretung sind getrennte, miteinander verknüpfte Ressourcen.
 
-## 4. Model Overview
+Annas persönliche Daten werden nicht in die Mitgliedschaft oder Vertretung kopiert.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst Organisationen, rechtliche Einheiten, Organisationseinheiten, Namen, Rechtsform, Registrierungsdaten, Hierarchien, Mitgliedschaften und rechtliche Vertretungen. Es definiert keine intrinsischen Personendaten, Adress- und Kontaktstrukturen, allgemeinen Projektrollen, Bankkonten, digitalen Nachweise, Versicherungen oder Projektstammdaten.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
 Agent
@@ -43,60 +45,62 @@ Membership:          Agent -> Organization
 LegalRepresentation: Person -> LegalEntity
 ```
 
-Addresses, contacts, and identifiers are reused from their responsible Core
-modules.
+Adressen, Kontakte und Kennungen werden aus den jeweils zuständigen Core-Modulen wiederverwendet.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `Organization` | General organization |
-| `LegalEntity` | Legally registered organization |
-| `OrganizationalUnit` | Internal unit of an organization |
-| `Membership` | Membership of an agent in an organization |
-| `LegalRepresentation` | Legal representation by a person |
-| `subOrganizationOf` | General organization hierarchy |
-| `unitOf` | Assigns a unit to its organization |
+| `Organization` | Allgemeine Organisation |
+| `LegalEntity` | Rechtlich registrierte Organisation |
+| `OrganizationalUnit` | Interne Einheit einer Organisation |
+| `Membership` | Mitgliedschaft eines Agenten in einer Organisation |
+| `LegalRepresentation` | Rechtliche Vertretung durch eine Person |
+| `subOrganizationOf` | Allgemeine Organisationshierarchie |
+| `unitOf` | Ordnet eine Einheit ihrer Organisation zu |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-Every organization requires a name. A legal entity additionally requires a
-legal name, exactly one registration date, at least one structured identifier,
-and a legal address assignment. Units require their organization, while a
-membership or representation requires both participating resources.
+## 6. Validierung in Alltagssprache
 
-> A legal entity without a registration date violates the Core contract. An
-> ordinary organization that is not a legal entity does not require one.
+Jede Organisation benötigt einen Namen. Eine rechtliche Einheit benötigt zusätzlich einen rechtlichen Namen, genau ein Registrierungsdatum, mindestens eine strukturierte Kennung und eine rechtliche Adresszuordnung. Einheiten benötigen ihre Organisation; Mitgliedschaften und Vertretungen benötigen jeweils beide beteiligten Ressourcen.
 
-## 7. Dependencies
+> Eine rechtliche Einheit ohne Registrierungsdatum verletzt die Core-Anforderungen. Eine allgemeine Organisation, die keine rechtliche Einheit ist, benötigt kein solches Datum.
 
-Organization specializes `core/agent` and uses persons from `core/person`.
-Identifiers are validated through `core/identifier`; addresses and contacts
-come from `core/address` and `core/contact`. W3C ORG, ADMS, SKOS, and
-Schema.org are external reference and alignment sources.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+Organization spezialisiert `core/agent` und verwendet Personen aus `core/person`. Kennungen werden über `core/identifier` geprüft; Adressen und Kontakte stammen aus `core/address` und `core/contact`. W3C ORG, ADMS, SKOS und Schema.org dienen als externe Referenz- und Alignment-Quellen.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/organization` |
-| Prefix | `conx-org` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/organization` |
+| Präfix | `conx-org` |
 
-- [Ontology](../ontology/conx-org.ttl)
+- [Ontologie](../ontology/conx-org.ttl)
 - [Core Shapes](../shapes/conx-org-core.shacl.ttl)
-- [HTML documentation](organization.html)
-- [Complete legal entity example](../tests/valid/complete-legal-entity.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](organization.html)
+- [Vollständiges Beispiel einer rechtlichen Einheit](../tests/valid/complete-legal-entity.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

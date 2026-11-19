@@ -27,7 +27,7 @@ The easiest starting point is the [Conceptual Model](03_concept-model.md), follo
 | [SHACL Requirements](06_shacl-requirements.md) | Domain-specific validation rules |
 | [Core Shapes](07_core-shapes.md) | Executable data contract |
 | [Concept Diagram](08_concept-diagram.md) | Visual summary |
-| [Confluence Summary](09_confluence-overview.md) | Publication source for the concise module page |
+| [Confluence Summary](09_confluence-overview.md) | German-language publication source for the concise module page |
 
 ## 4. Technical Artifacts
 

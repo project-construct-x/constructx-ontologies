@@ -1,8 +1,8 @@
 # Documentation Standard for Core Modules
 
 **Status:** Binding working convention  
-**Version:** 2.0  
-**As of:** 29 October 2026  
+**Version:** 2.1<br>
+**As of:** 17 November 2026<br>
 **Scope:** `modules/core/*`
 
 ## 1. Purpose
@@ -61,6 +61,10 @@ Normative and currently maintained documents begin below the title with:
 Source analyses may additionally state a research cutoff date. Historical
 working documents must be explicitly marked as supplementary and non-normative.
 
+Confluence overviews use German metadata labels and values: `Status`, `Version`,
+`Stand`, and `Geltungsbereich`. Module names, versions, and technical paths remain
+unchanged.
+
 ## 5. Responsibilities of Each Document
 
 | Document | Responsibility |
@@ -99,10 +103,19 @@ surrounding text.
 
 ## 7. Language and Terminology
 
-- Prose and headings are written in English.
-- A localized `docs/09_confluence-overview.md` may use the agreed Confluence
-  publication language. The module index records this exception; all detailed
-  repository documents remain in English.
+- Prose and headings in the detailed repository documentation, module indexes,
+  READMEs, and changelogs are written in English.
+- Every `docs/09_confluence-overview.md` is written in German, including its
+  title, metadata labels, headings, explanations, and link labels. German is
+  the agreed Confluence publication language for all Core modules. The module
+  index identifies this document as the German publication source.
+- Bilingual tables are retained where they document actual German and English
+  vocabulary labels or validation messages. Their headings and surrounding
+  explanations are in English. Ordinary explanatory prose is not duplicated
+  in both languages.
+- Language-tagged example values, quoted source labels, and proper names may
+  retain their original language. Generic explanatory sample values use
+  English in the detailed documentation.
 - Classes, properties, prefixes, and public IRIs remain unchanged.
 - The repository uses the term "Construct-X Core module".
 - Chapters use consecutive numbering.
@@ -122,17 +135,17 @@ the concise Confluence page of a Core module. It summarizes the detailed
 repository documents without introducing additional rules. The ontology and
 Shape Graphs remain the normative machine-readable artifacts.
 
-Each Confluence summary uses exactly these chapters:
+Each Confluence summary uses exactly these German chapter headings:
 
-1. Purpose
-2. Everyday Example
-3. Scope and Boundaries
-4. Model Overview
-5. Key Classes and Relationships
-6. Validation in Plain Language
-7. Dependencies
-8. Version, Status, and Artifacts
-9. Further Documentation
+1. Zweck
+2. Alltagsbeispiel
+3. Umfang und Abgrenzung
+4. Modellübersicht
+5. Zentrale Klassen und Beziehungen
+6. Validierung in Alltagssprache
+7. Abhängigkeiten
+8. Version, Status und Artefakte
+9. Weiterführende Dokumentation
 
 A change starts in the responsible detailed document and is then reflected in
 the summary. The Confluence page is published from

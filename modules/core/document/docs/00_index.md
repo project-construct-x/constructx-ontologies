@@ -19,7 +19,7 @@ The easiest starting point is the [Conceptual Model](03_concept-model.md).
 
 | Document | Content |
 | --- | --- |
-| [Confluence Summary](09_confluence-overview.md) | Publication source for the concise module page |
+| [Confluence Summary](09_confluence-overview.md) | German-language publication source for the concise module page |
 | [Scope and Competency Questions](02_scope-and-competency-questions.md) | Domain scope |
 | [Source Analysis](01_source-analysis.md) | Standards and modeling alternatives |
 | [Conceptual Model](03_concept-model.md) | Document, reference, and distribution |

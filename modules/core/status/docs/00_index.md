@@ -2,7 +2,7 @@
 
 **Status:** Implemented; draft release  
 **Version:** 0.1.0  
-**As of:** 11 November 2026  
+**As of:** 17 November 2026  
 **Scope:** `core/status`
 
 ## 1. Overview
@@ -38,7 +38,10 @@ and no known order, the link must be omitted until the ambiguity is resolved.
 - [shacl requirements](06_shacl-requirements.md)
 - [core shapes](07_core-shapes.md)
 - [concept diagram](08_concept-diagram.md)
-- [Confluence Overview](09_confluence-overview.md)
+- [Confluence Overview (German)](09_confluence-overview.md)
+
+The Confluence overview uses German as the agreed publication language.
+The detailed repository documentation remains in English.
 
 ## 4. Technical Artifacts
 

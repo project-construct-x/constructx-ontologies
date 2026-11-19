@@ -1,101 +1,104 @@
-# Construct-X Document Core Module
+<a id="construct-x-document-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/document`
+# Construct-X Core-Modul Document
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/document`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Document module describes document-like information objects, their use in
-a domain context, and their technical provision. It separates the document
-itself from a contextual reference and from files or downloads.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> A contract references an inspection report. The report is the document, its
-> PDF and XML files are two distributions, and the place in the contract that
-> points to it is a document reference.
+Das Modul Document beschreibt dokumentartige Informationsobjekte, ihre Verwendung in einem fachlichen Kontext und ihre technische Bereitstellung. Es trennt das eigentliche Dokument von einem kontextbezogenen Verweis sowie von Dateien oder Downloads.
 
-A new file format therefore does not automatically create a new domain
-document.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains documents, contextual references, technical distributions,
-general metadata, controlled document types and statuses, and structured
-identifiers. It does not define actor-specific properties, signatures,
-credentials, access rights, workflows, provenance, or storage systems.
+> Ein Vertrag verweist auf einen Prüfbericht. Der Bericht ist das Dokument, seine PDF- und XML-Dateien sind zwei Bereitstellungen, und der Verweis im Vertrag ist eine Dokumentreferenz.
 
-## 4. Model Overview
+Ein neues Dateiformat erzeugt daher nicht automatisch ein neues fachliches Dokument.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst Dokumente, kontextbezogene Referenzen, technische Bereitstellungen, allgemeine Metadaten, kontrollierte Dokumenttypen und -status sowie strukturierte Kennungen. Es definiert keine akteursspezifischen Eigenschaften, Signaturen, digitalen Nachweise, Zugriffsrechte, Arbeitsabläufe, Herkunftsmodelle oder Speichersysteme.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
-Domain context -> DocumentReference -> Document
-                        |                 |
-                        +-----------------+-> DocumentDistribution
-                                                |
-                                                +-> PDF, XML, or URL
+Fachlicher Kontext -> DocumentReference -> Document
+                            |                 |
+                            +-----------------+-> DocumentDistribution
+                                                    |
+                                                    +-> PDF, XML oder URL
 ```
 
-`Document` identifies the content, `DocumentReference` explains the contextual
-reference, and `DocumentDistribution` describes its technical availability.
+`Document` identifiziert den Inhalt, `DocumentReference` beschreibt den kontextbezogenen Verweis, und `DocumentDistribution` beschreibt die technische Bereitstellung.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `Document` | Document-like information object |
-| `DocumentReference` | Contextual reference to a document |
-| `DocumentDistribution` | Concrete file or technical provision |
-| `DocumentType` | Controlled type such as contract or invoice |
-| `DocumentStatus` | Controlled status such as draft or issued |
-| `referencesDocument` | Links the reference to the document |
-| `hasDistribution` | Links a document or reference to a distribution |
+| `Document` | Dokumentartiges Informationsobjekt |
+| `DocumentReference` | Kontextbezogener Verweis auf ein Dokument |
+| `DocumentDistribution` | Konkrete Datei oder technische Bereitstellung |
+| `DocumentType` | Kontrollierter Typ, etwa Vertrag oder Rechnung |
+| `DocumentStatus` | Kontrollierter Status, etwa Entwurf oder ausgestellt |
+| `referencesDocument` | Verknüpft die Referenz mit dem Dokument |
+| `hasDistribution` | Verknüpft ein Dokument oder eine Referenz mit einer Bereitstellung |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-Documents, references, and distributions must be typed explicitly. A document
-reference needs at least one target: a modeled document, an external reference,
-or a distribution. Dates must be valid and consistent, and type and status must
-come from the approved vocabularies.
+## 6. Validierung in Alltagssprache
 
-> A document reference without a target is incomplete. A PDF distribution with
-> a file name and download IRI may be valid, although the Core does not verify
-> whether the file is available or signed.
+Dokumente, Referenzen und Bereitstellungen müssen explizit typisiert sein. Eine Dokumentreferenz benötigt mindestens ein Ziel: ein modelliertes Dokument, einen externen Verweis oder eine Bereitstellung. Datumsangaben müssen gültig und widerspruchsfrei sein; Typ und Status müssen aus den freigegebenen Vokabularen stammen.
 
-## 7. Dependencies
+> Eine Dokumentreferenz ohne Ziel ist unvollständig. Eine PDF-Bereitstellung mit Dateiname und Download-IRI kann gültig sein, obwohl der Core nicht prüft, ob die Datei verfügbar oder signiert ist.
 
-The Core Shape imports the versioned contract from `core/identifier`. Document
-types and statuses come from separate vocabularies. DCAT properties describe
-technical distributions; Dublin Core, Schema.org, FOAF, and SKOS are reference
-or alignment sources. Actor roles can be modeled through `core/participation`.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+Das Core Shape importiert die versionierten Prüfregeln aus `core/identifier`. Dokumenttypen und -status stammen aus separaten Vokabularen. DCAT-Eigenschaften beschreiben technische Bereitstellungen; Dublin Core, Schema.org, FOAF und SKOS dienen als Referenz- oder Alignment-Quellen. Akteursrollen können über `core/participation` modelliert werden.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/document` |
-| Prefix | `conx-doc` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/document` |
+| Präfix | `conx-doc` |
 
-- [Ontology](../ontology/conx-doc.ttl)
+- [Ontologie](../ontology/conx-doc.ttl)
 - [Core Shapes](../shapes/conx-doc-core.shacl.ttl)
-- [HTML documentation](document.html)
-- [Complete document example](../tests/valid/complete-document.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](document.html)
+- [Vollständiges Dokumentbeispiel](../tests/valid/complete-document.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

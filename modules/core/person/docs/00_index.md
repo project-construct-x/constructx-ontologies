@@ -19,7 +19,7 @@ The easiest starting point is the [Conceptual Model](03_concept-model.md).
 
 | Document | Content |
 | --- | --- |
-| [Confluence Overview](09_confluence-overview.md) | Publication source for the compact module page |
+| [Confluence Overview](09_confluence-overview.md) | German-language publication source for the compact module page |
 | [Scope and Competency Questions](02_scope-and-competency-questions.md) | Domain scope |
 | [Source Analysis](01_source-analysis.md) | Person standards and modeling decisions |
 | [Conceptual Model](03_concept-model.md) | Person core and connections to other modules |

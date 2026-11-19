@@ -400,7 +400,7 @@ ex:bau-gmbh
     adms:identifier [
         a adms:Identifier ;
         skos:notation "HRB 12345"^^ex-scheme:local-register-number ;
-        adms:schemaAgency "Zuständige Registerstelle"
+        adms:schemaAgency "Responsible registration authority"
     ] .
 ```
 

@@ -1,99 +1,105 @@
-# Construct-X Contact Core Module
+<a id="construct-x-contact-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/contact`
+# Construct-X Core-Modul Contact
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/contact`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Contact module describes how persons, organizations, and other resources
-can be reached. It separates a contact point and its purpose from concrete
-methods such as email, telephone, or website.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> A company's accounting department can be reached by email and telephone for
-> invoice questions. "Accounting" is the contact point; the email address and
-> telephone number are two methods attached to it.
+Das Modul Contact beschreibt, wie Personen, Organisationen und andere Ressourcen erreicht werden können. Es trennt einen Kontaktpunkt und seinen Zweck von konkreten Kontaktmethoden wie E-Mail, Telefon oder Website.
 
-Usage and purpose are described separately from the contact value itself.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains contact points, contact methods, channels, usage contexts,
-purposes, and optional platform, language, and availability information. It
-does not define names, organization structures, address parts, consent, or
-technical reachability checks.
+> Die Buchhaltung eines Unternehmens ist bei Rechnungsfragen per E-Mail und Telefon erreichbar. „Buchhaltung“ ist der Kontaktpunkt; E-Mail-Adresse und Telefonnummer sind zwei zugehörige Kontaktmethoden.
 
-## 4. Model Overview
+Nutzung und Zweck werden getrennt vom eigentlichen Kontaktwert beschrieben.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst Kontaktpunkte, Kontaktmethoden, Kanäle, Nutzungskontexte, Zwecke sowie optionale Angaben zu Plattform, Sprache und Erreichbarkeitszeiten. Es definiert keine Namen, Organisationsstrukturen, Adressbestandteile, Einwilligungen oder technischen Erreichbarkeitsprüfungen.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
-Contactable resource -> ContactPoint "Accounting"
+Kontaktierbare Ressource -> ContactPoint „Buchhaltung“
                               |       |
-                              |       +-> Purpose: Invoice
-                              +-> ContactMethod -> Channel: Email
-                              +-> ContactMethod -> Channel: Telephone
+                              |       +-> Zweck: Rechnung
+                              +-> ContactMethod -> Kanal: E-Mail
+                              +-> ContactMethod -> Kanal: Telefon
 ```
 
-A postal contact method references an existing `AddressAssignment` instead of
-copying address data.
+Eine postalische Kontaktmethode verweist auf eine vorhandene `AddressAssignment`, statt Adressdaten zu kopieren.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `ContactPoint` | Contact point for a particular usage context |
-| `ContactMethod` | Individual communication method |
-| `ContactChannel` | Channel such as email or telephone |
-| `ContactUsage` | Usage such as private or business |
-| `ContactPurpose` | Purpose such as invoice or support |
-| `hasContactMethod` | Groups methods at a contact point |
-| `contactValue` | Contains an email address or telephone number |
-| `usesAddressAssignment` | Reuses an existing postal address assignment |
+| `ContactPoint` | Kontaktpunkt für einen bestimmten Nutzungskontext |
+| `ContactMethod` | Einzelne Kommunikationsmethode |
+| `ContactChannel` | Kanal wie E-Mail oder Telefon |
+| `ContactUsage` | Nutzung, etwa privat oder geschäftlich |
+| `ContactPurpose` | Zweck, etwa Rechnung oder Unterstützung |
+| `hasContactMethod` | Bündelt Methoden an einem Kontaktpunkt |
+| `contactValue` | Enthält eine E-Mail-Adresse oder Telefonnummer |
+| `usesAddressAssignment` | Verwendet eine vorhandene postalische Adresszuordnung |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-Each contact point requires at least one method. Every method has exactly one
-approved channel and must provide the matching payload: text for email and
-telephone, an IRI for websites, or an address assignment for postal contact.
+## 6. Validierung in Alltagssprache
 
-> A website channel carrying a telephone number as plain text is invalid. A
-> website method with a web IRI satisfies the Core contract, although the Core
-> does not test whether the site is reachable.
+Jeder Kontaktpunkt benötigt mindestens eine Methode. Jede Methode besitzt genau einen freigegebenen Kanal und muss den dazu passenden Wert bereitstellen: Text für E-Mail und Telefon, eine IRI für Websites oder eine Adresszuordnung für postalischen Kontakt.
 
-## 7. Dependencies
+> Ein Website-Kanal mit einer Telefonnummer als einfachem Text ist ungültig. Eine Website-Methode mit einer Web-IRI erfüllt die Core-Anforderungen, auch wenn der Core nicht prüft, ob die Website erreichbar ist.
 
-Postal contact methods reference `core/address`. Channel, usage, purpose, and
-platform come from separately versioned Construct-X vocabularies. Schema.org
-and vCard are used as external reference and alignment sources.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+Postalische Kontaktmethoden verweisen auf `core/address`. Kanal, Nutzung, Zweck und Plattform stammen aus separat versionierten Construct-X-Vokabularen. Schema.org und vCard dienen als externe Referenz- und Alignment-Quellen.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/contact` |
-| Prefix | `conx-contact` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/contact` |
+| Präfix | `conx-contact` |
 
-- [Ontology](../ontology/conx-contact.ttl)
+- [Ontologie](../ontology/conx-contact.ttl)
 - [Core Shapes](../shapes/conx-contact-core.shacl.ttl)
-- [HTML documentation](contact.html)
-- [Valid contact example](../tests/valid/business-delivery-contact.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](contact.html)
+- [Gültiges Kontaktbeispiel](../tests/valid/business-delivery-contact.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

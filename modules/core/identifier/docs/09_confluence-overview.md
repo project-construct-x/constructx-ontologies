@@ -1,92 +1,100 @@
-# Construct-X Identifier Core Module
+<a id="construct-x-identifier-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/identifier`
+# Construct-X Core-Modul Identifier
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/identifier`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Identifier module provides a shared data contract for domain identifiers.
-Person, Organization, and Document can use the same ADMS/SKOS pattern without
-redefining identifier-value rules.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> The commercial register number "HRB 1234" belongs to an organization. Its
-> value and issuing agency are stored together as an Identifier resource.
+Das Modul Identifier stellt gemeinsame Datenanforderungen für fachliche Kennungen bereit. Person, Organization und Document können dasselbe ADMS/SKOS-Muster verwenden, ohne die Regeln für Kennungswerte erneut zu definieren.
 
-The organization's web IRI and its register number remain distinct: the IRI
-identifies the RDF resource, while the Identifier represents a domain key.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains the reusable `adms:Identifier` contract, exactly one
-`skos:notation`, and an optional `adms:schemaAgency`. It does not introduce a
-parallel Construct-X Identifier class, prescribe identifier schemes, or decide
-which identifiers a domain module requires.
+> Die Handelsregisternummer „HRB 1234“ gehört zu einer Organisation. Ihr Wert und die herausgebende Stelle werden gemeinsam als Identifier-Ressource gespeichert.
 
-## 4. Model Overview
+Die Web-IRI der Organisation und ihre Registernummer bleiben getrennt: Die IRI identifiziert die RDF-Ressource, während der Identifier eine fachliche Kennung abbildet.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst die wiederverwendbaren Anforderungen an `adms:Identifier`, genau eine `skos:notation` und eine optionale `adms:schemaAgency`. Es führt keine parallele Construct-X-Klasse für Kennungen ein, schreibt keine Kennungssysteme vor und entscheidet nicht, welche Kennungen ein Fachmodul benötigt.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
-Domain resource -> adms:identifier -> adms:Identifier
-                                         |
-                                         +-> skos:notation
-                                         +-> adms:schemaAgency (optional)
+Fachressource -> adms:identifier -> adms:Identifier
+                                       |
+                                       +-> skos:notation
+                                       +-> adms:schemaAgency (optional)
 ```
 
-The identifier is a resource so that value and provenance can be described
-together.
+Die Kennung wird als Ressource modelliert, damit Wert und Herkunft gemeinsam beschrieben werden können.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `adms:Identifier` | Reusable identifier resource |
-| `adms:identifier` | Links a domain resource to its identifier |
-| `skos:notation` | Carries the identifier value |
-| `adms:schemaAgency` | Optionally identifies the issuing agency or scheme |
+| `adms:Identifier` | Wiederverwendbare Kennungsressource |
+| `adms:identifier` | Verknüpft eine Fachressource mit ihrer Kennung |
+| `skos:notation` | Enthält den Kennungswert |
+| `adms:schemaAgency` | Bezeichnet optional die herausgebende Stelle oder das Kennungssystem |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-Every identifier resource requires exactly one non-empty `skos:notation`.
-`adms:schemaAgency` is optional but may occur at most once and must reference a
-resource.
+## 6. Validierung in Alltagssprache
 
-> An Identifier without a notation is invalid. An Identifier with one notation
-> and no schema agency is valid when the consuming module does not require one.
+Jede Kennungsressource benötigt genau eine nicht leere `skos:notation`. `adms:schemaAgency` ist optional, darf aber höchstens einmal vorkommen und muss auf eine Ressource verweisen.
 
-## 7. Dependencies
+> Ein Identifier ohne Notation ist ungültig. Ein Identifier mit einer Notation und ohne herausgebende Stelle ist gültig, sofern das verwendende Modul diese nicht verlangt.
 
-The contract reuses ADMS and SKOS directly. Person, Organization, and Document
-import the versioned Identifier Shape when validating structured identifiers.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+Die gemeinsamen Regeln verwenden ADMS und SKOS direkt. Person, Organization und Document importieren das versionierte Identifier Shape zur Prüfung strukturierter Kennungen.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/identifier` |
-| Shape prefix | `conx-id-sh` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/identifier` |
+| Shape-Präfix | `conx-id-sh` |
 
-- [Ontology metadata](../ontology/conx-id.ttl)
+- [Ontologie-Metadaten](../ontology/conx-id.ttl)
 - [Core Shapes](../shapes/conx-id-core.shacl.ttl)
-- [HTML documentation](identifier.html)
-- [Minimal identifier example](../tests/valid/minimal-identifier.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](identifier.html)
+- [Minimales Kennungsbeispiel](../tests/valid/minimal-identifier.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)

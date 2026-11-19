@@ -562,7 +562,7 @@ ex:bau-gmbh
 ex:bau-gmbh-register-id
     a adms:Identifier ;
     skos:notation "HRB 12345"^^ex-scheme:local-register-number ;
-    adms:schemaAgency "Zuständige Registerstelle" .
+    adms:schemaAgency "Responsible registration authority" .
 
 ex:bau-gmbh-legal-address
     a conx-addr:AddressAssignment ;
@@ -702,7 +702,7 @@ Expected result: valid. `ex:bauverband conx-org:hasSubOrganization ex:regional-o
 
 ```turtle
 [] a conx-org:Organization ;
-   conx-org:name "Nicht stabil referenzierbar" .
+   conx-org:name "Not stably referenceable" .
 ```
 
 Expected violation: `ORG-001`.
@@ -733,7 +733,7 @@ Expected violations: `ORG-010`, `ORG-011`, `ORG-020`. An activity must reference
 ```turtle
 ex:incomplete-company
     a conx-org:LegalEntity ;
-    conx-org:name "Unvollständig" .
+    conx-org:name "Incomplete" .
 ```
 
 Expected violations: `LE-010`, `LE-020`, `LE-040`, `LE-050`.

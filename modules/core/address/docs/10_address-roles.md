@@ -14,7 +14,7 @@ Source file: `datasets/reference/vocabularies/address-roles/address-roles.ttl`
 
 ## Roles in Version 0.2.0
 
-| Rollenressource                     | Deutsch                                        | Englisch                         | Notation                   | Herkunft                     |
+| Role resource                       | German                                         | English                          | Notation                   | Source                       |
 | ----------------------------------- | ---------------------------------------------- | -------------------------------- | -------------------------- | ---------------------------- |
 | `roles:DeliveryAddressRole`         | Lieferadresse                                  | Delivery address                 | `delivery`                 | `cac:DeliveryAddress`        |
 | `roles:InvoiceAddressRole`          | Rechnungsadresse                               | Invoice address                  | `invoice`                  | ---                          |

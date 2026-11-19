@@ -1,36 +1,39 @@
-# Construct-X Agent Core Module
+<a id="construct-x-agent-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/agent`
+# Construct-X Core-Modul Agent
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/agent`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Agent module provides a common superclass for actors. Persons and
-organizations can therefore participate in general relationships through the
-same type without losing their distinct meaning.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> Anna Miller and Example Construction Ltd. can both participate in a
-> contract. Anna is a person and the company is an organization, but both can
-> be referenced as agents in the shared relationship.
+Das Modul Agent stellt eine gemeinsame Oberklasse für Akteure bereit. Personen und Organisationen können dadurch über denselben Typ an allgemeinen Beziehungen beteiligt sein, ohne ihre unterschiedliche Bedeutung zu verlieren.
 
-Names and register data remain in the responsible Person and Organization
-modules.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains only the common `Agent` class and the semantic basis for
-relationships that accept persons and organizations. It deliberately defines
-no properties, master data, or general mandatory fields.
+> Anna Müller und die Beispiel Bau GmbH können beide an einem Vertrag beteiligt sein. Anna ist eine Person, das Unternehmen eine Organisation. In der gemeinsamen Beziehung können beide als Agenten referenziert werden.
 
-## 4. Model Overview
+Namen und Registerdaten verbleiben in den dafür zuständigen Modulen Person und Organization.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst ausschließlich die gemeinsame Klasse `Agent` und die semantische Grundlage für Beziehungen, die Personen und Organisationen zulassen. Es definiert bewusst keine Eigenschaften, Stammdaten oder allgemeinen Pflichtfelder.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
                  Agent
@@ -40,57 +43,60 @@ no properties, master data, or general mandatory fields.
 Participation -> participant -> Agent
 ```
 
-`Agent` is the shared connection point. Concrete information remains on
-`Person` or `Organization`.
+`Agent` ist der gemeinsame Anknüpfungspunkt. Konkrete Angaben verbleiben an `Person` oder `Organization`.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `Agent` | Entity that can act, bear responsibility, or participate |
-| `Person` | Natural person from `core/person` |
-| `Organization` | Organization from `core/organization` |
+| `Agent` | Entität, die handeln, Verantwortung tragen oder beteiligt sein kann |
+| `Person` | Natürliche Person aus `core/person` |
+| `Organization` | Organisation aus `core/organization` |
 
-The Agent module defines no relationships itself. For example, `participant`
-belongs to Participation but points to an `Agent`.
+Das Modul Agent definiert selbst keine Beziehungen. Beispielsweise gehört `participant` zu Participation, verweist aber auf einen `Agent`.
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-The Agent module intentionally has no Core Shape. A single superclass has no
-meaningful mandatory fields; concrete modules validate their own data
-contracts.
+## 6. Validierung in Alltagssprache
 
-> Person validates the required person name, while Organization validates the
-> required organization name. An Agent Shape would duplicate these rules.
+Das Modul Agent besitzt bewusst kein eigenes Core Shape. Für die reine Oberklasse gibt es keine sinnvollen Pflichtfelder; die konkreten Module prüfen ihre eigenen Datenanforderungen.
 
-## 7. Dependencies
+> Person prüft den erforderlichen Personennamen, während Organization den erforderlichen Organisationsnamen prüft. Ein Agent Shape würde diese Regeln verdoppeln.
 
-`Agent` is conservatively aligned with `foaf:Agent` and `cv:Agent`. Person and
-Organization specialize the local class, and Participation uses it as the
-range for participants.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+`Agent` wird zurückhaltend mit `foaf:Agent` und `cv:Agent` verknüpft. Person und Organization spezialisieren die lokale Klasse. Participation verwendet sie als Wertebereich für Beteiligte.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/agent` |
-| Prefix | `conx-agent` |
-| Core Shape | Not required |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/agent` |
+| Präfix | `conx-agent` |
+| Core Shape | Nicht erforderlich |
 
-- [Ontology](../ontology/conx-agent.ttl)
-- [HTML documentation](agent.html)
-- [Changelog](../CHANGELOG.md)
+- [Ontologie](../ontology/conx-agent.ttl)
+- [HTML-Dokumentation](agent.html)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
-- [Core Shapes Explanation](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
-- [Agent Specification](10_agent-specification.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
+- [Erläuterung zu den Core Shapes](07_core-shapes.md)
+- [Konzeptdiagramm](08_concept-diagram.md)
+- [Agent-Spezifikation](10_agent-specification.md)

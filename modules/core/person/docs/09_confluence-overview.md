@@ -1,103 +1,107 @@
-# Construct-X Person Core Module
+<a id="construct-x-person-core-module"></a>
 
-**Status:** Approved Confluence summary  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
-**Scope:** `core/person`
+# Construct-X Core-Modul Person
 
-This document is the publication source for the concise Confluence module
-page. It summarizes the detailed repository documentation and introduces no
-new domain or technical rules.
+**Status:** Freigegebene Confluence-Kurzfassung<br>
+**Version:** 0.1.0<br>
+**Stand:** 3. September 2026<br>
+**Geltungsbereich:** `core/person`
 
-## 1. Purpose
+Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
+Confluence-Modulseite. Es fasst die ausführliche Repository-Dokumentation
+zusammen und führt keine neuen fachlichen oder technischen Regeln ein.
 
-The Person module describes intrinsic core data of natural persons. It keeps
-personal characteristics separate from contact methods, addresses,
-organization relationships, and domain roles.
+<a id="1-purpose"></a>
 
-## 2. Everyday Example
+## 1. Zweck
 
-> Anna Miller is described as a person with her name and date of birth. Her
-> telephone number belongs to a ContactPoint, her company affiliation to a
-> Membership, and her personnel number to an Identifier resource.
+Das Modul Person beschreibt intrinsische Kerndaten natürlicher Personen. Es trennt persönliche Merkmale von Kontaktmethoden, Adressen, Organisationsbeziehungen und fachlichen Rollen.
 
-A telephone number can change without restructuring the person core or a
-membership.
+<a id="2-everyday-example"></a>
 
-## 3. Scope and Boundaries
+## 2. Alltagsbeispiel
 
-The module contains full name and name parts, birth information, `sex`,
-`gender`, citizenship, structured identifiers, and an open link to identity
-evidence. It does not contain email, telephone, address parts, memberships,
-employment, project roles, credential internals, or a location model.
+> Anna Müller wird als Person mit ihrem Namen und Geburtsdatum beschrieben. Ihre Telefonnummer gehört zu einem ContactPoint, ihre Unternehmenszugehörigkeit zu einer Membership und ihre Personalnummer zu einer Identifier-Ressource.
 
-## 4. Model Overview
+Eine Telefonnummer kann sich ändern, ohne die Personenkerndaten oder eine Mitgliedschaft umzustrukturieren.
+
+<a id="3-scope-and-boundaries"></a>
+
+## 3. Umfang und Abgrenzung
+
+Das Modul umfasst vollständige Namen und Namensbestandteile, Geburtsangaben, `sex`, `gender`, Staatsangehörigkeit, strukturierte Kennungen und einen offenen Verweis auf Identitätsnachweise. Es umfasst keine E-Mail-Adressen, Telefonnummern, Adressbestandteile, Mitgliedschaften, Beschäftigungsverhältnisse, Projektrollen, internen Nachweisstrukturen oder ein Ortsmodell.
+
+<a id="4-model-overview"></a>
+
+## 4. Modellübersicht
 
 ```text
 Agent
   +-> Person
-        +-> name and birth information
+        +-> Namens- und Geburtsangaben
         +-> sex / gender
         +-> citizenship -> Country
         +-> adms:identifier -> Identifier
-        +-> hasIdentityEvidence -> external evidence resource
+        +-> hasIdentityEvidence -> externe Nachweisressource
 ```
 
-Contact, Address, and Organization may reference a Person but remain separate
-modules.
+Contact, Address und Organization können auf eine Person verweisen, bleiben aber eigenständige Module.
 
-## 5. Key Classes and Relationships
+<a id="5-key-classes-and-relationships"></a>
 
-| Term | Plain-language meaning |
+## 5. Zentrale Klassen und Beziehungen
+
+| Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
-| `Person` | Real natural person and subclass of `Agent` |
-| `fullName` | Complete display name |
-| `givenName` / `familyName` | Given and family names |
-| `birthDate` / `birthPlaceName` | Birth date and textual birth place |
-| `sex` | Classification used for data exchange |
-| `gender` | Gender identity or corresponding classification |
-| `citizenship` | Legal affiliation with a country |
-| `hasIdentityEvidence` | Open link to an evidence resource |
+| `Person` | Reale natürliche Person und Unterklasse von `Agent` |
+| `fullName` | Vollständiger Anzeigename |
+| `givenName` / `familyName` | Vor- und Familienname |
+| `birthDate` / `birthPlaceName` | Geburtsdatum und Geburtsort als Text |
+| `sex` | Für den Datenaustausch verwendete Klassifikation |
+| `gender` | Geschlechtsidentität oder entsprechende Klassifikation |
+| `citizenship` | Rechtliche Zugehörigkeit zu einem Staat |
+| `hasIdentityEvidence` | Offener Verweis auf eine Nachweisressource |
 
-## 6. Validation in Plain Language
+<a id="6-validation-in-plain-language"></a>
 
-Each Person requires at least one full name and one given name. Text values
-must not be empty. A birth date must be a complete calendar date; `sex` and
-`gender` use their approved vocabularies. Citizenship points to country
-resources, and identifiers follow the shared Identifier contract.
+## 6. Validierung in Alltagssprache
 
-> A birth value of "1985" is invalid because a complete date is expected. The
-> birth date may be omitted when the use case does not require it.
+Jede Person benötigt mindestens einen vollständigen Namen und einen Vornamen. Textwerte dürfen nicht leer sein. Ein Geburtsdatum muss ein vollständiges Kalenderdatum sein; `sex` und `gender` verwenden die freigegebenen Vokabulare. Die Staatsangehörigkeit verweist auf Länderressourcen, und Kennungen folgen den gemeinsamen Identifier-Anforderungen.
 
-## 7. Dependencies
+> Der Geburtswert „1985“ ist ungültig, weil ein vollständiges Datum erwartet wird. Das Geburtsdatum kann fehlen, wenn der Anwendungsfall es nicht verlangt.
 
-`Person` specializes `Agent` from `core/agent`. Identifiers are validated by
-the imported Shape from `core/identifier`. Citizenship uses country reference
-data, while `sex` and `gender` have separately versioned vocabularies. FOAF and
-SEMIC are external reference and alignment sources.
+<a id="7-dependencies"></a>
 
-## 8. Version, Status, and Artifacts
+## 7. Abhängigkeiten
 
-| Property | Value |
+`Person` spezialisiert `Agent` aus `core/agent`. Kennungen werden durch das importierte Shape aus `core/identifier` geprüft. Die Staatsangehörigkeit verwendet Länderreferenzdaten; für `sex` und `gender` bestehen separat versionierte Vokabulare. FOAF und SEMIC dienen als externe Referenz- und Alignment-Quellen.
+
+<a id="8-version-status-and-artifacts"></a>
+
+## 8. Version, Status und Artefakte
+
+| Eigenschaft | Wert |
 | --- | --- |
-| Repository status | Draft; domain-reviewed and implemented |
+| Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
 | Version | `0.1.0` |
-| Ontology IRI | `https://www.construct-x.org/ontology/person` |
-| Prefix | `conx-person` |
+| Ontologie-IRI | `https://www.construct-x.org/ontology/person` |
+| Präfix | `conx-person` |
 
-- [Ontology](../ontology/conx-person.ttl)
+- [Ontologie](../ontology/conx-person.ttl)
 - [Core Shapes](../shapes/conx-person-core.shacl.ttl)
-- [HTML documentation](person.html)
-- [Complete person example](../tests/valid/complete-person.ttl)
-- [Changelog](../CHANGELOG.md)
+- [HTML-Dokumentation](person.html)
+- [Vollständiges Personenbeispiel](../tests/valid/complete-person.ttl)
+- [Änderungsprotokoll](../CHANGELOG.md)
 
-## 9. Further Documentation
+<a id="9-further-documentation"></a>
 
-- [Scope and Competency Questions](02_scope-and-competency-questions.md)
-- [Source Analysis](01_source-analysis.md)
-- [Conceptual Model](03_concept-model.md)
-- [Module Boundaries](04_module-boundaries.md)
-- [Term Catalog](05_term-catalog.md)
-- [SHACL Requirements](06_shacl-requirements.md)
+## 9. Weiterführende Dokumentation
+
+- [Umfang und Kompetenzfragen](02_scope-and-competency-questions.md)
+- [Quellenanalyse](01_source-analysis.md)
+- [Konzeptmodell](03_concept-model.md)
+- [Modulabgrenzung](04_module-boundaries.md)
+- [Begriffskatalog](05_term-catalog.md)
+- [SHACL-Anforderungen](06_shacl-requirements.md)
 - [Core Shapes](07_core-shapes.md)
-- [Concept Diagram](08_concept-diagram.md)
+- [Konzeptdiagramm](08_concept-diagram.md)
