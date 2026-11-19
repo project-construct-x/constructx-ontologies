@@ -1,8 +1,8 @@
 # Participation Core Shapes
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** Participation Core Shapes
 
 The Participation Core Shapes validate the general, use-case-independent data contracts of the Construct-X Participation Ontology. The T-Box remains semantically open under the open-world assumption; the core profile checks concrete data submissions.
@@ -10,26 +10,26 @@ The Participation Core Shapes validate the general, use-case-independent data co
 ```text
 Shape graph: modules/core/participation/shapes/conx-part-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/participation/core
-Version IRI: https://www.construct-x.org/shapes/participation/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/participation/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/participation/core#
-Version:     0.2.0
+Version:     0.3.0
 ```
 
 ## 1. Validated Contracts
 
 - A Participation must be an IRI and explicitly typed as `conx-part:Participation`.
-- `participant`, `role`, and `context` must each occur exactly once.
-- `participant` must be an IRI typed as `conx-agent:Agent` or a known subclass.
-- `role` must be an IRI explicitly typed as `conx-part:Role`.
+- `hasParticipant`, `hasRole`, and `hasContext` must each occur exactly once.
+- `hasParticipant` must be an IRI typed as `conx-agent:Agent` or a known subclass.
+- `hasRole` must be an IRI explicitly typed as `conx-part:Role`.
 - The core profile accepts roles from other Concept Schemes.
-- `context` may be an IRI or blank node; no context type is required.
+- `hasContext` may be an IRI or blank node; no context type is required.
 - `startDate` and `endDate` may each occur at most once as `xsd:date`.
 - If both dates are supplied, `startDate` must not be later than `endDate`.
 - A second Participation with the same Agent/role/context combination is rejected within the validation graph.
 
 Start and end dates are not part of the uniqueness key. The profile does not use `sh:closed true`; additional properties remain permitted.
 
-`HasParticipationShape` checks subjects of `hasParticipation`. `PART-060` requires complete Participation IRIs; `PART-061` requires the same explicit `context` back-reference. The outgoing edge remains optional. Direct edges to Agents or role values do not follow this pattern.
+`HasParticipationShape` checks subjects of `hasParticipation`. `PART-060` requires complete Participation IRIs; `PART-061` requires the same explicit `hasContext` back-reference. The outgoing edge remains optional. Direct edges to Agents or role values do not follow this pattern.
 
 ## 2. Reference Graphs
 
@@ -44,7 +44,7 @@ The role vocabulary is not a closed core value list. Another domain vocabulary r
 
 ## 3. Uniqueness Check
 
-The combination of `participant`, `role`, and `context` is checked by a local SHACL-SPARQL constraint. The rule can detect duplicates only across graphs supplied to the same validation run. Data-space or dataset profiles must therefore establish which named graphs are validated together.
+The combination of `hasParticipant`, `hasRole`, and `hasContext` is checked by a local SHACL-SPARQL constraint. The rule can detect duplicates only across graphs supplied to the same validation run. Data-space or dataset profiles must therefore establish which named graphs are validated together.
 
 ## 4. Test Data
 

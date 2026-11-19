@@ -7,7 +7,7 @@ ex:agent-a a conx-agent:Agent .
 
 ex:minimal-participation
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:contract-x ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:contract-x ;
 .

@@ -46,10 +46,10 @@ MODULES = [
     {
         "path": ROOT / "modules/core/participation/ontology/conx-part.ttl",
         "ontology_iri": URIRef("https://www.construct-x.org/ontology/participation"),
-        "version_iri": URIRef("https://www.construct-x.org/ontology/participation/0.2.0"),
+        "version_iri": URIRef("https://www.construct-x.org/ontology/participation/0.3.0"),
         "namespace": "https://www.construct-x.org/ontology/participation#",
         "prefix": "conx-part",
-        "known_object_property_deviations": {"participant", "role", "context"},
+        "known_object_property_deviations": set(),
         "known_data_property_deviations": set(),
     },
 ]

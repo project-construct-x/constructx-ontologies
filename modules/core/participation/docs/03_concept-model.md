@@ -1,8 +1,8 @@
 # Domain Conceptual Model of the Participation Module
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** `core/participation`  
 **Implementation status:** Implemented as T-Box, role vocabulary, and Core Shapes
 
@@ -25,9 +25,9 @@ The domain core is:
 
 | Resource | Property | Requirement |
 | --- | --- | --- |
-| `Participation` | `participant` | Exactly one Agent |
-| `Participation` | `role` | Exactly one Role |
-| `Participation` | `context` | Exactly one domain resource |
+| `Participation` | `hasParticipant` | Exactly one Agent |
+| `Participation` | `hasRole` | Exactly one Role |
+| `Participation` | `hasContext` | Exactly one domain resource |
 | `Participation` | `startDate` | Optionally one `xsd:date` |
 | `Participation` | `endDate` | Optionally one `xsd:date` |
 
@@ -57,15 +57,15 @@ The qualified pattern therefore objectifies the relationship:
 
 | Resource | Property | Target |
 | --- | --- | --- |
-| Participation P | `participant` | Agent A |
-| Participation P | `context` | Context X |
-| Participation P | `role` | Role R |
+| Participation P | `hasParticipant` | Agent A |
+| Participation P | `hasContext` | Context X |
+| Participation P | `hasRole` | Role R |
 
 The Participation is not RDF reification of a triple. It is a separate domain relationship resource following the W3C pattern for n-ary relationships.
 
 ## 5. Agent
 
-`participant` references exactly one `conx-agent:Agent`. This allows people and organizations to use the same Participation pattern.
+`hasParticipant` references exactly one `conx-agent:Agent`. This allows people and organizations to use the same Participation pattern.
 
 | Class | Superclass |
 | --- | --- |
@@ -120,7 +120,7 @@ The context is the resource in relation to which the role applies. Depending on 
 - a product or asset,
 - another domain-defined resource.
 
-These resources have no necessary common local superclass. The Participation module therefore introduces no `Context` class and imposes no domain-specific restrictive range on `context`.
+These resources have no necessary common local superclass. The Participation module therefore introduces no `Context` class and imposes no domain-specific restrictive range on `hasContext`.
 
 ### 7.2 Exactly One Context
 
@@ -140,7 +140,7 @@ Domain profiles may restrict the open context. For example, a document profile m
 Exactly one Participation exists per Agent/role/context combination in domain terms:
 
 ```text
-(participant, role, context) -> one Participation
+(hasParticipant, hasRole, hasContext) -> one Participation
 ```
 
 This rule prevents duplicate relationship resources for the same statement. It is checked against the data graph using SHACL. No `owl:hasKey` is provided because a violation should be reported as a data quality error rather than logically merged through `owl:sameAs`.
@@ -188,13 +188,13 @@ Membership is therefore not modeled as a subclass of Participation. The Particip
 
 ## 12. Navigation from Context and Domain Specialization
 
-The model introduces no properties such as `isClientOf`, `isContractorOf`, or `isSupplierOf`. The complete statement remains the Participation with its `participant`, `role`, and `context`.
+The model introduces no properties such as `isClientOf`, `isContractorOf`, or `isSupplierOf`. The complete statement remains the Participation with its `hasParticipant`, `hasRole`, and `hasContext`.
 
-Since 0.2.0, `hasParticipation` additionally connects context to Participation. Only this general property is `owl:inverseOf context`; its source type remains open. It is optional and not functional.
+Since 0.2.0, `hasParticipation` additionally connects context to Participation. Only this general property is `owl:inverseOf hasContext`; its source type remains open. It is optional and not functional.
 
 Domain modules may define descriptive subproperties such as `conx-dn:hasBuyerParticipation`. They must check the appropriate role and identical context. The role remains explicit on the Participation. This is not a direct shortcut from context to Agent.
 
-For offline validation, `context` remains explicitly required. The forward edge alone does not replace a complete Participation. Existing instances without a forward edge remain valid. OWL inference may derive general inverse relationships; it does not automatically generate role-specific edges.
+For offline validation, `hasContext` remains explicitly required. The forward edge alone does not replace a complete Participation. Existing instances without a forward edge remain valid. OWL inference may derive general inverse relationships; it does not automatically generate role-specific edges.
 
 ## 13. Origin, Evidence, and Status
 
@@ -204,7 +204,7 @@ Origin, evidence, provenance, power of attorney, and authorization are neither m
 
 ## 14. Overall Conceptual Example
 
-The example uses Participation 0.2.0 and the unchanged role vocabulary 0.1.0:
+The example uses Participation 0.3.0 and the unchanged role vocabulary 0.1.0:
 
 ```turtle
 @prefix conx-part: <https://www.construct-x.org/ontology/participation#> .
@@ -217,17 +217,17 @@ ex:contract-4711 conx-part:hasParticipation ex:contractor-participation,
 
 ex:contractor-participation
     a conx-part:Participation ;
-    conx-part:participant ex:bauunternehmen-a ;
-    conx-part:role part-role:ContractorRole ;
-    conx-part:context ex:contract-4711 ;
+    conx-part:hasParticipant ex:bauunternehmen-a ;
+    conx-part:hasRole part-role:ContractorRole ;
+    conx-part:hasContext ex:contract-4711 ;
     conx-part:startDate "2026-01-15"^^xsd:date ;
     conx-part:endDate "2026-12-31"^^xsd:date .
 
 ex:supplier-participation
     a conx-part:Participation ;
-    conx-part:participant ex:bauunternehmen-a ;
-    conx-part:role part-role:SupplierRole ;
-    conx-part:context ex:contract-4711 .
+    conx-part:hasParticipant ex:bauunternehmen-a ;
+    conx-part:hasRole part-role:SupplierRole ;
+    conx-part:hasContext ex:contract-4711 .
 ```
 
 The same company holds two different roles in the same contract. Two Participation instances are therefore used.
@@ -236,7 +236,7 @@ The same company holds two different roles in the same contract. Two Participati
 
 1. `Participation` is the sole local class for the specific role assignment.
 2. A Participation represents exactly one combination of Agent, role, and context.
-3. `participant`, `role`, and `context` are each required exactly once in the core profile.
+3. `hasParticipant`, `hasRole`, and `hasContext` are each required exactly once in the core profile.
 4. Roles are maintained as individuals of the local SKOS-based class `Role`.
 5. Context typing remains open and is restricted through domain profiles.
 6. Start and end dates are optional `xsd:date` values describing validity.

@@ -1,8 +1,8 @@
 # Scope and Competency Questions of the Participation Module
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** `core/participation`
 
 ## 1. Purpose
@@ -20,7 +20,7 @@ The module describes no activities or events and does not assert that the Agent 
 | Agent | Exactly one `core/agent:Agent` per Participation |
 | Role | Exactly one value of the local class `Role`; no unqualified Participation |
 | Context | Exactly one domain resource; no local umbrella type for contexts |
-| Navigation from context | `hasParticipation` optionally provides the reverse direction of `context`; domain modules may define role-specific subproperties |
+| Navigation from context | `hasParticipation` optionally provides the reverse direction of `hasContext`; domain modules may define role-specific subproperties |
 | Uniqueness | Exactly one Participation per Agent/role/context combination in domain terms |
 | Time | Start and end dates are optional and describe only assignment validity |
 | Role class | Local `Role` as a subclass of `skos:Concept` |
@@ -38,9 +38,9 @@ The following representation uses the property names and public IRIs established
 
 | Resource | Property | Requirement |
 | --- | --- | --- |
-| `Participation` | `participant` | Exactly one Agent |
-| `Participation` | `role` | Exactly one Role |
-| `Participation` | `context` | Exactly one domain resource |
+| `Participation` | `hasParticipant` | Exactly one Agent |
+| `Participation` | `hasRole` | Exactly one Role |
+| `Participation` | `hasContext` | Exactly one domain resource |
 | `Participation` | `startDate` | Optional, at most one date |
 | `Participation` | `endDate` | Optional, at most one date |
 
@@ -283,7 +283,7 @@ The [Implemented Term Catalog](05_term-catalog.md) and [Domain Conceptual Model]
 8. external alignments and direct role properties are outside the MVP,
 9. a minimal role vocabulary is established as a separate MVP artifact.
 
-The public terms, property names, date datatypes, and initial role vocabulary are confirmed. Further roles are derived only from the sources and competency questions of the responsible domain module. The [Module Boundaries](04_module-boundaries.md), [SHACL Requirements Document](06_shacl-requirements.md), T-Box, role vocabulary 0.1.0, and [Core Shapes](07_core-shapes.md) 0.2.0 are implemented.
+The public terms, property names, date datatypes, and initial role vocabulary are confirmed. Further roles are derived only from the sources and competency questions of the responsible domain module. The [Module Boundaries](04_module-boundaries.md), [SHACL Requirements Document](06_shacl-requirements.md), T-Box, role vocabulary 0.1.0, and [Core Shapes](07_core-shapes.md) 0.3.0 are implemented.
 
 ## 10. Illustrative Example
 

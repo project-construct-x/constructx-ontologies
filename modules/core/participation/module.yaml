@@ -2,23 +2,23 @@ id: participation
 title: Construct-X Participation Ontology
 type: core
 status: draft
-version: 0.2.0
+version: 0.3.0
 
 ontology_iri: https://www.construct-x.org/ontology/participation
-version_iri: https://www.construct-x.org/ontology/participation/0.2.0
+version_iri: https://www.construct-x.org/ontology/participation/0.3.0
 namespace: https://www.construct-x.org/ontology/participation#
 preferred_namespace_prefix: conx-part
 created: 2026-08-27
-modified: 2026-10-07
+modified: 2026-11-19
 license: https://creativecommons.org/licenses/by/4.0/
 publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
 
 shape_sets:
   core:
     graph_iri: https://www.construct-x.org/shapes/participation/core
-    version_iri: https://www.construct-x.org/shapes/participation/core/0.2.0
+    version_iri: https://www.construct-x.org/shapes/participation/core/0.3.0
     namespace: https://www.construct-x.org/shapes/participation/core#
-    version: 0.2.0
+    version: 0.3.0
     artifact: shapes/conx-part-core.shacl.ttl
 
 dependencies:

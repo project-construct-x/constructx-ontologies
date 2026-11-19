@@ -27,12 +27,12 @@
   dcterms:description "Validierungsregeln fuer die allgemeinen, anwendungsfallunabhaengigen Vertraege der Construct-X Participation-Ontologie."@de ;
   dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Participation Ontology."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-10-07"^^xsd:date ;
+  dcterms:modified "2026-11-19"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:title "Construct-X Participation Core Shapes"@de ;
   dcterms:title "Construct-X Participation Core Shapes"@en ;
-  owl:versionIRI <https://www.construct-x.org/shapes/participation/core/0.2.0> ;
-  owl:versionInfo "0.2.0" ;
+  owl:versionIRI <https://www.construct-x.org/shapes/participation/core/0.3.0> ;
+  owl:versionInfo "0.3.0" ;
 .
 
 ## Participation target and node contracts
@@ -58,9 +58,9 @@ conx-part-sh:ParticipationShape
   sh:name "Beteiligung"@de ;
   sh:name "Participation"@en ;
   sh:targetClass conx-part:Participation ;
-  sh:targetSubjectsOf conx-part:participant,
-                      conx-part:role,
-                      conx-part:context,
+  sh:targetSubjectsOf conx-part:hasParticipant,
+                      conx-part:hasRole,
+                      conx-part:hasContext,
                       conx-part:startDate,
                       conx-part:endDate ;
   sh:node conx-part-sh:ParticipationIriShape,
@@ -87,19 +87,19 @@ conx-part-sh:ParticipationShape
       sh:select """
         SELECT DISTINCT $this
         WHERE {
-          $this <https://www.construct-x.org/ontology/participation#participant> ?agent ;
-                <https://www.construct-x.org/ontology/participation#role> ?role ;
-                <https://www.construct-x.org/ontology/participation#context> ?context .
+          $this <https://www.construct-x.org/ontology/participation#hasParticipant> ?agent ;
+                <https://www.construct-x.org/ontology/participation#hasRole> ?role ;
+                <https://www.construct-x.org/ontology/participation#hasContext> ?context .
           ?other a <https://www.construct-x.org/ontology/participation#Participation> ;
-                 <https://www.construct-x.org/ontology/participation#participant> ?agent ;
-                 <https://www.construct-x.org/ontology/participation#role> ?role ;
-                 <https://www.construct-x.org/ontology/participation#context> ?context .
+                 <https://www.construct-x.org/ontology/participation#hasParticipant> ?agent ;
+                 <https://www.construct-x.org/ontology/participation#hasRole> ?role ;
+                 <https://www.construct-x.org/ontology/participation#hasContext> ?context .
           FILTER (?other != $this)
           FILTER (STR(?other) < STR($this))
         }
       """ ;
-      sh:message "[PART-050] Eine zweite Participation mit derselben Kombination aus participant, role und context ist nicht zulaessig."@de ;
-      sh:message "[PART-050] A second Participation with the same combination of participant, role, and context is not allowed."@en ;
+      sh:message "[PART-050] Eine zweite Participation mit derselben Kombination aus hasParticipant, hasRole und hasContext ist nicht zulaessig."@de ;
+      sh:message "[PART-050] A second Participation with the same combination of hasParticipant, hasRole, and hasContext is not allowed."@en ;
     ] ;
 .
 
@@ -107,105 +107,105 @@ conx-part-sh:ParticipationShape
 
 conx-part-sh:ParticipantMinCountPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:participant ;
+  sh:path conx-part:hasParticipant ;
   sh:minCount 1 ;
   sh:severity sh:Violation ;
-  sh:message "[PART-010] Eine Participation muss genau einen participant besitzen."@de ;
+  sh:message "[PART-010] Eine Participation muss genau einen Wert fuer hasParticipant besitzen."@de ;
   sh:message "[PART-010] A Participation must have exactly one participant."@en ;
 .
 
 conx-part-sh:ParticipantMaxCountPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:participant ;
+  sh:path conx-part:hasParticipant ;
   sh:maxCount 1 ;
   sh:severity sh:Violation ;
-  sh:message "[PART-011] Eine Participation darf hoechstens einen participant besitzen."@de ;
+  sh:message "[PART-011] Eine Participation darf hoechstens einen Wert fuer hasParticipant besitzen."@de ;
   sh:message "[PART-011] A Participation must have at most one participant."@en ;
 .
 
 conx-part-sh:ParticipantIriPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:participant ;
+  sh:path conx-part:hasParticipant ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Violation ;
-  sh:message "[PART-012] participant muss auf eine IRI verweisen."@de ;
-  sh:message "[PART-012] participant must refer to an IRI."@en ;
+  sh:message "[PART-012] hasParticipant muss auf eine IRI verweisen."@de ;
+  sh:message "[PART-012] hasParticipant must refer to an IRI."@en ;
 .
 
 conx-part-sh:ParticipantAgentTypePropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:participant ;
+  sh:path conx-part:hasParticipant ;
   sh:class conx-agent:Agent ;
   sh:severity sh:Violation ;
-  sh:message "[PART-013] participant muss als conx-agent:Agent oder bekannte Unterklasse typisiert sein."@de ;
-  sh:message "[PART-013] participant must be typed as conx-agent:Agent or a known subclass."@en ;
+  sh:message "[PART-013] hasParticipant muss als conx-agent:Agent oder bekannte Unterklasse typisiert sein."@de ;
+  sh:message "[PART-013] hasParticipant must be typed as conx-agent:Agent or a known subclass."@en ;
 .
 
 ## Role property contracts
 
 conx-part-sh:RoleMinCountPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:role ;
+  sh:path conx-part:hasRole ;
   sh:minCount 1 ;
   sh:severity sh:Violation ;
-  sh:message "[PART-020] Eine Participation muss genau eine role besitzen."@de ;
+  sh:message "[PART-020] Eine Participation muss genau einen Wert fuer hasRole besitzen."@de ;
   sh:message "[PART-020] A Participation must have exactly one role."@en ;
 .
 
 conx-part-sh:RoleMaxCountPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:role ;
+  sh:path conx-part:hasRole ;
   sh:maxCount 1 ;
   sh:severity sh:Violation ;
-  sh:message "[PART-021] Eine Participation darf hoechstens eine role besitzen."@de ;
+  sh:message "[PART-021] Eine Participation darf hoechstens einen Wert fuer hasRole besitzen."@de ;
   sh:message "[PART-021] A Participation must have at most one role."@en ;
 .
 
 conx-part-sh:RoleIriPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:role ;
+  sh:path conx-part:hasRole ;
   sh:nodeKind sh:IRI ;
   sh:severity sh:Violation ;
-  sh:message "[PART-022] role muss auf eine IRI verweisen."@de ;
-  sh:message "[PART-022] role must refer to an IRI."@en ;
+  sh:message "[PART-022] hasRole muss auf eine IRI verweisen."@de ;
+  sh:message "[PART-022] hasRole must refer to an IRI."@en ;
 .
 
 conx-part-sh:RoleTypePropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:role ;
+  sh:path conx-part:hasRole ;
   sh:class conx-part:Role ;
   sh:severity sh:Violation ;
-  sh:message "[PART-023] role muss explizit als conx-part:Role typisiert sein; skos:Concept allein reicht nicht."@de ;
-  sh:message "[PART-023] role must be explicitly typed as conx-part:Role; skos:Concept alone is insufficient."@en ;
+  sh:message "[PART-023] hasRole muss explizit als conx-part:Role typisiert sein; skos:Concept allein reicht nicht."@de ;
+  sh:message "[PART-023] hasRole must be explicitly typed as conx-part:Role; skos:Concept alone is insufficient."@en ;
 .
 
 ## Context property contracts
 
 conx-part-sh:ContextMinCountPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:context ;
+  sh:path conx-part:hasContext ;
   sh:minCount 1 ;
   sh:severity sh:Violation ;
-  sh:message "[PART-030] Eine Participation muss genau einen context besitzen."@de ;
+  sh:message "[PART-030] Eine Participation muss genau einen Wert fuer hasContext besitzen."@de ;
   sh:message "[PART-030] A Participation must have exactly one context."@en ;
 .
 
 conx-part-sh:ContextMaxCountPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:context ;
+  sh:path conx-part:hasContext ;
   sh:maxCount 1 ;
   sh:severity sh:Violation ;
-  sh:message "[PART-031] Eine Participation darf hoechstens einen context besitzen."@de ;
+  sh:message "[PART-031] Eine Participation darf hoechstens einen Wert fuer hasContext besitzen."@de ;
   sh:message "[PART-031] A Participation must have at most one context."@en ;
 .
 
 conx-part-sh:ContextResourcePropertyShape
   a sh:PropertyShape ;
-  sh:path conx-part:context ;
+  sh:path conx-part:hasContext ;
   sh:nodeKind sh:BlankNodeOrIRI ;
   sh:severity sh:Violation ;
-  sh:message "[PART-032] context muss auf eine IRI oder einen Blank Node verweisen."@de ;
-  sh:message "[PART-032] context must refer to an IRI or blank node."@en ;
+  sh:message "[PART-032] hasContext muss auf eine IRI oder einen Blank Node verweisen."@de ;
+  sh:message "[PART-032] hasContext must refer to an IRI or blank node."@en ;
 .
 
 ## Temporal property contracts
@@ -268,13 +268,13 @@ conx-part-sh:HasParticipationShape
     sh:message "[PART-060] hasParticipation must reference a valid Participation IRI."@en ;
   ] ;
   sh:sparql [
-    sh:message "[PART-061] Der context der verknüpften Participation muss das Ausgangsobjekt sein."@de ;
+    sh:message "[PART-061] Der hasContext-Wert der verknüpften Participation muss das Ausgangsobjekt sein."@de ;
     sh:message "[PART-061] The linked Participation must explicitly identify the source resource as its context."@en ;
     sh:select """
       SELECT $this ?value WHERE {
         $this <https://www.construct-x.org/ontology/participation#hasParticipation> ?value .
         FILTER NOT EXISTS {
-          ?value <https://www.construct-x.org/ontology/participation#context> $this .
+          ?value <https://www.construct-x.org/ontology/participation#hasContext> $this .
         }
       }
     """ ;

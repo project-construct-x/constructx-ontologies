@@ -1,11 +1,11 @@
 # Source Analysis for the Participation Module
 
 **Status:** Consolidated analysis baseline  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Research cutoff date:** 27 August 2026  
 **Scope:** `core/participation`  
-**Implementation status:** T-Box and Core Shapes 0.2.0; role vocabulary unchanged at 0.1.0
+**Implementation status:** T-Box and Core Shapes 0.3.0; role vocabulary unchanged at 0.1.0
 
 ## 1. Purpose and Method
 

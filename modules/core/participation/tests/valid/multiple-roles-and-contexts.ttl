@@ -7,21 +7,21 @@ ex:agent-a a conx-agent:Agent .
 
 ex:contractor-project-a
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:project-a ;
 .
 
 ex:supplier-project-a
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:SupplierRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:SupplierRole ;
+  conx-part:hasContext ex:project-a ;
 .
 
 ex:contractor-project-b
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:project-b ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:project-b ;
 .

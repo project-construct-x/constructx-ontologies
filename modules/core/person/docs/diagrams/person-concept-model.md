@@ -144,12 +144,12 @@ flowchart TB
         Participation["Participation: Agent + role + context"]
         Context["Domain context"]
 
-        Participation -->|"context 1"| Context
+        Participation -->|"hasContext 1"| Context
     end
 
     Person -->|"hasLocationAssignment 0..*"| LocationAssignment
     Membership -->|"member 1"| Agent
-    Participation -->|"participant 1"| Agent
+    Participation -->|"hasParticipant 1"| Agent
 
     classDef agent fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
     classDef person fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;

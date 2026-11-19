@@ -3,8 +3,8 @@
 # Construct-X Core-Modul Participation
 
 **Status:** Freigegebene Confluence-Kurzfassung<br>
-**Version:** 0.2.0<br>
-**Stand:** 7. Oktober 2026<br>
+**Version:** 0.3.0<br>
+**Stand:** 19. November 2026<br>
 **Geltungsbereich:** `core/participation`
 
 Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
@@ -36,9 +36,9 @@ Das Modul umfasst die qualifizierte Beziehung zwischen Agent, Rolle und Kontext,
 ## 4. Modellübersicht
 
 ```text
-Agent <- participant - Participation - context -> Fachlicher Kontext
+Agent <- hasParticipant - Participation - hasContext -> Fachlicher Kontext
                               |
-                              +-> role -> Role
+                              +-> hasRole -> Role
                               +-> startDate / endDate
 ```
 
@@ -52,9 +52,9 @@ Eine Participation beschreibt genau eine Kombination aus Agent, Rolle und Kontex
 | --- | --- |
 | `Participation` | Aktuelle oder historische Rollenzuordnung |
 | `Role` | Kontrollierte Beschreibung einer Rolle |
-| `participant` | Verweist auf genau einen Agenten |
-| `role` | Verweist auf genau eine Rolle |
-| `context` | Verweist auf genau einen fachlichen Kontext |
+| `hasParticipant` | Verweist auf genau einen Agenten |
+| `hasRole` | Verweist auf genau eine Rolle |
+| `hasContext` | Verweist auf genau einen fachlichen Kontext |
 | `hasParticipation` | Optionale Navigation vom Kontext zur Beteiligung |
 | `startDate` / `endDate` | Optionaler Gültigkeitszeitraum |
 
@@ -70,7 +70,7 @@ Jede Participation benötigt genau einen Agenten, eine Rolle und einen Kontext. 
 
 ## 7. Abhängigkeiten
 
-`participant` verweist auf `Agent` aus `core/agent`. Rollen basieren auf SKOS; allgemeine Startrollen werden in einem separat versionierten Vokabular gepflegt. Person, Organization, Document und Domänenmodelle können Participation nutzen, ohne dadurch verpflichtende T-Box-Imports zu werden.
+`hasParticipant` verweist auf `Agent` aus `core/agent`. Rollen basieren auf SKOS; allgemeine Startrollen werden in einem separat versionierten Vokabular gepflegt. Person, Organization, Document und Domänenmodelle können Participation nutzen, ohne dadurch verpflichtende T-Box-Imports zu werden.
 
 <a id="8-version-status-and-artifacts"></a>
 
@@ -79,7 +79,7 @@ Jede Participation benötigt genau einen Agenten, eine Rolle und einen Kontext. 
 | Eigenschaft | Wert |
 | --- | --- |
 | Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
-| Version | `0.2.0` |
+| Version | `0.3.0` |
 | Ontologie-IRI | `https://www.construct-x.org/ontology/participation` |
 | Präfix | `conx-part` |
 

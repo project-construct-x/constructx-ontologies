@@ -1,9 +1,9 @@
 # Participation Domain Diagrams
 
-**Status:** Conceptual diagrams of the implemented version 0.2.0  
-**Version:** 0.2.0  
+**Status:** Conceptual diagrams of the implemented version 0.3.0  
+**Version:** 0.3.0  
 **Scope:** `core/participation`  
-**As of:** 7 October 2026
+**As of:** 19 November 2026
 
 The Mermaid diagrams show the confirmed Participation model from six perspectives: the core model, separate combinations, unrestricted context, temporal validity, role vocabulary, and module boundaries.
 
@@ -23,15 +23,15 @@ flowchart LR
         Start["startDate 0..1: xsd:date"]
         End["endDate 0..1: xsd:date"]
 
-        Participation -->|"role exactly 1"| Role
+        Participation -->|"hasRole exactly 1"| Role
         Participation --> Start
         Participation --> End
     end
 
     Context["Domain context: type remains unrestricted"]
 
-    Participation -->|"participant exactly 1"| Agent
-    Participation -->|"context exactly 1"| Context
+    Participation -->|"hasParticipant exactly 1"| Agent
+    Participation -->|"hasContext exactly 1"| Context
     Context -->|"hasParticipation 0..*"| Participation
 
     Meaning["An instance asserts an assignment that currently holds or held historically."]
@@ -75,19 +75,19 @@ flowchart TB
     Contractor["ContractorRole: contractor"]
     Supplier["SupplierRole: supplier"]
 
-    P1 -->|"participant"| AgentA
-    P1 -->|"role"| Contractor
-    P1 -->|"context"| Project
+    P1 -->|"hasParticipant"| AgentA
+    P1 -->|"hasRole"| Contractor
+    P1 -->|"hasContext"| Project
 
-    P2 -->|"participant"| AgentA
-    P2 -->|"role"| Supplier
-    P2 -->|"context"| Project
+    P2 -->|"hasParticipant"| AgentA
+    P2 -->|"hasRole"| Supplier
+    P2 -->|"hasContext"| Project
 
-    P3 -->|"participant"| AgentB
-    P3 -->|"role"| Contractor
-    P3 -->|"context"| Project
+    P3 -->|"hasParticipant"| AgentB
+    P3 -->|"hasRole"| Contractor
+    P3 -->|"hasContext"| Project
 
-    Unique["Domain key for each instance: participant + role + context"]
+    Unique["Domain key for each instance: hasParticipant + hasRole + hasContext"]
     Unique -.-> P1
     Unique -.-> P2
     Unique -.-> P3
@@ -127,7 +127,7 @@ flowchart LR
         Other["Other domain resource"]
     end
 
-    Participation -->|"context exactly 1"| Contract
+    Participation -->|"hasContext exactly 1"| Contract
     Participation -.->|"alternatively"| Project
     Participation -.->|"alternatively"| Document
     Participation -.->|"alternatively"| Delivery
@@ -243,9 +243,9 @@ flowchart TB
     ContextModule["Responsible domain module: semantics of the context resource"]
     RoleVocab["Role vocabulary: concrete role individuals"]
 
-    Participation -->|"participant"| Agent
-    Participation -->|"context"| ContextModule
-    Participation -->|"role"| RoleVocab
+    Participation -->|"hasParticipant"| Agent
+    Participation -->|"hasContext"| ContextModule
+    Participation -->|"hasRole"| RoleVocab
 
     Membership -.->|"remains separate"| Participation
     Activity -.->|"no activity inference"| Participation

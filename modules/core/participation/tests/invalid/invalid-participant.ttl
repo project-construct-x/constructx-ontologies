@@ -8,21 +8,21 @@ ex:agent-b a conx-agent:Agent .
 
 ex:multiple-agents
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a, ex:agent-b ;
-  conx-part:role part-role:ClientRole ;
-  conx-part:context ex:context-a ;
+  conx-part:hasParticipant ex:agent-a, ex:agent-b ;
+  conx-part:hasRole part-role:ClientRole ;
+  conx-part:hasContext ex:context-a ;
 .
 
 ex:literal-agent
   a conx-part:Participation ;
-  conx-part:participant "Agent A" ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:context-b ;
+  conx-part:hasParticipant "Agent A" ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:context-b ;
 .
 
 ex:untyped-agent
   a conx-part:Participation ;
-  conx-part:participant ex:not-an-agent ;
-  conx-part:role part-role:SupplierRole ;
-  conx-part:context ex:context-c ;
+  conx-part:hasParticipant ex:not-an-agent ;
+  conx-part:hasRole part-role:SupplierRole ;
+  conx-part:hasContext ex:context-c ;
 .

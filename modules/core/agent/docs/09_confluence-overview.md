@@ -55,7 +55,7 @@ Participation -> participant -> Agent
 | `Person` | Natürliche Person aus `core/person` |
 | `Organization` | Organisation aus `core/organization` |
 
-Das Modul Agent definiert selbst keine Beziehungen. Beispielsweise gehört `participant` zu Participation, verweist aber auf einen `Agent`.
+Das Modul Agent definiert selbst keine Beziehungen. Beispielsweise gehört `hasParticipant` zu Participation, verweist aber auf einen `Agent`.
 
 <a id="6-validation-in-plain-language"></a>
 

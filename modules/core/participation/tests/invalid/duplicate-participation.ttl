@@ -8,16 +8,16 @@ ex:agent-a a conx-agent:Agent .
 
 ex:duplicate-a
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:contract-x ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:contract-x ;
   conx-part:startDate "2026-01-01"^^xsd:date ;
 .
 
 ex:duplicate-b
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:contract-x ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:contract-x ;
   conx-part:startDate "2026-07-01"^^xsd:date ;
 .

@@ -9,7 +9,7 @@ ex:specialized-agent a ex:SpecializedAgent .
 
 ex:subclass-participation
   a conx-part:Participation ;
-  conx-part:participant ex:specialized-agent ;
-  conx-part:role part-role:EngineerRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:specialized-agent ;
+  conx-part:hasRole part-role:EngineerRole ;
+  conx-part:hasContext ex:project-a ;
 .

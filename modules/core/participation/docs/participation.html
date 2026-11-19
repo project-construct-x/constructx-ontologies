@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Construct-X Participation Ontology</title>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Participation Ontology", "termSet": "https://www.construct-x.org/ontology/participation#", "url": "https://www.construct-x.org/ontology/participation"}, "author": [{"@type": "Person", "affiliation": "Ruhr University Bochum", "email": "mailto:sven.zentgraf@rub.de", "identifier": "https://orcid.org/0000-0001-6058-7614", "name": "Sven Zentgraf"}], "citation": "Construct-X Participation Ontology, version 0.2.0", "contributor": [{"@type": "Person", "name": "Construction-X Arbeitspaket 3.4"}], "dateCreated": "2026-08-27", "dateModified": "2026-10-07", "description": "Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context.", "encoding": [{"@type": "MediaObject", "contentUrl": "downloads/conx-part.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "conx-agent", "url": "https://www.construct-x.org/ontology/agent#"}, {"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "schema", "url": "https://schema.org/"}, {"@type": "CreativeWork", "name": "skos", "url": "http://www.w3.org/2004/02/skos/core#"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Participation Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/participation", "version": "0.2.0"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Participation Ontology", "termSet": "https://www.construct-x.org/ontology/participation#", "url": "https://www.construct-x.org/ontology/participation"}, "author": [{"@type": "Person", "affiliation": "Ruhr University Bochum", "email": "mailto:sven.zentgraf@rub.de", "identifier": "https://orcid.org/0000-0001-6058-7614", "name": "Sven Zentgraf"}], "citation": "Construct-X Participation Ontology, version 0.3.0", "contributor": [{"@type": "Person", "name": "Construction-X Arbeitspaket 3.4"}], "dateCreated": "2026-08-27", "dateModified": "2026-11-19", "description": "Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context.", "encoding": [{"@type": "MediaObject", "contentUrl": "downloads/conx-part.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "conx-agent", "url": "https://www.construct-x.org/ontology/agent#"}, {"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "schema", "url": "https://schema.org/"}, {"@type": "CreativeWork", "name": "skos", "url": "http://www.w3.org/2004/02/skos/core#"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Participation Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/participation", "version": "0.3.0"}</script>
 <script data-ontolens-asset="cytoscape.min.js">/*!
 Copyright (c) 2016-2024, The Cytoscape Consortium.
 
@@ -11004,7 +11004,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
       <div class="hero-copy">
         <h1>Construct-X Participation Ontology</h1>
 <p class="subtitle">Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context.</p>        <div class="hero-meta">
-<span class="version">Version 0.2.0</span><span class="hero-stat">Prefix conx-part</span>          <span class="hero-stat">2 classes</span>
+<span class="version">Version 0.3.0</span><span class="hero-stat">Prefix conx-part</span>          <span class="hero-stat">2 classes</span>
           <span class="hero-stat">6 properties</span>
         </div>
       </div>
@@ -11051,20 +11051,20 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
     <a class="toc-heading" href="#object-properties">Object Properties</a>
     <ul>
         <li>
-    <a href="#context">context</a>
-        <span class="toc-alt">Kontext <span lang="de">[de]</span></span>
+    <a href="#hasContext">has context</a>
+        <span class="toc-alt">hat Kontext <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasParticipant">has participant</a>
+        <span class="toc-alt">hat beteiligten Agenten <span lang="de">[de]</span></span>
   </li>
         <li>
     <a href="#hasParticipation">has participation</a>
         <span class="toc-alt">hat Beteiligung <span lang="de">[de]</span></span>
   </li>
         <li>
-    <a href="#participant">participant</a>
-        <span class="toc-alt">beteiligter Agent <span lang="de">[de]</span></span>
-  </li>
-        <li>
-    <a href="#role">role</a>
-        <span class="toc-alt">Rolle <span lang="de">[de]</span></span>
+    <a href="#hasRole">has role</a>
+        <span class="toc-alt">hat Rolle <span lang="de">[de]</span></span>
   </li>
     </ul>
   </li>
@@ -11111,11 +11111,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         </tr>
         <tr class="">
           <th>Version info</th>
-          <td>0.2.0</td>
+          <td>0.3.0</td>
         </tr>
         <tr class="">
           <th>Version IRI</th>
-          <td><a href="https://www.construct-x.org/ontology/participation/0.2.0">https://www.construct-x.org/ontology/participation/0.2.0</a></td>
+          <td><a href="https://www.construct-x.org/ontology/participation/0.3.0">https://www.construct-x.org/ontology/participation/0.3.0</a></td>
         </tr>
         <tr class="">
           <th>Creation date</th>
@@ -11123,7 +11123,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         </tr>
         <tr class="">
           <th>Modification Date</th>
-          <td>2026-10-07</td>
+          <td>2026-11-19</td>
         </tr>
         <tr class="">
           <th>License</th>
@@ -11131,7 +11131,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         </tr>
         <tr class="">
           <th>Citation</th>
-          <td>Construct-X Participation Ontology, version 0.2.0 <span class="lang">[en]</span><br>Construct-X Participation-Ontologie, Version 0.2.0 <span class="lang">[de]</span></td>
+          <td>Construct-X Participation Ontology, version 0.3.0 <span class="lang">[en]</span><br>Construct-X Participation-Ontologie, Version 0.3.0 <span class="lang">[de]</span></td>
         </tr>
         <tr class="">
           <th>Publisher</th>
@@ -11370,17 +11370,17 @@ PERFORMANCE OF THIS SOFTWARE.
   </article>
 
         <h3 id="object-properties">Object Properties</h3>
-  <article id="context" class="term">
-    <h3>context</h3>
+  <article id="hasContext" class="term">
+    <h3>has context</h3>
     <div class="term-meta">
       <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-part:context</span>
+      <span class="pill term-curie">conx-part:hasContext</span>
     </div>
     <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#context">https://www.construct-x.org/ontology/participation#context</a></td></tr>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#hasContext">https://www.construct-x.org/ontology/participation#hasContext</a></td></tr>
         <tr>
     <th>Labels</th>
-    <td><span class="term-label" lang="en">context</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">Kontext</span> <span class="lang">[de]</span></td>
+    <td><span class="term-label" lang="en">has context</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat Kontext</span> <span class="lang">[de]</span></td>
   </tr>
 
         <tr>
@@ -11400,51 +11400,17 @@ PERFORMANCE OF THIS SOFTWARE.
       
     </table>
   </article>
-  <article id="hasParticipation" class="term">
-    <h3>has participation</h3>
+  <article id="hasParticipant" class="term">
+    <h3>has participant</h3>
     <div class="term-meta">
       <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-part:hasParticipation</span>
+      <span class="pill term-curie">conx-part:hasParticipant</span>
     </div>
     <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#hasParticipation">https://www.construct-x.org/ontology/participation#hasParticipation</a></td></tr>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#hasParticipant">https://www.construct-x.org/ontology/participation#hasParticipant</a></td></tr>
         <tr>
     <th>Labels</th>
-    <td><span class="term-label" lang="en">has participation</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat Beteiligung</span> <span class="lang">[de]</span></td>
-  </tr>
-
-        <tr>
-    <th>Comments</th>
-    <td><span data-toc-text="Comments" lang="en">Links a domain context to a participation instance, not directly to an agent. Optional navigation in the inverse direction of context.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Verknüpft einen fachlichen Kontext mit einer Beteiligungsinstanz, nicht unmittelbar mit einem Agenten. Optionale Navigation in Gegenrichtung zu context.</span> <span class="lang">[de]</span></td>
-  </tr>
-
-<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
-      
-      
-        <tr>
-    <th>Range</th>
-    <td><a href="https://www.construct-x.org/ontology/participation#Participation">Participation</a></td>
-  </tr>
-
-      
-        <tr>
-    <th>Inverse of</th>
-    <td><a href="https://www.construct-x.org/ontology/participation#context">context</a></td>
-  </tr>
-
-    </table>
-  </article>
-  <article id="participant" class="term">
-    <h3>participant</h3>
-    <div class="term-meta">
-      <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-part:participant</span>
-    </div>
-    <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#participant">https://www.construct-x.org/ontology/participation#participant</a></td></tr>
-        <tr>
-    <th>Labels</th>
-    <td><span class="term-label" lang="en">participant</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">beteiligter Agent</span> <span class="lang">[de]</span></td>
+    <td><span class="term-label" lang="en">has participant</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat beteiligten Agenten</span> <span class="lang">[de]</span></td>
   </tr>
 
         <tr>
@@ -11468,17 +11434,51 @@ PERFORMANCE OF THIS SOFTWARE.
       
     </table>
   </article>
-  <article id="role" class="term">
-    <h3>role</h3>
+  <article id="hasParticipation" class="term">
+    <h3>has participation</h3>
     <div class="term-meta">
       <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-part:role</span>
+      <span class="pill term-curie">conx-part:hasParticipation</span>
     </div>
     <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#role">https://www.construct-x.org/ontology/participation#role</a></td></tr>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#hasParticipation">https://www.construct-x.org/ontology/participation#hasParticipation</a></td></tr>
         <tr>
     <th>Labels</th>
-    <td><span class="term-label" lang="en">role</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">Rolle</span> <span class="lang">[de]</span></td>
+    <td><span class="term-label" lang="en">has participation</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat Beteiligung</span> <span class="lang">[de]</span></td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td><span data-toc-text="Comments" lang="en">Links a domain context to a participation instance, not directly to an agent. Optional navigation in the inverse direction of hasContext.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Verknüpft einen fachlichen Kontext mit einer Beteiligungsinstanz, nicht unmittelbar mit einem Agenten. Optionale Navigation in Gegenrichtung zu hasContext.</span> <span class="lang">[de]</span></td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+      
+        <tr>
+    <th>Range</th>
+    <td><a href="https://www.construct-x.org/ontology/participation#Participation">Participation</a></td>
+  </tr>
+
+      
+        <tr>
+    <th>Inverse of</th>
+    <td><a href="https://www.construct-x.org/ontology/participation#hasContext">has context</a></td>
+  </tr>
+
+    </table>
+  </article>
+  <article id="hasRole" class="term">
+    <h3>has role</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill term-curie">conx-part:hasRole</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/participation#hasRole">https://www.construct-x.org/ontology/participation#hasRole</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td><span class="term-label" lang="en">has role</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat Rolle</span> <span class="lang">[de]</span></td>
   </tr>
 
         <tr>
@@ -11584,7 +11584,7 @@ PERFORMANCE OF THIS SOFTWARE.
     <div class="wrap">Generated by OntoLens.</div>
   </footer>
   <script>
-    window.ontolensVisualization = {"counts": {"edges": 5, "nodes": 6}, "elements": {"edges": [{"data": {"edgeKind": "object-property", "href": "#context", "id": "context:https://www.construct-x.org/ontology/participation#Participation-\u003emissing-range:https://www.construct-x.org/ontology/participation#context", "label": "context", "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "missing-range:https://www.construct-x.org/ontology/participation#context"}}, {"data": {"edgeKind": "object-property", "href": "#hasParticipation", "id": "has participation:missing-domain:https://www.construct-x.org/ontology/participation#hasParticipation-\u003ehttps://www.construct-x.org/ontology/participation#Participation", "label": "has participation", "source": "missing-domain:https://www.construct-x.org/ontology/participation#hasParticipation", "target": "https://www.construct-x.org/ontology/participation#Participation"}}, {"data": {"edgeKind": "object-property", "href": "#participant", "id": "participant:https://www.construct-x.org/ontology/participation#Participation-\u003ehttps://www.construct-x.org/ontology/agent#Agent", "label": "participant", "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "https://www.construct-x.org/ontology/agent#Agent"}}, {"data": {"edgeKind": "object-property", "href": "#role", "id": "role:https://www.construct-x.org/ontology/participation#Participation-\u003ehttps://www.construct-x.org/ontology/participation#Role", "label": "role", "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "https://www.construct-x.org/ontology/participation#Role"}}, {"data": {"edgeKind": "datatype-property", "id": "2 datatype properties:https://www.construct-x.org/ontology/participation#Participation-\u003ehttp://www.w3.org/2001/XMLSchema#date", "label": "2 datatype properties", "properties": [{"curie": "conx-part:endDate", "href": "#endDate", "title": "end date"}, {"curie": "conx-part:startDate", "href": "#startDate", "title": "start date"}], "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "http://www.w3.org/2001/XMLSchema#date"}}], "nodes": [{"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-part:Participation", "href": "#Participation", "id": "https://www.construct-x.org/ontology/participation#Participation", "kind": "class", "label": "Participation", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-part:Role", "href": "#Role", "id": "https://www.construct-x.org/ontology/participation#Role", "kind": "class", "label": "Role", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#context", "id": "missing-range:https://www.construct-x.org/ontology/participation#context", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasParticipation", "id": "missing-domain:https://www.construct-x.org/ontology/participation#hasParticipation", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#2b4864", "color": "#3c648c", "curie": "conx-agent:Agent", "href": "https://www.construct-x.org/ontology/agent#Agent", "id": "https://www.construct-x.org/ontology/agent#Agent", "kind": "external-class", "label": "conx-agent:Agent", "ontology": "https://www.construct-x.org/ontology/agent#"}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:date", "href": null, "id": "http://www.w3.org/2001/XMLSchema#date", "kind": "literal", "label": "xsd:date", "ontology": ""}}]}, "ontologies": [{"border": "#0f4247", "color": "#155c63", "label": "conx-part", "uri": "https://www.construct-x.org/ontology/participation#"}, {"border": "#2b4864", "color": "#3c648c", "label": "conx-agent", "uri": "https://www.construct-x.org/ontology/agent#"}]};
+    window.ontolensVisualization = {"counts": {"edges": 5, "nodes": 6}, "elements": {"edges": [{"data": {"edgeKind": "object-property", "href": "#hasContext", "id": "has context:https://www.construct-x.org/ontology/participation#Participation-\u003emissing-range:https://www.construct-x.org/ontology/participation#hasContext", "label": "has context", "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "missing-range:https://www.construct-x.org/ontology/participation#hasContext"}}, {"data": {"edgeKind": "object-property", "href": "#hasParticipant", "id": "has participant:https://www.construct-x.org/ontology/participation#Participation-\u003ehttps://www.construct-x.org/ontology/agent#Agent", "label": "has participant", "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "https://www.construct-x.org/ontology/agent#Agent"}}, {"data": {"edgeKind": "object-property", "href": "#hasParticipation", "id": "has participation:missing-domain:https://www.construct-x.org/ontology/participation#hasParticipation-\u003ehttps://www.construct-x.org/ontology/participation#Participation", "label": "has participation", "source": "missing-domain:https://www.construct-x.org/ontology/participation#hasParticipation", "target": "https://www.construct-x.org/ontology/participation#Participation"}}, {"data": {"edgeKind": "object-property", "href": "#hasRole", "id": "has role:https://www.construct-x.org/ontology/participation#Participation-\u003ehttps://www.construct-x.org/ontology/participation#Role", "label": "has role", "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "https://www.construct-x.org/ontology/participation#Role"}}, {"data": {"edgeKind": "datatype-property", "id": "2 datatype properties:https://www.construct-x.org/ontology/participation#Participation-\u003ehttp://www.w3.org/2001/XMLSchema#date", "label": "2 datatype properties", "properties": [{"curie": "conx-part:endDate", "href": "#endDate", "title": "end date"}, {"curie": "conx-part:startDate", "href": "#startDate", "title": "start date"}], "source": "https://www.construct-x.org/ontology/participation#Participation", "target": "http://www.w3.org/2001/XMLSchema#date"}}], "nodes": [{"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-part:Participation", "href": "#Participation", "id": "https://www.construct-x.org/ontology/participation#Participation", "kind": "class", "label": "Participation", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-part:Role", "href": "#Role", "id": "https://www.construct-x.org/ontology/participation#Role", "kind": "class", "label": "Role", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasContext", "id": "missing-range:https://www.construct-x.org/ontology/participation#hasContext", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#2b4864", "color": "#3c648c", "curie": "conx-agent:Agent", "href": "https://www.construct-x.org/ontology/agent#Agent", "id": "https://www.construct-x.org/ontology/agent#Agent", "kind": "external-class", "label": "conx-agent:Agent", "ontology": "https://www.construct-x.org/ontology/agent#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasParticipation", "id": "missing-domain:https://www.construct-x.org/ontology/participation#hasParticipation", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/participation#"}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:date", "href": null, "id": "http://www.w3.org/2001/XMLSchema#date", "kind": "literal", "label": "xsd:date", "ontology": ""}}]}, "ontologies": [{"border": "#0f4247", "color": "#155c63", "label": "conx-part", "uri": "https://www.construct-x.org/ontology/participation#"}, {"border": "#2b4864", "color": "#3c648c", "label": "conx-agent", "uri": "https://www.construct-x.org/ontology/agent#"}]};
     (function () {
       const fallback = document.getElementById("visualization-fallback");
       const container = document.getElementById("ontology-graph");

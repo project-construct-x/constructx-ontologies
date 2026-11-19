@@ -1,8 +1,8 @@
 # Module Boundaries of the Participation Module
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** `core/participation`
 
 ## 1. Purpose
@@ -30,7 +30,7 @@ The statement may optionally be supplemented by the beginning and end of its val
 
 | Module or Artifact | Owns | Explicitly Does Not Own |
 | --- | --- | --- |
-| `core/participation` | `Participation`, `Role`, `participant`, `role`, `context`, `startDate`, `endDate` | Agent master data, context classes, activities, membership, provenance, permissions |
+| `core/participation` | `Participation`, `Role`, `hasParticipant`, `hasRole`, `hasContext`, `startDate`, `endDate` | Agent master data, context classes, activities, membership, provenance, permissions |
 | `core/agent` | Common class `Agent` | Specific roles and role assignments |
 | `core/person` | People and intrinsic personal data | General contextual Agent roles |
 | `core/organization` | Organizations, Organizational Units, `Membership`, legal representation | General process, contract, or document roles |
@@ -45,17 +45,17 @@ Participation is a separate domain relationship resource:
 
 | Resource | Property | Target |
 | --- | --- | --- |
-| `Participation` | `participant` | Agent |
-| `Participation` | `context` | Context |
-| `Participation` | `role` | Role |
+| `Participation` | `hasParticipant` | Agent |
+| `Participation` | `hasContext` | Context |
+| `Participation` | `hasRole` | Role |
 
-The properties point from the Participation to its three components. Since 0.2.0, `hasParticipation` provides the optional reverse direction from context to Participation instance. `owl:inverseOf context` describes the semantics; the offline SHACL contract still requires an explicit matching `context` back-reference. This creates neither a second role nor a second actor. `isParticipationOf` is not additionally introduced. Domain modules may define role-specific subproperties pointing to Participation, but must not attach contacts or numbers to the property itself.
+The properties point from the Participation to its three components. Since 0.2.0, `hasParticipation` provides the optional reverse direction from context to Participation instance. `owl:inverseOf hasContext` describes the semantics; the offline SHACL contract still requires an explicit matching `hasContext` back-reference. This creates neither a second role nor a second actor. `isParticipationOf` is not additionally introduced. Domain modules may define role-specific subproperties pointing to Participation, but must not attach contacts or numbers to the property itself.
 
 Role-specific properties such as `isContractorOf`, `hasSeller`, or `hasArchitect` are also not defined in the core. They would require a T-Box change for every new role value and move the role back into a property rather than a controlled value.
 
 ## 5. Boundary with Agent
 
-`participant` references exactly one `conx-agent:Agent`. The Participation module defines neither new Agent types nor a closed selection of Person and Organization.
+`hasParticipant` references exactly one `conx-agent:Agent`. The Participation module defines neither new Agent types nor a closed selection of Person and Organization.
 
 The following existing types can therefore be used today:
 
@@ -79,7 +79,7 @@ Possible contexts include:
 - a tender,
 - another domain-identified resource.
 
-The module defining the context resource also owns its properties, lifecycle, and validation rules. Use as `context` does not imply new typing of the resource.
+The module defining the context resource also owns its properties, lifecycle, and validation rules. Use as `hasContext` does not imply new typing of the resource.
 
 A domain profile may restrict context for its use case. For example, a document profile may require a particular document type without transferring this restriction to the general Participation Core Shape.
 
@@ -131,7 +131,7 @@ A domain module may:
 - require particular roles and context types,
 - formulate additional domain constraints on Participations.
 
-It may reuse the generic model without redefining `Participation`, `participant`, `role`, or `context`.
+It may reuse the generic model without redefining `Participation`, `hasParticipant`, `hasRole`, or `hasContext`.
 
 ## 11. Temporal Validity
 
@@ -149,7 +149,7 @@ Missing dates mean only that the respective boundary is unspecified. They imply 
 Exactly one Participation exists per Agent/role/context combination in domain terms:
 
 ```text
-(participant, role, context) -> one Participation
+(hasParticipant, hasRole, hasContext) -> one Participation
 ```
 
 Start and end dates do not belong to the uniqueness key. Two Participations with the same Agent, role value, and context therefore remain duplicates even if they have different dates. This consequence is part of the confirmed modeling decision.
@@ -177,9 +177,9 @@ Other modules may reference a Participation. This does not make their semantics 
 
 - `Participation`
 - `Role`
-- `participant`
-- `role`
-- `context`
+- `hasParticipant`
+- `hasRole`
+- `hasContext`
 - `startDate`
 - `endDate`
 
@@ -202,7 +202,7 @@ The T-Box contains neither a closed role enumeration nor strict OWL cardinalitie
 
 | Source or Module | MVP Classification |
 | --- | --- |
-| `core/agent` | Referenced because `participant` points to `conx-agent:Agent` |
+| `core/agent` | Referenced because `hasParticipant` points to `conx-agent:Agent` |
 | SKOS | Reused for `Role` and role vocabularies |
 | `participation-role` | Separately versioned reference dataset, not embedded in the T-Box |
 | Person, Organization, Document, and domain modules | No mandatory imports; used together in data and profiles |
@@ -212,7 +212,7 @@ Merely referencing external terms does not automatically create an `owl:imports`
 
 ## 16. Implementation Status of Module Boundaries
 
-The described module boundaries are implemented in version `0.2.0`:
+The described module boundaries are implemented in version `0.3.0`:
 
 1. The T-Box references `core/agent` and SKOS without adopting external domain semantics.
 2. The minimal role vocabulary is provided separately from the T-Box.

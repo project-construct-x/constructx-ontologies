@@ -7,18 +7,18 @@ ex:agent-a a conx-agent:Agent .
 
 ex:missing-participant
   a conx-part:Participation ;
-  conx-part:role part-role:ClientRole ;
-  conx-part:context ex:context-a ;
+  conx-part:hasRole part-role:ClientRole ;
+  conx-part:hasContext ex:context-a ;
 .
 
 ex:missing-role
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:context ex:context-b ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasContext ex:context-b ;
 .
 
 ex:missing-context
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:SupplierRole ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:SupplierRole ;
 .

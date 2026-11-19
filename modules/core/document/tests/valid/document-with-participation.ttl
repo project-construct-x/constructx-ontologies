@@ -18,9 +18,9 @@ ex:engineer
 
 ex:engineering-participation
   a conx-part:Participation ;
-  conx-part:participant ex:engineer ;
-  conx-part:role part-role:EngineerRole ;
-  conx-part:context ex:structural-plan ;
+  conx-part:hasParticipant ex:engineer ;
+  conx-part:hasRole part-role:EngineerRole ;
+  conx-part:hasContext ex:structural-plan ;
   conx-part:startDate "2026-08-01"^^xsd:date ;
   conx-part:endDate "2026-08-31"^^xsd:date ;
 .

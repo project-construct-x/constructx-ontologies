@@ -13,8 +13,8 @@
 
 <https://www.construct-x.org/ontology/participation>
   a owl:Ontology ;
-  dcterms:bibliographicCitation "Construct-X Participation Ontology, version 0.2.0"@en ;
-  dcterms:bibliographicCitation "Construct-X Participation-Ontologie, Version 0.2.0"@de ;
+  dcterms:bibliographicCitation "Construct-X Participation Ontology, version 0.3.0"@en ;
+  dcterms:bibliographicCitation "Construct-X Participation-Ontologie, Version 0.3.0"@de ;
   dcterms:contributor "Construction-X Arbeitspaket 3.4"@de ;
   dcterms:created "2026-08-27"^^xsd:date ;
   dcterms:creator [
@@ -30,7 +30,7 @@
   dcterms:description "Definiert eine allgemeine qualifizierte Zuordnung genau eines Agenten zu genau einer Rolle in genau einem fachlichen Kontext."@de ;
   dcterms:description "Defines a general qualified assignment of exactly one agent to exactly one role in exactly one domain context."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-10-07"^^xsd:date ;
+  dcterms:modified "2026-11-19"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:source <https://www.w3.org/TR/swbp-n-aryRelations/> ;
   dcterms:source <https://www.w3.org/TR/vocab-org/> ;
@@ -39,8 +39,8 @@
   dcterms:title "Construct-X Participation-Ontologie"@de ;
   vann:preferredNamespacePrefix "conx-part" ;
   vann:preferredNamespaceUri "https://www.construct-x.org/ontology/participation#" ;
-  owl:versionIRI <https://www.construct-x.org/ontology/participation/0.2.0> ;
-  owl:versionInfo "0.2.0" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/participation/0.3.0> ;
+  owl:versionInfo "0.3.0" ;
 .
 
 ## Classes
@@ -64,42 +64,42 @@ conx-part:Role
 
 ## Object properties
 
-conx-part:participant
+conx-part:hasParticipant
   a owl:ObjectProperty ;
   rdfs:comment "Bestimmt den Agenten, dessen Rolle durch die Participation beschrieben wird."@de ;
   rdfs:comment "Specifies the agent whose role is described by the Participation."@en ;
   rdfs:domain conx-part:Participation ;
-  rdfs:label "participant"@en ;
-  rdfs:label "beteiligter Agent"@de ;
+  rdfs:label "has participant"@en ;
+  rdfs:label "hat beteiligten Agenten"@de ;
   rdfs:range conx-agent:Agent ;
 .
 
-conx-part:role
+conx-part:hasRole
   a owl:ObjectProperty ;
   rdfs:comment "Bestimmt die genau eine kontrollierte Rolle des Agenten innerhalb der Participation."@de ;
   rdfs:comment "Specifies the single controlled role of the agent within the Participation."@en ;
   rdfs:domain conx-part:Participation ;
-  rdfs:label "role"@en ;
-  rdfs:label "Rolle"@de ;
+  rdfs:label "has role"@en ;
+  rdfs:label "hat Rolle"@de ;
   rdfs:range conx-part:Role ;
 .
 
-conx-part:context
+conx-part:hasContext
   a owl:ObjectProperty ;
   rdfs:comment "Bestimmt die fachliche Ressource, gegenueber der die Rollenzuordnung gilt. Der Kontexttyp bleibt bewusst offen."@de ;
   rdfs:comment "Specifies the domain resource in relation to which the role assignment applies. The context type deliberately remains open."@en ;
   rdfs:domain conx-part:Participation ;
-  rdfs:label "context"@en ;
-  rdfs:label "Kontext"@de ;
+  rdfs:label "has context"@en ;
+  rdfs:label "hat Kontext"@de ;
 .
 
 conx-part:hasParticipation
   a owl:ObjectProperty ;
   rdfs:label "hat Beteiligung"@de, "has participation"@en ;
-  rdfs:comment "Verknüpft einen fachlichen Kontext mit einer Beteiligungsinstanz, nicht unmittelbar mit einem Agenten. Optionale Navigation in Gegenrichtung zu context."@de ;
-  rdfs:comment "Links a domain context to a participation instance, not directly to an agent. Optional navigation in the inverse direction of context."@en ;
+  rdfs:comment "Verknüpft einen fachlichen Kontext mit einer Beteiligungsinstanz, nicht unmittelbar mit einem Agenten. Optionale Navigation in Gegenrichtung zu hasContext."@de ;
+  rdfs:comment "Links a domain context to a participation instance, not directly to an agent. Optional navigation in the inverse direction of hasContext."@en ;
   rdfs:range conx-part:Participation ;
-  owl:inverseOf conx-part:context ;
+  owl:inverseOf conx-part:hasContext ;
 .
 
 ## Datatype properties

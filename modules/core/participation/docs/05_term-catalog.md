@@ -1,8 +1,8 @@
 # Term Catalog for the Participation MVP
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** `core/participation`  
 **Implementation status:** Terms, initial roles, T-Box, and Core Shapes implemented
 
@@ -26,7 +26,7 @@ Foundations:
 
 ```text
 Ontology IRI: https://www.construct-x.org/ontology/participation
-Version IRI:  https://www.construct-x.org/ontology/participation/0.2.0
+Version IRI:  https://www.construct-x.org/ontology/participation/0.3.0
 Namespace:    https://www.construct-x.org/ontology/participation#
 Prefix:       conx-part
 ```
@@ -40,7 +40,7 @@ Namespace:      https://www.construct-x.org/vocab/participation-role#
 Prefix:         part-role
 ```
 
-The IRIs are established by module and dataset metadata and machine-readable artifacts: T-Box/Core Shapes 0.2.0, role vocabulary 0.1.0.
+The IRIs are established by module and dataset metadata and machine-readable artifacts: T-Box/Core Shapes 0.3.0, role vocabulary 0.1.0.
 
 Reused namespaces:
 
@@ -78,14 +78,14 @@ xsd:        http://www.w3.org/2001/XMLSchema#
 
 | Property | Domain | Range | Core SHACL |
 | --- | --- | --- | --- |
-| `conx-part:participant` | `Participation` | `conx-agent:Agent` | Exactly `1` |
-| `conx-part:role` | `Participation` | `Role` | Exactly `1` |
-| `conx-part:context` | `Participation` | Open typing | Exactly `1` |
-| `conx-part:hasParticipation` | Open context | `Participation` | `0..*`, matching explicit `context` back-reference |
+| `conx-part:hasParticipant` | `Participation` | `conx-agent:Agent` | Exactly `1` |
+| `conx-part:hasRole` | `Participation` | `Role` | Exactly `1` |
+| `conx-part:hasContext` | `Participation` | Open typing | Exactly `1` |
+| `conx-part:hasParticipation` | Open context | `Participation` | `0..*`, matching explicit `hasContext` back-reference |
 | `conx-part:startDate` | `Participation` | `xsd:date` | `0..1` |
 | `conx-part:endDate` | `Participation` | `xsd:date` | `0..1` |
 
-`hasParticipation` is the only new inverse property, inverse to `context` rather than `participant`. It is optional; the three core relationships remain explicit. Domain modules may define role-specific subproperties.
+`hasParticipation` is the only new inverse property, inverse to `hasContext` rather than `hasParticipant`. It is optional; the three core relationships remain explicit. Domain modules may define role-specific subproperties.
 
 ## 5. Classes
 
@@ -97,9 +97,9 @@ xsd:        http://www.w3.org/2001/XMLSchema#
 | English label | Participation |
 | Definition | Assignment that currently holds or held historically, linking exactly one Agent to exactly one role in exactly one domain context |
 | Superclass | No local superclass |
-| Core requirements | Exactly one `participant`, exactly one `role`, exactly one `context` |
+| Core requirements | Exactly one `hasParticipant`, exactly one `hasRole`, exactly one `hasContext` |
 | Optional information | At most one `startDate` and one `endDate` |
-| Uniqueness | The combination of `participant`, `role`, and `context` is unique in domain terms |
+| Uniqueness | The combination of `hasParticipant`, `hasRole`, and `hasContext` is unique in domain terms |
 | Primary sources | W3C N-ary Relations, W3C ORG Membership, ePO AgentInRole, IFC RelAssignsToActor |
 | Alignment | No class alignment in the MVP |
 | Exclusions | Planned role, activity participation, provenance, authorization, power of attorney, and unqualified involvement |
@@ -109,9 +109,9 @@ Conceptual example:
 ```turtle
 ex:participation-1
     a conx-part:Participation ;
-    conx-part:participant ex:bauunternehmen-a ;
-    conx-part:role part-role:ContractorRole ;
-    conx-part:context ex:contract-4711 ;
+    conx-part:hasParticipant ex:bauunternehmen-a ;
+    conx-part:hasRole part-role:ContractorRole ;
+    conx-part:hasContext ex:contract-4711 ;
     conx-part:startDate "2026-01-15"^^xsd:date .
 ```
 
@@ -135,7 +135,7 @@ The instance asserts an effective role assignment. It does not assert that the c
 
 ## 6. Properties
 
-### 6.1 `conx-part:participant`
+### 6.1 `conx-part:hasParticipant`
 
 | Item | Specification |
 | --- | --- |
@@ -148,7 +148,7 @@ The instance asserts an effective role assignment. It does not assert that the c
 
 A Participation must not group multiple people or organizations. Multiple Agents in the same role and context receive separate Participation instances.
 
-### 6.2 `conx-part:role`
+### 6.2 `conx-part:hasRole`
 
 | Item | Specification |
 | --- | --- |
@@ -160,7 +160,7 @@ A Participation must not group multiple people or organizations. Multiple Agents
 
 A Participation without a role value is invalid. If the same Agent holds multiple roles in the same context, a separate Participation is used for each role.
 
-### 6.3 `conx-part:context`
+### 6.3 `conx-part:hasContext`
 
 | Item | Specification |
 | --- | --- |
@@ -170,7 +170,7 @@ A Participation without a role value is invalid. If the same Agent holds multipl
 | Core SHACL | Exactly one resource value |
 | Source | W3C pattern for n-ary relationships, ePO `contextualisedBy`, SPAR PRO `relatesToEntity` |
 
-Possible context resources include a contract, project, document, delivery note, product, or asset. The Participation module infers no local context type from the use of `context`.
+Possible context resources include a contract, project, document, delivery note, product, or asset. The Participation module infers no local context type from the use of `hasContext`.
 
 ### 6.4 `conx-part:startDate`
 
@@ -201,9 +201,9 @@ Absence of an end date means only that no end is specified. Unlimited or permane
 
 ### 6.6 `conx-part:hasParticipation`
 
-Links any context to a Participation IRI. No restrictive domain; range Participation; `0..*`. Inverse to `context`.
+Links any context to a Participation IRI. No restrictive domain; range Participation; `0..*`. Inverse to `hasContext`.
 
-The value must be a complete Participation; its `context` statement must refer back to the source object. This is not an inverse Agent relationship.
+The value must be a complete Participation; its `hasContext` statement must refer back to the source object. This is not an inverse Agent relationship.
 
 ## 7. Minimal Role Vocabulary
 
@@ -244,15 +244,15 @@ The existing LocationRole vocabulary uses the same technical principle: a local 
 ```turtle
 ex:participation-a
     a conx-part:Participation ;
-    conx-part:participant ex:organization-a ;
-    conx-part:role part-role:EngineerRole ;
-    conx-part:context ex:project-x .
+    conx-part:hasParticipant ex:organization-a ;
+    conx-part:hasRole part-role:EngineerRole ;
+    conx-part:hasContext ex:project-x .
 
 ex:participation-b
     a conx-part:Participation ;
-    conx-part:participant ex:organization-b ;
-    conx-part:role part-role:EngineerRole ;
-    conx-part:context ex:project-x .
+    conx-part:hasParticipant ex:organization-b ;
+    conx-part:hasRole part-role:EngineerRole ;
+    conx-part:hasContext ex:project-x .
 ```
 
 ### 8.2 Multiple Roles of the Same Agent
@@ -260,15 +260,15 @@ ex:participation-b
 ```turtle
 ex:participation-c
     a conx-part:Participation ;
-    conx-part:participant ex:organization-a ;
-    conx-part:role part-role:ContractorRole ;
-    conx-part:context ex:project-x .
+    conx-part:hasParticipant ex:organization-a ;
+    conx-part:hasRole part-role:ContractorRole ;
+    conx-part:hasContext ex:project-x .
 
 ex:participation-d
     a conx-part:Participation ;
-    conx-part:participant ex:organization-a ;
-    conx-part:role part-role:SupplierRole ;
-    conx-part:context ex:project-x .
+    conx-part:hasParticipant ex:organization-a ;
+    conx-part:hasRole part-role:SupplierRole ;
+    conx-part:hasContext ex:project-x .
 ```
 
 The Agent/role/context combination must not be duplicated by a second Participation. This uniqueness is implemented as a SHACL-SPARQL constraint rather than an `owl:hasKey` axiom.
@@ -283,7 +283,7 @@ The Agent/role/context combination must not be duplicated by a second Participat
 | `ActivityParticipation` | Activities and events belong in a future ontology |
 | `ParticipationStatus` | A Participation asserts an assignment that currently holds or held historically |
 | `ParticipationEvidence` | Evidence is outside this module |
-| `isParticipationOf` | Unnecessary alongside `context` and its optional reverse direction `hasParticipation` |
+| `isParticipationOf` | Unnecessary alongside `hasContext` and its optional reverse direction `hasParticipation` |
 | `isSellerOf` and comparable properties | Roles remain individuals; no property per role value |
 | Local time interval | Simple optional dates suffice for the MVP |
 | External alignment axioms | Assessed only for specific needs in separate alignment modules |
@@ -292,9 +292,9 @@ The Agent/role/context combination must not be duplicated by a second Participat
 
 A `Participation` instance is valid in the implemented core profile if:
 
-1. exactly one `participant` is present and typed as `conx-agent:Agent`,
-2. exactly one `role` is present and typed as `conx-part:Role`,
-3. exactly one `context` is present as an RDF resource,
+1. exactly one `hasParticipant` is present and typed as `conx-agent:Agent`,
+2. exactly one `hasRole` is present and typed as `conx-part:Role`,
+3. exactly one `hasContext` is present as an RDF resource,
 4. `startDate` and `endDate` each occur at most once as `xsd:date`,
 5. a supplied `endDate` does not precede a supplied `startDate`,
 6. no second Participation describes the same Agent/role/context combination.
@@ -305,14 +305,16 @@ Whether a domain profile permits only values from a particular role Concept Sche
 
 On 27 August 2026, the following were confirmed for further specification:
 
-1. the property names `participant`, `role`, `context`, `startDate`, and `endDate`,
+1. the three required relationships and the optional `startDate` and `endDate` properties,
 2. the namespace and prefix `conx-part`,
 3. the IRI and prefix `participation-role` and `part-role`,
 4. the five initial roles and their definitions in Section 7.1,
 5. derivation of further roles from their respective domain modules.
 
+Version 0.3.0 names the three relationships `hasParticipant`, `hasRole`, and `hasContext` in line with the network naming conventions.
+
 The interaction of these concepts is illustrated in the [Conceptual Model](03_concept-model.md), [Participation Diagrams](diagrams/participation-concept-model.md), and [Module Boundaries](04_module-boundaries.md). The executable validation contract is specified in the [SHACL Requirements](06_shacl-requirements.md) and implemented in the [Core Shapes](07_core-shapes.md).
 
 ## 12. Illustrative Example
 
-> `participant` identifies Anna, `role` identifies the Architect role, and `context` identifies the construction project. Only the combination of all three properties forms the complete domain statement.
+> `hasParticipant` identifies Anna, `hasRole` identifies the Architect role, and `hasContext` identifies the construction project. Only the combination of all three properties forms the complete domain statement.

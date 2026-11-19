@@ -7,7 +7,7 @@ ex:agent-a a conx-agent:Agent .
 
 ex:blank-context-participation
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ClientRole ;
-  conx-part:context [ ex:localContextCode "A-17" ] ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ClientRole ;
+  conx-part:hasContext [ ex:localContextCode "A-17" ] ;
 .

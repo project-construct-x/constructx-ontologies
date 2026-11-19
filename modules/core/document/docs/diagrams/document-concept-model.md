@@ -115,9 +115,9 @@ flowchart LR
     AgentA --> Issuer
     AgentB --> Recipient
     PersonX --> Author
-    Issuer -->|"context"| Document
-    Recipient -->|"context"| Document
-    Author -->|"context"| Document
+    Issuer -->|"hasContext"| Document
+    Recipient -->|"hasContext"| Document
+    Author -->|"hasContext"| Document
 
     NoProps["No direct Document properties for issuer, sender, receiver, author, or publisher."]
     NoProps -.-> Document

@@ -12,7 +12,7 @@ ex:ExampleDocumentRole
 
 ex:external-role-participation
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role ex:ExampleDocumentRole ;
-  conx-part:context ex:document-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole ex:ExampleDocumentRole ;
+  conx-part:hasContext ex:document-a ;
 .

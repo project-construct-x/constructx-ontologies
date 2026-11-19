@@ -1,17 +1,17 @@
 # Concept Diagram of the Participation Module
 
 **Status:** Implemented Documentation View  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** `core/participation`
 
 ## 1. Core Model
 
 ```mermaid
 flowchart LR
-    Participation[Participation] -->|participant| Agent[Agent]
-    Participation -->|role| Role[Role]
-    Participation -->|context| Context[Domain resource]
+    Participation[Participation] -->|hasParticipant| Agent[Agent]
+    Participation -->|hasRole| Role[Role]
+    Participation -->|hasContext| Context[Domain resource]
     Context -->|"hasParticipation 0..*"| Participation
     Participation -.->|"startDate / endDate"| Period[Temporal validity]
 ```

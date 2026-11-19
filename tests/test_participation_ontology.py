@@ -33,9 +33,9 @@ def test_participation_tbox_contains_exactly_the_approved_terms() -> None:
         CONX_PART.Role,
     }
     assert local_terms_of_type(graph, OWL.ObjectProperty) == {
-        CONX_PART.participant,
-        CONX_PART.role,
-        CONX_PART.context,
+        CONX_PART.hasParticipant,
+        CONX_PART.hasRole,
+        CONX_PART.hasContext,
         CONX_PART.hasParticipation,
     }
     assert local_terms_of_type(graph, OWL.DatatypeProperty) == {
@@ -52,12 +52,12 @@ def test_participation_class_and_property_contracts_match_the_model() -> None:
     assert (CONX_PART.Participant, RDF.type, OWL.Class) not in graph
     assert (CONX_PART.Context, RDF.type, OWL.Class) not in graph
 
-    assert (CONX_PART.participant, RDFS.domain, CONX_PART.Participation) in graph
-    assert (CONX_PART.participant, RDFS.range, CONX_AGENT.Agent) in graph
-    assert (CONX_PART.role, RDFS.domain, CONX_PART.Participation) in graph
-    assert (CONX_PART.role, RDFS.range, CONX_PART.Role) in graph
-    assert (CONX_PART.context, RDFS.domain, CONX_PART.Participation) in graph
-    assert not list(graph.objects(CONX_PART.context, RDFS.range))
+    assert (CONX_PART.hasParticipant, RDFS.domain, CONX_PART.Participation) in graph
+    assert (CONX_PART.hasParticipant, RDFS.range, CONX_AGENT.Agent) in graph
+    assert (CONX_PART.hasRole, RDFS.domain, CONX_PART.Participation) in graph
+    assert (CONX_PART.hasRole, RDFS.range, CONX_PART.Role) in graph
+    assert (CONX_PART.hasContext, RDFS.domain, CONX_PART.Participation) in graph
+    assert not list(graph.objects(CONX_PART.hasContext, RDFS.range))
 
     for property_iri in (CONX_PART.startDate, CONX_PART.endDate):
         assert (property_iri, RDFS.domain, CONX_PART.Participation) in graph
@@ -70,7 +70,7 @@ def test_participation_tbox_keeps_validation_and_deferred_terms_outside_owl() ->
     assert not list(graph.objects(ONTOLOGY_IRI, OWL.imports))
     assert not set(graph.subjects(RDF.type, OWL.Restriction))
     assert set(graph.triples((None, OWL.inverseOf, None))) == {
-        (CONX_PART.hasParticipation, OWL.inverseOf, CONX_PART.context)
+        (CONX_PART.hasParticipation, OWL.inverseOf, CONX_PART.hasContext)
     }
     assert (CONX_PART.hasParticipation, RDFS.range, CONX_PART.Participation) in graph
     assert not list(graph.objects(CONX_PART.hasParticipation, RDFS.domain))
@@ -91,9 +91,9 @@ def test_participation_module_metadata_matches_the_implementation() -> None:
 
     assert metadata["id"] == "participation"
     assert metadata["type"] == "core"
-    assert metadata["version"] == "0.2.0"
+    assert metadata["version"] == "0.3.0"
     assert metadata["ontology_iri"] == str(ONTOLOGY_IRI)
-    assert metadata["version_iri"] == f"{ONTOLOGY_IRI}/0.2.0"
+    assert metadata["version_iri"] == f"{ONTOLOGY_IRI}/0.3.0"
     assert metadata["namespace"] == str(CONX_PART)
     assert metadata["preferred_namespace_prefix"] == "conx-part"
     assert metadata["artifacts"]["ontology"] == "ontology/conx-part.ttl"
@@ -101,9 +101,9 @@ def test_participation_module_metadata_matches_the_implementation() -> None:
     assert metadata["artifacts"]["strict_shapes"] is None
     assert metadata["shape_sets"]["core"] == {
         "graph_iri": "https://www.construct-x.org/shapes/participation/core",
-        "version_iri": "https://www.construct-x.org/shapes/participation/core/0.2.0",
+        "version_iri": "https://www.construct-x.org/shapes/participation/core/0.3.0",
         "namespace": "https://www.construct-x.org/shapes/participation/core#",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "artifact": "shapes/conx-part-core.shacl.ttl",
     }
 

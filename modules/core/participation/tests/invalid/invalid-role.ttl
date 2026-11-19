@@ -9,21 +9,21 @@ ex:not-a-role a skos:Concept .
 
 ex:multiple-roles
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ClientRole, part-role:ContractorRole ;
-  conx-part:context ex:context-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ClientRole, part-role:ContractorRole ;
+  conx-part:hasContext ex:context-a ;
 .
 
 ex:literal-role
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role "Supplier" ;
-  conx-part:context ex:context-b ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole "Supplier" ;
+  conx-part:hasContext ex:context-b ;
 .
 
 ex:skos-only-role
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role ex:not-a-role ;
-  conx-part:context ex:context-c ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole ex:not-a-role ;
+  conx-part:hasContext ex:context-c ;
 .

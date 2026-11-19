@@ -552,7 +552,7 @@ Repository:    modules/core/address/ontology/conx-addr.ttl
 ```text
 Ontology IRI:  https://www.construct-x.org/ontology/participation
 Namespace:     https://www.construct-x.org/ontology/participation#
-Version IRI:   https://www.construct-x.org/ontology/participation/0.2.0
+Version IRI:   https://www.construct-x.org/ontology/participation/0.3.0
 Prefix:        conx-part
 Repository:    modules/core/participation/ontology/conx-part.ttl
 ```

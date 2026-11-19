@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 - 2026-11-19
+
+- Rename `participant`, `role`, and `context` to `hasParticipant`, `hasRole`, and `hasContext`. Migrate these predicates in RDF data and queries. `hasParticipation` is now the inverse of `hasContext`.
+
 ## 0.2.0 - 2026-10-07
 
 - Added the optional context-side `hasParticipation` property as `owl:inverseOf context`; no role-specific Core properties were introduced.

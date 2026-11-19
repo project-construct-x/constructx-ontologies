@@ -1,8 +1,8 @@
 # Participation Core Module Documentation
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** `core/participation`
 
 ## 1. Overview

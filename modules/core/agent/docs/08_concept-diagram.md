@@ -12,7 +12,7 @@ flowchart TB
     Agent[Agent]
     Person[Person] -->|is a| Agent
     Organization[Organization] -->|is an| Agent
-    Participation[Participation] -->|participant| Agent
+    Participation[Participation] -->|hasParticipant| Agent
 ```
 
 ## 2. Illustrative Example

@@ -6,6 +6,6 @@
 # Wrong target and a participation belonging to a different context.
 ex:contract part:hasParticipation ex:supplier, ex:participation .
 ex:participation a part:Participation ;
-    part:participant ex:supplier ; part:role role:SupplierRole ;
-    part:context ex:other-contract .
+    part:hasParticipant ex:supplier ; part:hasRole role:SupplierRole ;
+    part:hasContext ex:other-contract .
 ex:supplier a agent:Agent .

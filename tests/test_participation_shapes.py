@@ -102,10 +102,10 @@ def test_participation_shape_graph_has_consistent_version_metadata() -> None:
 
     assert (SHAPE_GRAPH_IRI, RDF.type, OWL.Ontology) in graph
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionIRI)) == [
-        URIRef("https://www.construct-x.org/shapes/participation/core/0.2.0")
+        URIRef("https://www.construct-x.org/shapes/participation/core/0.3.0")
     ]
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionInfo)) == [
-        Literal("0.2.0")
+        Literal("0.3.0")
     ]
 
 
@@ -114,9 +114,9 @@ def test_participation_shape_targets_every_local_property() -> None:
     targets = set(graph.objects(CONX_PART_SH.ParticipationShape, SH.targetSubjectsOf))
 
     assert targets == {
-        CONX_PART.participant,
-        CONX_PART.role,
-        CONX_PART.context,
+        CONX_PART.hasParticipant,
+        CONX_PART.hasRole,
+        CONX_PART.hasContext,
         CONX_PART.startDate,
         CONX_PART.endDate,
     }

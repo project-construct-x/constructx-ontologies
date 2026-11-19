@@ -1,8 +1,8 @@
 # Domain-Specific SHACL Requirements for the Participation MVP
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 7 October 2026  
+**Version:** 0.3.0  
+**As of:** 19 November 2026  
 **Scope:** Participation Core Shapes
 
 ## 1. Purpose
@@ -15,7 +15,7 @@ The executable implementation is located at:
 modules/core/participation/shapes/conx-part-core.shacl.ttl
 ```
 
-The T-Box, shape graph, role vocabulary, and test data implement these requirements in version `0.2.0`.
+The T-Box, shape graph, role vocabulary, and test data implement these requirements in version `0.3.0`.
 
 Foundations:
 
@@ -31,13 +31,13 @@ Foundations:
 ```text
 Shape graph: modules/core/participation/shapes/conx-part-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/participation/core
-Version IRI: https://www.construct-x.org/shapes/participation/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/participation/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/participation/core#
 Prefix:      conx-part-sh
-Version:     0.2.0
+Version:     0.3.0
 ```
 
-These values are established in the shape graph and `module.yaml` for version `0.2.0`.
+These values are established in the shape graph and `module.yaml` for version `0.3.0`.
 
 ## 3. Validation Principles
 
@@ -55,7 +55,7 @@ These values are established in the shape graph and `module.yaml` for version `0
 
 Every resource used as a Participation or carrying a local Participation property must be explicitly typed as `conx-part:Participation`.
 
-The value of `participant` must be typed as `conx-agent:Agent` or a known subclass of `Agent`, such as `conx-person:Person` or `conx-org:Organization`. Typing derived solely from a property domain is insufficient.
+The value of `hasParticipant` must be typed as `conx-agent:Agent` or a known subclass of `Agent`, such as `conx-person:Person` or `conx-org:Organization`. Typing derived solely from a property domain is insufficient.
 
 Every role value must explicitly be a `conx-part:Role`. Typing solely as `skos:Concept` is insufficient because not every SKOS concept denotes an Agent role.
 
@@ -66,9 +66,9 @@ The context requires no Participation-specific type.
 | Resource | Core Requirement | Rationale |
 | --- | --- | --- |
 | `Participation` | IRI | Separate, referenceable relationship resource with a domain identity |
-| `participant` | IRI | Agents are referenced as domain-identifiable resources |
-| `role` | IRI | Roles are stable controlled vocabulary values |
-| `context` | IRI or blank node | Context typing remains open and follows the owning domain module |
+| `hasParticipant` | IRI | Agents are referenced as domain-identifiable resources |
+| `hasRole` | IRI | Roles are stable controlled vocabulary values |
+| `hasContext` | IRI or blank node | Context typing remains open and follows the owning domain module |
 
 Literals are excluded from all three core relationships. Blank nodes for Participation, Agent, or role are not permitted in the core profile. A future domain profile may require an IRI for context.
 
@@ -117,7 +117,7 @@ The identifier appears in square brackets in both messages, for example `[PART-0
 | Uniqueness | One Participation per Agent/role/context combination |
 | Role Scheme | Not closed in the open core |
 | Additional properties | Permitted |
-| Inverse relationships | `hasParticipation` optional; valid Participation and identical explicit `context` required |
+| Inverse relationships | `hasParticipation` optional; valid Participation and identical explicit `hasContext` required |
 
 Start and end dates are not part of the uniqueness key. Different dates therefore do not justify a second Participation with the same Agent/role/context combination.
 
@@ -125,13 +125,13 @@ Start and end dates are not part of the uniqueness key. Different dates therefor
 
 | Shape IRI | Type | Target or Usage | Purpose |
 | --- | --- | --- | --- |
-| `conx-part-sh:HasParticipationShape` | Node Shape | Subjects of `hasParticipation` | Valid Participation IRI and matching `context` back-reference |
+| `conx-part-sh:HasParticipationShape` | Node Shape | Subjects of `hasParticipation` | Valid Participation IRI and matching `hasContext` back-reference |
 | `conx-part-sh:ParticipationShape` | Node Shape | Participation class instances and subjects of local Participation properties | Complete role-assignment contract |
 | `conx-part-sh:ParticipationIriShape` | Reusable Node Shape | Referenced by `ParticipationShape` | Requires an IRI |
 | `conx-part-sh:ExplicitParticipationTypeShape` | Reusable Node Shape | Referenced by `ParticipationShape` | Requires the explicit local type |
-| `conx-part-sh:AgentReferenceShape` | Reusable Node Shape | Value of `participant` | Checks IRI and Agent type |
-| `conx-part-sh:RoleReferenceShape` | Reusable Node Shape | Value of `role` | Checks IRI and explicit Role type |
-| `conx-part-sh:ContextReferenceShape` | Reusable Node Shape | Value of `context` | Permits IRI or blank node |
+| `conx-part-sh:AgentReferenceShape` | Reusable Node Shape | Value of `hasParticipant` | Checks IRI and Agent type |
+| `conx-part-sh:RoleReferenceShape` | Reusable Node Shape | Value of `hasRole` | Checks IRI and explicit Role type |
+| `conx-part-sh:ContextReferenceShape` | Reusable Node Shape | Value of `hasContext` | Permits IRI or blank node |
 
 The helper shapes have no global targets. They are invoked only by the named Property Shapes or Node Shapes.
 
@@ -140,15 +140,15 @@ The helper shapes have no global targets. They are invoked only by the named Pro
 `conx-part-sh:ParticipationShape` has the following targets:
 
 - `sh:targetClass conx-part:Participation`,
-- `sh:targetSubjectsOf conx-part:participant`,
-- `sh:targetSubjectsOf conx-part:role`,
-- `sh:targetSubjectsOf conx-part:context`,
+- `sh:targetSubjectsOf conx-part:hasParticipant`,
+- `sh:targetSubjectsOf conx-part:hasRole`,
+- `sh:targetSubjectsOf conx-part:hasContext`,
 - `sh:targetSubjectsOf conx-part:startDate`,
 - `sh:targetSubjectsOf conx-part:endDate`.
 
-This also captures untyped resources as soon as they use a local Participation property. A data holder cannot bypass the type requirement by supplying only `participant`, `role`, and `context`.
+This also captures untyped resources as soon as they use a local Participation property. A data holder cannot bypass the type requirement by supplying only `hasParticipant`, `hasRole`, and `hasContext`.
 
-Values of `participant`, `role`, or `context` are not themselves targeted as Participation.
+Values of `hasParticipant`, `hasRole`, or `hasContext` are not themselves targeted as Participation.
 
 ## 8. Node Constraints
 
@@ -163,10 +163,10 @@ Values of `participant`, `role`, or `context` are not themselves targeted as Par
 
 | ID | Property | Constraint | SHACL Requirement |
 | --- | --- | --- | --- |
-| `PART-010` | `participant` | Minimum cardinality | At least one value |
-| `PART-011` | `participant` | Maximum cardinality | At most one value |
-| `PART-012` | `participant` | Resource form | Value must be an IRI |
-| `PART-013` | `participant` | Agent type | Value must be a `conx-agent:Agent` or an instance of a known subclass |
+| `PART-010` | `hasParticipant` | Minimum cardinality | At least one value |
+| `PART-011` | `hasParticipant` | Maximum cardinality | At most one value |
+| `PART-012` | `hasParticipant` | Resource form | Value must be an IRI |
+| `PART-013` | `hasParticipant` | Agent type | Value must be a `conx-agent:Agent` or an instance of a known subclass |
 
 Together, `PART-010` and `PART-011` require exactly one Agent. An Agent may occur in multiple Participations provided the role or context differs.
 
@@ -176,10 +176,10 @@ The Participation Shape checks no names, identifiers, addresses, or contact info
 
 | ID | Property | Constraint | SHACL Requirement |
 | --- | --- | --- | --- |
-| `PART-020` | `role` | Minimum cardinality | At least one value |
-| `PART-021` | `role` | Maximum cardinality | At most one value |
-| `PART-022` | `role` | Resource form | Value must be an IRI |
-| `PART-023` | `role` | Role type | Value must explicitly be `conx-part:Role` |
+| `PART-020` | `hasRole` | Minimum cardinality | At least one value |
+| `PART-021` | `hasRole` | Maximum cardinality | At most one value |
+| `PART-022` | `hasRole` | Resource form | Value must be an IRI |
+| `PART-023` | `hasRole` | Role type | Value must explicitly be `conx-part:Role` |
 
 A Participation without a role is invalid. If an Agent has two roles in the same context, two Participations are created.
 
@@ -189,9 +189,9 @@ A Participation without a role is invalid. If an Agent has two roles in the same
 
 | ID | Property | Constraint | SHACL Requirement |
 | --- | --- | --- | --- |
-| `PART-030` | `context` | Minimum cardinality | At least one value |
-| `PART-031` | `context` | Maximum cardinality | At most one value |
-| `PART-032` | `context` | Resource form | Value must be an IRI or blank node |
+| `PART-030` | `hasContext` | Minimum cardinality | At least one value |
+| `PART-031` | `hasContext` | Maximum cardinality | At most one value |
+| `PART-032` | `hasContext` | Resource form | Value must be an IRI or blank node |
 
 The core requires no particular context type. In particular, no `conx-part:Context` is introduced or assumed. Literals are unsuitable as contexts because they do not represent domain resources that can be described.
 
@@ -199,8 +199,8 @@ The core requires no particular context type. In particular, no `conx-part:Conte
 
 | ID | Property | Constraint | SHACL Requirement |
 | --- | --- | --- | --- |
-| `PART-060` | `hasParticipation` | Target contract | Complete Participation IRI, including `participant`, `role`, and `context` |
-| `PART-061` | `hasParticipation` / `context` | Context equality | Target Participation must explicitly identify the source object as its `context` |
+| `PART-060` | `hasParticipation` | Target contract | Complete Participation IRI, including `hasParticipant`, `hasRole`, and `hasContext` |
+| `PART-061` | `hasParticipation` / `hasContext` | Context equality | Target Participation must explicitly identify the source object as its `hasContext` |
 
 No `sh:minCount` is imposed: existing data without a forward edge remains valid. The check requires no OWL inference. SHACL does not automatically generate forward edges.
 
@@ -232,7 +232,7 @@ The shapes do not check whether the Participation currently applies on the valid
 
 | ID | Focus | Constraint | SHACL Requirement |
 | --- | --- | --- | --- |
-| `PART-050` | Participation | Tuple uniqueness | No other Participation may have the same `participant`, `role`, and `context` |
+| `PART-050` | Participation | Tuple uniqueness | No other Participation may have the same `hasParticipant`, `hasRole`, and `hasContext` |
 
 SHACL Core has no general component for a composite key. `PART-050` is therefore implemented as a local `sh:SPARQLConstraint`.
 
@@ -276,9 +276,9 @@ ex:contractor-role
 
 ex:participation-a
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:role ex:contractor-role ;
-    conx-part:context ex:contract-x .
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasRole ex:contractor-role ;
+    conx-part:hasContext ex:contract-x .
 ```
 
 ### 15.2 Participation with Validity Dates
@@ -286,9 +286,9 @@ ex:participation-a
 ```turtle
 ex:participation-b
     a conx-part:Participation ;
-    conx-part:participant ex:agent-b ;
-    conx-part:role part-role:EngineerRole ;
-    conx-part:context ex:project-x ;
+    conx-part:hasParticipant ex:agent-b ;
+    conx-part:hasRole part-role:EngineerRole ;
+    conx-part:hasContext ex:project-x ;
     conx-part:startDate "2026-01-15"^^xsd:date ;
     conx-part:endDate "2026-12-31"^^xsd:date .
 ```
@@ -304,9 +304,9 @@ domain-role:ExampleDocumentRole
 
 ex:participation-c
     a conx-part:Participation ;
-    conx-part:participant ex:agent-c ;
-    conx-part:role domain-role:ExampleDocumentRole ;
-    conx-part:context ex:document-x .
+    conx-part:hasParticipant ex:agent-c ;
+    conx-part:hasRole domain-role:ExampleDocumentRole ;
+    conx-part:hasContext ex:document-x .
 ```
 
 The example remains valid in the open core even though the role does not belong to the minimal `participation-role` Scheme.
@@ -316,9 +316,9 @@ The example remains valid in the open core even though the role does not belong 
 ```turtle
 ex:participation-d
     a conx-part:Participation ;
-    conx-part:participant ex:agent-d ;
-    conx-part:role part-role:SupplierRole ;
-    conx-part:context [ ex:localContextCode "A-17" ] .
+    conx-part:hasParticipant ex:agent-d ;
+    conx-part:hasRole part-role:SupplierRole ;
+    conx-part:hasContext [ ex:localContextCode "A-17" ] .
 ```
 
 The Core Shape assesses only the context's resource form. A domain profile may require an IRI or a specific context type.
@@ -330,8 +330,8 @@ The Core Shape assesses only the context's resource form. A domain profile may r
 ```turtle
 ex:invalid-a
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:context ex:contract-x .
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasContext ex:contract-x .
 ```
 
 Expected violation: `PART-020`.
@@ -341,9 +341,9 @@ Expected violation: `PART-020`.
 ```turtle
 ex:invalid-b
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a, ex:agent-b ;
-    conx-part:role part-role:ContractorRole ;
-    conx-part:context ex:contract-x .
+    conx-part:hasParticipant ex:agent-a, ex:agent-b ;
+    conx-part:hasRole part-role:ContractorRole ;
+    conx-part:hasContext ex:contract-x .
 ```
 
 Expected violation: `PART-011`.
@@ -356,9 +356,9 @@ ex:not-a-role
 
 ex:invalid-c
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:role ex:not-a-role ;
-    conx-part:context ex:contract-x .
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasRole ex:not-a-role ;
+    conx-part:hasContext ex:contract-x .
 ```
 
 Expected violation: `PART-023`.
@@ -368,9 +368,9 @@ Expected violation: `PART-023`.
 ```turtle
 ex:invalid-d
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:role part-role:ClientRole ;
-    conx-part:context "Vertrag X" .
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasRole part-role:ClientRole ;
+    conx-part:hasContext "Vertrag X" .
 ```
 
 Expected violation: `PART-032`.
@@ -380,9 +380,9 @@ Expected violation: `PART-032`.
 ```turtle
 ex:invalid-e
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:role part-role:EngineerRole ;
-    conx-part:context ex:project-x ;
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasRole part-role:EngineerRole ;
+    conx-part:hasContext ex:project-x ;
     conx-part:startDate "2026-12-31"^^xsd:date ;
     conx-part:endDate "2026-01-01"^^xsd:date .
 ```
@@ -394,16 +394,16 @@ Expected violation: `PART-044`.
 ```turtle
 ex:duplicate-a
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:role part-role:ContractorRole ;
-    conx-part:context ex:contract-x ;
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasRole part-role:ContractorRole ;
+    conx-part:hasContext ex:contract-x ;
     conx-part:startDate "2026-01-01"^^xsd:date .
 
 ex:duplicate-b
     a conx-part:Participation ;
-    conx-part:participant ex:agent-a ;
-    conx-part:role part-role:ContractorRole ;
-    conx-part:context ex:contract-x ;
+    conx-part:hasParticipant ex:agent-a ;
+    conx-part:hasRole part-role:ContractorRole ;
+    conx-part:hasContext ex:contract-x ;
     conx-part:startDate "2026-07-01"^^xsd:date .
 ```
 
@@ -416,7 +416,7 @@ Expected violation: `PART-050`. Different start dates do not eliminate the dupli
 | File | Scenario |
 | --- | --- |
 | `tests/valid/minimal-participation.ttl` | Exactly one Agent, one role, and one context |
-| `tests/valid/context-navigation.ttl` | Optional `hasParticipation` edge with a matching `context` back-reference |
+| `tests/valid/context-navigation.ttl` | Optional `hasParticipation` edge with a matching `hasContext` back-reference |
 | `tests/valid/dated-participation.ttl` | Both dates and cases with only one date boundary |
 | `tests/valid/multiple-roles-and-contexts.ttl` | Multiple distinct combinations without duplicates |
 | `tests/valid/external-role.ttl` | Local Role typing outside the minimal Scheme |
@@ -454,7 +454,7 @@ The automated implementation checks:
 9. The minimal role vocabulary is loaded for relevant fixtures.
 10. A role IRI from another domain remains valid if explicitly typed as `Role`.
 11. A resource typed only as `skos:Concept` is rejected as a role.
-12. A Person or Organization is accepted as `participant` through its known Agent subclass.
+12. A Person or Organization is accepted as `hasParticipant` through its known Agent subclass.
 13. A literal as Agent, role, or context is rejected.
 14. A blank node is accepted as context, but not as Participation, Agent, or role.
 15. Start date only, end date only, and equal start/end dates remain valid.

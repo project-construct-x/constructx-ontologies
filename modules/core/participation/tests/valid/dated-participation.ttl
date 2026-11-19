@@ -8,34 +8,34 @@ ex:agent-a a conx-agent:Agent .
 
 ex:bounded
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:EngineerRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:EngineerRole ;
+  conx-part:hasContext ex:project-a ;
   conx-part:startDate "2026-01-15"^^xsd:date ;
   conx-part:endDate "2026-12-31"^^xsd:date ;
 .
 
 ex:start-only
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ArchitectRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ArchitectRole ;
+  conx-part:hasContext ex:project-a ;
   conx-part:startDate "2026-01-15"^^xsd:date ;
 .
 
 ex:end-only
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:SupplierRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:SupplierRole ;
+  conx-part:hasContext ex:project-a ;
   conx-part:endDate "2026-12-31"^^xsd:date ;
 .
 
 ex:same-day
   a conx-part:Participation ;
-  conx-part:participant ex:agent-a ;
-  conx-part:role part-role:ClientRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:agent-a ;
+  conx-part:hasRole part-role:ClientRole ;
+  conx-part:hasContext ex:project-a ;
   conx-part:startDate "2026-05-12"^^xsd:date ;
   conx-part:endDate "2026-05-12"^^xsd:date ;
 .

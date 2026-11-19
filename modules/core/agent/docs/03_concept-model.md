@@ -27,7 +27,7 @@ The Agent module defines no domain-specific relationships of its own. Other modu
 
 ## 5. Illustrative Example
 
-A `Participation` references an `Agent` through `participant`. That agent may be a `Person` or an `Organization`.
+A `Participation` references an `Agent` through `hasParticipant`. That agent may be a `Person` or an `Organization`.
 
 A project role can therefore be fulfilled by a person or an organization without defining the role relationship twice.
 

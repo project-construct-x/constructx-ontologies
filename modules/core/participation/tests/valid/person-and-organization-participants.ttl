@@ -14,14 +14,14 @@ ex:organization-a
 
 ex:person-participation
   a conx-part:Participation ;
-  conx-part:participant ex:person-a ;
-  conx-part:role part-role:ArchitectRole ;
-  conx-part:context ex:project-a ;
+  conx-part:hasParticipant ex:person-a ;
+  conx-part:hasRole part-role:ArchitectRole ;
+  conx-part:hasContext ex:project-a ;
 .
 
 ex:organization-participation
   a conx-part:Participation ;
-  conx-part:participant ex:organization-a ;
-  conx-part:role part-role:ContractorRole ;
-  conx-part:context ex:contract-a ;
+  conx-part:hasParticipant ex:organization-a ;
+  conx-part:hasRole part-role:ContractorRole ;
+  conx-part:hasContext ex:contract-a ;
 .
