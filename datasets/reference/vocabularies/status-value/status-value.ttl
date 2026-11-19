@@ -1,0 +1,68 @@
+@prefix conx-status: <https://www.construct-x.org/ontology/status#> .
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix status-kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix status-value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix status-reason: <https://www.construct-x.org/vocab/status-reason#> .
+
+<https://www.construct-x.org/vocab/status-value> a owl:Ontology, skos:ConceptScheme ;
+  dcterms:title "Construct-X Status values"@en, "Construct-X Statuswerte"@de ;
+  dcterms:description "Initial reference vocabulary for status values. Additional external concepts remain supported by the Core model."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:created "2026-11-10"^^xsd:date ;
+  vann:preferredNamespacePrefix "status-value" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/status-value#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/status-value/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept status-value:InProgress, status-value:Shipped, status-value:Delivered, status-value:NotChecked, status-value:Passed, status-value:Failed .
+
+status-value:InProgress a conx-status:StatusValue, skos:Concept ;
+  skos:notation "in-progress" ;
+  skos:prefLabel "In progress"@en, "In Bearbeitung"@de ;
+  skos:definition "The transport or dispatch process is being prepared or processed; dispatch is not asserted."@en, "Transport oder Versand wird vorbereitet oder bearbeitet; ein erfolgter Versand wird nicht behauptet."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-value> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-value> .
+
+status-value:Shipped a conx-status:StatusValue, skos:Concept ;
+  skos:notation "shipped" ;
+  skos:prefLabel "Shipped"@en, "Versendet"@de ;
+  skos:definition "The resource has been dispatched; arrival at the destination is not asserted."@en, "Das Bezugsobjekt wurde versendet; eine Ankunft am Ziel wird nicht behauptet."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-value> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-value> .
+
+status-value:Delivered a conx-status:StatusValue, skos:Concept ;
+  skos:notation "delivered" ;
+  skos:prefLabel "Delivered"@en, "Geliefert"@de ;
+  skos:definition "The resource has arrived at the intended delivery destination; inspection or acceptance is not asserted."@en, "Das Bezugsobjekt ist am vorgesehenen Lieferziel eingetroffen; Prüfung oder Abnahme werden nicht behauptet."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-value> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-value> .
+
+status-value:NotChecked a conx-status:StatusValue, skos:Concept ;
+  skos:notation "not-checked" ;
+  skos:prefLabel "Not checked"@en, "Nicht geprüft"@de ;
+  skos:definition "The relevant inspection has not been performed."@en, "Die betreffende Prüfung wurde noch nicht durchgeführt."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-value> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-value> .
+
+status-value:Passed a conx-status:StatusValue, skos:Concept ;
+  skos:notation "passed" ;
+  skos:prefLabel "Passed"@en, "Bestanden"@de ;
+  skos:definition "The inspection meets its application-specific acceptance criteria."@en, "Die Prüfung erfüllt die anwendungsspezifischen Akzeptanzkriterien."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-value> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-value> .
+
+status-value:Failed a conx-status:StatusValue, skos:Concept ;
+  skos:notation "failed" ;
+  skos:prefLabel "Failed"@en, "Nicht bestanden"@de ;
+  skos:definition "The inspection does not meet its application-specific acceptance criteria."@en, "Die Prüfung erfüllt die anwendungsspezifischen Akzeptanzkriterien nicht."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-value> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-value> .

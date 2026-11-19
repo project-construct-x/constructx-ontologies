@@ -1,0 +1,54 @@
+@prefix conx-status: <https://www.construct-x.org/ontology/status#> .
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix status-kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix status-value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix status-reason: <https://www.construct-x.org/vocab/status-reason#> .
+
+<https://www.construct-x.org/vocab/status-reason> a owl:Ontology, skos:ConceptScheme ;
+  dcterms:title "Construct-X Status reasons"@en, "Construct-X Statusgründe"@de ;
+  dcterms:description "Initial reference vocabulary for status reasons. Additional external concepts remain supported by the Core model."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:created "2026-11-10"^^xsd:date ;
+  vann:preferredNamespacePrefix "status-reason" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/status-reason#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/status-reason/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept status-reason:VehicleBreakdown, status-reason:AccessBlocked, status-reason:TemperatureExceeded, status-reason:QuantityMismatch .
+
+status-reason:VehicleBreakdown a conx-status:StatusReason, skos:Concept ;
+  skos:notation "vehicle-breakdown" ;
+  skos:prefLabel "Vehicle breakdown"@en, "Fahrzeugdefekt"@de ;
+  skos:definition "A vehicle defect explains the reported status."@en, "Ein Fahrzeugdefekt begründet den gemeldeten Status."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-reason> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-reason> .
+
+status-reason:AccessBlocked a conx-status:StatusReason, skos:Concept ;
+  skos:notation "access-blocked" ;
+  skos:prefLabel "Access blocked"@en, "Zufahrt gesperrt"@de ;
+  skos:definition "Access to the relevant location is blocked."@en, "Die Zufahrt zum betreffenden Ort ist gesperrt."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-reason> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-reason> .
+
+status-reason:TemperatureExceeded a conx-status:StatusReason, skos:Concept ;
+  skos:notation "temperature-exceeded" ;
+  skos:prefLabel "Temperature exceeded"@en, "Temperatur überschritten"@de ;
+  skos:definition "The temperature exceeds an upper limit defined by the application; the reason does not itself specify that limit."@en, "Die Temperatur überschreitet eine anwendungsseitig definierte Obergrenze; der Grund selbst definiert diese Grenze nicht."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-reason> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-reason> .
+
+status-reason:QuantityMismatch a conx-status:StatusReason, skos:Concept ;
+  skos:notation "quantity-mismatch" ;
+  skos:prefLabel "Quantity mismatch"@en, "Mengenabweichung"@de ;
+  skos:definition "The observed quantity differs from the quantity expected in the application."@en, "Die festgestellte Menge weicht von der anwendungsseitig erwarteten Menge ab."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-reason> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-reason> .

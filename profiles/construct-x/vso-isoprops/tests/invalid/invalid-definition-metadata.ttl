@@ -1,0 +1,20 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <https://schema.org/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+<https://example.org/resource> conx-vso:hasProperty <https://example.org/assignment> .
+<https://example.org/assignment> a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference <https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/0> ; conx-vso:hasPropertyState <https://example.org/state> .
+<https://example.org/state> a conx-vso:PropertyState ; schema:value "not numeric" ; conx-vso:hasUsedUnit unit:UNITLESS .
+
+<https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/0>
+  a isoprops:Property ;
+  isoprops:globallyUniqueIdentifier "invalid-guid" ;
+  isoprops:versionNumber 0 ;
+  isoprops:revisionNumber 0 ;
+  isoprops:status "draft" ;
+  isoprops:dataType "NUMBER" ;
+.
+
+unit:UNITLESS a qudt:Unit .

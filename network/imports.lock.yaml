@@ -2,203 +2,309 @@ dependencies:
   adms:
     ontology_iri: http://www.w3.org/ns/adms
     namespace: http://www.w3.org/ns/adms#
-    tested_version: "2.0"
+    tested_version: '2.0'
     status: referenced-not-imported
     used_by:
-      - modules/core/document
-      - modules/core/identifier
-      - modules/core/organization
-      - modules/core/person
-      - datasets/reference/administrative-territories/iso-3166-1-countries
-      - datasets/reference/administrative-territories/iso-3166-2-de
+    - datasets/reference/administrative-territories/iso-3166-1-countries
+    - datasets/reference/administrative-territories/iso-3166-2-de
+    - datasets/reference/administrative-territories/nuts-2
+    - modules/core/document
+    - modules/core/organization
+    - modules/core/identifier
+    - modules/core/person
     used_terms:
-      - adms:Identifier
-      - adms:identifier
-      - adms:schemaAgency
-      - adms:status
-
+    - adms:Identifier
+    - adms:identifier
+    - adms:schemaAgency
+    - adms:status
   dcat:
     ontology_iri: http://www.w3.org/ns/dcat
     namespace: http://www.w3.org/ns/dcat#
-    tested_version: "3"
+    tested_version: '3'
     status: referenced-not-imported
     used_by:
-      - modules/core/document
+    - modules/core/document
     used_terms:
-      - dcat:Distribution
-      - dcat:distribution
-      - dcat:accessURL
-      - dcat:downloadURL
-      - dcat:mediaType
-
+    - dcat:Distribution
+    - dcat:distribution
+    - dcat:accessURL
+    - dcat:downloadURL
+    - dcat:mediaType
   dcterms:
     ontology_iri: null
     namespace: http://purl.org/dc/terms/
     tested_version: null
     status: referenced-not-imported
     used_by:
-      - modules/core/address
-      - modules/core/agent
-      - modules/core/contact
-      - modules/core/document
-      - modules/core/identifier
-      - modules/core/organization
-      - modules/core/participation
-      - modules/core/person
-      - modules/core/vso
+    - modules/core/document
+    - modules/core/address
+    - modules/core/agent
+    - modules/core/contact
+    - modules/core/identifier
+    - modules/core/organization
+    - modules/core/participation
+    - modules/core/person
+    - modules/core/vso
     used_terms:
-      - dcterms:BibliographicResource
-      - dcterms:title
-      - dcterms:description
-      - dcterms:language
-      - dcterms:created
-      - dcterms:issued
-      - dcterms:modified
-      - dcterms:valid
-      - dcterms:type
-      - dcterms:references
-
-  foaf:
-    ontology_iri: null
-    namespace: http://xmlns.com/foaf/0.1/
-    tested_version: null
-    status: referenced-not-imported
-    used_by:
-      - modules/core/agent
-      - modules/core/document
-      - modules/core/person
-    used_terms:
-      - foaf:Agent
-      - foaf:Document
-      - foaf:Person
-
+    - dcterms:BibliographicResource
+    - dcterms:title
+    - dcterms:description
+    - dcterms:language
+    - dcterms:created
+    - dcterms:issued
+    - dcterms:modified
+    - dcterms:valid
+    - dcterms:type
+    - dcterms:references
   opm:
     ontology_iri: null
     namespace: https://w3id.org/opm#
     tested_version: null
     status: referenced-not-imported
     used_by:
-      - modules/core/vso
+    - modules/core/vso
     used_terms:
-      - opm:Property
-      - opm:PropertyState
-      - opm:hasPropertyState
-
-  org:
-    ontology_iri: http://www.w3.org/ns/org
-    namespace: http://www.w3.org/ns/org#
-    tested_version: null
+    - opm:Property
+    - opm:PropertyState
+    - opm:hasPropertyState
+  isoprops:
+    ontology_iri: https://w3id.org/isoprops
+    version_iri: https://w3id.org/isoprops
+    namespace: https://w3id.org/isoprops#
+    tested_version: v2.2
+    tested_modified: 2025-01-15
     status: referenced-not-imported
     used_by:
-      - modules/core/organization
+    - modules/core/status
+    - profiles/construct-x/vso-isoprops
     used_terms:
-      - org:Organization
-      - org:OrganizationalUnit
-      - org:Membership
-      - org:subOrganizationOf
-      - org:hasSubOrganization
-      - org:unitOf
-      - org:hasUnit
-      - org:member
-      - org:organization
-
+    - isoprops:Property
+    - isoprops:globallyUniqueIdentifier
+    - isoprops:versionNumber
+    - isoprops:revisionNumber
+    - isoprops:status
+    - isoprops:dataType
+    - isoprops:hasUnit
   qudt:
     ontology_iri: null
     namespace: http://qudt.org/schema/qudt/
     tested_version: null
     status: referenced-not-imported
     used_by:
-      - modules/core/vso
+    - modules/core/status
+    - modules/core/vso
     used_terms:
-      - qudt:Unit
-
+    - qudt:Unit
+    - qudt:hasUnit
   schema_org:
     ontology_iri: null
     namespace: https://schema.org/
     tested_version: null
     status: referenced-not-imported
     used_by:
-      - modules/core/address
-      - modules/core/agent
-      - modules/core/contact
-      - modules/core/document
-      - modules/core/organization
-      - modules/core/participation
-      - modules/core/person
-      - modules/core/vso
+    - modules/core/status
+    - modules/core/contact
+    - modules/core/document
+    - modules/core/organization
+    - modules/core/vso
+    - modules/core/address
+    - modules/core/agent
+    - modules/core/participation
+    - modules/core/person
     used_terms:
-      - schema:value
-      - schema:ContactPoint
-      - schema:DigitalDocument
-      - schema:name
-      - schema:description
-      - schema:inLanguage
-      - schema:version
-      - schema:dateCreated
-      - schema:dateModified
-      - schema:validFrom
-      - schema:validThrough
-      - schema:creativeWorkStatus
-
-  semic_core_vocabularies:
-    ontology_iri: null
-    namespace: http://data.europa.eu/m8g/
-    tested_version: null
-    status: referenced-not-imported
-    used_by:
-      - modules/core/agent
-    used_terms:
-      - cv:Agent
-
-  semic_core_person:
-    ontology_iri: null
-    namespace: http://www.w3.org/ns/person#
-    tested_version: null
-    status: referenced-not-imported
-    used_by:
-      - modules/core/person
-    used_terms:
-      - person:Person
-
+    - schema:value
+    - schema:ContactPoint
+    - schema:DigitalDocument
+    - schema:name
+    - schema:description
+    - schema:inLanguage
+    - schema:version
+    - schema:dateCreated
+    - schema:dateModified
+    - schema:validFrom
+    - schema:validThrough
+    - schema:creativeWorkStatus
   skos:
     ontology_iri: http://www.w3.org/2004/02/skos/core
     namespace: http://www.w3.org/2004/02/skos/core#
     tested_version: null
     status: referenced-not-imported
     used_by:
-      - modules/core/contact
-      - modules/core/document
-      - modules/core/identifier
-      - modules/core/organization
-      - modules/core/participation
-      - modules/core/person
-      - datasets/reference/administrative-territories/iso-3166-1-countries
-      - datasets/reference/administrative-territories/iso-3166-2-de
-      - datasets/reference/vocabularies/address-roles
-      - datasets/reference/vocabularies/contact-channel
-      - datasets/reference/vocabularies/contact-platform
-      - datasets/reference/vocabularies/contact-purpose
-      - datasets/reference/vocabularies/contact-usage
-      - datasets/reference/vocabularies/document-status
-      - datasets/reference/vocabularies/document-type
-      - datasets/reference/vocabularies/gender
-      - datasets/reference/vocabularies/human-sex
-      - datasets/reference/vocabularies/participation-role
+    - modules/core/status
+    - datasets/reference/vocabularies/status-kind
+    - datasets/reference/vocabularies/status-value
+    - datasets/reference/vocabularies/status-reason
+    - modules/core/contact
+    - modules/core/document
+    - modules/core/organization
+    - modules/core/participation
+    - datasets/reference/vocabularies/participation-role
+    - datasets/reference/vocabularies/document-status
+    - datasets/reference/vocabularies/document-type
+    - datasets/reference/vocabularies/contact-channel
+    - datasets/reference/vocabularies/contact-platform
+    - datasets/reference/vocabularies/contact-purpose
+    - datasets/reference/vocabularies/contact-usage
+    - datasets/reference/administrative-territories/nuts-2
+    - datasets/reference/administrative-territories/iso-3166-1-countries
+    - datasets/reference/administrative-territories/iso-3166-2-de
+    - modules/core/identifier
+    - modules/core/person
+    - datasets/reference/vocabularies/address-roles
+    - datasets/reference/vocabularies/gender
+    - datasets/reference/vocabularies/human-sex
     used_terms:
-      - skos:Concept
-      - skos:ConceptScheme
-      - skos:notation
-
+    - skos:Concept
+    - skos:ConceptScheme
+    - skos:notation
   vcard:
     ontology_iri: http://www.w3.org/2006/vcard/ns
     namespace: http://www.w3.org/2006/vcard/ns#
     tested_version: null
     status: referenced-not-imported
     used_by:
-      - modules/core/contact
+    - modules/core/contact
     used_terms:
-      - vcard:Kind
-      - vcard:hasEmail
-      - vcard:hasInstantMessage
-      - vcard:hasTelephone
-      - vcard:hasURL
+    - vcard:Kind
+    - vcard:hasEmail
+    - vcard:hasInstantMessage
+    - vcard:hasTelephone
+    - vcard:hasURL
+    - vcard:street-address
+    - vcard:postal-code
+    - vcard:locality
+    - vcard:region
+  org:
+    ontology_iri: http://www.w3.org/ns/org
+    namespace: http://www.w3.org/ns/org#
+    tested_version: null
+    status: referenced-not-imported
+    used_by:
+    - modules/core/organization
+    used_terms:
+    - org:Organization
+    - org:OrganizationalUnit
+    - org:Membership
+    - org:subOrganizationOf
+    - org:hasSubOrganization
+    - org:unitOf
+    - org:hasUnit
+    - org:member
+    - org:organization
+  foaf:
+    ontology_iri: null
+    namespace: http://xmlns.com/foaf/0.1/
+    tested_version: null
+    status: referenced-not-imported
+    used_by:
+    - modules/core/document
+    - modules/core/agent
+    - modules/core/person
+    used_terms:
+    - foaf:Document
+    - foaf:Agent
+    - foaf:Person
+  gaia_x:
+    ontology_iri: https://w3id.org/gaia-x/development
+    namespace: https://w3id.org/gaia-x/development#
+    tested_version: 2.3.0
+    tested_commit: 57131b2cec747de8a08a4115bea198369778aef6
+    status: referenced-not-imported
+    used_by:
+    - datasets/reference/administrative-territories/nuts-2
+    used_terms:
+    - gx:NUTS2Region
+  conx_agent:
+    ontology_iri: https://www.construct-x.org/ontology/agent
+    version_iri: https://www.construct-x.org/ontology/agent/0.1.0
+    namespace: https://www.construct-x.org/ontology/agent#
+    tested_version: 0.1.0
+    status: referenced-not-imported
+    resolution: modules/core/agent/module.yaml
+    used_by:
+    - modules/core/status
+  conx_vso:
+    ontology_iri: https://www.construct-x.org/ontology/vso
+    version_iri: https://www.construct-x.org/ontology/vso/0.1.0
+    namespace: https://www.construct-x.org/ontology/vso#
+    tested_version: 0.1.0
+    status: referenced-not-imported
+    resolution: modules/core/vso/module.yaml
+    used_by:
+    - modules/core/status
+  conx_status:
+    ontology_iri: https://www.construct-x.org/ontology/status
+    version_iri: https://www.construct-x.org/ontology/status/0.1.0
+    namespace: https://www.construct-x.org/ontology/status#
+    tested_version: 0.1.0
+    status: referenced-not-imported
+    resolution: modules/core/status/module.yaml
+    used_by:
+    - datasets/reference/vocabularies/status-kind
+    - datasets/reference/vocabularies/status-value
+    - datasets/reference/vocabularies/status-reason
+  status-kind:
+    vocabulary_iri: https://www.construct-x.org/vocab/status-kind
+    version_iri: https://www.construct-x.org/vocab/status-kind/0.1.0
+    namespace: https://www.construct-x.org/vocab/status-kind#
+    tested_version: 0.1.0
+    status: validated-with
+    resolution: datasets/reference/vocabularies/status-kind/dataset.yaml
+    used_by:
+    - modules/core/status
+  status-value:
+    vocabulary_iri: https://www.construct-x.org/vocab/status-value
+    version_iri: https://www.construct-x.org/vocab/status-value/0.1.0
+    namespace: https://www.construct-x.org/vocab/status-value#
+    tested_version: 0.1.0
+    status: validated-with
+    resolution: datasets/reference/vocabularies/status-value/dataset.yaml
+    used_by:
+    - modules/core/status
+    - datasets/reference/vocabularies/status-kind
+  status-reason:
+    vocabulary_iri: https://www.construct-x.org/vocab/status-reason
+    version_iri: https://www.construct-x.org/vocab/status-reason/0.1.0
+    namespace: https://www.construct-x.org/vocab/status-reason#
+    tested_version: 0.1.0
+    status: validated-with
+    resolution: datasets/reference/vocabularies/status-reason/dataset.yaml
+    used_by:
+    - modules/core/status
+    - datasets/reference/vocabularies/status-kind
+  status-vso-core-shapes:
+    shape_graph_iri: https://www.construct-x.org/shapes/vso/core
+    version_iri: https://www.construct-x.org/shapes/vso/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/vso/core#
+    tested_version: 0.1.0
+    status: validated-with
+    resolution: modules/core/vso/shapes/conx-vso-core.shacl.ttl
+    used_by:
+    - modules/core/status
+  status-vso-isoprops:
+    shape_graph_iri: https://www.construct-x.org/shapes/vso/isoprops
+    version_iri: https://www.construct-x.org/shapes/vso/isoprops/0.1.0
+    namespace: https://www.construct-x.org/shapes/vso/isoprops#
+    tested_version: 0.1.0
+    status: validated-with
+    resolution: profiles/construct-x/vso-isoprops/profile.yaml
+    used_by:
+    - modules/core/status
+  semic_core_vocabularies:
+    ontology_iri: null
+    namespace: http://data.europa.eu/m8g/
+    tested_version: null
+    status: referenced-not-imported
+    used_by:
+    - modules/core/agent
+    used_terms:
+    - cv:Agent
+  semic_core_person:
+    ontology_iri: null
+    namespace: http://www.w3.org/ns/person#
+    tested_version: null
+    status: referenced-not-imported
+    used_by:
+    - modules/core/person
+    used_terms:
+    - person:Person

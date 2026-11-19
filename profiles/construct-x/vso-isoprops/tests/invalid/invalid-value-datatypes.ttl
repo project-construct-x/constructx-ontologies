@@ -1,0 +1,36 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <https://schema.org/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:resource conx-vso:hasProperty ex:boolean-assignment, ex:integer-assignment, ex:real-assignment, ex:string-assignment, ex:datetime-assignment, ex:complex-assignment .
+
+ex:boolean-assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:boolean-definition ; conx-vso:hasPropertyState ex:boolean-state .
+ex:boolean-state a conx-vso:PropertyState ; schema:value "true" ; conx-vso:hasUsedUnit unit:UNITLESS .
+ex:boolean-definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000021" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "BOOLEAN" ; isoprops:hasUnit unit:UNITLESS .
+
+ex:integer-assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:integer-definition ; conx-vso:hasPropertyState ex:integer-state .
+ex:integer-state a conx-vso:PropertyState ; schema:value "1.5"^^xsd:decimal ; conx-vso:hasUsedUnit unit:UNITLESS .
+ex:integer-definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000022" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "INTEGER" ; isoprops:hasUnit unit:UNITLESS .
+
+ex:real-assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:real-definition ; conx-vso:hasPropertyState ex:real-state .
+ex:real-state a conx-vso:PropertyState ; schema:value "large" ; conx-vso:hasUsedUnit unit:M .
+ex:real-definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000023" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "REAL" ; isoprops:hasUnit unit:M .
+
+ex:string-assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:string-definition ; conx-vso:hasPropertyState ex:string-state .
+ex:string-state a conx-vso:PropertyState ; schema:value ex:not-a-literal ; conx-vso:hasUsedUnit unit:UNITLESS .
+ex:string-definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000024" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "STRING" ; isoprops:hasUnit unit:UNITLESS .
+
+ex:datetime-assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:datetime-definition ; conx-vso:hasPropertyState ex:datetime-state .
+ex:datetime-state a conx-vso:PropertyState ; schema:value "2026-09-01"^^xsd:date ; conx-vso:hasUsedUnit unit:UNITLESS .
+ex:datetime-definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000025" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "DATETIME" ; isoprops:hasUnit unit:UNITLESS .
+
+ex:complex-assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:complex-definition ; conx-vso:hasPropertyState ex:complex-state .
+ex:complex-state a conx-vso:PropertyState ; schema:value ex:not-a-complex-literal ; conx-vso:hasUsedUnit unit:UNITLESS .
+ex:complex-definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000026" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "COMPLEX" ; isoprops:hasUnit unit:UNITLESS .
+
+unit:M a qudt:Unit .
+unit:UNITLESS a qudt:Unit .

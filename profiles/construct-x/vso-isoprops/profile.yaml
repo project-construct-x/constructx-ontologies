@@ -1,0 +1,65 @@
+id: vso-isoprops
+title: Construction-X VSO ISOProps Profile
+type: profile
+status: draft
+version: 0.1.0
+
+target_module: vso
+shape_set: isoprops
+graph_iri: https://www.construct-x.org/shapes/vso/isoprops
+version_iri: https://www.construct-x.org/shapes/vso/isoprops/0.1.0
+namespace: https://www.construct-x.org/shapes/vso/isoprops#
+created: 2026-09-01
+modified: 2026-11-11
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+dependencies:
+  - id: vso
+    relation: validated-with
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/vso
+    version_iri: https://www.construct-x.org/ontology/vso/0.1.0
+    namespace: https://www.construct-x.org/ontology/vso#
+  - id: vso-core-shapes
+    relation: validated-with
+    version: 0.1.0
+    graph_iri: https://www.construct-x.org/shapes/vso/core
+    version_iri: https://www.construct-x.org/shapes/vso/core/0.1.0
+    namespace: https://www.construct-x.org/shapes/vso/core#
+  - id: isoprops
+    relation: referenced-not-imported
+    ontology_iri: https://w3id.org/isoprops
+    version_iri: https://w3id.org/isoprops
+    version: v2.2
+    namespace: https://w3id.org/isoprops#
+    used_terms:
+      - isoprops:Property
+      - isoprops:globallyUniqueIdentifier
+      - isoprops:versionNumber
+      - isoprops:revisionNumber
+      - isoprops:status
+      - isoprops:dataType
+      - isoprops:hasUnit
+  - id: qudt
+    relation: referenced-not-imported
+    namespace: http://qudt.org/schema/qudt/
+    used_terms:
+      - qudt:Unit
+  - id: schema_org
+    relation: referenced-not-imported
+    namespace: https://schema.org/
+    used_terms:
+      - schema:value
+
+maintainers:
+  - AP 3.4
+
+artifacts:
+  shapes: shapes/conx-vso-isoprops.shacl.ttl
+  documentation: docs/00_index.md
+  source_analysis: docs/01_source-analysis.md
+  requirements: docs/02_shacl-requirements.md
+  examples:
+    - examples/measured-property.ttl
+    - examples/unitless-property.ttl

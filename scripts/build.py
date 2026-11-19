@@ -121,11 +121,24 @@ def build_repository(root: Path) -> dict[str, Any]:
 
         target_dir = dist_dir / module_dir.relative_to(root)
         target_dir.mkdir(parents=True, exist_ok=True)
+        status_bundle_dir = None
+        if metadata.get("validation_bundle") == "status":
+            if __package__:
+                from .status_bundle import build_status_bundle
+            else:
+                from status_bundle import build_status_bundle
+            status_bundle_dir = target_dir / "validation"
+            bundle_files = build_status_bundle(root, status_bundle_dir)
+            module_entry["validation_bundle"] = status_bundle_dir.relative_to(root).as_posix()
+            module_entry["included_files"].extend(path.relative_to(root).as_posix() for path in bundle_files)
         target_file = target_dir / ontology_path.name
         shutil.copy2(ontology_path, target_file)
         module_entry["included_files"].append(target_file.relative_to(root).as_posix())
-        for _, shape_artifact in shape_artifacts:
+        for artifact_name, shape_artifact in shape_artifacts:
             shape_path = module_dir / shape_artifact
+            if status_bundle_dir is not None and artifact_name == "core_shapes":
+                # The published Core graph must work without the source loader.
+                shape_path = status_bundle_dir / "shapes.ttl"
             target_shape = target_dir / shape_artifact
             target_shape.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(shape_path, target_shape)

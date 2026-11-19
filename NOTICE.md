@@ -18,9 +18,15 @@ The `CODE_OF_CONDUCT.md` is adapted from the Contributor Covenant, version 3.0, 
 The Core ontologies reference established external vocabularies including
 ADMS, DCAT, Dublin Core, FOAF, OPM, QUDT, Schema.org, SKOS, vCard RDF and W3C
 ORG. These external ontologies are referenced by IRI and are not redistributed
-as part of this repository.
+as part of this repository. The supporting VSO/ISOProps profile also references ISOProps by IRI.
 
 The ISO 3166 reference datasets use data extracted from EU Vocabularies. Their
 source, extraction version and license are documented in the corresponding
 `dataset.yaml` and `README.md` files. Every included Construct-X module and
 reference dataset records its source and license in its local metadata.
+
+The NUTS 2 reference dataset is extracted from the Gaia-X NUTS2Region
+enumeration at release v2.3.0. Its metadata records EPL-2.0 as the source
+license. See the [dataset documentation](datasets/reference/administrative-territories/nuts-2/README.md)
+and [source metadata](datasets/reference/administrative-territories/nuts-2/dataset.yaml)
+for the extraction commit and attribution.

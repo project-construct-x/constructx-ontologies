@@ -1,0 +1,22 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <https://schema.org/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+ex:resource conx-vso:hasProperty ex:assignment .
+ex:assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference <https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2> ; conx-vso:hasPropertyState ex:state .
+ex:state a conx-vso:PropertyState ; schema:value "2.8"^^<http://www.w3.org/2001/XMLSchema#decimal> ; conx-vso:hasUsedUnit unit:M .
+
+<https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2>
+  a isoprops:Property ;
+  isoprops:globallyUniqueIdentifier "67c8f11c-8804-4ab5-843d-c365f36f6c68" ;
+  isoprops:versionNumber 1 ;
+  isoprops:revisionNumber 3 ;
+  isoprops:status "active" ;
+  isoprops:dataType "REAL" ;
+  isoprops:hasUnit unit:M ;
+.
+
+unit:M a qudt:Unit .

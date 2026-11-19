@@ -45,6 +45,8 @@ EXPECTED_ERROR_IDS = {
     "PART-043",
     "PART-044",
     "PART-050",
+    "PART-060",
+    "PART-061",
 }
 
 
@@ -100,10 +102,10 @@ def test_participation_shape_graph_has_consistent_version_metadata() -> None:
 
     assert (SHAPE_GRAPH_IRI, RDF.type, OWL.Ontology) in graph
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionIRI)) == [
-        URIRef("https://www.construct-x.org/shapes/participation/core/0.1.0")
+        URIRef("https://www.construct-x.org/shapes/participation/core/0.2.0")
     ]
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionInfo)) == [
-        Literal("0.1.0")
+        Literal("0.2.0")
     ]
 
 
@@ -149,6 +151,7 @@ def test_every_approved_error_id_occurs_in_the_shape_graph() -> None:
     "fixture_name",
     [
         "minimal-participation.ttl",
+        "context-navigation.ttl",
         "dated-participation.ttl",
         "multiple-roles-and-contexts.ttl",
         "external-role.ttl",
@@ -174,6 +177,7 @@ def test_valid_participation_fixtures_conform(fixture_name: str) -> None:
             {"PART-040", "PART-041", "PART-042", "PART-043", "PART-044"},
         ),
         ("duplicate-participation.ttl", {"PART-050"}),
+        ("context-navigation.ttl", {"PART-060", "PART-061"}),
         ("untyped-or-blank-participation.ttl", {"PART-001", "PART-002"}),
     ],
 )

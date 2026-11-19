@@ -1,0 +1,42 @@
+id: nuts-2
+title: Construct-X NUTS 2 Regions
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+
+vocabulary_iri: https://www.construct-x.org/vocab/administrative-area/nuts-2
+version_iri: https://www.construct-x.org/vocab/administrative-area/nuts-2/0.1.0
+namespace: https://www.construct-x.org/vocab/administrative-area/nuts-2#
+preferred_namespace_prefix: nuts
+created: 2026-08-20
+license: https://www.eclipse.org/legal/epl-2.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+
+source:
+  standard: NUTS level 2
+  extraction_dataset: Gaia-X NUTS2Region enumeration
+  extraction_url: https://w3id.org/gaia-x/development#NUTS2Region
+  extraction_release: v2.3.0
+  extraction_commit: 57131b2cec747de8a08a4115bea198369778aef6
+
+dependencies:
+  - id: address
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/address
+    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+  - id: iso-3166-1-countries
+    version: 0.1.0
+    vocabulary_iri: https://www.construct-x.org/vocab/country
+    version_iri: https://www.construct-x.org/vocab/country/0.1.0
+  - id: identifier-scheme
+    version: 0.2.0
+    vocabulary_iri: https://www.construct-x.org/vocab/identifier-scheme
+    version_iri: https://www.construct-x.org/vocab/identifier-scheme/0.2.0
+  - id: adms
+    version: "2.0"
+    namespace: http://www.w3.org/ns/adms#
+
+artifacts:
+  data: data/nuts-2-regions.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md

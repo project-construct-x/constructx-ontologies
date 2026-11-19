@@ -13,6 +13,7 @@ DATASET_FILES = (
     / "datasets/reference/administrative-territories/iso-3166-1-countries/dataset.yaml",
     ROOT
     / "datasets/reference/administrative-territories/iso-3166-2-de/dataset.yaml",
+    ROOT / "datasets/reference/administrative-territories/nuts-2/dataset.yaml",
     ROOT / "datasets/reference/vocabularies/human-sex/dataset.yaml",
     ROOT / "datasets/reference/vocabularies/gender/dataset.yaml",
     ROOT / "datasets/reference/vocabularies/contact-channel/dataset.yaml",
@@ -22,6 +23,9 @@ DATASET_FILES = (
     ROOT / "datasets/reference/vocabularies/participation-role/dataset.yaml",
     ROOT / "datasets/reference/vocabularies/document-type/dataset.yaml",
     ROOT / "datasets/reference/vocabularies/document-status/dataset.yaml",
+    ROOT / "datasets/reference/vocabularies/status-kind/dataset.yaml",
+    ROOT / "datasets/reference/vocabularies/status-value/dataset.yaml",
+    ROOT / "datasets/reference/vocabularies/status-reason/dataset.yaml",
 )
 ID_SCHEME = "https://www.construct-x.org/vocab/identifier-scheme#"
 

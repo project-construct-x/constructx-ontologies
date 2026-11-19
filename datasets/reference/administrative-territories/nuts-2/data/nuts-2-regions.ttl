@@ -1,0 +1,4926 @@
+# Generated from the Gaia-X v2.3.0 NUTS2Region enumeration.
+
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX conx-addr: <https://www.construct-x.org/ontology/address#>
+PREFIX countries: <https://www.construct-x.org/vocab/country#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX id-scheme: <https://www.construct-x.org/vocab/identifier-scheme#>
+PREFIX nuts: <https://www.construct-x.org/vocab/administrative-area/nuts-2#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+nuts:AT11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Burgenland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Niederösterreich" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT13
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Wien" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT13"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Kärnten" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Steiermark" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT31
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Oberösterreich" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT31"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Salzburg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT33
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Tirol" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT33"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:AT34
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Vorarlberg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "AT34"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:ATZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ATZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+.
+
+nuts:BE10
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Région de Bruxelles-Capitale/Brussels Hoofdstedelijk Gewest" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE10"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Antwerpen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Limburg (BE)" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE23
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Oost-Vlaanderen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE23"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE24
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Vlaams-Brabant" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE24"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE25
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. West-Vlaanderen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE25"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE31
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Brabant wallon" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE31"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Hainaut" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE33
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Liège" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE33"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE34
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Luxembourg (BE)" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE34"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BE35
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Prov. Namur" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BE35"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BEZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BEZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+.
+
+nuts:BG31
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Северозападен" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BG31"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:BG32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Северен централен" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BG32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:BG33
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Североизточен" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BG33"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:BG34
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Югоизточен" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BG34"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:BG41
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Югозападен" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BG41"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:BG42
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Южен централен" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BG42"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:BGZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "BGZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+.
+
+nuts:CY00
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Κύπρος" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CY00"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CYP ;
+.
+
+nuts:CYZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CYZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CYP ;
+.
+
+nuts:CZ01
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Praha" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ01"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ02
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Střední Čechy" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ02"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ03
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Jihozápad" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ03"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ04
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Severozápad" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ04"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ05
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Severovýchod" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ05"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ06
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Jihovýchod" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ06"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ07
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Střední Morava" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ07"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZ08
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Moravskoslezsko" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZ08"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:CZZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "CZZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+.
+
+nuts:DE11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Stuttgart" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Karlsruhe" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE13
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Freiburg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE13"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE14
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Tübingen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE14"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Oberbayern" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Niederbayern" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE23
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Oberpfalz" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE23"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE24
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Oberfranken" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE24"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE25
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Mittelfranken" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE25"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE26
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Unterfranken" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE26"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE27
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Schwaben" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE27"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE30
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Berlin" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE30"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE40
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Brandenburg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE40"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE50
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Bremen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE50"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE60
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Hamburg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE60"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE71
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Darmstadt" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE71"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE72
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Gießen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE72"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE73
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Kassel" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE73"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE80
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Mecklenburg-Vorpommern" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE80"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE91
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Braunschweig" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE91"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE92
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Hannover" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE92"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE93
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Lüneburg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE93"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DE94
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Weser-Ems" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DE94"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEA1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Düsseldorf" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEA1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEA2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Köln" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEA2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEA3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Münster" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEA3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEA4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Detmold" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEA4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEA5
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Arnsberg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEA5"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEB1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Koblenz" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEB1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEB2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Trier" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEB2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEB3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Rheinhessen-Pfalz" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEB3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEC0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Saarland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEC0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DED2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Dresden" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DED2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DED4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Chemnitz" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DED4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DED5
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Leipzig" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DED5"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEE0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sachsen-Anhalt" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEE0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEF0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Schleswig-Holstein" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEF0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEG0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Thüringen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEG0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DEZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DEZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+.
+
+nuts:DK01
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Hovedstaden" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DK01"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+.
+
+nuts:DK02
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sjælland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DK02"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+.
+
+nuts:DK03
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Syddanmark" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DK03"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+.
+
+nuts:DK04
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Midtjylland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DK04"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+.
+
+nuts:DK05
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Nordjylland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DK05"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+.
+
+nuts:DKZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "DKZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+.
+
+nuts:EE00
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Eesti" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EE00"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:EST ;
+.
+
+nuts:EEZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EEZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:EST ;
+.
+
+nuts:EL30
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Aττική" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL30"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL41
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Βόρειο Αιγαίο" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL41"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL42
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Νότιο Αιγαίο" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL42"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL43
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Κρήτη" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL43"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL51
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Aνατολική Μακεδονία, Θράκη" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL51"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL52
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Κεντρική Μακεδονία" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL52"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL53
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Δυτική Μακεδονία" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL53"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL54
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Ήπειρος" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL54"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL61
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Θεσσαλία" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL61"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL62
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Ιόνια Νησιά" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL62"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL63
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Δυτική Ελλάδα" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL63"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL64
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Στερεά Ελλάδα" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL64"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:EL65
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Πελοπόννησος" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "EL65"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:ELZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ELZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+.
+
+nuts:ES11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Galicia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Principado de Asturias" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES13
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Cantabria" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES13"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "País Vasco" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Comunidad Foral de Navarra" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES23
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "La Rioja" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES23"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES24
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Aragón" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES24"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES30
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Comunidad de Madrid" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES30"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES41
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Castilla y León" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES41"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES42
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Castilla-La Mancha" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES42"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES43
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extremadura" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES43"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES51
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Cataluña" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES51"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES52
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Comunitat Valenciana" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES52"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES53
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Illes Balears" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES53"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES61
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Andalucía" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES61"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES62
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Región de Murcia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES62"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES63
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Ciudad de Ceuta" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES63"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES64
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Ciudad de Melilla" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES64"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ES70
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Canarias" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ES70"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:ESZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ESZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+.
+
+nuts:FI19
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Länsi-Suomi" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FI19"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+.
+
+nuts:FI1B
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Helsinki-Uusimaa" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FI1B"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+.
+
+nuts:FI1C
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Etelä-Suomi" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FI1C"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+.
+
+nuts:FI1D
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Pohjois- ja Itä-Suomi" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FI1D"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+.
+
+nuts:FI20
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Åland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FI20"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+.
+
+nuts:FIZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FIZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+.
+
+nuts:FR10
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Ile-de-France" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FR10"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRB0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Centre — Val de Loire" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRB0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRC1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Bourgogne" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRC1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRC2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Franche-Comté" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRC2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRD1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Basse-Normandie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRD1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRD2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Haute-Normandie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRD2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRE1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Nord-Pas de Calais" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRE1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRE2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Picardie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRE2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRF1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Alsace" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRF1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRF2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Champagne-Ardenne" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRF2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRF3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Lorraine" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRF3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRG0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Pays de la Loire" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRG0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRH0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Bretagne" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRH0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRI1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Aquitaine" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRI1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRI2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Limousin" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRI2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRI3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Poitou-Charentes" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRI3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRJ1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Languedoc-Roussillon" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRJ1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRJ2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Midi-Pyrénées" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRJ2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRK1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Auvergne" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRK1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRK2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Rhône-Alpes" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRK2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRL0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Provence-Alpes-Côte d’Azur" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRL0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRM0
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Corse" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRM0"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRY1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Guadeloupe" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRY1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRY2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Martinique" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRY2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRY3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Guyane" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRY3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRY4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "La Réunion" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRY4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRY5
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Mayotte" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRY5"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:FRZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "FRZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+.
+
+nuts:HR02
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Panonska Hrvatska" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HR02"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+.
+
+nuts:HR03
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Jadranska Hrvatska" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HR03"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+.
+
+nuts:HR05
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Grad Zagreb" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HR05"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+.
+
+nuts:HR06
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sjeverna Hrvatska" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HR06"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+.
+
+nuts:HRZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HRZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+.
+
+nuts:HU11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Budapest" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Pest" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Közép-Dunántúl" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Nyugat-Dunántúl" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU23
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Dél-Dunántúl" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU23"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU31
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Észak-Magyarország" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU31"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Észak-Alföld" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HU33
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Dél-Alföld" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HU33"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:HUZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "HUZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+.
+
+nuts:IE04
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Northern and Western" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "IE04"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+.
+
+nuts:IE05
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Southern" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "IE05"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+.
+
+nuts:IE06
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Eastern and Midland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "IE06"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+.
+
+nuts:IEZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "IEZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+.
+
+nuts:ITC1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Piemonte" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITC1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITC2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Valle d’Aosta/Vallée d’Aoste" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITC2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITC3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Liguria" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITC3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITC4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Lombardia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITC4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITF1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Abruzzo" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITF1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITF2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Molise" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITF2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITF3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Campania" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITF3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITF4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Puglia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITF4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITF5
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Basilicata" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITF5"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITF6
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Calabria" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITF6"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITG1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sicilia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITG1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITG2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sardegna" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITG2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITH1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Provincia Autonoma di Bolzano/Bozen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITH1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITH2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Provincia Autonoma di Trento" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITH2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITH3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Veneto" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITH3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITH4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Friuli-Venezia Giulia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITH4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITH5
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Emilia-Romagna" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITH5"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITI1
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Toscana" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITI1"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITI2
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Umbria" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITI2"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITI3
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Marche" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITI3"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITI4
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Lazio" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITI4"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:ITZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ITZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+.
+
+nuts:LT01
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sostinės regionas" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LT01"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LTU ;
+.
+
+nuts:LT02
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Vidurio ir vakarų Lietuvos regionas" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LT02"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LTU ;
+.
+
+nuts:LTZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LTZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LTU ;
+.
+
+nuts:LU00
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Luxembourg" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LU00"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LUX ;
+.
+
+nuts:LUZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LUZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LUX ;
+.
+
+nuts:LV00
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Latvija" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LV00"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LVA ;
+.
+
+nuts:LVZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "LVZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:LVA ;
+.
+
+nuts:MT00
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Malta" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "MT00"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:MLT ;
+.
+
+nuts:MTZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "MTZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:MLT ;
+.
+
+nuts:NL11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Groningen" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Friesland (NL)" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL13
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Drenthe" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL13"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Overijssel" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Gelderland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL23
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Flevoland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL23"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Noord-Holland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL34
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Zeeland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL34"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL35
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Utrecht" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL35"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL36
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Zuid-Holland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL36"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL41
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Noord-Brabant" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL41"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NL42
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Limburg (NL)" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NL42"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:NLZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "NLZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+.
+
+nuts:PL21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Małopolskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Śląskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL41
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Wielkopolskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL41"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL42
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Zachodniopomorskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL42"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL43
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Lubuskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL43"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL51
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Dolnośląskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL51"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL52
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Opolskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL52"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL61
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Kujawsko-pomorskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL61"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL62
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Warmińsko-mazurskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL62"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL63
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Pomorskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL63"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL71
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Łódzkie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL71"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL72
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Świętokrzyskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL72"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL81
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Lubelskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL81"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL82
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Podkarpackie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL82"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL84
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Podlaskie" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL84"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL91
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Warszawski stołeczny" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL91"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PL92
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Mazowiecki regionalny" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PL92"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PLZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PLZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:POL ;
+.
+
+nuts:PT11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Norte" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT15
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Algarve" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT15"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT19
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Centro (PT)" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT19"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT1A
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Grande Lisboa" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT1A"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT1B
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Península de Setúbal" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT1B"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT1C
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Alentejo" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT1C"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT1D
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Oeste e Vale do Tejo" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT1D"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT20
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Região Autónoma dos Açores" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT20"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PT30
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Região Autónoma da Madeira" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PT30"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:PTZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "PTZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+.
+
+nuts:RO11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Nord-Vest" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Centru" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Nord-Est" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sud-Est" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO31
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sud-Muntenia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO31"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Bucureşti-Ilfov" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO41
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sud-Vest Oltenia" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO41"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:RO42
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Vest" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "RO42"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:ROZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "ROZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+.
+
+nuts:SE11
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Stockholm" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE11"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE12
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Östra Mellansverige" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE12"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE21
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Småland med öarna" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE21"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE22
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Sydsverige" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE22"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE23
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Västsverige" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE23"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE31
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Norra Mellansverige" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE31"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE32
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Mellersta Norrland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE32"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SE33
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Övre Norrland" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SE33"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SEZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SEZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+.
+
+nuts:SI03
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Vzhodna Slovenija" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SI03"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVN ;
+.
+
+nuts:SI04
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Zahodna Slovenija" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SI04"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVN ;
+.
+
+nuts:SIZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SIZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVN ;
+.
+
+nuts:SK01
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Bratislavský kraj" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SK01"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+.
+
+nuts:SK02
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Západné Slovensko" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SK02"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+.
+
+nuts:SK03
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Stredné Slovensko" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SK03"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+.
+
+nuts:SK04
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Východné Slovensko" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SK04"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+.
+
+nuts:SKZZ
+    a
+        skos:Concept ,
+        conx-addr:AdministrativeArea ;
+    dcterms:source <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    skos:inScheme <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    skos:prefLabel "Extra-Regio NUTS 2" ;
+    skos:topConceptOf <https://www.construct-x.org/vocab/administrative-area/nuts-2> ;
+    adms:identifier
+        [
+            a adms:Identifier ;
+            skos:notation "SKZZ"^^id-scheme:nuts-2 ;
+            adms:schemaAgency "Eurostat" ;
+        ] ;
+    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+.
+
+<https://www.construct-x.org/vocab/administrative-area/nuts-2>
+    a
+        owl:Ontology ,
+        skos:ConceptScheme ;
+    dcterms:created "2026-08-20"^^xsd:date ;
+    dcterms:creator
+        [
+            a schema:Person ;
+            schema:email <mailto:sven.zentgraf@rub.de> ;
+            schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+            schema:memberOf
+                [
+                    schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+                    schema:name "Ruhr University Bochum" ;
+                ] ;
+            schema:name "Sven Zentgraf" ;
+        ] ;
+    dcterms:description
+        "Versioniertes Referenzvokabular der von Gaia-X v2.3.0 verwendeten NUTS-2-Codes."@de ,
+        "Versioned reference vocabulary of the NUTS 2 codes used by Gaia-X v2.3.0."@en ;
+    dcterms:license <https://www.eclipse.org/legal/epl-2.0/> ;
+    dcterms:modified "2026-08-20"^^xsd:date ;
+    dcterms:provenance "Gaia-X v2.3.0, commit 57131b2cec747de8a08a4115bea198369778aef6" ;
+    dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+    dcterms:source
+        <https://gitlab.com/gaia-x/technical-committee/service-characteristics-working-group/service-characteristics/-/tree/v2.3.0> ,
+        <https://w3id.org/gaia-x/development#NUTS2Region> ;
+    dcterms:title
+        "Construct-X NUTS-2-Regionen"@de ,
+        "Construct-X NUTS 2 regions"@en ;
+    owl:versionIRI <https://www.construct-x.org/vocab/administrative-area/nuts-2/0.1.0> ;
+    owl:versionInfo "0.1.0" ;
+    skos:hasTopConcept
+        nuts:AT11 ,
+        nuts:AT12 ,
+        nuts:AT13 ,
+        nuts:AT21 ,
+        nuts:AT22 ,
+        nuts:AT31 ,
+        nuts:AT32 ,
+        nuts:AT33 ,
+        nuts:AT34 ,
+        nuts:ATZZ ,
+        nuts:BE10 ,
+        nuts:BE21 ,
+        nuts:BE22 ,
+        nuts:BE23 ,
+        nuts:BE24 ,
+        nuts:BE25 ,
+        nuts:BE31 ,
+        nuts:BE32 ,
+        nuts:BE33 ,
+        nuts:BE34 ,
+        nuts:BE35 ,
+        nuts:BEZZ ,
+        nuts:BG31 ,
+        nuts:BG32 ,
+        nuts:BG33 ,
+        nuts:BG34 ,
+        nuts:BG41 ,
+        nuts:BG42 ,
+        nuts:BGZZ ,
+        nuts:CY00 ,
+        nuts:CYZZ ,
+        nuts:CZ01 ,
+        nuts:CZ02 ,
+        nuts:CZ03 ,
+        nuts:CZ04 ,
+        nuts:CZ05 ,
+        nuts:CZ06 ,
+        nuts:CZ07 ,
+        nuts:CZ08 ,
+        nuts:CZZZ ,
+        nuts:DE11 ,
+        nuts:DE12 ,
+        nuts:DE13 ,
+        nuts:DE14 ,
+        nuts:DE21 ,
+        nuts:DE22 ,
+        nuts:DE23 ,
+        nuts:DE24 ,
+        nuts:DE25 ,
+        nuts:DE26 ,
+        nuts:DE27 ,
+        nuts:DE30 ,
+        nuts:DE40 ,
+        nuts:DE50 ,
+        nuts:DE60 ,
+        nuts:DE71 ,
+        nuts:DE72 ,
+        nuts:DE73 ,
+        nuts:DE80 ,
+        nuts:DE91 ,
+        nuts:DE92 ,
+        nuts:DE93 ,
+        nuts:DE94 ,
+        nuts:DEA1 ,
+        nuts:DEA2 ,
+        nuts:DEA3 ,
+        nuts:DEA4 ,
+        nuts:DEA5 ,
+        nuts:DEB1 ,
+        nuts:DEB2 ,
+        nuts:DEB3 ,
+        nuts:DEC0 ,
+        nuts:DED2 ,
+        nuts:DED4 ,
+        nuts:DED5 ,
+        nuts:DEE0 ,
+        nuts:DEF0 ,
+        nuts:DEG0 ,
+        nuts:DEZZ ,
+        nuts:DK01 ,
+        nuts:DK02 ,
+        nuts:DK03 ,
+        nuts:DK04 ,
+        nuts:DK05 ,
+        nuts:DKZZ ,
+        nuts:EE00 ,
+        nuts:EEZZ ,
+        nuts:EL30 ,
+        nuts:EL41 ,
+        nuts:EL42 ,
+        nuts:EL43 ,
+        nuts:EL51 ,
+        nuts:EL52 ,
+        nuts:EL53 ,
+        nuts:EL54 ,
+        nuts:EL61 ,
+        nuts:EL62 ,
+        nuts:EL63 ,
+        nuts:EL64 ,
+        nuts:EL65 ,
+        nuts:ELZZ ,
+        nuts:ES11 ,
+        nuts:ES12 ,
+        nuts:ES13 ,
+        nuts:ES21 ,
+        nuts:ES22 ,
+        nuts:ES23 ,
+        nuts:ES24 ,
+        nuts:ES30 ,
+        nuts:ES41 ,
+        nuts:ES42 ,
+        nuts:ES43 ,
+        nuts:ES51 ,
+        nuts:ES52 ,
+        nuts:ES53 ,
+        nuts:ES61 ,
+        nuts:ES62 ,
+        nuts:ES63 ,
+        nuts:ES64 ,
+        nuts:ES70 ,
+        nuts:ESZZ ,
+        nuts:FI19 ,
+        nuts:FI1B ,
+        nuts:FI1C ,
+        nuts:FI1D ,
+        nuts:FI20 ,
+        nuts:FIZZ ,
+        nuts:FR10 ,
+        nuts:FRB0 ,
+        nuts:FRC1 ,
+        nuts:FRC2 ,
+        nuts:FRD1 ,
+        nuts:FRD2 ,
+        nuts:FRE1 ,
+        nuts:FRE2 ,
+        nuts:FRF1 ,
+        nuts:FRF2 ,
+        nuts:FRF3 ,
+        nuts:FRG0 ,
+        nuts:FRH0 ,
+        nuts:FRI1 ,
+        nuts:FRI2 ,
+        nuts:FRI3 ,
+        nuts:FRJ1 ,
+        nuts:FRJ2 ,
+        nuts:FRK1 ,
+        nuts:FRK2 ,
+        nuts:FRL0 ,
+        nuts:FRM0 ,
+        nuts:FRY1 ,
+        nuts:FRY2 ,
+        nuts:FRY3 ,
+        nuts:FRY4 ,
+        nuts:FRY5 ,
+        nuts:FRZZ ,
+        nuts:HR02 ,
+        nuts:HR03 ,
+        nuts:HR05 ,
+        nuts:HR06 ,
+        nuts:HRZZ ,
+        nuts:HU11 ,
+        nuts:HU12 ,
+        nuts:HU21 ,
+        nuts:HU22 ,
+        nuts:HU23 ,
+        nuts:HU31 ,
+        nuts:HU32 ,
+        nuts:HU33 ,
+        nuts:HUZZ ,
+        nuts:IE04 ,
+        nuts:IE05 ,
+        nuts:IE06 ,
+        nuts:IEZZ ,
+        nuts:ITC1 ,
+        nuts:ITC2 ,
+        nuts:ITC3 ,
+        nuts:ITC4 ,
+        nuts:ITF1 ,
+        nuts:ITF2 ,
+        nuts:ITF3 ,
+        nuts:ITF4 ,
+        nuts:ITF5 ,
+        nuts:ITF6 ,
+        nuts:ITG1 ,
+        nuts:ITG2 ,
+        nuts:ITH1 ,
+        nuts:ITH2 ,
+        nuts:ITH3 ,
+        nuts:ITH4 ,
+        nuts:ITH5 ,
+        nuts:ITI1 ,
+        nuts:ITI2 ,
+        nuts:ITI3 ,
+        nuts:ITI4 ,
+        nuts:ITZZ ,
+        nuts:LT01 ,
+        nuts:LT02 ,
+        nuts:LTZZ ,
+        nuts:LU00 ,
+        nuts:LUZZ ,
+        nuts:LV00 ,
+        nuts:LVZZ ,
+        nuts:MT00 ,
+        nuts:MTZZ ,
+        nuts:NL11 ,
+        nuts:NL12 ,
+        nuts:NL13 ,
+        nuts:NL21 ,
+        nuts:NL22 ,
+        nuts:NL23 ,
+        nuts:NL32 ,
+        nuts:NL34 ,
+        nuts:NL35 ,
+        nuts:NL36 ,
+        nuts:NL41 ,
+        nuts:NL42 ,
+        nuts:NLZZ ,
+        nuts:PL21 ,
+        nuts:PL22 ,
+        nuts:PL41 ,
+        nuts:PL42 ,
+        nuts:PL43 ,
+        nuts:PL51 ,
+        nuts:PL52 ,
+        nuts:PL61 ,
+        nuts:PL62 ,
+        nuts:PL63 ,
+        nuts:PL71 ,
+        nuts:PL72 ,
+        nuts:PL81 ,
+        nuts:PL82 ,
+        nuts:PL84 ,
+        nuts:PL91 ,
+        nuts:PL92 ,
+        nuts:PLZZ ,
+        nuts:PT11 ,
+        nuts:PT15 ,
+        nuts:PT19 ,
+        nuts:PT1A ,
+        nuts:PT1B ,
+        nuts:PT1C ,
+        nuts:PT1D ,
+        nuts:PT20 ,
+        nuts:PT30 ,
+        nuts:PTZZ ,
+        nuts:RO11 ,
+        nuts:RO12 ,
+        nuts:RO21 ,
+        nuts:RO22 ,
+        nuts:RO31 ,
+        nuts:RO32 ,
+        nuts:RO41 ,
+        nuts:RO42 ,
+        nuts:ROZZ ,
+        nuts:SE11 ,
+        nuts:SE12 ,
+        nuts:SE21 ,
+        nuts:SE22 ,
+        nuts:SE23 ,
+        nuts:SE31 ,
+        nuts:SE32 ,
+        nuts:SE33 ,
+        nuts:SEZZ ,
+        nuts:SI03 ,
+        nuts:SI04 ,
+        nuts:SIZZ ,
+        nuts:SK01 ,
+        nuts:SK02 ,
+        nuts:SK03 ,
+        nuts:SK04 ,
+        nuts:SKZZ ;
+    schema:version "0.1.0" ;
+.

@@ -19,6 +19,6 @@ Please remember and follow our [Code of Conduct](./CODE_OF_CONDUCT.md).
 
 - Keep T-Box ontologies, SHACL Shapes, examples and reference data separated.
 - Update the module documentation and changelog together with semantic changes.
-- Do not add Domain ontologies, application profiles or Alignments to this Core repository.
+- Keep this distribution limited to Core ontologies and their supporting data and validation dependencies. The included VSO/ISOProps profile supports the Status contract; Domain ontologies, unrelated application profiles and optional Alignments remain outside this repository.
 - Validate the repository with `uv run python scripts/validate.py`.
 - Run the Core test suite with `uv run pytest` before opening a pull request.

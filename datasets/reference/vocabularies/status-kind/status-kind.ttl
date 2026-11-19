@@ -1,0 +1,59 @@
+@prefix conx-status: <https://www.construct-x.org/ontology/status#> .
+@prefix conx-agent: <https://www.construct-x.org/ontology/agent#> .
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+@prefix status-kind: <https://www.construct-x.org/vocab/status-kind#> .
+@prefix status-value: <https://www.construct-x.org/vocab/status-value#> .
+@prefix status-reason: <https://www.construct-x.org/vocab/status-reason#> .
+
+<https://www.construct-x.org/vocab/status-kind> a owl:Ontology, skos:ConceptScheme ;
+  dcterms:title "Construct-X Status kinds"@en, "Construct-X Statusarten"@de ;
+  dcterms:description "Initial reference vocabulary for status kinds. Additional external concepts remain supported by the Core model."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:created "2026-11-10"^^xsd:date ;
+  vann:preferredNamespacePrefix "status-kind" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/vocab/status-kind#" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/status-kind/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+  skos:hasTopConcept status-kind:TransportStatus, status-kind:TemperatureInspection, status-kind:QuantityInspection .
+
+status-kind:TransportStatus a conx-status:StatusKind, skos:Concept ;
+  skos:notation "transport-status" ;
+  skos:prefLabel "Transport status"@en, "Transportstatus"@de ;
+  skos:definition "Progress of the transport and delivery of a resource."@en, "Fortschritt von Transport und Zustellung eines Bezugsobjekts."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-kind> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-kind> .
+
+status-kind:TemperatureInspection a conx-status:StatusKind, skos:Concept ;
+  skos:notation "temperature-inspection" ;
+  skos:prefLabel "Temperature inspection"@en, "Temperaturprüfung"@de ;
+  skos:definition "Result of assessing the temperature of a resource against application-specific requirements."@en, "Ergebnis einer Temperaturprüfung anhand anwendungsspezifischer Anforderungen."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-kind> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-kind> .
+
+status-kind:QuantityInspection a conx-status:StatusKind, skos:Concept ;
+  skos:notation "quantity-inspection" ;
+  skos:prefLabel "Quantity inspection"@en, "Mengenprüfung"@de ;
+  skos:definition "Result of assessing the quantity of a resource against application-specific requirements."@en, "Ergebnis einer Mengenprüfung anhand anwendungsspezifischer Anforderungen."@de ;
+  skos:inScheme <https://www.construct-x.org/vocab/status-kind> ;
+  skos:topConceptOf <https://www.construct-x.org/vocab/status-kind> .
+
+status-kind:TransportStatus
+  conx-status:hasAllowedStatusValue status-value:InProgress, status-value:Shipped, status-value:Delivered ;
+  conx-status:hasAllowedStatusReason status-reason:VehicleBreakdown, status-reason:AccessBlocked .
+
+status-kind:TemperatureInspection
+  conx-status:hasAllowedStatusValue status-value:NotChecked, status-value:Passed, status-value:Failed ;
+  conx-status:hasAllowedStatusReason status-reason:TemperatureExceeded .
+
+status-kind:QuantityInspection
+  conx-status:hasAllowedStatusValue status-value:NotChecked, status-value:Passed, status-value:Failed ;
+  conx-status:hasAllowedStatusReason status-reason:QuantityMismatch .

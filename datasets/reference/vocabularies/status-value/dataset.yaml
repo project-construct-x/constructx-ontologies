@@ -1,0 +1,21 @@
+id: status-value
+title: Construct-X Status values
+type: reference-vocabulary
+status: draft
+version: 0.1.0
+vocabulary_iri: https://www.construct-x.org/vocab/status-value
+version_iri: https://www.construct-x.org/vocab/status-value/0.1.0
+namespace: https://www.construct-x.org/vocab/status-value#
+preferred_namespace_prefix: status-value
+created: 2026-11-10
+license: https://creativecommons.org/licenses/by/4.0/
+publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1
+dependencies:
+  - id: status
+    version: 0.1.0
+    ontology_iri: https://www.construct-x.org/ontology/status
+    version_iri: https://www.construct-x.org/ontology/status/0.1.0
+artifacts:
+  data: status-value.ttl
+  documentation: README.md
+  changelog: CHANGELOG.md

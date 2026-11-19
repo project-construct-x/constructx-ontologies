@@ -1,0 +1,32 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <https://schema.org/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+ex:door-17 conx-vso:hasProperty ex:fire-resistance-assignment .
+
+ex:fire-resistance-assignment
+  a conx-vso:AssignedProperty ;
+  conx-vso:hasPropertyReference <https://properties.example.org/fire-resistance/revision/1> ;
+  conx-vso:hasPropertyState ex:fire-resistance-state ;
+.
+
+ex:fire-resistance-state
+  a conx-vso:PropertyState ;
+  schema:value "F90" ;
+  conx-vso:hasUsedUnit unit:UNITLESS ;
+.
+
+<https://properties.example.org/fire-resistance/revision/1>
+  a isoprops:Property ;
+  isoprops:globallyUniqueIdentifier "67c8f11c-8804-4ab5-843d-c365f36f6c68" ;
+  isoprops:versionNumber 1 ;
+  isoprops:revisionNumber 1 ;
+  isoprops:status "active" ;
+  isoprops:dataType "STRING" ;
+  isoprops:hasUnit unit:UNITLESS ;
+.
+
+unit:UNITLESS a qudt:Unit .

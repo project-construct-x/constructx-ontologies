@@ -1,0 +1,12 @@
+@prefix conx-vso: <https://www.construct-x.org/ontology/vso#> .
+@prefix ex: <https://example.org/id/> .
+@prefix isoprops: <https://w3id.org/isoprops#> .
+@prefix qudt: <http://qudt.org/schema/qudt/> .
+@prefix schema: <https://schema.org/> .
+@prefix unit: <http://qudt.org/vocab/unit/> .
+
+ex:resource conx-vso:hasProperty ex:assignment .
+ex:assignment a conx-vso:AssignedProperty ; conx-vso:hasPropertyReference ex:definition ; conx-vso:hasPropertyState ex:state .
+ex:state a conx-vso:PropertyState ; schema:value "text" .
+ex:definition a isoprops:Property ; isoprops:globallyUniqueIdentifier "00000000-0000-4000-8000-000000000010" ; isoprops:versionNumber 1 ; isoprops:revisionNumber 1 ; isoprops:status "active" ; isoprops:dataType "STRING" ; isoprops:hasUnit unit:UNITLESS .
+unit:UNITLESS a qudt:Unit .

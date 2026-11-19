@@ -36,6 +36,7 @@ def test_participation_tbox_contains_exactly_the_approved_terms() -> None:
         CONX_PART.participant,
         CONX_PART.role,
         CONX_PART.context,
+        CONX_PART.hasParticipation,
     }
     assert local_terms_of_type(graph, OWL.DatatypeProperty) == {
         CONX_PART.startDate,
@@ -68,7 +69,11 @@ def test_participation_tbox_keeps_validation_and_deferred_terms_outside_owl() ->
 
     assert not list(graph.objects(ONTOLOGY_IRI, OWL.imports))
     assert not set(graph.subjects(RDF.type, OWL.Restriction))
-    assert not set(graph.subjects(OWL.inverseOf, None))
+    assert set(graph.triples((None, OWL.inverseOf, None))) == {
+        (CONX_PART.hasParticipation, OWL.inverseOf, CONX_PART.context)
+    }
+    assert (CONX_PART.hasParticipation, RDFS.range, CONX_PART.Participation) in graph
+    assert not list(graph.objects(CONX_PART.hasParticipation, RDFS.domain))
 
     deferred_terms = {
         CONX_PART.AgentRoleAssignment,
@@ -76,7 +81,6 @@ def test_participation_tbox_keeps_validation_and_deferred_terms_outside_owl() ->
         CONX_PART.Context,
         CONX_PART.ParticipationStatus,
         CONX_PART.ParticipationEvidence,
-        CONX_PART.hasParticipation,
         CONX_PART.isParticipationOf,
     }
     assert not any(term in graph.all_nodes() for term in deferred_terms)
@@ -87,9 +91,9 @@ def test_participation_module_metadata_matches_the_implementation() -> None:
 
     assert metadata["id"] == "participation"
     assert metadata["type"] == "core"
-    assert metadata["version"] == "0.1.0"
+    assert metadata["version"] == "0.2.0"
     assert metadata["ontology_iri"] == str(ONTOLOGY_IRI)
-    assert metadata["version_iri"] == f"{ONTOLOGY_IRI}/0.1.0"
+    assert metadata["version_iri"] == f"{ONTOLOGY_IRI}/0.2.0"
     assert metadata["namespace"] == str(CONX_PART)
     assert metadata["preferred_namespace_prefix"] == "conx-part"
     assert metadata["artifacts"]["ontology"] == "ontology/conx-part.ttl"
@@ -97,9 +101,9 @@ def test_participation_module_metadata_matches_the_implementation() -> None:
     assert metadata["artifacts"]["strict_shapes"] is None
     assert metadata["shape_sets"]["core"] == {
         "graph_iri": "https://www.construct-x.org/shapes/participation/core",
-        "version_iri": "https://www.construct-x.org/shapes/participation/core/0.1.0",
+        "version_iri": "https://www.construct-x.org/shapes/participation/core/0.2.0",
         "namespace": "https://www.construct-x.org/shapes/participation/core#",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "artifact": "shapes/conx-part-core.shacl.ttl",
     }
 
