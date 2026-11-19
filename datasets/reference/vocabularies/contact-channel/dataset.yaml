@@ -2,10 +2,10 @@ id: contact-channel
 title: Construct-X Contact Channels
 type: reference-vocabulary
 status: draft
-version: 0.1.0
+version: 0.1.1
 
 vocabulary_iri: https://www.construct-x.org/vocab/contact-channel
-version_iri: https://www.construct-x.org/vocab/contact-channel/0.1.0
+version_iri: https://www.construct-x.org/vocab/contact-channel/0.1.1
 namespace: https://www.construct-x.org/vocab/contact-channel#
 preferred_namespace_prefix: contact-channel
 created: 2026-08-27
@@ -14,9 +14,9 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 
 dependencies:
   - id: contact
-    version: 0.1.0
+    version: 0.2.0
     ontology_iri: https://www.construct-x.org/ontology/contact
-    version_iri: https://www.construct-x.org/ontology/contact/0.1.0
+    version_iri: https://www.construct-x.org/ontology/contact/0.2.0
 
 artifacts:
   data: contact-channel.ttl

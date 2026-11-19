@@ -70,10 +70,10 @@ def test_contact_shape_graph_has_consistent_version_metadata() -> None:
 
     assert (SHAPE_GRAPH_IRI, RDF.type, OWL.Ontology) in graph
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionIRI)) == [
-        URIRef("https://www.construct-x.org/shapes/contact/core/0.1.0")
+        URIRef("https://www.construct-x.org/shapes/contact/core/0.2.0")
     ]
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionInfo)) == [
-        Literal("0.1.0")
+        Literal("0.2.0")
     ]
 
 
@@ -86,7 +86,7 @@ def test_contact_shape_targets_contact_terms() -> None:
     assert CONX_CONTACT.hasContactMethod in point_targets
     assert CONX_CONTACT.contactUsage in point_targets
     assert CONX_CONTACT.contactPlatform in method_targets
-    assert CONX_CONTACT.usesAddressAssignment in method_targets
+    assert CONX_CONTACT.usesLocationAssignment in method_targets
 
 
 def test_every_named_contact_property_shape_has_bilingual_messages() -> None:
@@ -151,3 +151,14 @@ def test_invalid_contact_fixtures_report_expected_contracts(
     assert not conforms, report
     for requirement_id in expected_ids:
         assert requirement_id in report
+
+def test_postal_contact_requires_an_address_even_when_geolocation_exists() -> None:
+    addr = Namespace("https://www.construct-x.org/ontology/address#")
+    graph = load_data_with_references(VALID_DIR / "business-delivery-contact.ttl")
+    assignment, = graph.subjects(addr.assignedAddress, None)
+    graph.remove((assignment, addr.assignedAddress, None))
+    position = URIRef("https://example.org/gate")
+    graph.add((assignment, addr.hasGeoReference, position))
+    conforms, _, report = validate(graph, shacl_graph=load_graph(SHAPES_FILE), ont_graph=load_ontology_graph())
+    assert not conforms
+    assert "CON-CM-032" in report

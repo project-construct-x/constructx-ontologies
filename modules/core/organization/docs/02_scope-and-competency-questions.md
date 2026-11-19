@@ -31,7 +31,7 @@ This document defines the domain scope and competency questions of the MVP. The 
 | Membership | Separate relationship resource between an `Agent` and an `Organization` |
 | Post / `Post` | Outside the MVP; introduced only when permanent positions that may also be vacant are required |
 | Legal representation | Separate relationship resource from `LegalEntity` to `Person` in the Organization module |
-| Address | Reuse of `core/address` and its `AddressAssignment` pattern |
+| Address | Reuse of `core/address` and its `LocationAssignment` pattern |
 | Contact and homepage | Reuse of `core/contact`; homepage as an official general website contact |
 | Process roles | Seller, buyer, shipper, recipient, carrier, and similar roles remain contextual Agent roles outside the Organization core |
 | Evidence | No dedicated Credential module in the MVP; external evidence is not modeled in detail |
@@ -52,7 +52,7 @@ This document defines the domain scope and competency questions of the MVP. The 
 | `Membership` | `membershipOrganization` | `Organization` |
 | `LegalRepresentation` | `representedOrganization` | `LegalEntity` |
 | `LegalRepresentation` | `representative` | `Person` |
-| `Organization` | `hasAddressAssignment` | `AddressAssignment`, which references an `Address` |
+| `Organization` | `hasLocationAssignment` | `LocationAssignment`, which references an `Address` |
 | `Organization` | `hasContactPoint` | `ContactPoint`, which references a `ContactMethod` |
 
 This representation shows domain-level connections. The core modules and external terms used are documented in `module.yaml` as resolved references without `owl:imports`; the shapes are loaded together for integration checks.
@@ -81,7 +81,7 @@ A subsidiary with its own legal personality is a `LegalEntity`. A procurement de
 
 A self-employed natural person remains a `conx-person:Person`. Economic activity alone does not cause the person to be typed as an `Organization` or local `LegalEntity`.
 
-Within a delivery, contract, or procurement context, the person may act as a seller, contractor, or economic operator through an Agent role assignment. Business identifiers, contacts, and address assignments may be linked to the person without creating a second artificial organization.
+Within a delivery, contract, or procurement context, the person may act as a seller, contractor, or economic operator through an Agent role assignment. Business identifiers, contacts, and location assignments may be linked to the person without creating a second artificial organization.
 
 A future `BusinessProfile` resource should be considered only if several separate business activities, trading names, or public business identities of the same person must be distinguished. It is outside version 0.1.0.
 
@@ -167,7 +167,7 @@ A simple direct property `hasLegalRepresentative` is not required as a second pa
 
 ### OCQ-12: How are organization addresses represented?
 
-The organization uses `conx-addr:hasAddressAssignment`. Address components remain entirely within `core/address`. Relevant address roles include:
+The organization uses `conx-addr:hasLocationAssignment`. Address components remain entirely within `core/address`. Relevant address roles include:
 
 - `roles:LegalAddressRole`,
 - `roles:HeadquartersAddressRole`,
@@ -229,7 +229,7 @@ The [SHACL Requirements Document](06_shacl-requirements.md) specifies in particu
 | `core/agent` | Common superclass of Person and Organization |
 | `core/organization` | Organization, Legal Entity, Organizational Unit, hierarchy, membership, and legal representation |
 | `core/person` | Natural person; target of the representation relationship and possible member |
-| `core/address` | Address, AddressAssignment, and address roles |
+| `core/address` | Address, LocationAssignment, and address roles |
 | `core/contact` | Contact point, contact method, usage, purpose, and homepage |
 | Domain/Participation model | Seller, buyer, delivery, project, and contract roles |
 | External evidence systems | Insurance, qualifications, compliance, register comparison, and other evidence |

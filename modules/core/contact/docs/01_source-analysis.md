@@ -1,8 +1,8 @@
 # Source Analysis for the Contact Module
 
 **Status:** Consolidated analysis baseline  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Research cutoff date:** 27 August 2026  
 **Scope:** `core/contact`
 
@@ -33,7 +33,7 @@ This analysis evaluates existing contact models as a basis for a Construct-X Con
 | [Schema.org ContactPoint](https://schema.org/ContactPoint) | Schema.org V30.0, accessed 2026-08-25 | Web interoperability and common terminology | Source for analysis and alignment, not copied directly |
 | [W3C vCard RDF](https://www.w3.org/TR/vcard-rdf/) | W3C Interest Group Note, 2014 | Traditional contact structure for people and organizations | Source for analysis and alignment |
 | [SEMIC Core Person Vocabulary](https://semiceu.github.io/Core-Person-Vocabulary/) | 2.1.2 | Supports Contact Point as a concept peripheral to Person | Source for defining boundaries |
-| [Construct-X Address Ontology](../../address/docs/03_concept-model.md) | 0.1.0 plus reference vocabularies | Existing address model | Postal addresses are referenced rather than copied |
+| [Construct-X Address Ontology](../../address/docs/03_concept-model.md) | 0.2.0 plus reference vocabularies | Existing address model | Postal addresses are referenced rather than copied |
 | [Construct-X Agent Ontology](../../agent/docs/10_agent-specification.md) | 0.1.0 | Common superclass for people and organizations | Entity holding contact information in the domain core |
 
 ## 4. UBL 2.5
@@ -138,13 +138,13 @@ SEMIC Core Person supports the relevance of contact points for people. At the sa
 
 ## 8. Construct-X Address
 
-The existing Address module provides `Address`, `AddressAssignment`, and controlled address roles. The postal structure is therefore already covered.
+The existing Address module provides `Address`, `LocationAssignment`, and controlled address roles. The postal structure is therefore already covered.
 
-The Contact module consequently has no fields such as `streetName`, `postalCode`, `localityName`, or `country`. A postal contact is modeled as a contact method referencing an existing address assignment.
+The Contact module consequently has no fields such as `streetName`, `postalCode`, `localityName`, or `country`. A postal contact is modeled as a contact method referencing an existing location assignment.
 
-Following a review against the Address conceptual model, the `AddressAssignment` variant has been selected for the MVP:
+Following a review against the Address conceptual model, the `LocationAssignment` variant has been selected for the MVP:
 
-A `ContactMethod` references a `conx-addr:AddressAssignment` through `usesAddressAssignment`.
+A `ContactMethod` references a `conx-addr:LocationAssignment` through `usesLocationAssignment`.
 
 A direct reference to `Address` would bypass existing roles, c/o instructions, attention instructions, and department information. Particularly for delivery, invoicing, and correspondence, these details form part of the domain semantics of contactability.
 
@@ -161,7 +161,7 @@ The following implemented decisions result from the analysis:
 7. Private, business, and official usage are modeled separately through `contactUsage`.
 8. Process purposes such as delivery, billing, support, and emergency are modeled separately through `contactPurpose`.
 9. Social profiles remain generic and may reference a platform resource from `contact-platform`.
-10. Postal addresses are referenced through `usesAddressAssignment` and remain in the Address module.
+10. Postal addresses are referenced through `usesLocationAssignment` and remain in the Address module.
 11. `contactType` is not adopted as an ambiguous catch-all property.
 12. Opening hours, service areas, contact options, and stricter syntax profiles remain candidates for extension.
 

@@ -98,7 +98,7 @@ More suitable owners exist for the relationships discussed so far:
 | Project participation | Project module | The participant may be an Agent |
 | `issuedBy` | Identifier/identity model | The issuer may be an Agent |
 | `hasIdentityEvidence` | `core/person` | The domain remains Person, rather than every Agent |
-| Address | `core/address` | `hasAddressAssignment` remains unrestricted in domain and can be used for agents |
+| Address | `core/address` | `hasLocationAssignment` remains unrestricted in domain and can be used for agents |
 
 ## 8. Alignment Strategy
 
@@ -203,7 +203,7 @@ The Agent module is now integrated into the implemented core modules:
 | `core/person` | `conx-person:Person rdfs:subClassOf conx-agent:Agent` | Personal names, dates of birth, sex, gender, citizenship, and identity evidence |
 | `core/organization` | `conx-org:Organization rdfs:subClassOf conx-agent:Agent` | Organization classes, membership, and legal representation |
 | `core/contact` | Agents can use `conx-contact:hasContactPoint` | Contact point, contact method, usage context, and purpose |
-| `core/address` | Agents can use `conx-addr:hasAddressAssignment` | AddressAssignment, Address, and AddressRole |
+| `core/address` | Agents can use `conx-addr:hasLocationAssignment` | LocationAssignment, Address, and LocationRole |
 
 The corresponding overview is provided in the [Integration Diagram](diagrams/agent-integration-model.md).
 
@@ -216,7 +216,7 @@ The corresponding overview is provided in the [Integration Diagram](diagrams/age
 5. Version `0.1.0` without an Agent Shape is confirmed to comply with the module conventions.
 6. The Person model uses `conx-agent:Agent` as its direct superclass.
 7. The Organization model uses `conx-agent:Agent` as its direct superclass.
-8. Contact and address assignments remain in their respective domain modules and are not moved into the Agent core.
+8. Contact and location assignments remain in their respective domain modules and are not moved into the Agent core.
 
 ## 15. Follow-Up Tasks
 

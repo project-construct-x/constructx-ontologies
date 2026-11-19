@@ -33,12 +33,12 @@
   dcterms:description "Validierungsregeln fuer die allgemeinen, anwendungsfallunabhaengigen Vertraege der Construct-X Kontaktontologie."@de ;
   dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Contact Ontology."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:modified "2026-11-19"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:title "Construct-X Contact Core Shapes"@de ;
   dcterms:title "Construct-X Contact Core Shapes"@en ;
-  owl:versionIRI <https://www.construct-x.org/shapes/contact/core/0.1.0> ;
-  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://www.construct-x.org/shapes/contact/core/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
 .
 
 ## Reusable literal contracts
@@ -138,14 +138,14 @@ conx-contact-sh:ContactMethodShape
   sh:targetSubjectsOf conx-contact:contactChannel,
                       conx-contact:contactValue,
                       conx-contact:contactURI,
-                      conx-contact:usesAddressAssignment,
+                      conx-contact:usesLocationAssignment,
                       conx-contact:contactPlatform ;
   sh:node conx-contact-sh:ContactMethodResourceShape,
           conx-contact-sh:ExplicitContactMethodTypeShape ;
   sh:property conx-contact-sh:ContactChannelPropertyShape,
               conx-contact-sh:ContactValuePropertyShape,
               conx-contact-sh:ContactUriPropertyShape,
-              conx-contact-sh:UsesAddressAssignmentPropertyShape,
+              conx-contact-sh:UsesLocationAssignmentPropertyShape,
               conx-contact-sh:ContactPlatformPropertyShape ;
   sh:xone (
       conx-contact-sh:EmailPayloadShape
@@ -371,14 +371,17 @@ conx-contact-sh:ContactUriPropertyShape
   sh:message "[CON-CM-031] contactURI must be an IRI."@en ;
 .
 
-conx-contact-sh:UsesAddressAssignmentPropertyShape
+conx-contact-sh:UsesLocationAssignmentPropertyShape
   a sh:PropertyShape ;
-  sh:path conx-contact:usesAddressAssignment ;
-  sh:class conx-addr:AddressAssignment ;
+  sh:path conx-contact:usesLocationAssignment ;
+  sh:class conx-addr:LocationAssignment ;
+  sh:node [ sh:property [
+      sh:path conx-addr:assignedAddress ; sh:class conx-addr:Address ; sh:minCount 1 ; sh:maxCount 1
+    ] ] ;
   sh:nodeKind sh:BlankNodeOrIRI ;
   sh:severity sh:Violation ;
-  sh:message "[CON-CM-032] usesAddressAssignment muss auf eine conx-addr:AddressAssignment-Ressource verweisen."@de ;
-  sh:message "[CON-CM-032] usesAddressAssignment must reference a conx-addr:AddressAssignment resource."@en ;
+  sh:message "[CON-CM-032] usesLocationAssignment benötigt eine Standortzuordnung mit genau einer Adresse."@de ;
+  sh:message "[CON-CM-032] usesLocationAssignment requires a location assignment with exactly one address."@en ;
 .
 
 ## Payload alternatives
@@ -404,10 +407,10 @@ conx-contact-sh:EmailPayloadShape
       sh:message "[CON-CM-020] An email contact method must not have a contactURI payload."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine E-Mail-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] An email contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine E-Mail-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] An email contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -432,10 +435,10 @@ conx-contact-sh:PhonePayloadShape
       sh:message "[CON-CM-020] A phone contact method must not have a contactURI payload."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Telefon-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A phone contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Telefon-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A phone contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -460,10 +463,10 @@ conx-contact-sh:MobilePhonePayloadShape
       sh:message "[CON-CM-020] A mobile phone contact method must not have a contactURI payload."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Mobiltelefon-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A mobile phone contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Mobiltelefon-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A mobile phone contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -488,10 +491,10 @@ conx-contact-sh:FaxPayloadShape
       sh:message "[CON-CM-020] A fax contact method must not have a contactURI payload."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Fax-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A fax contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Fax-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A fax contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -516,10 +519,10 @@ conx-contact-sh:WebsitePayloadShape
       sh:message "[CON-CM-020] A website contact method must not have a contactValue payload."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Website-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A website contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Website-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A website contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -544,10 +547,10 @@ conx-contact-sh:SocialProfilePayloadShape
       sh:message "[CON-CM-020] A social profile contact method must not have a contactValue payload."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Social-Profile-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A social profile contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Social-Profile-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A social profile contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -572,10 +575,10 @@ conx-contact-sh:MessengerValuePayloadShape
       sh:message "[CON-CM-020] A messenger contact method must not have both contactValue and contactURI."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A messenger contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A messenger contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -600,10 +603,10 @@ conx-contact-sh:MessengerUriPayloadShape
       sh:message "[CON-CM-020] A messenger contact method must not have both contactURI and contactValue."@en ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:maxCount 0 ;
-      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf keine Adresszuordnung besitzen."@de ;
-      sh:message "[CON-CM-020] A messenger contact method must not have an address assignment."@en ;
+      sh:message "[CON-CM-020] Eine Messenger-Kontaktmethode darf keine Standortzuordnung besitzen."@de ;
+      sh:message "[CON-CM-020] A messenger contact method must not have a location assignment."@en ;
     ] ;
 .
 
@@ -614,13 +617,13 @@ conx-contact-sh:PostalAddressPayloadShape
       sh:hasValue contact-channel:postalAddress ;
     ] ;
   sh:property [
-      sh:path conx-contact:usesAddressAssignment ;
+      sh:path conx-contact:usesLocationAssignment ;
       sh:minCount 1 ;
       sh:maxCount 1 ;
-      sh:class conx-addr:AddressAssignment ;
+      sh:class conx-addr:LocationAssignment ;
       sh:nodeKind sh:BlankNodeOrIRI ;
-      sh:message "[CON-CM-032] Eine postalische Kontaktmethode muss genau eine conx-addr:AddressAssignment referenzieren."@de ;
-      sh:message "[CON-CM-032] A postal contact method must reference exactly one conx-addr:AddressAssignment."@en ;
+      sh:message "[CON-CM-032] Eine postalische Kontaktmethode muss genau eine conx-addr:LocationAssignment referenzieren."@de ;
+      sh:message "[CON-CM-032] A postal contact method must reference exactly one conx-addr:LocationAssignment."@en ;
     ] ;
   sh:property [
       sh:path conx-contact:contactValue ;

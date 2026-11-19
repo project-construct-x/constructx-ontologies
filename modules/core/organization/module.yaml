@@ -15,9 +15,9 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 shape_sets:
   core:
     graph_iri: https://www.construct-x.org/shapes/organization/core
-    version_iri: https://www.construct-x.org/shapes/organization/core/0.1.0
+    version_iri: https://www.construct-x.org/shapes/organization/core/0.2.0
     namespace: https://www.construct-x.org/shapes/organization/core#
-    version: 0.1.0
+    version: 0.2.0
     artifact: shapes/conx-org-core.shacl.ttl
 
 dependencies:
@@ -45,23 +45,25 @@ dependencies:
   - id: address
     relation: referenced-not-imported
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+    version_iri: https://www.construct-x.org/ontology/address/0.2.0
     namespace: https://www.construct-x.org/ontology/address#
     used_terms:
-      - conx-addr:AddressAssignment
-      - conx-addr:hasAddressAssignment
-      - conx-addr:addressRole
+      - conx-addr:Address
+      - conx-addr:assignedAddress
+      - conx-addr:LocationAssignment
+      - conx-addr:hasLocationAssignment
+      - conx-addr:locationRole
   - id: contact
     relation: referenced-not-imported
     ontology_iri: https://www.construct-x.org/ontology/contact
-    version_iri: https://www.construct-x.org/ontology/contact/0.1.0
+    version_iri: https://www.construct-x.org/ontology/contact/0.2.0
     namespace: https://www.construct-x.org/ontology/contact#
     used_terms:
       - conx-contact:hasContactPoint
   - id: address-roles
     relation: referenced-not-imported
     vocabulary_iri: https://www.construct-x.org/vocab/address-role
-    version_iri: https://www.construct-x.org/vocab/address-role/0.2.0
+    version_iri: https://www.construct-x.org/vocab/address-role/0.3.0
     namespace: https://www.construct-x.org/vocab/address-role#
     used_terms:
       - roles:LegalAddressRole

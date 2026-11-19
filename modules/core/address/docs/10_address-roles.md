@@ -1,18 +1,18 @@
 # Controlled Address Role Vocabulary
 
-The Construct-X Address Ontology defines only the type of an address role through `conx-addr:AddressRole`. Specific roles are maintained separately as a versioned SKOS reference vocabulary:
+The Construct-X Address Ontology defines only the type of an address role through `conx-addr:LocationRole`. Specific roles are maintained separately as a versioned SKOS reference vocabulary:
 
 ```text
 Vocabulary IRI: https://www.construct-x.org/vocab/address-role
-Version IRI:    https://www.construct-x.org/vocab/address-role/0.2.0
+Version IRI:    https://www.construct-x.org/vocab/address-role/0.3.0
 Namespace:      https://www.construct-x.org/vocab/address-role#
 Prefix:         roles
-Version:        0.2.0
+Version:        0.3.0
 ```
 
 Source file: `datasets/reference/vocabularies/address-roles/address-roles.ttl`
 
-## Roles in Version 0.2.0
+## Roles in Version 0.3.0
 
 | Role resource                       | German                                         | English                          | Notation                   | Source                       |
 | ----------------------------------- | ---------------------------------------------- | -------------------------------- | -------------------------- | ---------------------------- |
@@ -44,6 +44,6 @@ The three roles added in version `0.2.0` represent the address uses defined in G
 
 ## Modeling Rules
 
-Each role is both a `conx-addr:AddressRole` and a `skos:Concept`. An `AddressAssignment` may have multiple roles if all other details of the assignment apply jointly to those roles. If the department, recipient instruction, or validity differs, multiple assignments are created for the same address.
+Each role is both a `conx-addr:LocationRole` and a `skos:Concept`. A `LocationAssignment` may have multiple roles if all other details of the assignment apply jointly to those roles. If the department, recipient instruction, or validity differs, multiple assignments are created for the same address.
 
 The open core model also permits roles from other controlled vocabularies. A strict SHACL profile may later require the roles used to belong to the Construct-X concept scheme `https://www.construct-x.org/vocab/address-role`.

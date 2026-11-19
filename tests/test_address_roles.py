@@ -60,31 +60,31 @@ def test_address_role_dataset_metadata_is_explicit() -> None:
     assert metadata["id"] == "address-roles"
     assert metadata["type"] == "reference-vocabulary"
     assert metadata["status"] == "draft"
-    assert metadata["version"] == "0.2.0"
+    assert metadata["version"] == "0.3.0"
     assert metadata["vocabulary_iri"] == str(SCHEME)
-    assert metadata["version_iri"] == f"{SCHEME}/0.2.0"
+    assert metadata["version_iri"] == f"{SCHEME}/0.3.0"
     assert metadata["namespace"] == str(ROLES)
     assert metadata["dependencies"] == [
         {
             "id": "address",
-            "version": "0.1.0",
+            "version": "0.2.0",
             "ontology_iri": "https://www.construct-x.org/ontology/address",
-            "version_iri": "https://www.construct-x.org/ontology/address/0.1.0",
+            "version_iri": "https://www.construct-x.org/ontology/address/0.2.0",
         }
     ]
 
 
 def test_vocabulary_contains_exactly_the_approved_address_roles() -> None:
     graph = load_vocabulary()
-    roles = set(graph.subjects(RDF.type, CONX_ADDR.AddressRole))
+    roles = set(graph.subjects(RDF.type, CONX_ADDR.LocationRole))
 
     assert roles == EXPECTED_ROLES
     assert (SCHEME, RDF.type, SKOS.ConceptScheme) in graph
     assert (SCHEME, RDF.type, OWL.Ontology) in graph
     assert list(graph.objects(SCHEME, OWL.versionIRI)) == [
-        URIRef(f"{SCHEME}/0.2.0")
+        URIRef(f"{SCHEME}/0.3.0")
     ]
-    assert (SCHEME, SCHEMA.version, Literal("0.2.0")) in graph
+    assert (SCHEME, SCHEMA.version, Literal("0.3.0")) in graph
     assert set(graph.objects(SCHEME, SKOS.hasTopConcept)) == EXPECTED_ROLES
 
 
@@ -126,6 +126,6 @@ def test_only_roles_with_direct_ubl_terms_claim_ubl_provenance() -> None:
 def test_address_role_instances_remain_outside_the_tbox() -> None:
     ontology_graph = Graph().parse(ONTOLOGY_FILE, format="turtle")
 
-    assert not set(ontology_graph.subjects(RDF.type, CONX_ADDR.AddressRole))
+    assert not set(ontology_graph.subjects(RDF.type, CONX_ADDR.LocationRole))
     assert not EXPECTED_ROLES.intersection(ontology_graph.all_nodes())
 

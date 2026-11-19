@@ -79,13 +79,14 @@ def test_contact_reference_vocabularies_contain_the_approved_values() -> None:
 
         assert metadata["type"] == "reference-vocabulary"
         assert metadata["status"] == "draft"
-        assert metadata["version"] == "0.1.0"
+        version = "0.1.1" if vocabulary_id == "contact-channel" else "0.1.0"
+        assert metadata["version"] == version
         assert (scheme, RDF.type, OWL.Ontology) in graph
         assert (scheme, RDF.type, SKOS.ConceptScheme) in graph
         assert list(graph.objects(scheme, OWL.versionIRI)) == [
-            URIRef(f"{scheme}/0.1.0")
+            URIRef(f"{scheme}/{version}")
         ]
-        assert list(graph.objects(scheme, OWL.versionInfo)) == [Literal("0.1.0")]
+        assert list(graph.objects(scheme, OWL.versionInfo)) == [Literal(version)]
 
         concepts = set(graph.subjects(RDF.type, SKOS.Concept))
         assert concepts == set(expected_notations)

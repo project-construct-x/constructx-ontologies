@@ -2,10 +2,10 @@ id: contact
 title: Construct-X Contact Ontology
 type: core
 status: draft
-version: 0.1.0
+version: 0.2.0
 
 ontology_iri: https://www.construct-x.org/ontology/contact
-version_iri: https://www.construct-x.org/ontology/contact/0.1.0
+version_iri: https://www.construct-x.org/ontology/contact/0.2.0
 namespace: https://www.construct-x.org/ontology/contact#
 preferred_namespace_prefix: conx-contact
 created: 2026-08-27
@@ -15,23 +15,25 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 shape_sets:
   core:
     graph_iri: https://www.construct-x.org/shapes/contact/core
-    version_iri: https://www.construct-x.org/shapes/contact/core/0.1.0
+    version_iri: https://www.construct-x.org/shapes/contact/core/0.2.0
     namespace: https://www.construct-x.org/shapes/contact/core#
-    version: 0.1.0
+    version: 0.2.0
     artifact: shapes/conx-contact-core.shacl.ttl
 
 dependencies:
   - id: address
     relation: referenced-not-imported
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+    version_iri: https://www.construct-x.org/ontology/address/0.2.0
     namespace: https://www.construct-x.org/ontology/address#
     used_terms:
-      - conx-addr:AddressAssignment
+      - conx-addr:Address
+      - conx-addr:assignedAddress
+      - conx-addr:LocationAssignment
   - id: contact-channel
     relation: referenced-not-imported
     vocabulary_iri: https://www.construct-x.org/vocab/contact-channel
-    version_iri: https://www.construct-x.org/vocab/contact-channel/0.1.0
+    version_iri: https://www.construct-x.org/vocab/contact-channel/0.1.1
     namespace: https://www.construct-x.org/vocab/contact-channel#
     used_terms:
       - contact-channel:email

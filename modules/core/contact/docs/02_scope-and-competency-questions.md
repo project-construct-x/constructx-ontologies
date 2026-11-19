@@ -1,8 +1,8 @@
 # Scope and Competency Questions of the Contact Module
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** `core/contact`
 
 ## 1. Purpose
@@ -21,7 +21,7 @@ The module does not own a person's identity, an organization's structure, or the
 | Contact point | Groups multiple specific contact methods within a usage context |
 | Contact method | Describes exactly one channel and its value, URI, or address reference |
 | Channels | Email, telephone, mobile telephone, fax, website, messenger, social profile, postal address |
-| Postal address | No separate address structure; reference to `conx-addr:AddressAssignment` from the existing Address module |
+| Postal address | No separate address structure; reference to `conx-addr:LocationAssignment` from the existing Address module |
 | Private/business/official | Controlled A-Box vocabulary `ContactUsage` |
 | Purpose | Separate A-Box vocabulary `ContactPurpose`, for example delivery, billing, support, emergency |
 | Social profile | Modeled generically, with the platform represented through a dedicated extensible vocabulary |
@@ -116,7 +116,7 @@ ex:delivery-email
 
 ### CQ-05: How are postal contact addresses modeled?
 
-Postal addresses are described through `core/address`. The Contact module provides a contact method with the channel `postalAddress` and links it to an existing `conx-addr:AddressAssignment`.
+Postal addresses are described through `core/address`. The Contact module provides a contact method with the channel `postalAddress` and links it to an existing `conx-addr:LocationAssignment`.
 
 Implemented pattern:
 
@@ -124,10 +124,10 @@ Implemented pattern:
 ex:private-postal-method
     a conx-contact:ContactMethod ;
     conx-contact:contactChannel contact-channel:postalAddress ;
-    conx-contact:usesAddressAssignment ex:private-postal-address-assignment .
+    conx-contact:usesLocationAssignment ex:private-postal-address-assignment .
 ```
 
-A direct reference to `conx-addr:Address` is excluded from the MVP. The Address ontology already specifies that domain-specific usage, role, and delivery instructions are expressed through `AddressAssignment`. These are precisely the details relevant to postal contactability.
+A direct reference to `conx-addr:Address` is excluded from the MVP. The Address ontology already specifies that domain-specific usage, role, and delivery instructions are expressed through `LocationAssignment`. These are precisely the details relevant to postal contactability.
 
 ### CQ-06: How are social media profiles modeled?
 
@@ -170,7 +170,7 @@ For the MVP, the Core SHACL Profile specifies:
 - A `ContactPoint` must have at least one `ContactMethod`.
 - `contactUsage` may occur at most once.
 - A `ContactMethod` must have exactly one `contactChannel`.
-- The permitted value form depends on the channel: string, IRI, or `AddressAssignment`.
+- The permitted value form depends on the channel: string, IRI, or `LocationAssignment`.
 - Usage, Purpose, Channel, and Platform are checked against the approved Construct-X reference vocabularies.
 - Email, telephone, mobile telephone, and fax values are checked only as non-empty strings.
 
@@ -189,7 +189,7 @@ The MVP covers the domain requirements when:
 
 1. the classes `ContactPoint` and `ContactMethod` are implemented,
 2. the four reference vocabularies `contact-channel`, `contact-usage`, `contact-purpose`, and `contact-platform` are available,
-3. postal contact methods reference `core/address` through `usesAddressAssignment`,
+3. postal contact methods reference `core/address` through `usesLocationAssignment`,
 4. the minimum rules for ContactPoint and ContactMethod are implemented and tested as Core Shapes.
 
 ## 8. Illustrative Example

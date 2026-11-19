@@ -42,7 +42,7 @@ def test_address_role_documentation_covers_every_controlled_role() -> None:
     roles = Graph().parse(ROLES_FILE, format="turtle")
     role_namespace = Namespace("https://www.construct-x.org/vocab/address-role#")
 
-    role_resources = set(roles.subjects(RDF.type, CONX_ADDR.AddressRole))
+    role_resources = set(roles.subjects(RDF.type, CONX_ADDR.LocationRole))
     assert len(role_resources) == 11
     for role in role_resources:
         assert f"`roles:{local_name(role, role_namespace)}`" in documentation

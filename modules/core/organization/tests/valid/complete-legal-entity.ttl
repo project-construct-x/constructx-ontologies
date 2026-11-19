@@ -16,7 +16,7 @@ ex:bau-gmbh
   conx-org:legalForm ex:legal-form-gmbh ;
   conx-org:activity ex:construction-activity ;
   adms:identifier ex:bau-gmbh-register-id ;
-  conx-addr:hasAddressAssignment ex:bau-gmbh-legal-address ;
+  conx-addr:hasLocationAssignment ex:bau-gmbh-legal-address ;
 .
 
 ex:legal-form-gmbh a skos:Concept .
@@ -29,9 +29,9 @@ ex:bau-gmbh-register-id
 .
 
 ex:bau-gmbh-legal-address
-  a conx-addr:AddressAssignment ;
+  a conx-addr:LocationAssignment ;
   conx-addr:assignedAddress ex:bau-gmbh-address ;
-  conx-addr:addressRole roles:LegalAddressRole,
+  conx-addr:locationRole roles:LegalAddressRole,
                         roles:RegistrationAddressRole ;
 .
 

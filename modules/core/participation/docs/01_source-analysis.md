@@ -388,7 +388,7 @@ Such meanings require other domain models. Origin, evidence, status, authorizati
 | `core/person` | Personal master data | A Person may be the Agent in a role assignment |
 | `core/organization` | Organizations, membership, hierarchy, and legal representation | An Organization may be an Agent or organizational context; Membership initially remains a separate organizational concept |
 | `core/contact` | Contact points, methods, usage, and purpose | Contact roles and business roles must not be conflated |
-| `core/address` | Addresses and address assignments | No role or context semantics are derived in the Participation module |
+| `core/address` | Addresses and location assignments | No role or context semantics are derived in the Participation module |
 | `core/document` | Documents and document semantics | A Document may provide the context for a role assignment |
 
 The boundary with `core/organization:Membership` is particularly important:

@@ -33,11 +33,11 @@ MODULES = [
     {
         "path": ROOT / "modules/core/address/ontology/conx-addr.ttl",
         "ontology_iri": URIRef("https://www.construct-x.org/ontology/address"),
-        "version_iri": URIRef("https://www.construct-x.org/ontology/address/0.1.0"),
+        "version_iri": URIRef("https://www.construct-x.org/ontology/address/0.2.0"),
         "namespace": "https://www.construct-x.org/ontology/address#",
         "prefix": "conx-addr",
         "known_object_property_deviations": {
-            "addressRole",
+            "locationRole",
             "assignedAddress",
             "broaderAdministrativeTerritory",
         },

@@ -1,7 +1,7 @@
 # Organization Core Shapes
 
 **Status:** Implemented  
-**Version:** 0.1.0  
+**Version:** 0.2.0  
 **As of:** 3 September 2026  
 **Scope:** Organization Core Shapes
 
@@ -10,16 +10,16 @@ The Organization Core Shapes validate the general, use-case-independent data con
 ```text
 Shape graph: modules/core/organization/shapes/conx-org-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/organization/core
-Version IRI: https://www.construct-x.org/shapes/organization/core/0.1.0
+Version IRI: https://www.construct-x.org/shapes/organization/core/0.2.0
 Namespace:   https://www.construct-x.org/shapes/organization/core#
-Version:     0.1.0
+Version:     0.2.0
 ```
 
 ## 1. Validated Contracts
 
 - All five local resource types are referenced through IRIs and appropriately typed.
 - Every `Organization` has at least one non-empty name.
-- Every `LegalEntity` additionally has a legal name, exactly one registration date as `xsd:date`, at least one structured ADMS identifier, and at least one AddressAssignment with `LegalAddressRole`.
+- Every `LegalEntity` additionally has a legal name, exactly one registration date as `xsd:date`, at least one structured ADMS identifier, and at least one LocationAssignment with `LegalAddressRole`.
 - `legalForm` is optional, occurs at most once, and references a SKOS concept.
 - Every `OrganizationalUnit` has at least one `unitOf` relationship.
 - Every `Membership` links exactly one Agent to exactly one Organization.
@@ -32,7 +32,7 @@ Additional properties remain permitted. The profile does not use `sh:closed true
 
 The Organization Shapes do not take over external data contracts:
 
-- Address Core checks AddressAssignments, roles, and addresses.
+- Address Core checks LocationAssignments, roles, and addresses.
 - Contact Core checks contact points and the homepage modeled as a website contact.
 - Person Core checks included personal data.
 - The imported `identifier/core` Shape checks type, exactly one literal `skos:notation`, and an optional textual `adms:schemaAgency`.

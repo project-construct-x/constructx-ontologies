@@ -2,10 +2,11 @@
 @prefix ex: <https://example.org/id/> .
 
 ex:assignment
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:address-1,
                               ex:address-2 ;
-    conx-addr:addressRole ex:not-a-role ;
+    conx-addr:hasGeoReference "51.4, 7.3" ;
+    conx-addr:locationRole ex:not-a-role ;
     conx-addr:careOf "First recipient",
                      "Second recipient" .
 
@@ -17,8 +18,7 @@ ex:address-1
     conx-addr:postalCode "44801"@de ;
     conx-addr:hasCountry ex:country-1,
                          ex:country-2 ;
-    conx-addr:hasAdministrativeArea ex:country-1 ;
-    conx-addr:hasGeographicPosition "51.4, 7.3" .
+    conx-addr:hasAdministrativeArea ex:country-1 .
 
 ex:address-2 a conx-addr:Address .
 ex:not-a-role a conx-addr:Address .

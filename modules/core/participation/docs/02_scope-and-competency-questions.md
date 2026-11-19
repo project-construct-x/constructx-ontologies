@@ -191,7 +191,7 @@ The MVP includes a small, separately versioned role vocabulary. It should contai
 
 The specific initial roles are established in the term catalog. The Participation module itself defines no universal role list and does not indiscriminately mix construction, contract, delivery, and document roles in its T-Box.
 
-`AddressRole` follows a comparable pattern for controlled role values, but is not a Participation role vocabulary: it classifies an address's function within an address assignment rather than an Agent's role.
+`LocationRole` follows a comparable pattern for controlled role values, but is not a Participation role vocabulary: it classifies an address's function within a location assignment rather than an Agent's role.
 
 ### PCQ-10: Is organizational membership a Participation?
 

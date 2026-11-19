@@ -16,10 +16,10 @@ ex:bau-gmbh
       a adms:Identifier ;
       skos:notation "HRB 12345" ;
     ] ;
-  conx-addr:hasAddressAssignment [
-      a conx-addr:AddressAssignment ;
+  conx-addr:hasLocationAssignment [
+      a conx-addr:LocationAssignment ;
       conx-addr:assignedAddress ex:bau-gmbh-address ;
-      conx-addr:addressRole roles:LegalAddressRole ;
+      conx-addr:locationRole roles:LegalAddressRole ;
     ] ;
 .
 

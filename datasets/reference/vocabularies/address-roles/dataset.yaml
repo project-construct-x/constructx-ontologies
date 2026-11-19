@@ -2,10 +2,10 @@ id: address-roles
 title: Construct-X Address Roles
 type: reference-vocabulary
 status: draft
-version: 0.2.0
+version: 0.3.0
 
 vocabulary_iri: https://www.construct-x.org/vocab/address-role
-version_iri: https://www.construct-x.org/vocab/address-role/0.2.0
+version_iri: https://www.construct-x.org/vocab/address-role/0.3.0
 namespace: https://www.construct-x.org/vocab/address-role#
 preferred_namespace_prefix: roles
 created: 2026-08-18
@@ -14,9 +14,9 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 
 dependencies:
   - id: address
-    version: 0.1.0
+    version: 0.2.0
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.1.0
+    version_iri: https://www.construct-x.org/ontology/address/0.2.0
 
 artifacts:
   data: address-roles.ttl

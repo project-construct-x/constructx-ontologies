@@ -24,7 +24,7 @@ This document defines the domain scope and competency questions. Classes, proper
 | Identifiers | Generic structured identifiers according to the Construct-X ADMS profile |
 | Identity evidence | Generic links to externally modeled documents, credentials, or verification methods |
 | Contact | Assignment through a separate reusable Contact module |
-| Address | Assignment through the existing Address module and its `AddressAssignment` pattern |
+| Address | Assignment through the existing Address module and its `LocationAssignment` pattern |
 | Organization and Project | Relationships are modeled in the respective responsible modules |
 | Agent | Minimal shared superclass in a separate `core/agent` module |
 
@@ -35,7 +35,7 @@ This document defines the domain scope and competency questions. Classes, proper
 | Starting resource | Domain connection | Target | Responsible module |
 | --- | --- | --- | --- |
 | Person | `hasContactPoint` | Contact point with contact methods | Contact module |
-| Person | Address assignment | Address | Address module |
+| Person | Location assignment | Address | Address module |
 | Person | Membership | Organization | `core/organization` |
 | Person | Participation | Project | Project module |
 
@@ -125,7 +125,7 @@ Detailed models for document numbers, validity, status, revocation, cryptographi
 
 ### CQ-08: How Are Private and Business Contact Details Distinguished?
 
-Contact information is assigned through a separate Contact module. The described resource references a contact point through `hasContactPoint`; this contact point groups concrete `ContactMethod` resources such as email, telephone, website, or postal address assignment. `hasContactPoint` has no fixed OWL domain in the open core and therefore remains usable for organizations, projects, or positions.
+Contact information is assigned through a separate Contact module. The described resource references a contact point through `hasContactPoint`; this contact point groups concrete `ContactMethod` resources such as email, telephone, website, or postal location assignment. `hasContactPoint` has no fixed OWL domain in the open core and therefore remains usable for organizations, projects, or positions.
 
 Private, business, or official use is modeled through `contactUsage` on the contact point. A separate `contactPurpose` can express purposes such as general contact, delivery, billing, support, or emergency. Telephone numbers and email addresses are therefore not treated as fixed Person properties. Functional contacts such as “Site management” or “Billing office” remain possible without being mistaken for personal names. The usage value `private` is not an access rule; authorization remains outside the contact model.
 

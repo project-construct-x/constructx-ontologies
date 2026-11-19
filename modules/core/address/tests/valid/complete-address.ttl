@@ -2,13 +2,14 @@
 @prefix ex: <https://example.org/id/> .
 
 ex:resource
-    conx-addr:hasAddressAssignment ex:assignment .
+    conx-addr:hasLocationAssignment ex:assignment .
 
 ex:assignment
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:address ;
-    conx-addr:addressRole ex:delivery-role,
+    conx-addr:locationRole ex:delivery-role,
                           ex:postal-role ;
+    conx-addr:hasGeoReference ex:gate ;
     conx-addr:departmentName "Wareneingang"@de ;
     conx-addr:attentionOf "Schichtleitung" ;
     conx-addr:careOf "Example Construction GmbH" .
@@ -30,11 +31,10 @@ ex:address
     conx-addr:postalCode "44801" ;
     conx-addr:plotIdentifier "Flurstück 4711" ;
     conx-addr:hasCountry ex:germany ;
-    conx-addr:hasAdministrativeArea ex:north-rhine-westphalia ;
-    conx-addr:hasGeographicPosition [ ex:source "external geo model" ] .
+    conx-addr:hasAdministrativeArea ex:north-rhine-westphalia .
 
-ex:delivery-role a conx-addr:AddressRole .
-ex:postal-role a conx-addr:AddressRole .
+ex:delivery-role a conx-addr:LocationRole .
+ex:postal-role a conx-addr:LocationRole .
 
 ex:germany a conx-addr:Country .
 
@@ -42,3 +42,7 @@ ex:north-rhine-westphalia
     a conx-addr:AdministrativeArea ;
     conx-addr:broaderAdministrativeTerritory ex:germany .
 
+
+ex:gate-only a conx-addr:LocationAssignment ;
+    conx-addr:hasGeoReference ex:gate ;
+    conx-addr:locationRole ex:delivery-role .

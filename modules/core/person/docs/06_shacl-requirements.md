@@ -93,7 +93,7 @@ The small `sex` and Gender value sets may additionally be included as closed `sh
 | `conx-contact-sh:ContactCarrierShape` | `contact/core` | Checks `hasContactPoint` values without a restrictive Agent domain |
 | `conx-contact-sh:ContactPointShape` | `contact/core` | Checks the contact block, usage, purpose, and contact methods |
 | `conx-contact-sh:ContactMethodShape` | `contact/core` | Checks the contact channel and channel-specific payload |
-| Existing Address Shapes | `address/core` | Check address assignment, address, and address roles |
+| Existing Address Shapes | `address/core` | Check location assignment, address, and address roles |
 | `conx-id-sh:ADMSIdentifierShape` | `identifier/core` | Checks identifier type, notation, and optional scheme agency |
 
 ## 6. Targets of `PersonShape`
@@ -296,9 +296,9 @@ The minimal shape requires:
 - blank node or IRI,
 - explicit type `conx-contact:ContactMethod`,
 - exactly one approved `contactChannel`,
-- exactly one payload matching the channel: `contactValue`, `contactURI`, or `usesAddressAssignment`.
+- exactly one payload matching the channel: `contactValue`, `contactURI`, or `usesLocationAssignment`.
 
-Postal contact methods reference `conx-addr:AddressAssignment` exclusively through `usesAddressAssignment`. A direct reference to `conx-addr:Address` is not intended in the Contact MVP.
+Postal contact methods reference `conx-addr:LocationAssignment` exclusively through `usesLocationAssignment`. A direct reference to `conx-addr:Address` is not intended in the Contact MVP.
 
 ## 14. Error Message Catalog
 
@@ -339,7 +339,7 @@ Postal contact methods reference `conx-addr:AddressAssignment` exclusively throu
 | `CON-CP-021` | Jeder contactPurpose-Wert muss auf einen freigegebenen Purpose-Wert verweisen. | Every contactPurpose value must reference an approved purpose value. |
 | `CON-CM-010` | Eine ContactMethod muss genau einen freigegebenen Kontaktkanal besitzen. | A ContactMethod must have exactly one approved contact channel. |
 | `CON-CM-020` | Eine ContactMethod muss genau einen zum Kanal passenden Payload besitzen. | A ContactMethod must have exactly one payload matching its channel. |
-| `CON-CM-032` | Eine postalische Kontaktmethode muss genau eine conx-addr:AddressAssignment referenzieren. | A postal contact method must reference exactly one conx-addr:AddressAssignment. |
+| `CON-CM-032` | Eine postalische Kontaktmethode muss genau eine conx-addr:LocationAssignment referenzieren. | A postal contact method must reference exactly one conx-addr:LocationAssignment. |
 
 ## 15. Valid Scenarios
 

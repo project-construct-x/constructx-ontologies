@@ -87,11 +87,11 @@ flowchart LR
 
     subgraph ADDRESS["core/address"]
         direction TB
-        AddressAssignment["AddressAssignment"]
+        LocationAssignment["LocationAssignment"]
         Address["Address"]
-        AddressRole["AddressRole: Legal / Headquarters / Registration / Postal"]
-        AddressAssignment -->|"assignedAddress 1"| Address
-        AddressAssignment -->|"addressRole 1..*"| AddressRole
+        LocationRole["LocationRole: Legal / Headquarters / Registration / Postal"]
+        LocationAssignment -->|"assignedAddress 1"| Address
+        LocationAssignment -->|"locationRole 1..*"| LocationRole
     end
 
     subgraph CONTACT["core/contact"]
@@ -102,7 +102,7 @@ flowchart LR
     end
 
     Legal -->|"adms:identifier 1..*"| Identifier
-    Legal -->|"hasAddressAssignment 0..*"| AddressAssignment
+    Legal -->|"hasLocationAssignment 0..*"| LocationAssignment
     Legal -->|"hasContactPoint 0..*"| ContactPoint
 
     Note["No local properties for street, postal code, email, or homepage"]
@@ -118,7 +118,7 @@ flowchart LR
     class Legal core;
     class Names,Registration detail;
     class Identifier,Notation,Agency identifier;
-    class AddressAssignment,Address,AddressRole address;
+    class LocationAssignment,Address,LocationRole address;
     class ContactPoint,Website contact;
     class Note note;
 ```

@@ -15,8 +15,8 @@
 
 <https://www.construct-x.org/ontology/contact>
   a owl:Ontology ;
-  dcterms:bibliographicCitation "Construct-X Contact Ontology, version 0.1.0"@en ;
-  dcterms:bibliographicCitation "Construct-X Kontaktontologie, Version 0.1.0"@de ;
+  dcterms:bibliographicCitation "Construct-X Contact Ontology, version 0.2.0"@en ;
+  dcterms:bibliographicCitation "Construct-X Kontaktontologie, Version 0.2.0"@de ;
   dcterms:contributor "Construction-X Arbeitspaket 3.4"@de ;
   dcterms:created "2026-08-27"^^xsd:date ;
   dcterms:creator [
@@ -32,7 +32,7 @@
   dcterms:description "Definiert ein wiederverwendbares Modell fuer Kontaktpunkte, Kontaktmethoden, Kommunikationskanaele, Nutzungskontexte, Zwecke und Plattformen im Construction-X-Ontologienetzwerk."@de ;
   dcterms:description "Defines a reusable model for contact points, contact methods, communication channels, usage contexts, purposes, and platforms in the Construction-X ontology network."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:modified "2026-11-19"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
   dcterms:source <https://schema.org/ContactPoint> ;
@@ -41,8 +41,8 @@
   dcterms:title "Construct-X Kontaktontologie"@de ;
   vann:preferredNamespacePrefix "conx-contact" ;
   vann:preferredNamespaceUri "https://www.construct-x.org/ontology/contact#" ;
-  owl:versionIRI <https://www.construct-x.org/ontology/contact/0.1.0> ;
-  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/contact/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
 .
 
 ## Classes
@@ -58,8 +58,8 @@ conx-contact:ContactPoint
 
 conx-contact:ContactMethod
   a owl:Class ;
-  rdfs:comment "Einzelner Kommunikationsweg innerhalb eines Kontaktpunkts. Eine Kontaktmethode besitzt genau einen Kanal und den zugehoerigen Wert, die URI oder die Adresszuordnung."@de ;
-  rdfs:comment "Single communication path within a contact point. A contact method has exactly one channel and the corresponding value, URI, or address assignment."@en ;
+  rdfs:comment "Einzelner Kommunikationsweg innerhalb eines Kontaktpunkts. Eine Kontaktmethode besitzt genau einen Kanal und den zugehoerigen Wert, die URI oder die Standortzuordnung."@de ;
+  rdfs:comment "Single communication path within a contact point. A contact method has exactly one channel and the corresponding value, URI, or location assignment."@en ;
   rdfs:label "Contact method"@en ;
   rdfs:label "Kontaktmethode"@de ;
   rdfs:seeAlso vcard:Kind ;
@@ -184,14 +184,14 @@ conx-contact:contactURI
   rdfs:seeAlso vcard:hasURL ;
 .
 
-conx-contact:usesAddressAssignment
+conx-contact:usesLocationAssignment
   a owl:ObjectProperty ;
-  rdfs:comment "Verknuepft eine postalische Kontaktmethode mit einer bestehenden Construct-X-Adresszuordnung. Der direkte Verweis auf eine Adresse ist im Kontakt-MVP nicht vorgesehen."@de ;
-  rdfs:comment "Links a postal contact method to an existing Construct-X address assignment. A direct link to an address is not part of the contact MVP."@en ;
+  rdfs:comment "Verknuepft eine postalische Kontaktmethode mit einer bestehenden Construct-X-Standortzuordnung. Der direkte Verweis auf eine Adresse ist im Kontakt-MVP nicht vorgesehen."@de ;
+  rdfs:comment "Links a postal contact method to an existing Construct-X location assignment. A direct link to an address is not part of the contact MVP."@en ;
   rdfs:domain conx-contact:ContactMethod ;
-  rdfs:label "uses address assignment"@en ;
-  rdfs:label "verwendet Adresszuordnung"@de ;
-  rdfs:range conx-addr:AddressAssignment ;
+  rdfs:label "uses location assignment"@en ;
+  rdfs:label "verwendet Standortzuordnung"@de ;
+  rdfs:range conx-addr:LocationAssignment ;
 .
 
 ## Datatype properties

@@ -5,12 +5,13 @@
 @prefix roles: <https://www.construct-x.org/vocab/address-role#> .
 
 ex:rub
-    conx-addr:hasAddressAssignment ex:rub-postal-address-assignment .
+    conx-addr:hasLocationAssignment ex:rub-postal-address-assignment .
 
 ex:rub-postal-address-assignment
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:rub-address ;
-    conx-addr:addressRole roles:PostalAddressRole .
+    conx-addr:hasGeoReference ex:campus-position ;
+    conx-addr:locationRole roles:PostalAddressRole .
 
 ex:rub-address
     a conx-addr:Address ;

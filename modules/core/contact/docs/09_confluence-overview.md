@@ -3,8 +3,8 @@
 # Construct-X Core-Modul Contact
 
 **Status:** Freigegebene Confluence-Kurzfassung<br>
-**Version:** 0.1.0<br>
-**Stand:** 3. September 2026<br>
+**Version:** 0.2.0<br>
+**Stand:** 19. November 2026<br>
 **Geltungsbereich:** `core/contact`
 
 Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
@@ -43,7 +43,7 @@ Kontaktierbare Ressource -> ContactPoint „Buchhaltung“
                               +-> ContactMethod -> Kanal: Telefon
 ```
 
-Eine postalische Kontaktmethode verweist auf eine vorhandene `AddressAssignment`, statt Adressdaten zu kopieren.
+Eine postalische Kontaktmethode verweist auf eine `LocationAssignment` mit genau einer strukturierten `Address`.
 
 <a id="5-key-classes-and-relationships"></a>
 
@@ -58,13 +58,13 @@ Eine postalische Kontaktmethode verweist auf eine vorhandene `AddressAssignment`
 | `ContactPurpose` | Zweck, etwa Rechnung oder Unterstützung |
 | `hasContactMethod` | Bündelt Methoden an einem Kontaktpunkt |
 | `contactValue` | Enthält eine E-Mail-Adresse oder Telefonnummer |
-| `usesAddressAssignment` | Verwendet eine vorhandene postalische Adresszuordnung |
+| `usesLocationAssignment` | Verwendet eine vorhandene postalische Standortzuordnung |
 
 <a id="6-validation-in-plain-language"></a>
 
 ## 6. Validierung in Alltagssprache
 
-Jeder Kontaktpunkt benötigt mindestens eine Methode. Jede Methode besitzt genau einen freigegebenen Kanal und muss den dazu passenden Wert bereitstellen: Text für E-Mail und Telefon, eine IRI für Websites oder eine Adresszuordnung für postalischen Kontakt.
+Jeder Kontaktpunkt benötigt mindestens eine Methode. Jede Methode besitzt genau einen freigegebenen Kanal und muss den dazu passenden Wert bereitstellen: Text für E-Mail und Telefon, eine IRI für Websites oder eine Standortzuordnung für postalischen Kontakt.
 
 > Ein Website-Kanal mit einer Telefonnummer als einfachem Text ist ungültig. Eine Website-Methode mit einer Web-IRI erfüllt die Core-Anforderungen, auch wenn der Core nicht prüft, ob die Website erreichbar ist.
 
@@ -81,7 +81,7 @@ Postalische Kontaktmethoden verweisen auf `core/address`. Kanal, Nutzung, Zweck 
 | Eigenschaft | Wert |
 | --- | --- |
 | Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
-| Version | `0.1.0` |
+| Version | `0.2.0` |
 | Ontologie-IRI | `https://www.construct-x.org/ontology/contact` |
 | Präfix | `conx-contact` |
 

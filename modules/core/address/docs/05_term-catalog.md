@@ -1,8 +1,8 @@
 # Glossary of the Address Module
 
 **Status:** Technically approved and implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** `core/address`
 
 ## 1. Purpose
@@ -22,8 +22,8 @@ The prefix used is `conx-addr`.
 |Class|Description|
 |---|---|
 |`Address`|Structured postal address|
-|`AddressAssignment`|Assignment of an address to a resource|
-|`AddressRole`|Intended purpose of an address assignment|
+|`LocationAssignment`|Assignment of an address, a geolocation, or both to a resource|
+|`LocationRole`|Intended purpose of a location assignment|
 |`AdministrativeTerritory`|Administrative territory|
 |`Country`|Country|
 |`AdministrativeArea`|Administrative subdivision within a country|
@@ -32,13 +32,13 @@ The prefix used is `conx-addr`.
 
 | Property | Description |
 | --- | --- |
-| `hasAddressAssignment` | Links a resource to a contextual address assignment |
-| `assignedAddress` | Links an assignment to exactly one address |
-| `addressRole` | States one or more business purposes of the assignment |
+| `hasLocationAssignment` | Links a resource to a contextual location assignment |
+| `assignedAddress` | Links an assignment to at most one address |
+| `locationRole` | States one or more business purposes of the assignment |
 | `hasCountry` | Links an address to its country |
 | `hasAdministrativeArea` | Links an address to a relevant administrative area |
 | `broaderAdministrativeTerritory` | Links an area to a broader area or country |
-| `hasGeographicPosition` | Optionally links an address to an external geographic position |
+| `hasGeoReference` | Optionally links an assignment to one geographic reference (IRI or blank node, type open) |
 
 ## 5. Address Attributes
 
@@ -65,13 +65,13 @@ The prefix used is `conx-addr`.
 ## 6. Illustrative Example
 
 ```
-ex:company conx-addr:hasAddressAssignment ex:deliveryAddress .
+ex:company conx-addr:hasLocationAssignment ex:deliveryAddress .
 ex:deliveryAddress
     conx-addr:assignedAddress ex:addressBochum ;
-    conx-addr:addressRole roles:DeliveryAddressRole .
+    conx-addr:locationRole roles:DeliveryAddressRole .
 ```
 
-In this example, the company has a delivery address assignment that references the actual address in Bochum.
+In this example, the company has a delivery location assignment that references the actual address in Bochum.
 
 ## 7. External Concepts
 

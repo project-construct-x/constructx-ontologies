@@ -291,9 +291,9 @@ These sources are suitable as future alignments or detailed references, rather t
 | Mandatory name | SEMIC: `legalName`; Schema.org: `legalName`; UBL: `RegistrationName` | Appropriate for a strict `LegalEntity` self-description profile. A general `Organization` requires at least a designation, but not necessarily a registered name. | `legalName` for Legal Entity; general `name` for Organization |
 | Mandatory legal form | SEMIC `legalFormType`; GLEIF/ISO 20275 | Applies only to legal entities where a distinct legal form is applicable. Local free text alone is insufficient for reliable verification. | Reference to a controlled legal-form concept; free text at most as supplementary information |
 | Mandatory legal address | Gaia-X, SEMIC, UBL, and GLEIF provide registered/legal addresses | Plausible as a profile requirement. Street and building number are not always available internationally; mandatory components must depend on jurisdiction. | Existing `core/address` with `LegalAddressRole` |
-| Headquarters address | Gaia-X and GLEIF distinguish it from the legal address | Not always different and not mandatory in every profile. The same address may have both roles. | `AddressAssignment` with `HeadquartersAddressRole` |
+| Headquarters address | Gaia-X and GLEIF distinguish it from the legal address | Not always different and not mandatory in every profile. The same address may have both roles. | `LocationAssignment` with `HeadquartersAddressRole` |
 
-Construct-X must not define new properties for street, building number, postal code, or locality in `core/organization`. These are provided by `core/address`. An Organization profile may require at least one appropriate `AddressAssignment` and require the referenced address to satisfy a jurisdiction-specific address profile.
+Construct-X must not define new properties for street, building number, postal code, or locality in `core/organization`. These are provided by `core/address`. An Organization profile may require at least one appropriate `LocationAssignment` and require the referenced address to satisfy a jurisdiction-specific address profile.
 
 ### 7.2 Authorized Representatives
 
@@ -395,7 +395,7 @@ A `did:web` technically demonstrates control over the corresponding web path, ra
 
 | Verification Goal | Checkable with OWL/SHACL | External Verification | Result to Store |
 | --- | --- | --- | --- |
-| Name, legal form, and legal address are complete | Presence, datatypes, controlled legal form, and AddressAssignment | Comparison with the competent source register; BRIS only within its coverage | Register, retrieval time, entity found, fields compared, match result |
+| Name, legal form, and legal address are complete | Presence, datatypes, controlled legal form, and LocationAssignment | Comparison with the competent source register; BRIS only within its coverage | Register, retrieval time, entity found, fields compared, match result |
 | VAT ID is present and formally appropriate | Scheme, notation, and country-specific pattern | VIES or competent national authority; VIES searches national data and does not provide names/addresses in every country | Time, requester, status, confirmed name/address where available; technical errors separated from “invalid” |
 | LEI is present and active | LEI scheme and formal format | GLEIF record or API | LEI status, legal name, register reference, checked dataset version |
 | EUID or national registration number is present | Scheme, notation, register, and jurisdiction | BRIS or national register | Register, EUID/register ID, status, retrieval date, and field comparison |
@@ -443,7 +443,7 @@ The final group in particular is **not organizational master data**. For example
 | `core/agent` | Common superclass `Agent` | Organizational structure and legal data |
 | `core/organization` | Organization, Legal Entity, Organizational Unit, general hierarchy, membership, and legal representation | Address components, contact channels, bank accounts, evidence content, delivery roles, and posts in the MVP |
 | `core/person` | Natural person and intrinsic core data | Representation relationship with an organization |
-| `core/address` | Address and role-based `AddressAssignment` | Organizational hierarchy |
+| `core/address` | Address and role-based `LocationAssignment` | Organizational hierarchy |
 | `core/contact` | Contact point, contact method, purpose, and usage context | Organizational role and membership |
 | Existing `core/participation` | Agent role in a delivery note, project, contract, or other context | Organizational master data |
 | External evidence systems | Evidence referenced as needed for insurance, qualifications, membership, or compliance | No dedicated Construct-X Credential module has been approved for the MVP |
@@ -475,7 +475,7 @@ The following list is an analysis outcome, not yet a binding term catalog.
 - parent and subordinate organization,
 - organizational unit affiliation,
 - ADMS identifiers,
-- references to existing AddressAssignments and ContactPoints in profiles.
+- references to existing LocationAssignments and ContactPoints in profiles.
 
 An official homepage is represented through the existing Contact model as a website contact method with `contact-usage:official` and `contact-purpose:general`. It requires no dedicated property in the Organization module.
 
@@ -498,7 +498,7 @@ An official homepage is represented through the existing Contact model as a webs
 Mandatory information primarily belongs in SHACL profiles rather than the general OWL T-Box. At least three levels are expected:
 
 1. **Organization Core:** minimal structural consistency for arbitrary organizations.
-2. **Legal Entity Core:** legal name, registration date, suitable structured identifier, and the legal-address assignment still to be assessed; legal form remains optional in the MVP.
+2. **Legal Entity Core:** legal name, registration date, suitable structured identifier, and the legal-location assignment still to be assessed; legal form remains optional in the MVP.
 3. **Future Self-Description Profiles:** stricter use-case- or jurisdiction-specific requirements, including current register verification and required evidence.
 
 Jurisdiction-specific profiles are outside the MVP. Future profiles may cover Gaia-X, delivery processes, procurement, or national register requirements. For example, a Gaia-X profile can require exactly one legal and headquarters address without asserting this cardinality for every organization worldwide.

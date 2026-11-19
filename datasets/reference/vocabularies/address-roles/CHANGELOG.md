@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.3.0 - 2026-11-19
+
+- Retyped the eleven existing role concepts as `conx-addr:LocationRole` using their stable IRIs.
+
 ## 0.2.0 - 2026-08-20
 
 - Added Legal Address, Headquarters Address and Physical Location Address roles for Gaia-X address assignments.

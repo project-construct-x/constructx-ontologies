@@ -257,7 +257,7 @@ A separate `core/contact` should distinguish at least three levels:
 | `ContactMethod` | Describes a `ContactChannel` and its value |
 
 - `ContactPoint` groups the contact options of an entity within a usage context.
-- `ContactMethod` describes exactly one channel and its value, URI, or address assignment.
+- `ContactMethod` describes exactly one channel and its value, URI, or location assignment.
 - `ContactUsage` distinguishes, in particular, private, business, and official use.
 - `ContactPurpose` separately describes a purpose such as general contact, delivery, billing, support, or emergency.
 - `hasContactPoint` has no fixed OWL domain in the open core, allowing the pattern to be used for projects, positions, or other identifiable resources as well as Agents.
@@ -266,7 +266,7 @@ The precise modeling of email and telephone values, normalization, multilinguali
 
 ## 12. Addresses
 
-UBL distinguishes `ResidenceAddress` from other business addresses. The existing Construct-X Address module is already more general: an `AddressAssignment` can connect an identifiable resource to an address and an address role.
+UBL distinguishes `ResidenceAddress` from other business addresses. The existing Construct-X Address module is already more general: a `LocationAssignment` can connect an identifiable resource to an address and an address role.
 
 Existing roles can be used directly for persons:
 
@@ -395,7 +395,7 @@ The source analysis provides the following sound decisions for the modeling phas
 10. `hasIdentityEvidence` generically links persons to external evidence resources.
 11. Identity documents, credentials, and public keys are not modeled in detail within the Person ontology.
 12. Contact is implemented as a separate assignment model with an unrestricted domain and an outgoing relationship from the entity holding the contact information.
-13. Addresses use the existing `AddressAssignment` model.
+13. Addresses use the existing `LocationAssignment` model.
 14. Memberships, employment, and project participation belong to Organization or Project.
 15. General assertion provenance and reification remain outside the MVP.
 

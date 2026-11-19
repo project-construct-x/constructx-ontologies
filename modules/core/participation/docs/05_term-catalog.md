@@ -233,9 +233,9 @@ Domain-specific roles, such as delivery note roles, are not added preemptively t
 - Narrower domain role vocabularies may form their own Concept Schemes.
 - Similarly named roles are not aligned through `skos:exactMatch` without comparing definitions.
 
-### 7.3 Distinction from AddressRole
+### 7.3 Distinction from LocationRole
 
-The existing AddressRole vocabulary uses the same technical principle: a local role class plus separate SKOS individuals. In content terms, it is not part of the Participation vocabulary. AddressRole describes an address's function within an address assignment; `conx-part:Role` describes an Agent's function in relation to a context.
+The existing LocationRole vocabulary uses the same technical principle: a local role class plus separate SKOS individuals. In content terms, it is not part of the Participation vocabulary. LocationRole describes an address's function within a location assignment; `conx-part:Role` describes an Agent's function in relation to a context.
 
 ## 8. Uniqueness and Multiple Roles
 

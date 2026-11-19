@@ -1,8 +1,8 @@
 # Concept Diagram of the Contact Module
 
 **Status:** Implemented Documentation View  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** `core/contact`
 
 ## 1. Core Model

@@ -65,7 +65,7 @@ Adressen, Kontakte und Kennungen werden aus den jeweils zuständigen Core-Module
 
 ## 6. Validierung in Alltagssprache
 
-Jede Organisation benötigt einen Namen. Eine rechtliche Einheit benötigt zusätzlich einen rechtlichen Namen, genau ein Registrierungsdatum, mindestens eine strukturierte Kennung und eine rechtliche Adresszuordnung. Einheiten benötigen ihre Organisation; Mitgliedschaften und Vertretungen benötigen jeweils beide beteiligten Ressourcen.
+Jede Organisation benötigt einen Namen. Eine rechtliche Einheit benötigt zusätzlich einen rechtlichen Namen, genau ein Registrierungsdatum, mindestens eine strukturierte Kennung und eine Standortzuordnung mit rechtlicher Rolle und genau einer Adresse. Einheiten benötigen ihre Organisation; Mitgliedschaften und Vertretungen benötigen jeweils beide beteiligten Ressourcen.
 
 > Eine rechtliche Einheit ohne Registrierungsdatum verletzt die Core-Anforderungen. Eine allgemeine Organisation, die keine rechtliche Einheit ist, benötigt kein solches Datum.
 

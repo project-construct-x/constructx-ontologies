@@ -1,8 +1,8 @@
 # Contact Core Shapes
 
 **Status:** Implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** Contact Core Shapes
 
 The Contact Core Shapes validate the general, use-case-independent data contracts of the Construct-X Contact Ontology. The T-Box remains semantically open under the open-world assumption; the core profile, by contrast, checks concrete data submissions.
@@ -10,9 +10,9 @@ The Contact Core Shapes validate the general, use-case-independent data contract
 ```text
 Shape graph: modules/core/contact/shapes/conx-contact-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/contact/core
-Version IRI: https://www.construct-x.org/shapes/contact/core/0.1.0
+Version IRI: https://www.construct-x.org/shapes/contact/core/0.2.0
 Namespace:   https://www.construct-x.org/shapes/contact/core#
-Version:     0.1.0
+Version:     0.2.0
 ```
 
 ## 1. Validated Contracts
@@ -27,7 +27,7 @@ Version:     0.1.0
 - Email, telephone, mobile telephone, and fax use exactly one non-empty `contactValue` of datatype `xsd:string`.
 - Websites and social profiles use exactly one IRI through `contactURI`.
 - Messenger uses exactly one non-empty `contactValue` or exactly one IRI through `contactURI`.
-- Postal contact methods use exactly one `usesAddressAssignment` referencing a `conx-addr:AddressAssignment`.
+- Postal contact methods use exactly one `usesLocationAssignment` referencing a `conx-addr:LocationAssignment`.
 - `contactPlatform` may occur at most once and must reference the approved `contact-platform` vocabulary.
 
 Additional properties remain permitted. The profile does not use `sh:closed true` and requires no RDFS or OWL inference.
@@ -41,7 +41,7 @@ To validate controlled values, the following graphs are loaded together with the
 - `datasets/reference/vocabularies/contact-purpose/contact-purpose.ttl`,
 - `datasets/reference/vocabularies/contact-platform/contact-platform.ttl`,
 - `modules/core/address/ontology/conx-addr.ttl`,
-- `datasets/reference/vocabularies/address-roles/address-roles.ttl`, when postal address assignments are fully validated.
+- `datasets/reference/vocabularies/address-roles/address-roles.ttl`, when postal location assignments are fully validated.
 
 The small sets of contact values are additionally recorded as closed `sh:in` lists in the shape graph. New channels, usages, purposes, or platforms should therefore be versioned deliberately.
 
@@ -65,10 +65,12 @@ Direct `pyshacl` calls must also load the reference graphs listed above into the
 - whether a social profile URL actually belongs to the specified platform,
 - who may view or use private contact information,
 - opening hours, service areas, priorities, and deliverability,
-- person, organization, role, or address details beyond the `AddressAssignment` reference.
+- person, organization, role, or address details beyond the `LocationAssignment` reference.
 
 These areas belong in later domain-specific profiles or standalone modules.
 
 ## 5. Illustrative Example
 
 > A contact point without a contact method is invalid because nobody can be reached through it. A business contact point with a correctly typed email method, by contrast, satisfies the core contract.
+For a postal method, `usesLocationAssignment` must reference a `LocationAssignment` with exactly one `assignedAddress` of type `Address`.
+

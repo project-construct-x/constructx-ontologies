@@ -1,13 +1,13 @@
 # Term Catalog for the Contact Module
 
 **Status:** Implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** `core/contact`
 
 ## 1. Purpose
 
-This catalog describes the local terms of Contact T-Box 0.1.0 and the associated reference vocabularies. The SHACL cardinalities refer to the core profile, rather than strict OWL restrictions.
+This catalog describes the local terms of Contact T-Box 0.2.0 and the associated reference vocabularies. The SHACL cardinalities refer to the core profile, rather than strict OWL restrictions.
 
 ## 2. Namespaces
 
@@ -15,7 +15,7 @@ This catalog describes the local terms of Contact T-Box 0.1.0 and the associated
 
 ```text
 Ontology IRI: https://www.construct-x.org/ontology/contact
-Version IRI:  https://www.construct-x.org/ontology/contact/0.1.0
+Version IRI:  https://www.construct-x.org/ontology/contact/0.2.0
 Namespace:    https://www.construct-x.org/ontology/contact#
 Prefix:       conx-contact
 ```
@@ -24,7 +24,7 @@ Prefix:       conx-contact
 
 ```text
 Vocabulary IRI: https://www.construct-x.org/vocab/contact-channel
-Version IRI:    https://www.construct-x.org/vocab/contact-channel/0.1.0
+Version IRI:    https://www.construct-x.org/vocab/contact-channel/0.1.1
 Namespace:      https://www.construct-x.org/vocab/contact-channel#
 Prefix:         contact-channel
 ```
@@ -202,13 +202,13 @@ ex:private-email
 | Range | `conx-contact:ContactPlatform` |
 | Cardinality | `0..1` |
 
-### 4.8 `conx-contact:usesAddressAssignment`
+### 4.8 `conx-contact:usesLocationAssignment`
 
 | Item | Specification |
 | --- | --- |
-| Definition | Links a postal contact method to an existing address assignment |
+| Definition | Links a postal contact method to an existing location assignment |
 | Domain | `conx-contact:ContactMethod` |
-| Range | `conx-addr:AddressAssignment` |
+| Range | `conx-addr:LocationAssignment` |
 | Cardinality | Core Shape: exactly `1` for channel `postalAddress` |
 
 ## 5. Value Properties

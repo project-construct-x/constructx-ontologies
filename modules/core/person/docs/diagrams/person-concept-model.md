@@ -123,12 +123,12 @@ flowchart TB
 
     subgraph ADDRESS["core/address - existing"]
         direction LR
-        AddressAssignment["AddressAssignment"]
+        LocationAssignment["LocationAssignment"]
         Address["Address"]
-        AddressRole["AddressRole: Registration / Residence / Postal"]
+        LocationRole["LocationRole: Registration / Residence / Postal"]
 
-        AddressAssignment -->|"assignedAddress 1"| Address
-        AddressAssignment -->|"addressRole 1..*"| AddressRole
+        LocationAssignment -->|"assignedAddress 1"| Address
+        LocationAssignment -->|"locationRole 1..*"| LocationRole
     end
 
     subgraph ORGANIZATION["core/organization - T-Box 0.1.0"]
@@ -147,7 +147,7 @@ flowchart TB
         Participation -->|"context 1"| Context
     end
 
-    Person -->|"hasAddressAssignment 0..*"| AddressAssignment
+    Person -->|"hasLocationAssignment 0..*"| LocationAssignment
     Membership -->|"member 1"| Agent
     Participation -->|"participant 1"| Agent
 
@@ -158,7 +158,7 @@ flowchart TB
 
     class Agent agent;
     class Person person;
-    class AddressAssignment,Address,AddressRole existing;
+    class LocationAssignment,Address,LocationRole existing;
     class Membership,Organization,Participation,Context related;
 ```
 
@@ -170,7 +170,7 @@ flowchart TB
 4. The contact purpose is modeled separately from the private or business context.
 5. `hasContactPoint` has no restrictive OWL domain in the open Core. This allows organizations, projects, positions, or other identifiable resources to use the pattern without being inferred to be an `Agent`.
 6. An inverse relationship, `isContactPointFor`, is not included in version 0.1.0.
-7. Addresses continue to use the existing `AddressAssignment` pattern.
+7. Addresses continue to use the existing `LocationAssignment` pattern.
 8. Memberships remain in the Organization module; general contextual roles are modeled using `core/participation`.
 
 ## 5. Extension Point

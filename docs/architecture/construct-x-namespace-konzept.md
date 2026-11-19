@@ -121,7 +121,7 @@ QUDT separates stable term IRIs from versioned graph publications. Construct-X a
 | Area | Stable IRI | Versioned IRI | Example |
 | --- | --- | --- | --- |
 | Ontology graph | yes | yes | `https://www.construct-x.org/ontology/vso/0.1.0` |
-| SHACL graph | yes | yes | `https://www.construct-x.org/shapes/address/core/0.1.0` |
+| SHACL graph | yes | yes | `https://www.construct-x.org/shapes/address/core/0.2.0` |
 | Reference vocabulary | yes | yes | `https://www.construct-x.org/vocab/wall-type/1.0.0` |
 | Term | yes | no | `https://www.construct-x.org/vocab/wall-type#ExternalWall` |
 
@@ -144,7 +144,7 @@ Example: If a new wall type is added to the `wall-type` vocabulary in version `1
 | Specific ontology version | `/ontology/{module}/{semver}` | `https://www.construct-x.org/ontology/vso/0.1.0` |
 | SHACL graph | `/shapes/{module}/{shape-set}` | `https://www.construct-x.org/shapes/address/core` |
 | Shape namespace | `/shapes/{module}/{shape-set}#` | `https://www.construct-x.org/shapes/address/core#AddressShape` |
-| Specific SHACL version | `/shapes/{module}/{shape-set}/{semver}` | `https://www.construct-x.org/shapes/address/core/0.1.0` |
+| Specific SHACL version | `/shapes/{module}/{shape-set}/{semver}` | `https://www.construct-x.org/shapes/address/core/0.2.0` |
 | Reference vocabulary | `/vocab/{vocabulary}` | `https://www.construct-x.org/vocab/wall-type` |
 | Specific vocabulary version | `/vocab/{vocabulary}/{semver}` | `https://www.construct-x.org/vocab/wall-type/1.2.0` |
 | Reference vocabulary term | `/vocab/{vocabulary}#{localName}` | `https://www.construct-x.org/vocab/wall-type#ExternalWall` |
@@ -293,7 +293,7 @@ Example:
 
 ```text
 Stable shape graph: https://www.construct-x.org/shapes/address/core
-Specific version:   https://www.construct-x.org/shapes/address/core/0.1.0
+Specific version:   https://www.construct-x.org/shapes/address/core/0.2.0
 Stable shape:       https://www.construct-x.org/shapes/address/core#AddressShape
 ```
 
@@ -304,7 +304,7 @@ Stable ontology IRI:
 https://www.construct-x.org/ontology/address
 
 Specific version:
-https://www.construct-x.org/ontology/address/0.1.0
+https://www.construct-x.org/ontology/address/0.2.0
 
 Stable term:
 https://www.construct-x.org/ontology/address#PostalAddress
@@ -542,7 +542,7 @@ Repository:    modules/core/vso/ontology/conx-vso.ttl
 ```text
 Ontology IRI:  https://www.construct-x.org/ontology/address
 Namespace:     https://www.construct-x.org/ontology/address#
-Version IRI:   https://www.construct-x.org/ontology/address/0.1.0
+Version IRI:   https://www.construct-x.org/ontology/address/0.2.0
 Prefix:        conx-addr
 Repository:    modules/core/address/ontology/conx-addr.ttl
 ```

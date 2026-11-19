@@ -24,7 +24,7 @@ def iter_turtle_files() -> list[Path]:
     return sorted(
         path
         for path in ROOT.rglob("*.ttl")
-        if not any(part in {".git", ".venv", ".uv-cache", "dist"} for part in path.parts)
+        if not any(part in {".git", ".venv", ".uv-cache", "build", "dist"} for part in path.parts)
     )
 
 
@@ -51,7 +51,7 @@ def test_reference_vocabularies_use_hash_namespaces_for_terms() -> None:
     }
 
     versioned_vocabularies = {
-        "https://www.construct-x.org/vocab/address-role": "0.2.0",
+        "https://www.construct-x.org/vocab/address-role": "0.3.0",
         "https://www.construct-x.org/vocab/country": "0.1.0",
         "https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de": "0.1.0",
         "https://www.construct-x.org/vocab/identifier-scheme": "0.2.0",

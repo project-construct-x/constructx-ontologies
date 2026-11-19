@@ -1,17 +1,17 @@
 # Address Core Module Documentation
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** `core/address`
 
 ## 1. Overview
 
-Address describes structured addresses, their assignment to resources, and the role of each assignment.
+A location assignment links a resource to an address, a geolocation, or both. Its role identifies the purpose, such as delivery or site access.
 
 ## 2. Introduction for Nontechnical Readers
 
-> An address answers “Where?”. An AddressAssignment additionally answers “For whom?” and “For what purpose?”, such as use as a delivery address.
+> An address answers “Where?”. A LocationAssignment additionally answers “For whom?” and “For what purpose?”, such as use as a delivery address.
 
 The easiest starting point is the [Conceptual Model](03_concept-model.md), followed by the [Concept Diagram](08_concept-diagram.md).
 

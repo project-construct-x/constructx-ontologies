@@ -39,11 +39,11 @@ flowchart TB
     end
 
     subgraph ADDRESS["core/address"]
-        AddressAssignment["AddressAssignment"]
+        LocationAssignment["LocationAssignment"]
         Address["Address"]
-        AddressRole["AddressRole"]
-        AddressAssignment -->|"assignedAddress"| Address
-        AddressAssignment -->|"addressRole"| AddressRole
+        LocationRole["LocationRole"]
+        LocationAssignment -->|"assignedAddress"| Address
+        LocationAssignment -->|"locationRole"| LocationRole
     end
 
     Person -->|"rdfs:subClassOf"| Agent
@@ -51,8 +51,8 @@ flowchart TB
 
     Person -.->|"hasContactPoint"| ContactPoint
     Org -.->|"hasContactPoint"| ContactPoint
-    Person -.->|"hasAddressAssignment"| AddressAssignment
-    Org -.->|"hasAddressAssignment"| AddressAssignment
+    Person -.->|"hasLocationAssignment"| LocationAssignment
+    Org -.->|"hasLocationAssignment"| LocationAssignment
 
     Note["No Agent properties in the MVP; Contact and Address remain unrestricted in domain"]
     Note -.-> Agent
@@ -68,7 +68,7 @@ flowchart TB
     class Person,PersonData person;
     class Org,Legal,Unit,Membership,Representation org;
     class ContactPoint,ContactMethod contact;
-    class AddressAssignment,Address,AddressRole address;
+    class LocationAssignment,Address,LocationRole address;
     class Note note;
 ```
 
@@ -77,5 +77,5 @@ flowchart TB
 1. `Agent` is only the common superclass, not a master data container.
 2. `Person` and `Organization` are the currently implemented local specializations of Agent.
 3. `hasContactPoint` belongs to `core/contact` and remains without a restrictive `rdfs:domain`.
-4. `hasAddressAssignment` belongs to `core/address` and remains without a restrictive `rdfs:domain`.
+4. `hasLocationAssignment` belongs to `core/address` and remains without a restrictive `rdfs:domain`.
 5. `Membership` and `LegalRepresentation` belong to `core/organization` because they describe organizational relationships.

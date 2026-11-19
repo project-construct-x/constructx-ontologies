@@ -29,7 +29,7 @@ This document assigns document concepts to the responsible Construct-X modules. 
 | `core/person` | Intrinsic personal data | Author, issuer, or recipient properties on a document |
 | `core/organization` | Organizational master data and structure | Publisher, sender, or issuer properties on a document |
 | `core/contact` | Contactability | Document delivery, document content, or document status |
-| `core/address` | Addresses and address assignments | Documents, files, or distributions |
+| `core/address` | Addresses and location assignments | Documents, files, or distributions |
 | Future provenance profile | Generation, derivation, revision, processing | General document master data |
 | Future Evidence/Credential profile | Evidence semantics, credential verifiability, revocation | General document core |
 | Future rights/policy profile | Access, license terms, redistribution rules | Document core and technical distribution |

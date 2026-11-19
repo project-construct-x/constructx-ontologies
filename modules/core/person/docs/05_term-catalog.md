@@ -431,7 +431,7 @@ The following required relationships are not defined in the Person module:
 | Need | Responsible term or module | Rationale |
 | --- | --- | --- |
 | Contact point and contact methods | Existing `core/contact` with outgoing `hasContactPoint`, `ContactPoint`, and `ContactMethod` | Reusable for projects, positions, and other resources because there is no restrictive Agent domain |
-| Registered, residential, and postal address | Existing `core/address` with `AddressAssignment` | Address semantics already exist |
+| Registered, residential, and postal address | Existing `core/address` with `LocationAssignment` | Address semantics already exist |
 | Membership and employment | Existing `core/organization` | Role, organization, and period form a separate relationship |
 | Project participation | Responsible Project module | Project role and period belong to the project context |
 | Evidence details | Future Identity or Credential module | Validity, issuer, status, revocation, and keys are separate concepts |

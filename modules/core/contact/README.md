@@ -1,8 +1,8 @@
 # Construct-X Contact Core Module
 
 **Status:** Draft, domain-reviewed, and implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026
+**Version:** 0.2.0  
+**As of:** 19 November 2026
 
 ## 1. Summary
 
@@ -23,7 +23,7 @@ Company -> ContactPoint "Accounting" -> Email
 ## 3. Model Scope
 
 The Core separates `ContactPoint`, `ContactMethod`, channel, usage, purpose,
-and platform. Postal contacts reference an AddressAssignment.
+and platform. Postal contacts reference a LocationAssignment.
 
 ## 4. Documentation
 

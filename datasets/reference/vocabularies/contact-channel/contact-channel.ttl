@@ -26,18 +26,18 @@
   dcterms:description "Kontrolliertes Construct-X-Referenzvokabular fuer Kommunikationskanaele von Kontaktmethoden."@de ;
   dcterms:description "Controlled Construct-X reference vocabulary for communication channels of contact methods."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-08-27"^^xsd:date ;
+  dcterms:modified "2026-11-19"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:source <https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd> ;
   dcterms:source <https://schema.org/ContactPoint> ;
   dcterms:source <https://www.w3.org/TR/vcard-rdf/> ;
   dcterms:title "Construct-X Contact Channels"@en ;
   dcterms:title "Construct-X Kontaktkanaele"@de ;
-  schema:version "0.1.0" ;
+  schema:version "0.1.1" ;
   vann:preferredNamespacePrefix "contact-channel" ;
   vann:preferredNamespaceUri "https://www.construct-x.org/vocab/contact-channel#" ;
-  owl:versionIRI <https://www.construct-x.org/vocab/contact-channel/0.1.0> ;
-  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://www.construct-x.org/vocab/contact-channel/0.1.1> ;
+  owl:versionInfo "0.1.1" ;
   skos:hasTopConcept contact-channel:email,
                      contact-channel:phone,
                      contact-channel:mobilePhone,
@@ -127,13 +127,13 @@ contact-channel:socialProfile
 
 contact-channel:postalAddress
   a conx-contact:ContactChannel, skos:Concept ;
-  skos:definition "Kontaktkanal fuer postalische Erreichbarkeit ueber eine Construct-X-Adresszuordnung."@de ;
-  skos:definition "Contact channel for postal reachability via a Construct-X address assignment."@en ;
+  skos:definition "Kontaktkanal fuer postalische Erreichbarkeit ueber eine Construct-X-Standortzuordnung."@de ;
+  skos:definition "Contact channel for postal reachability via a Construct-X location assignment."@en ;
   skos:inScheme <https://www.construct-x.org/vocab/contact-channel> ;
   skos:notation "postal-address" ;
   skos:prefLabel "Postanschrift"@de ;
   skos:prefLabel "Postal address"@en ;
-  skos:scopeNote "Die postalische Struktur wird nicht in diesem Vokabular modelliert, sondern ueber conx-contact:usesAddressAssignment referenziert."@de ;
-  skos:scopeNote "The postal structure is not modeled in this vocabulary, but referenced through conx-contact:usesAddressAssignment."@en ;
+  skos:scopeNote "Die postalische Struktur wird nicht in diesem Vokabular modelliert, sondern ueber conx-contact:usesLocationAssignment referenziert."@de ;
+  skos:scopeNote "The postal structure is not modeled in this vocabulary, but referenced through conx-contact:usesLocationAssignment."@en ;
   skos:topConceptOf <https://www.construct-x.org/vocab/contact-channel> ;
 .

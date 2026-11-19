@@ -11,7 +11,7 @@ ex:invalid-company
   conx-org:legalName "Kennungs- und Adressfehler GmbH" ;
   conx-org:registrationDate "2021-05-06"^^xsd:date ;
   adms:identifier ex:broken-identifier ;
-  conx-addr:hasAddressAssignment ex:postal-only-assignment ;
+  conx-addr:hasLocationAssignment ex:postal-only-assignment ;
 .
 
 ex:broken-identifier
@@ -20,9 +20,9 @@ ex:broken-identifier
 .
 
 ex:postal-only-assignment
-  a conx-addr:AddressAssignment ;
+  a conx-addr:LocationAssignment ;
   conx-addr:assignedAddress ex:postal-address ;
-  conx-addr:addressRole roles:PostalAddressRole ;
+  conx-addr:locationRole roles:PostalAddressRole ;
 .
 
 ex:postal-address a conx-addr:Address .

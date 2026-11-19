@@ -1,7 +1,7 @@
 # Domain-Specific SHACL Requirements for the Organization MVP
 
 **Status:** Implemented  
-**Version:** 0.1.0  
+**Version:** 0.2.0  
 **As of:** 3 September 2026  
 **Scope:** Organization Core Shapes
 
@@ -24,13 +24,13 @@ Foundations:
 ```text
 Shape graph: modules/core/organization/shapes/conx-org-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/organization/core
-Version IRI: https://www.construct-x.org/shapes/organization/core/0.1.0
+Version IRI: https://www.construct-x.org/shapes/organization/core/0.2.0
 Namespace:   https://www.construct-x.org/shapes/organization/core#
 Prefix:      conx-org-sh
-Version:     0.1.0
+Version:     0.2.0
 ```
 
-These IRIs are implemented as binding identifiers in the shape graph and module metadata for version `0.1.0`.
+These IRIs are implemented as binding identifiers in the shape graph and module metadata for shape version `0.2.0`.
 
 ## 3. Validation Principles
 
@@ -84,8 +84,8 @@ Every constraint component receives:
 | Legal name, registration date, and legal form | `organization/core` | Validate fully according to MVP rules |
 | ADMS identifiers on Organization and Membership | `organization/core` with the existing ADMS pattern | Check the minimal structure through nested validation |
 | Specific register, VAT, LEI, EUID, EORI, or GLN schemes | Future domain or jurisdiction profiles | No allowlist check |
-| AddressAssignment and address components | `address/core` | Reuse existing shapes |
-| At least one legal address for a Legal Entity | `organization/core` plus `address/core` | Require an AddressAssignment with `LegalAddressRole` |
+| LocationAssignment and address components | `address/core` | Reuse existing shapes |
+| At least one legal address for a Legal Entity | `organization/core` plus `address/core` | Require a LocationAssignment with `LegalAddressRole` |
 | Contact points and homepage | `contact/core` | Do not duplicate contact payloads in the Organization Shape |
 | Personal data | `person/core` | Check only the Person reference of the representation |
 | Seller, buyer, and other process roles | Domain/Participation Shapes | Outside Organization Core validation |
@@ -103,7 +103,7 @@ The SHACL questions identified in the term catalog are resolved for this require
 | `legalForm` | Optional, at most one value as an IRI and `skos:Concept` |
 | Membership role and period | Outside the MVP |
 | Inverse hierarchy relationships | Implemented as OWL inverses; SHACL does not require both data directions |
-| Legal address | At least one AddressAssignment with `LegalAddressRole` per `LegalEntity` |
+| Legal address | At least one LocationAssignment with `LegalAddressRole` per `LegalEntity` |
 | Headquarters address | Optional; no core requirement |
 | Legal-form and activity vocabularies | Open `skos:Concept` reference without a closed value list |
 
@@ -117,7 +117,7 @@ The requirement for at least one ADMS identifier establishes only that a structu
 | --- | --- | --- | --- |
 | `conx-org-sh:NonEmptyStringOrLangStringShape` | Reusable Node Shape | Referenced by name Property Shapes | Allows non-empty `xsd:string` or `rdf:langString` values |
 | `conx-id-sh:ADMSIdentifierShape` | Reusable Node Shape from `identifier/core` | Values of `adms:identifier` | Checks type, notation, and scheme agency according to the shared minimal contract |
-| `conx-org-sh:LegalAddressAssignmentShape` | Reusable Node Shape | Qualified values of `hasAddressAssignment` | Checks AddressAssignment type and `LegalAddressRole` |
+| `conx-org-sh:LegalLocationAssignmentShape` | Reusable Node Shape | Qualified values of `hasLocationAssignment` | Checks LocationAssignment type and `LegalAddressRole` |
 | `conx-org-sh:OrganizationShape` | Node Shape | `Organization` and subjects of general Organization properties | Checks IRI, type, name, optional master data, hierarchy, and optional identifiers |
 | `conx-org-sh:LegalEntityShape` | Node Shape | `LegalEntity` and subjects of legal properties | Adds legal name, registration date, minimum identifiers, legal form, and legal address |
 | `conx-org-sh:OrganizationalUnitShape` | Node Shape | `OrganizationalUnit` and subjects of `unitOf` | Adds at least one parent Organization |
@@ -128,8 +128,8 @@ The requirement for at least one ADMS identifier establishes only that a structu
 
 | Shape | Owner | Usage |
 | --- | --- | --- |
-| `conx-addr-sh:ResourceWithAddressAssignmentShape` | `address/core` | Checks values of `hasAddressAssignment` |
-| `conx-addr-sh:AddressAssignmentShape` | `address/core` | Checks `assignedAddress`, `addressRole`, and other assignment data |
+| `conx-addr-sh:ResourceWithLocationAssignmentShape` | `address/core` | Checks values of `hasLocationAssignment` |
+| `conx-addr-sh:LocationAssignmentShape` | `address/core` | Checks `assignedAddress`, `locationRole`, and other assignment data |
 | `conx-addr-sh:AddressShape` | `address/core` | Checks the address itself |
 | `conx-contact-sh:ContactCarrierShape` | `contact/core` | Checks values of `hasContactPoint` |
 | `conx-contact-sh:ContactPointShape` | `contact/core` | Checks contact point, usage, purpose, and methods |
@@ -152,7 +152,7 @@ Targets:
 - `sh:targetSubjectsOf conx-org:hasSubOrganization`,
 - `sh:targetSubjectsOf conx-org:hasUnit`.
 
-`adms:identifier`, `conx-addr:hasAddressAssignment`, and `conx-contact:hasContactPoint` are generic properties. They must not automatically turn every subject using them into an Organization target. They are checked only within already recognized organizations or covered by their own shape sets.
+`adms:identifier`, `conx-addr:hasLocationAssignment`, and `conx-contact:hasContactPoint` are generic properties. They must not automatically turn every subject using them into an Organization target. They are checked only within already recognized organizations or covered by their own shape sets.
 
 ### 7.2 `LegalEntityShape`
 
@@ -262,7 +262,7 @@ Longer cycles such as A → B → C → A are not checked in the MVP. Whether th
 | `LE-020` | `conx-org:registrationDate` | 1 | 1 | Lexically valid `xsd:date` |
 | `LE-030` | `conx-org:legalForm` | 0 | 1 | IRI and instance of `skos:Concept` |
 | `LE-040` | `adms:identifier` | 1 | Unbounded | Blank node or IRI, valid according to `conx-id-sh:ADMSIdentifierShape` |
-| `LE-050` | `conx-addr:hasAddressAssignment` | Qualified minimum 1 | Unbounded | At least one AddressAssignment with `roles:LegalAddressRole` |
+| `LE-050` | `conx-addr:hasLocationAssignment` | Qualified minimum 1 | Unbounded | At least one LocationAssignment with `roles:LegalAddressRole` |
 
 ### 10.3 Registration Date
 
@@ -288,23 +288,24 @@ The Core Shape checks neither a closed GLEIF/ISO 20275 value set nor consistency
 
 ### 10.5 Legal Address
 
-At least one value of `conx-addr:hasAddressAssignment` must:
+At least one value of `conx-addr:hasLocationAssignment` must:
 
 - be a blank node or IRI,
-- be typed as `conx-addr:AddressAssignment`,
-- have `conx-addr:addressRole roles:LegalAddressRole`.
+- be typed as `conx-addr:LocationAssignment`,
+- have `conx-addr:locationRole roles:LegalAddressRole`,
+- reference exactly one `conx-addr:Address` through `assignedAddress`.
 
 The implementation uses a qualified minimum cardinality, for example `sh:qualifiedValueShape` with `sh:qualifiedMinCount 1`.
 
 The existing Address Shape additionally checks:
 
-- exactly one `assignedAddress`,
-- at least one `addressRole`,
+- at most one address and one geolocation, with at least one of the two present,
+- at least one `locationRole`,
 - type and structure of the assigned address.
 
-The Organization Shape does not duplicate these rules. It also does not require a globally inappropriate component list of street, building number, postal code, and locality. Country-specific Address profiles may add such rules later.
+The Organization Shape additionally requires the postal address for this use. It also does not require a globally inappropriate component list of street, building number, postal code, and locality. Country-specific Address profiles may add such rules later.
 
-One AddressAssignment may simultaneously have legal, registration, and headquarters roles. The Core Shape does not require three separate AddressAssignments.
+One LocationAssignment may simultaneously have legal, registration, and headquarters roles. The Core Shape does not require three separate LocationAssignments.
 
 ## 11. ADMS Identifiers
 
@@ -361,7 +362,7 @@ A membership number belongs to the Membership rather than automatically to the m
 
 Multiple `unitOf` values remain permitted to support matrix organizations. A narrower profile may later require a primary parent organization or exactly one parent organization.
 
-An Organizational Unit requires neither `legalName`, `legalForm`, `registrationDate`, nor a legal address. It may have its own contacts, address assignments, and structured identifiers.
+An Organizational Unit requires neither `legalName`, `legalForm`, `registrationDate`, nor a legal address. It may have its own contacts, location assignments, and structured identifiers.
 
 ## 13. `MembershipShape`
 
@@ -420,7 +421,7 @@ These concepts are outside the MVP.
 
 ### 15.1 Address
 
-Every supplied value of `conx-addr:hasAddressAssignment` is checked by the Address Core Shape. For Legal Entities, the Organization Shape adds only the qualified requirement for a legal address.
+Every supplied value of `conx-addr:hasLocationAssignment` is checked by the Address Core Shape. For Legal Entities, the Organization Shape adds only the qualified requirement for a legal address.
 
 The Organization Shape does not itself check:
 
@@ -473,7 +474,7 @@ No new `conx-org:homepage` property is provided in either the shape or the T-Box
 | `LE-020` | Eine Legal Entity muss genau ein Registrierungsdatum mit dem Datentyp xsd:date besitzen. | A Legal Entity must have exactly one registration date using datatype xsd:date. |
 | `LE-030` | Die Rechtsform darf höchstens einmal vorkommen und muss auf ein SKOS-Konzept verweisen. | The legal form may occur at most once and must reference a SKOS concept. |
 | `LE-040` | Eine Legal Entity muss mindestens einen gültig strukturierten ADMS-Identifier besitzen. | A Legal Entity must have at least one valid structured ADMS Identifier. |
-| `LE-050` | Eine Legal Entity muss mindestens eine AddressAssignment mit der Rolle LegalAddressRole besitzen. | A Legal Entity must have at least one AddressAssignment with the LegalAddressRole. |
+| `LE-050` | Eine Legal Entity muss mindestens eine LocationAssignment mit der Rolle LegalAddressRole und genau einer Adresse besitzen. | A Legal Entity must have at least one LocationAssignment with LegalAddressRole and exactly one address. |
 
 ### 16.3 Organizational Unit
 
@@ -557,7 +558,7 @@ ex:bau-gmbh
     conx-org:legalName "Bau Beispiel GmbH"@de ;
     conx-org:registrationDate "2018-04-12"^^xsd:date ;
     adms:identifier ex:bau-gmbh-register-id ;
-    conx-addr:hasAddressAssignment ex:bau-gmbh-legal-address .
+    conx-addr:hasLocationAssignment ex:bau-gmbh-legal-address .
 
 ex:bau-gmbh-register-id
     a adms:Identifier ;
@@ -565,9 +566,9 @@ ex:bau-gmbh-register-id
     adms:schemaAgency "Responsible registration authority" .
 
 ex:bau-gmbh-legal-address
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:bau-gmbh-address ;
-    conx-addr:addressRole roles:LegalAddressRole,
+    conx-addr:locationRole roles:LegalAddressRole,
                           roles:RegistrationAddressRole .
 
 ex:bau-gmbh-address
@@ -578,7 +579,7 @@ ex:bau-gmbh-address
     conx-addr:localityName "Bochum" .
 ```
 
-Expected result: valid. The same AddressAssignment satisfies both the legal and registration address roles.
+Expected result: valid. The same LocationAssignment satisfies both the legal and registration address roles.
 
 ### V-03: Legal Entity with Optional Legal Form and Activity
 
@@ -591,7 +592,7 @@ ex:planung-ag
     conx-org:legalForm ex:legal-form-ag ;
     conx-org:activity ex:nace-activity ;
     adms:identifier ex:planung-ag-id ;
-    conx-addr:hasAddressAssignment ex:planung-ag-legal-address .
+    conx-addr:hasLocationAssignment ex:planung-ag-legal-address .
 
 ex:legal-form-ag a skos:Concept .
 ex:nace-activity a skos:Concept .
@@ -601,9 +602,9 @@ ex:planung-ag-id
     skos:notation "REG-9876"^^ex-scheme:local-register-number .
 
 ex:planung-ag-legal-address
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:planung-ag-address ;
-    conx-addr:addressRole roles:LegalAddressRole .
+    conx-addr:locationRole roles:LegalAddressRole .
 
 ex:planung-ag-address a conx-addr:Address .
 ```
@@ -789,16 +790,16 @@ ex:no-legal-address-company
     conx-org:legalName "Adressfehler GmbH" ;
     conx-org:registrationDate "2019-03-04"^^xsd:date ;
     adms:identifier ex:valid-company-id ;
-    conx-addr:hasAddressAssignment ex:postal-only-assignment .
+    conx-addr:hasLocationAssignment ex:postal-only-assignment .
 
 ex:valid-company-id
     a adms:Identifier ;
     skos:notation "REG-1"^^ex-scheme:local-register-number .
 
 ex:postal-only-assignment
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:postal-address ;
-    conx-addr:addressRole roles:PostalAddressRole .
+    conx-addr:locationRole roles:PostalAddressRole .
 
 ex:postal-address a conx-addr:Address .
 ```

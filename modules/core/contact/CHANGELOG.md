@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 - 2026-11-19
+
+- Postal methods now use `usesLocationAssignment`. The referenced assignment must contain exactly one typed `Address`.
+
 ## Unreleased - 2026-09-03
 
 - Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.

@@ -2,7 +2,7 @@
 
 Controlled reference vocabulary for communication channels of `conx-contact:ContactMethod`.
 
-## Version 0.1.0
+## Version 0.1.1
 
 Included channels:
 
@@ -15,4 +15,4 @@ Included channels:
 - `contact-channel:socialProfile`
 - `contact-channel:postalAddress`
 
-Postal contact methods do not reference address components directly; they reference a `conx-addr:AddressAssignment` through `conx-contact:usesAddressAssignment`.
+Postal contact methods do not reference address components directly; they reference a `conx-addr:LocationAssignment` through `conx-contact:usesLocationAssignment`.

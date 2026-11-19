@@ -14,9 +14,9 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 
 dependencies:
   - id: contact
-    version: 0.1.0
+    version: 0.2.0
     ontology_iri: https://www.construct-x.org/ontology/contact
-    version_iri: https://www.construct-x.org/ontology/contact/0.1.0
+    version_iri: https://www.construct-x.org/ontology/contact/0.2.0
 
 artifacts:
   data: contact-purpose.ttl

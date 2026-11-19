@@ -93,7 +93,7 @@ skos:         http://www.w3.org/2004/02/skos/core#
 | Property | Usage |
 | --- | --- |
 | `adms:identifier` | Identifiers of an Organization, Legal Entity, Organizational Unit, or Membership |
-| `conx-addr:hasAddressAssignment` | Legal, registered, headquarters, or postal address assignment |
+| `conx-addr:hasLocationAssignment` | Legal, registered, headquarters, or postal location assignment |
 | `conx-contact:hasContactPoint` | General, official, and functional contact points, including the homepage |
 
 ## 5. Classes
@@ -417,9 +417,9 @@ ex:membership-4711
     ] .
 ```
 
-### 10.2 `conx-addr:hasAddressAssignment`
+### 10.2 `conx-addr:hasLocationAssignment`
 
-Organizations and Organizational Units use the existing AddressAssignment pattern. For Legal Entities, the roles `LegalAddressRole`, `HeadquartersAddressRole`, `RegistrationAddressRole`, and `PostalAddressRole` are particularly relevant.
+Organizations and Organizational Units use the existing LocationAssignment pattern. For Legal Entities, the roles `LegalAddressRole`, `HeadquartersAddressRole`, `RegistrationAddressRole`, and `PostalAddressRole` are particularly relevant.
 
 No properties such as `street`, `houseNumber`, `postalCode`, or `city` are introduced in the `conx-org` namespace.
 
@@ -469,7 +469,7 @@ No local `homepage` property is introduced.
 
 - Explicit type `conx-org:Organization` or an established subclass,
 - at least one non-empty `name` value,
-- resource values for hierarchy, ADMS identifiers, AddressAssignments, and ContactPoints,
+- resource values for hierarchy, ADMS identifiers, LocationAssignments, and ContactPoints,
 - no universal requirement for register identifier, legal form, or address.
 
 ### 12.2 Legal Entity Core
@@ -479,7 +479,7 @@ No local `homepage` property is introduced.
 - exactly one `registrationDate` as `xsd:date`,
 - at least one structurally valid ADMS identifier,
 - `legalForm` at most once and as a `skos:Concept`,
-- requirements for a legal-address assignment checked against the existing Address Shapes in the SHACL requirements document.
+- requirements for a legal-location assignment checked against the existing Address Shapes in the SHACL requirements document.
 
 ### 12.3 Organizational Unit Core
 
@@ -502,7 +502,7 @@ The previously open acceptance points are resolved in the [SHACL Requirements Do
 3. `legalForm` remains optional and is limited to at most one SKOS concept.
 4. Membership role and validity period are not yet part of the MVP.
 5. Hierarchy relationship pairs are implemented as OWL inverses; SHACL does not require both directions to be supplied explicitly.
-6. Every `LegalEntity` requires at least one AddressAssignment with `LegalAddressRole`.
+6. Every `LegalEntity` requires at least one LocationAssignment with `LegalAddressRole`.
 
 The interaction of these concepts is illustrated in the [Organization Diagram](diagrams/organization-concept-model.md).
 

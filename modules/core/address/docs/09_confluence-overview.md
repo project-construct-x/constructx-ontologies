@@ -3,8 +3,8 @@
 # Construct-X Core-Modul Address
 
 **Status:** Freigegebene Confluence-Kurzfassung<br>
-**Version:** 0.1.0<br>
-**Stand:** 3. September 2026<br>
+**Version:** 0.2.0<br>
+**Stand:** 19. November 2026<br>
 **Geltungsbereich:** `core/address`
 
 Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
@@ -29,23 +29,23 @@ So werden widersprüchliche Kopien derselben Straße, Hausnummer und Postleitzah
 
 ## 3. Umfang und Abgrenzung
 
-Das Modul umfasst strukturierte Adressbestandteile, Adresszuordnungen, Zuordnungsrollen, Länder, Verwaltungsgebiete und einen offenen Verweis auf eine geografische Position. Es definiert keine Kontaktkanäle, kein Koordinatenreferenzsystem, keine Personen- oder Organisationsstammdaten und keine länderspezifischen Postregeln.
+Das Modul umfasst strukturierte Adressbestandteile, Standortzuordnungen, Zuordnungsrollen, Länder, Verwaltungsgebiete und die Verknüpfung einer Standortzuordnung mit einer Geoposition. Es definiert keine Kontaktkanäle, kein Koordinatenreferenzsystem, keine Personen- oder Organisationsstammdaten und keine länderspezifischen Postregeln.
 
 <a id="4-model-overview"></a>
 
 ## 4. Modellübersicht
 
 ```text
-Ressource -> AddressAssignment -> Address
+Ressource -> LocationAssignment -> Address
                  |
-                 +-> AddressRole
+                 +-> geografische Referenz (externes Modell)
+                 +-> LocationRole
 
 Address -> Country
         -> AdministrativeArea
-        -> externe geografische Position
 ```
 
-`AddressAssignment` beantwortet die Frage „für wen und zu welchem Zweck?“, `Address` die Frage „wie lautet die Adresse?“.
+`LocationAssignment` beantwortet die Frage „für wen und zu welchem Zweck?“, `Address` die Frage „wie lautet die Adresse?“.
 
 <a id="5-key-classes-and-relationships"></a>
 
@@ -54,21 +54,21 @@ Address -> Country
 | Begriff | Bedeutung in Alltagssprache |
 | --- | --- |
 | `Address` | Strukturierte Adresse |
-| `AddressAssignment` | Zuordnung einer Adresse zu einer Ressource |
-| `AddressRole` | Zweck der Zuordnung, etwa Lieferadresse |
+| `LocationAssignment` | Verknüpft eine Ressource mit Adresse, Geoposition oder beidem |
+| `LocationRole` | Zweck der Zuordnung, etwa Lieferadresse |
 | `Country` | Land aus dem Referenzdatensatz |
 | `AdministrativeArea` | Verwaltungsgebiet innerhalb eines Landes |
 | `assignedAddress` | Verknüpft die Zuordnung mit der Adresse |
-| `addressRole` | Gibt einen oder mehrere Verwendungszwecke an |
-| `hasGeographicPosition` | Verweist optional auf ein externes geografisches Modell |
+| `locationRole` | Gibt einen oder mehrere Verwendungszwecke an |
+| `hasGeoReference` | Verweist auf die Geoposition der Zuordnung, etwa die Lage eines Baustellentors. Der Typ der Zielressource bleibt offen. |
 
 <a id="6-validation-in-plain-language"></a>
 
 ## 6. Validierung in Alltagssprache
 
-Eine Adresszuordnung ist nur vollständig, wenn sie auf genau eine Adresse verweist und mindestens eine Rolle besitzt. Felder mit höchstens einem Wert dürfen keine widersprüchlichen Mehrfachwerte enthalten. Verknüpfte Rollen und Gebiete müssen Ressourcen sein.
+Eine Standortzuordnung ist nur vollständig, wenn sie mindestens eine Rolle besitzt und eine Adresse, eine Geoposition oder beides angibt. Pro Zuordnung ist jeweils höchstens eine Adresse und eine Geoposition zulässig. Felder mit höchstens einem Wert dürfen keine widersprüchlichen Mehrfachwerte enthalten. Verknüpfte Rollen und Gebiete müssen Ressourcen sein.
 
-> Eine Lieferadresszuordnung ohne Adresse ist ungültig. Ob eine Lieferadresse eine Postleitzahl enthalten muss, entscheidet ein Fachprofil, nicht der offene Core.
+> Ein Baustellentor kann allein über eine Geoposition erfasst werden. Für einen postalischen Kontakt oder die rechtliche Anschrift einer Organisation ist eine Adresse erforderlich.
 
 <a id="7-dependencies"></a>
 
@@ -83,7 +83,7 @@ Das Modul besitzt keine verpflichtende Abhängigkeit von einem anderen Construct
 | Eigenschaft | Wert |
 | --- | --- |
 | Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
-| Version | `0.1.0` |
+| Version | `0.2.0` |
 | Ontologie-IRI | `https://www.construct-x.org/ontology/address` |
 | Präfix | `conx-addr` |
 

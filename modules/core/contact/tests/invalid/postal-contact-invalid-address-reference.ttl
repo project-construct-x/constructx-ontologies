@@ -22,7 +22,7 @@ ex:postal-direct-address
 ex:postal-wrong-resource
     a conx-contact:ContactMethod ;
     conx-contact:contactChannel contact-channel:postalAddress ;
-    conx-contact:usesAddressAssignment ex:address-1 .
+    conx-contact:usesLocationAssignment ex:address-1 .
 
 ex:address-1
     a conx-addr:Address .

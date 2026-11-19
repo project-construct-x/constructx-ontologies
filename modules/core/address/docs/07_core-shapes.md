@@ -1,8 +1,8 @@
 # Core SHACL Shapes
 
 **Status:** Implemented\
-**Version:** 0.1.0\
-**As of:** 3 September 2026\
+**Version:** 0.2.0\
+**As of:** 19 November 2026\
 **Scope:** Address Core Shapes
 
 The Address Core Shapes validate the general contracts of the Address Ontology independently of a specific use case. They mirror the OWL cardinalities and make the ranges described in the T-Box executable as closed-world data checks.
@@ -10,9 +10,9 @@ The Address Core Shapes validate the general contracts of the Address Ontology i
 ```text
 Shape graph: modules/core/address/shapes/conx-addr-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/address/core
-Version IRI: https://www.construct-x.org/shapes/address/core/0.1.0
+Version IRI: https://www.construct-x.org/shapes/address/core/0.2.0
 Namespace:   https://www.construct-x.org/shapes/address/core#
-Version:     0.1.0
+Version:     0.2.0
 ```
 
 `core` is the name of the shape set. Additional use-case-specific shape sets can be versioned independently under the same module path.
@@ -30,16 +30,17 @@ SHACL, by contrast, checks the data graph currently available. If a mandatory ro
 
 | Class | Property | Cardinality |
 | ----- | -------- | ----------- |
-| `AddressAssignment` | `assignedAddress` | Exactly 1 |
-| `AddressAssignment` | `addressRole` | At least 1 |
-| `AddressAssignment` | `careOf` | At most 1 |
+| `LocationAssignment` | `assignedAddress` | At most 1 |
+| `LocationAssignment` | `hasGeoReference` | At most 1 |
+| `LocationAssignment` | `locationRole` | At least 1 |
+| `LocationAssignment` | `careOf` | At most 1 |
 | `Address` | `hasCountry` | At most 1 |
 | `Address` | `houseNumber` | At most 1 |
 | `Address` | `postOfficeBoxNumber` | At most 1 |
 | `Address` | `postalCode` | At most 1 |
 | `AdministrativeArea` | `broaderAdministrativeTerritory` | At most 1 |
 
-`assignedAddress` and `addressRole` were already included in the T-Box as OWL restrictions. The remaining six maximum-cardinality restrictions were added alongside the Core Shapes.
+A union of two OWL existential restrictions requires an address or a geolocation. The SHACL `sh:or` accepts either or both.
 
 `plotIdentifier` deliberately retains a cardinality of `0..n`: an address may be associated with multiple plots or land parcels.
 
@@ -49,7 +50,7 @@ The shapes enforce the existing OWL/RDFS contracts as data checks:
 
 - Values of object relationships must be instances of the specified range class.
 - Roles, countries, and administrative units must be referenced through IRIs.
-- `hasGeographicPosition` must reference a resource rather than a literal.
+- `hasGeoReference` must reference a resource rather than a literal.
 - Textual labels accept `xsd:string` or `rdf:langString`.
 - Codes and recipient-related text values accept only `xsd:string`.
 - Resources using Address properties must explicitly have the appropriate Address type.
@@ -92,4 +93,4 @@ The automated tests additionally verify that every general OWL cardinality is mi
 
 ## 6. Illustrative Example
 
-> An AddressAssignment without an address is incomplete. The Core Shapes report this error because otherwise it is unclear which address has been assigned to the resource.
+> A site gate can be recorded with a site-access role and a geographic reference alone. An assignment with only a role fails validation.

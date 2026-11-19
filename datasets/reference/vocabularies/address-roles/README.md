@@ -8,20 +8,20 @@ This directory contains the controlled address-role vocabulary for the Construct
 
 ```text
 Vocabulary IRI: https://www.construct-x.org/vocab/address-role
-Version IRI:    https://www.construct-x.org/vocab/address-role/0.2.0
+Version IRI:    https://www.construct-x.org/vocab/address-role/0.3.0
 Namespace:      https://www.construct-x.org/vocab/address-role#
 Prefix:         roles
-Version:        0.2.0
+Version:        0.3.0
 Status:         draft
 ```
 
-The stable vocabulary IRI identifies the `skos:ConceptScheme`. Each specific role has a permanent IRI in the role namespace and is an instance of both `conx-addr:AddressRole` and `skos:Concept`.
+The stable vocabulary IRI identifies the `skos:ConceptScheme`. Each specific role has a permanent IRI in the role namespace and is an instance of both `conx-addr:LocationRole` and `skos:Concept`.
 
 <a id="inhalt"></a>
 
 ## Contents
 
-Version `0.2.0` contains eleven roles. German labels are retained alongside their English equivalents:
+Version `0.3.0` contains eleven roles. German labels are retained alongside their English equivalents:
 
 | German | English |
 | --- | --- |
@@ -63,13 +63,13 @@ Source: [OASIS UBL 2.5 CS01 Common Aggregate Components](https://docs.oasis-open
 @prefix roles: <https://www.construct-x.org/vocab/address-role#> .
 
 ex:site-access-assignment
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:gate-3-address ;
-    conx-addr:addressRole roles:ConstructionSiteAccessRole,
+    conx-addr:locationRole roles:ConstructionSiteAccessRole,
                           roles:DeliveryAddressRole .
 ```
 
-All other details of an `AddressAssignment` apply jointly to every role linked to it. If, for example, the department, delivery instruction, or validity differs by role, separate assignments to the same address are used.
+All other details of a `LocationAssignment` apply jointly to every role linked to it. If, for example, the department, delivery instruction, or validity differs by role, separate assignments to the same address are used.
 
 <a id="pflege"></a>
 

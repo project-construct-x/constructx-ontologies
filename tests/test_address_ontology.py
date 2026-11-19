@@ -11,21 +11,21 @@ CONX_ADDR = Namespace("https://www.construct-x.org/ontology/address#")
 
 EXPECTED_CLASSES = {
     CONX_ADDR.Address,
-    CONX_ADDR.AddressAssignment,
-    CONX_ADDR.AddressRole,
+    CONX_ADDR.LocationAssignment,
+    CONX_ADDR.LocationRole,
     CONX_ADDR.AdministrativeTerritory,
     CONX_ADDR.Country,
     CONX_ADDR.AdministrativeArea,
 }
 
 EXPECTED_OBJECT_PROPERTIES = {
-    CONX_ADDR.hasAddressAssignment,
+    CONX_ADDR.hasLocationAssignment,
     CONX_ADDR.assignedAddress,
-    CONX_ADDR.addressRole,
+    CONX_ADDR.locationRole,
     CONX_ADDR.hasCountry,
     CONX_ADDR.hasAdministrativeArea,
     CONX_ADDR.broaderAdministrativeTerritory,
-    CONX_ADDR.hasGeographicPosition,
+    CONX_ADDR.hasGeoReference,
 }
 
 EXPECTED_DATATYPE_PROPERTIES = {
@@ -110,19 +110,23 @@ def test_codes_identifiers_and_recipient_literals_remain_plain_strings() -> None
         assert list(graph.objects(property_iri, RDFS.range)) == [XSD.string]
 
 
-def test_address_assignment_requires_one_address_and_one_or_more_roles() -> None:
+def test_location_assignment_requires_address_or_geolocation_and_one_or_more_roles() -> None:
     graph = load_graph()
-    restrictions = set(graph.objects(CONX_ADDR.AddressAssignment, RDFS.subClassOf))
+    restrictions = set(graph.objects(CONX_ADDR.LocationAssignment, RDFS.subClassOf))
 
     address_restrictions = {
         node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.assignedAddress) in graph
     }
     role_restrictions = {
-        node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.addressRole) in graph
+        node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.locationRole) in graph
     }
 
+    union, = (head for node in restrictions for head in graph.objects(node, OWL.unionOf))
+    assert {(graph.value(r, OWL.onProperty), graph.value(r, OWL.someValuesFrom)) for r in Collection(graph, union)} == {
+        (CONX_ADDR.assignedAddress, CONX_ADDR.Address), (CONX_ADDR.hasGeoReference, OWL.Thing),
+    }
     assert any(
-        (node, OWL.cardinality, Literal(1, datatype=XSD.nonNegativeInteger)) in graph
+        (node, OWL.maxCardinality, Literal(1, datatype=XSD.nonNegativeInteger)) in graph
         for node in address_restrictions
     )
     assert any(
@@ -136,14 +140,15 @@ def test_address_assignment_requires_one_address_and_one_or_more_roles() -> None
 def test_address_object_property_contracts_are_explicit() -> None:
     graph = load_graph()
 
-    assert (CONX_ADDR.hasAddressAssignment, RDFS.range, CONX_ADDR.AddressAssignment) in graph
-    assert not list(graph.objects(CONX_ADDR.hasAddressAssignment, RDFS.domain))
-    assert (CONX_ADDR.assignedAddress, RDFS.domain, CONX_ADDR.AddressAssignment) in graph
+    assert (CONX_ADDR.hasLocationAssignment, RDFS.range, CONX_ADDR.LocationAssignment) in graph
+    assert not list(graph.objects(CONX_ADDR.hasLocationAssignment, RDFS.domain))
+    assert (CONX_ADDR.assignedAddress, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
     assert (CONX_ADDR.assignedAddress, RDFS.range, CONX_ADDR.Address) in graph
-    assert (CONX_ADDR.addressRole, RDFS.domain, CONX_ADDR.AddressAssignment) in graph
-    assert (CONX_ADDR.addressRole, RDFS.range, CONX_ADDR.AddressRole) in graph
-    assert (CONX_ADDR.hasGeographicPosition, RDFS.domain, CONX_ADDR.Address) in graph
-    assert not list(graph.objects(CONX_ADDR.hasGeographicPosition, RDFS.range))
+    assert (CONX_ADDR.locationRole, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
+    assert (CONX_ADDR.locationRole, RDFS.range, CONX_ADDR.LocationRole) in graph
+    assert (CONX_ADDR.hasGeoReference, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
+    assert (CONX_ADDR.hasGeoReference, RDFS.range, None) not in graph
+    assert CONX_ADDR.GeoLocation not in graph.all_nodes()
 
 
 def test_administrative_territory_hierarchy_is_modeled() -> None:

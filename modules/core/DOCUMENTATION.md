@@ -90,10 +90,10 @@ technical details.
 Example:
 
 > An organization has a billing address. The address contains the street and
-> city; the role "billing address" belongs to the address assignment.
+> city; the role "billing address" belongs to the location assignment.
 
 ```text
-Organization -> AddressAssignment -> Address
+Organization -> LocationAssignment -> Address
                        |
                        +-> Role: Billing address
 ```

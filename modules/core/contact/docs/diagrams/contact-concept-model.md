@@ -1,6 +1,6 @@
 # Domain Concept Diagram for Contact
 
-**Status:** Domain model of T-Box and Core Shapes 0.1.0  
+**Status:** Domain model of T-Box and Core Shapes 0.2.0  
 **As of:** 27 August 2026
 
 The diagrams show the implemented contact model from five perspectives: core model, private/business contacts, postal address, reference vocabularies, and source mappings.
@@ -28,7 +28,7 @@ flowchart LR
     Point -->|"contactPurpose 0..*"| Purpose
     Method -->|"contactChannel 1"| Channel
     Method -->|"contactPlatform 0..1"| Platform
-    Method -->|"contactValue / contactURI / usesAddressAssignment"| Value["Value or reference"]
+    Method -->|"contactValue / contactURI / usesLocationAssignment"| Value["Value or reference"]
 
     classDef carrier fill:#e7f0f7,stroke:#315b7d,color:#172b3a,stroke-width:2px;
     classDef core fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -52,7 +52,7 @@ flowchart TB
         PrivatePoint["ContactPoint: usage private; purpose general"]
         PrivateEmail["ContactMethod: channel email; value max@example.org"]
         PrivateMobile["ContactMethod: channel mobilePhone; value +49 ..."]
-        PrivatePostal["ContactMethod: channel postalAddress; usesAddressAssignment"]
+        PrivatePostal["ContactMethod: channel postalAddress; usesLocationAssignment"]
         PrivatePoint --> PrivateEmail
         PrivatePoint --> PrivateMobile
         PrivatePoint --> PrivatePostal
@@ -91,16 +91,16 @@ flowchart LR
 
     subgraph ADDRESS["core/address"]
         direction LR
-        Assignment["AddressAssignment: role and delivery instructions"]
+        Assignment["LocationAssignment: role and delivery instructions"]
         Address["Address: structured address"]
-        Role["AddressRole: delivery / billing / residence / ..."]
+        Role["LocationRole: delivery / billing / residence / ..."]
         Assignment -->|"assignedAddress"| Address
-        Assignment -->|"addressRole"| Role
+        Assignment -->|"locationRole"| Role
     end
 
-    Method -->|"usesAddressAssignment"| Assignment
+    Method -->|"usesLocationAssignment"| Assignment
 
-    Decision["Decision: postal contact methods reference AddressAssignment to preserve roles and delivery instructions."]
+    Decision["Decision: postal contact methods reference LocationAssignment to preserve roles and delivery instructions."]
     Decision -.-> Method
 
     classDef contact fill:#edf6e9,stroke:#466b3c,color:#1d2d19,stroke-width:2px;
@@ -212,6 +212,6 @@ flowchart LR
 3. Private, business, and official usage are modeled on the contact point.
 4. Delivery, billing, and support are purposes rather than usage contexts.
 5. Social profiles are modeled generically and may be classified through platform resources.
-6. Postal contact addresses reference `conx-addr:AddressAssignment`.
+6. Postal contact addresses reference `conx-addr:LocationAssignment`.
 7. The inverse relationship remains optional.
 8. `hasContactPoint` has no restrictive `rdfs:domain`, preventing future entities holding contact information from being unintentionally inferred as Agents.

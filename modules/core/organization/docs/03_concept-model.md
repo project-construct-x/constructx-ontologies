@@ -178,7 +178,7 @@ Organization and place are modeled as independent dimensions.
 
 A resource is not used simultaneously as an organizational unit and a physical place. This allows the same unit to have multiple locations and the same location to have multiple organizational users without conflating identities.
 
-The specific relationship to a future location class remains deferred. Addresses can already be linked to an organization or organizational unit through `conx-addr:hasAddressAssignment`.
+The specific relationship to a future location class remains deferred. Addresses can already be linked to an organization or organizational unit through `conx-addr:hasLocationAssignment`.
 
 ## 9. Membership
 
@@ -235,9 +235,9 @@ An organization uses the existing pattern:
 
 | Resource | Property | Target |
 | --- | --- | --- |
-| `Organization` | `conx-addr:hasAddressAssignment` | `AddressAssignment` |
-| `AddressAssignment` | `assignedAddress` | `Address` |
-| `AddressAssignment` | `addressRole` | `AddressRole` |
+| `Organization` | `conx-addr:hasLocationAssignment` | `LocationAssignment` |
+| `LocationAssignment` | `assignedAddress` | `Address` |
+| `LocationAssignment` | `locationRole` | `LocationRole` |
 
 The following are particularly relevant for Legal Entities:
 
@@ -312,7 +312,7 @@ ex:bau-gmbh
     conx-org:legalName "Bau Beispiel GmbH"@de ;
     conx-org:registrationDate "2018-04-12"^^xsd:date ;
     adms:identifier ex:bau-gmbh-register-id ;
-    conx-addr:hasAddressAssignment ex:bau-gmbh-legal-address ;
+    conx-addr:hasLocationAssignment ex:bau-gmbh-legal-address ;
     conx-contact:hasContactPoint ex:bau-gmbh-official-contact .
 
 ex:einkauf

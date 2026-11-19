@@ -18,10 +18,10 @@ ex:invalid-registration
       a adms:Identifier ;
       skos:notation "REG-1" ;
     ] ;
-  conx-addr:hasAddressAssignment [
-      a conx-addr:AddressAssignment ;
+  conx-addr:hasLocationAssignment [
+      a conx-addr:LocationAssignment ;
       conx-addr:assignedAddress ex:address ;
-      conx-addr:addressRole roles:LegalAddressRole ;
+      conx-addr:locationRole roles:LegalAddressRole ;
     ] ;
 .
 

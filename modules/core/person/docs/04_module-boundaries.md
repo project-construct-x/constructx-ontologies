@@ -29,7 +29,7 @@ The described Core modules are implemented in version `0.1.0`. A cross-module re
 | `core/organization` | Organizations, memberships, and representation; specialization of Agent |
 | `core/identifier` | Shared ADMS/SKOS identifier contract |
 | `core/contact` | Contact points and contact methods with unrestricted domains |
-| `core/address` | Address and AddressAssignment model |
+| `core/address` | Address and LocationAssignment model |
 | `core/participation` | Qualified Agent roles in domain contexts |
 | `core/document` | Documents, references, and distributions |
 
@@ -64,7 +64,7 @@ The specific proposal provides no Agent-specific properties and no mandatory sha
 | `core/person` | `Person`, names, birth details, `sex`, `gender`, citizenship, and evidence links | Memberships, roles, addresses, contact point details, credential and key details |
 | `core/identifier` | Shared ADMS/SKOS contract and `ADMSIdentifierShape` | Domain-specific mandatory identifiers and concrete identification schemes |
 | `core/contact` | `ContactPoint`, `ContactMethod`, contact channel, usage context, contact purpose, email, telephone, and other channels | Person names, organizational structure, postal address components |
-| `core/address` | `Address`, `AddressAssignment`, address roles, and postal structure | Person and Organization themselves |
+| `core/address` | `Address`, `LocationAssignment`, address roles, and postal structure | Person and Organization themselves |
 | `core/organization` | `Organization`, `LegalEntity`, `OrganizationalUnit`, `Membership`, and legal representation | Intrinsic personal data and general contextual roles |
 | `core/participation` | General qualified role of an Agent in a domain context | Person core and organizational membership |
 | Future Identity module | Identity documents, credentials, verification methods, status, and revocation | Biographical Person profile |
@@ -89,10 +89,10 @@ Address example:
 
 ```turtle
 ex:person-123 a conx-person:Person ;
-    conx-addr:hasAddressAssignment ex:address-assignment-1 .
+    conx-addr:hasLocationAssignment ex:address-assignment-1 .
 ```
 
-Since `conx-addr:hasAddressAssignment` belongs to the Address module, an application can load the Person and Address modules together. The Person module does not need to redefine the property.
+Since `conx-addr:hasLocationAssignment` belongs to the Address module, an application can load the Person and Address modules together. The Person module does not need to redefine the property.
 
 Contact example:
 
@@ -142,7 +142,7 @@ Contact and Address remain separate:
 - A contact point describes a communication channel, such as email or telephone.
 - An address describes a postal or spatial reference.
 - A contact point describes the usage context and purposes for which an entity can be reached. The entity has an outgoing `hasContactPoint` reference to this contact point.
-- An address assignment describes the resource and role for which an address applies.
+- An location assignment describes the resource and role for which an address applies.
 
 The Contact module requires no fixed OWL domain of `Agent`. `hasContactPoint` remains without a restrictive domain in the open core because projects, positions, and other resources can hold contact information alongside persons and organizations. Specific SHACL profiles may permit the property for their respective target classes.
 
@@ -162,7 +162,7 @@ The Person module may define a generic evidence link but should neither copy nor
 
 ## 11. Countries and Geographic Concepts
 
-The Construct-X country vocabulary uses stable country IRIs and types them as `conx-addr:Country`. The Person module uses these resources for citizenship. Geographic positions remain connected through the open `conx-addr:hasGeographicPosition` extension point; a separate Location model is not a prerequisite for the Person core.
+The Construct-X country vocabulary uses stable country IRIs and types them as `conx-addr:Country`. The Person module uses these resources for citizenship. Geographic positions remain connected through the open `conx-addr:hasGeoReference` extension point; a separate Location model is not a prerequisite for the Person core.
 
 ## 12. Import and Alignment Strategy
 
@@ -194,4 +194,4 @@ The specific references are documented as `referenced-not-imported` in the respe
 
 ## 14. Illustrative Example
 
-> Anna’s birth date belongs to the Person. Her office address belongs to an AddressAssignment, and her role in the office belongs to a Membership. The Person module does not store this information again.
+> Anna’s birth date belongs to the Person. Her office address belongs to a LocationAssignment, and her role in the office belongs to a Membership. The Person module does not store this information again.

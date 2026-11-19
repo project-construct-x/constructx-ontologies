@@ -2,7 +2,7 @@ from pathlib import Path
 
 import pytest
 from pyshacl import validate
-from rdflib import Graph, Literal, Namespace, OWL, RDF, RDFS, URIRef
+from rdflib import BNode, Graph, Literal, Namespace, OWL, RDF, RDFS, URIRef
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -23,9 +23,10 @@ OWL_CARDINALITIES = {
         (CONX_ADDR.postOfficeBoxNumber, OWL.maxCardinality, 1),
         (CONX_ADDR.postalCode, OWL.maxCardinality, 1),
     },
-    CONX_ADDR.AddressAssignment: {
-        (CONX_ADDR.assignedAddress, OWL.cardinality, 1),
-        (CONX_ADDR.addressRole, OWL.minCardinality, 1),
+    CONX_ADDR.LocationAssignment: {
+        (CONX_ADDR.assignedAddress, OWL.maxCardinality, 1),
+        (CONX_ADDR.hasGeoReference, OWL.maxCardinality, 1),
+        (CONX_ADDR.locationRole, OWL.minCardinality, 1),
         (CONX_ADDR.careOf, OWL.maxCardinality, 1),
     },
     CONX_ADDR.AdministrativeArea: {
@@ -39,10 +40,10 @@ OWL_CARDINALITIES = {
 
 SHACL_CARDINALITIES = {
     CONX_ADDR_SH.AssignedAddressPropertyShape: {
-        (SH.minCount, 1),
         (SH.maxCount, 1),
     },
-    CONX_ADDR_SH.AddressRolePropertyShape: {(SH.minCount, 1)},
+    CONX_ADDR_SH.HasGeoReferencePropertyShape: {(SH.maxCount, 1)},
+    CONX_ADDR_SH.LocationRolePropertyShape: {(SH.minCount, 1)},
     CONX_ADDR_SH.HasCountryPropertyShape: {(SH.maxCount, 1)},
     CONX_ADDR_SH.HouseNumberPropertyShape: {(SH.maxCount, 1)},
     CONX_ADDR_SH.PostOfficeBoxNumberPropertyShape: {(SH.maxCount, 1)},
@@ -116,17 +117,17 @@ def test_complete_address_conforms_to_core_shapes() -> None:
     [
         (
             "assignment-missing-required-values.ttl",
-            {CONX_ADDR.assignedAddress, CONX_ADDR.addressRole},
+            {CONX_ADDR.locationRole},
         ),
         (
             "invalid-core-values.ttl",
             {
                 CONX_ADDR.assignedAddress,
-                CONX_ADDR.addressRole,
+                CONX_ADDR.locationRole,
                 CONX_ADDR.careOf,
                 CONX_ADDR.hasCountry,
                 CONX_ADDR.hasAdministrativeArea,
-                CONX_ADDR.hasGeographicPosition,
+                CONX_ADDR.hasGeoReference,
                 CONX_ADDR.streetName,
                 CONX_ADDR.houseNumber,
                 CONX_ADDR.postalCode,
@@ -143,3 +144,26 @@ def test_invalid_address_fixtures_report_expected_paths(
 
     assert not conforms, report
     assert expected_paths.issubset(result_paths)
+    if fixture_name == "assignment-missing-required-values.ttl":
+        assert (None, SH.sourceConstraintComponent, SH.OrConstraintComponent) in report_graph
+
+@pytest.mark.parametrize("case", ["address", "geo", "blank_geo", "both", "neither", "two_geo", "literal"])
+def test_location_assignment_payloads(case: str) -> None:
+    ex = Namespace("https://example.org/")
+    data = Graph()
+    data.add((ex.assignment, RDF.type, CONX_ADDR.LocationAssignment))
+    data.add((ex.assignment, CONX_ADDR.locationRole, ex.role))
+    data.add((ex.role, RDF.type, CONX_ADDR.LocationRole))
+    if case in {"address", "both"}:
+        data.add((ex.assignment, CONX_ADDR.assignedAddress, ex.address))
+        data.add((ex.address, RDF.type, CONX_ADDR.Address))
+    if case in {"geo", "both", "two_geo"}:
+        data.add((ex.assignment, CONX_ADDR.hasGeoReference, ex.point))
+    if case == "blank_geo":
+        data.add((ex.assignment, CONX_ADDR.hasGeoReference, BNode()))
+    if case == "literal":
+        data.add((ex.assignment, CONX_ADDR.hasGeoReference, Literal("north gate")))
+    if case == "two_geo":
+        data.add((ex.assignment, CONX_ADDR.hasGeoReference, ex.secondPoint))
+    conforms, _, report = validate(data, shacl_graph=load_graph(SHAPES_FILE))
+    assert conforms == (case in {"address", "geo", "blank_geo", "both"}), report

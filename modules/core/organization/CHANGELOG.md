@@ -1,5 +1,9 @@
 # Changelog
 
+## Core shapes 0.2.0 - 2026-11-19
+
+- A legal address requires a `LocationAssignment` with `LegalAddressRole` and one typed `assignedAddress`.
+
 ## Unreleased - 2026-09-03
 
 - Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.

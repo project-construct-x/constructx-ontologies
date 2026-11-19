@@ -30,7 +30,7 @@ EXPECTED_OBJECT_PROPERTIES = {
     CONX_CONTACT.contactPurpose,
     CONX_CONTACT.contactPlatform,
     CONX_CONTACT.contactURI,
-    CONX_CONTACT.usesAddressAssignment,
+    CONX_CONTACT.usesLocationAssignment,
 }
 EXPECTED_DATATYPE_PROPERTIES = {
     CONX_CONTACT.contactValue,
@@ -106,9 +106,9 @@ def test_contact_object_property_contracts_are_explicit() -> None:
     assert (CONX_CONTACT.contactPurpose, RDFS.range, CONX_CONTACT.ContactPurpose) in graph
     assert (CONX_CONTACT.contactPlatform, RDFS.range, CONX_CONTACT.ContactPlatform) in graph
     assert (
-        CONX_CONTACT.usesAddressAssignment,
+        CONX_CONTACT.usesLocationAssignment,
         RDFS.range,
-        CONX_ADDR.AddressAssignment,
+        CONX_ADDR.LocationAssignment,
     ) in graph
     assert (CONX_CONTACT.contactURI, RDF.type, OWL.ObjectProperty) in graph
 
@@ -134,18 +134,18 @@ def test_contact_module_metadata_registers_core_shapes_and_dependencies() -> Non
 
     assert metadata["id"] == "contact"
     assert metadata["type"] == "core"
-    assert metadata["version"] == "0.1.0"
+    assert metadata["version"] == "0.2.0"
     assert metadata["ontology_iri"] == str(ONTOLOGY_IRI)
-    assert metadata["version_iri"] == f"{ONTOLOGY_IRI}/0.1.0"
+    assert metadata["version_iri"] == f"{ONTOLOGY_IRI}/0.2.0"
     assert metadata["namespace"] == str(CONX_CONTACT)
     assert metadata["artifacts"]["ontology"] == "ontology/conx-contact.ttl"
     assert metadata["artifacts"]["core_shapes"] == "shapes/conx-contact-core.shacl.ttl"
     assert metadata["artifacts"]["strict_shapes"] is None
     assert metadata["shape_sets"]["core"] == {
         "graph_iri": "https://www.construct-x.org/shapes/contact/core",
-        "version_iri": "https://www.construct-x.org/shapes/contact/core/0.1.0",
+        "version_iri": "https://www.construct-x.org/shapes/contact/core/0.2.0",
         "namespace": "https://www.construct-x.org/shapes/contact/core#",
-        "version": "0.1.0",
+        "version": "0.2.0",
         "artifact": "shapes/conx-contact-core.shacl.ttl",
     }
 

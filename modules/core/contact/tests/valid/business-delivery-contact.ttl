@@ -35,12 +35,12 @@ ex:company-1-delivery-phone
 ex:company-1-delivery-postal
     a conx-contact:ContactMethod ;
     conx-contact:contactChannel contact-channel:postalAddress ;
-    conx-contact:usesAddressAssignment ex:company-1-delivery-address-assignment .
+    conx-contact:usesLocationAssignment ex:company-1-delivery-address-assignment .
 
 ex:company-1-delivery-address-assignment
-    a conx-addr:AddressAssignment ;
+    a conx-addr:LocationAssignment ;
     conx-addr:assignedAddress ex:company-1-delivery-address ;
-    conx-addr:addressRole roles:DeliveryAddressRole .
+    conx-addr:locationRole roles:DeliveryAddressRole .
 
 ex:company-1-delivery-address
     a conx-addr:Address .

@@ -217,10 +217,10 @@ def test_saxony_source_record_is_published_with_the_correct_iso_code() -> None:
 def test_address_example_uses_references_but_keeps_city_as_literal() -> None:
     graph = load_graph(EXAMPLE_FILE)
 
-    assert (EX.rub, CONX_ADDR.hasAddressAssignment, EX["rub-postal-address-assignment"]) in graph
+    assert (EX.rub, CONX_ADDR.hasLocationAssignment, EX["rub-postal-address-assignment"]) in graph
     assert (
         EX["rub-postal-address-assignment"],
-        CONX_ADDR.addressRole,
+        CONX_ADDR.locationRole,
         ROLES.PostalAddressRole,
     ) in graph
     assert (EX["rub-address"], CONX_ADDR.hasCountry, COUNTRIES.DEU) in graph

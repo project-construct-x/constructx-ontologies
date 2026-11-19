@@ -12,8 +12,8 @@
 
 <https://www.construct-x.org/ontology/address>
   a owl:Ontology ;
-  dcterms:bibliographicCitation "Construct-X Address Ontology, version 0.1.0"@en ;
-  dcterms:bibliographicCitation "Construct-X Adressontologie, Version 0.1.0"@de ;
+  dcterms:bibliographicCitation "Construct-X Address Ontology, version 0.2.0"@en ;
+  dcterms:bibliographicCitation "Construct-X Adressontologie, Version 0.2.0"@de ;
   dcterms:contributor "Construction-X Arbeitspaket 3.4"@de ;
   dcterms:created "2026-08-13"^^xsd:date ;
   dcterms:creator [
@@ -26,10 +26,10 @@
         ] ;
       schema:name "Sven Zentgraf" ;
     ] ;
-  dcterms:description "Definiert ein strukturiertes, wiederverwendbares Modell für Adressen, kontextbezogene Adresszuordnungen und referenzierbare administrative Gebiete im Construction-X-Ontologienetzwerk."@de ;
-  dcterms:description "Defines a structured, reusable model for addresses, contextual address assignments, and referenceable administrative territories in the Construction-X ontology network."@en ;
+  dcterms:description "Definiert ein strukturiertes, wiederverwendbares Modell für Adressen, kontextbezogene Standortzuordnungen und referenzierbare administrative Gebiete im Construction-X-Ontologienetzwerk."@de ;
+  dcterms:description "Defines a structured, reusable model for addresses, contextual location assignments, and referenceable administrative territories in the Construction-X ontology network."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-08-18"^^xsd:date ;
+  dcterms:modified "2026-11-19"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:source <https://schema.org/PostalAddress> ;
   dcterms:source <https://www.w3.org/TR/vcard-rdf/> ;
@@ -38,8 +38,8 @@
   dcterms:title "Construct-X Adressontologie"@de ;
   vann:preferredNamespacePrefix "conx-addr" ;
   vann:preferredNamespaceUri "https://www.construct-x.org/ontology/address#" ;
-  owl:versionIRI <https://www.construct-x.org/ontology/address/0.1.0> ;
-  owl:versionInfo "0.1.0" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/address/0.2.0> ;
+  owl:versionInfo "0.2.0" ;
 .
 
 ## Classes
@@ -72,21 +72,32 @@ conx-addr:Address
     ] ;
 .
 
-conx-addr:AddressAssignment
+conx-addr:LocationAssignment
   a owl:Class ;
-  rdfs:comment "Eine kontextbezogene Zuordnung einer Adresse zu einer anderen Ressource. Alle Angaben der Zuordnung gelten gemeinsam für alle mit ihr verknüpften Adressrollen."@de ;
-  rdfs:comment "A contextual assignment of an address to another resource. All assignment details jointly apply to every address role linked to the assignment."@en ;
-  rdfs:label "Address assignment"@en ;
-  rdfs:label "Adresszuordnung"@de ;
+  rdfs:comment "Ordnet einer Ressource eine Adresse, eine Geoposition oder beides zu. Alle Angaben der Zuordnung gelten gemeinsam für alle mit ihr verknüpften Adressrollen."@de ;
+  rdfs:comment "Associates a resource with an address, a geographic location, or both. All assignment details jointly apply to every address role linked to the assignment."@en ;
+  rdfs:label "Location assignment"@en ;
+  rdfs:label "Standortzuordnung"@de ;
   rdfs:subClassOf [
       a owl:Restriction ;
-      owl:cardinality "1"^^xsd:nonNegativeInteger ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
       owl:onProperty conx-addr:assignedAddress ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
+      owl:onProperty conx-addr:hasGeoReference ;
+      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+    ], [
+      a owl:Class ;
+      owl:unionOf (
+        [ a owl:Restriction ; owl:onProperty conx-addr:assignedAddress ; owl:someValuesFrom conx-addr:Address ]
+        [ a owl:Restriction ; owl:onProperty conx-addr:hasGeoReference ; owl:someValuesFrom owl:Thing ]
+      ) ;
+    ] ;
+  rdfs:subClassOf [
+      a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty conx-addr:addressRole ;
+      owl:onProperty conx-addr:locationRole ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -95,12 +106,12 @@ conx-addr:AddressAssignment
     ] ;
 .
 
-conx-addr:AddressRole
+conx-addr:LocationRole
   a owl:Class ;
-  rdfs:comment "Eine kontrolliert gepflegte Rolle, in der eine Adresse innerhalb einer Adresszuordnung verwendet wird. Konkrete Rollen werden als Referenzdaten außerhalb dieser T-Box bereitgestellt."@de ;
-  rdfs:comment "A controlled role in which an address is used within an address assignment. Concrete roles are provided as reference data outside this T-Box."@en ;
-  rdfs:label "Address role"@en ;
-  rdfs:label "Adressrolle"@de ;
+  rdfs:comment "Beschreibt den Verwendungszweck einer Standortzuordnung. Konkrete Rollen werden als Referenzdaten außerhalb dieser T-Box bereitgestellt."@de ;
+  rdfs:comment "The purpose served by a location assignment. Concrete roles are provided as reference data outside this T-Box."@en ;
+  rdfs:label "Location role"@en ;
+  rdfs:label "Standortrolle"@de ;
 .
 
 conx-addr:AdministrativeTerritory
@@ -136,33 +147,31 @@ conx-addr:AdministrativeArea
 
 ## Object properties
 
-conx-addr:hasAddressAssignment
+conx-addr:hasLocationAssignment
   a owl:ObjectProperty ;
-  rdfs:comment "Verknüpft eine beliebige identifizierbare Ressource mit einer kontextbezogenen Adresszuordnung."@de ;
-  rdfs:comment "Links any identifiable resource to a contextual address assignment."@en ;
-  rdfs:label "has address assignment"@en ;
-  rdfs:label "hat Adresszuordnung"@de ;
-  rdfs:range conx-addr:AddressAssignment ;
+  rdfs:comment "Verknüpft eine beliebige identifizierbare Ressource mit einer kontextbezogenen Standortzuordnung."@de ;
+  rdfs:comment "Links any identifiable resource to a contextual location assignment."@en ;
+  rdfs:label "has location assignment"@en ;
+  rdfs:label "hat Standortzuordnung"@de ;
+  rdfs:range conx-addr:LocationAssignment ;
 .
 
 conx-addr:assignedAddress
   a owl:ObjectProperty ;
-  rdfs:comment "Bestimmt die Adresse einer Adresszuordnung."@de ;
-  rdfs:comment "Specifies the address of an address assignment."@en ;
-  rdfs:domain conx-addr:AddressAssignment ;
+  rdfs:comment "Bestimmt die Adresse einer Standortzuordnung."@de ;
+  rdfs:comment "Specifies the address of a location assignment."@en ;
+  rdfs:domain conx-addr:LocationAssignment ;
   rdfs:label "assigned address"@en ;
   rdfs:label "zugeordnete Adresse"@de ;
   rdfs:range conx-addr:Address ;
 .
 
-conx-addr:addressRole
+conx-addr:locationRole
   a owl:ObjectProperty ;
-  rdfs:comment "Bestimmt eine fachliche Rolle, in der die Adresse innerhalb der Zuordnung verwendet wird. Eine Zuordnung kann mehrere Rollen besitzen."@de ;
-  rdfs:comment "Specifies a business role in which the address is used within the assignment. An assignment may have multiple roles."@en ;
-  rdfs:domain conx-addr:AddressAssignment ;
-  rdfs:label "address role"@en ;
-  rdfs:label "Adressrolle"@de ;
-  rdfs:range conx-addr:AddressRole ;
+  rdfs:comment "Verwendungszweck der Standortzuordnung."@de, "Purpose of the location assignment."@en ;
+  rdfs:domain conx-addr:LocationAssignment ;
+  rdfs:label "Standortrolle"@de, "location role"@en ;
+  rdfs:range conx-addr:LocationRole ;
 .
 
 conx-addr:hasCountry
@@ -195,13 +204,12 @@ conx-addr:broaderAdministrativeTerritory
   rdfs:range conx-addr:AdministrativeTerritory ;
 .
 
-conx-addr:hasGeographicPosition
+conx-addr:hasGeoReference
   a owl:ObjectProperty ;
-  rdfs:comment "Verknüpft eine Adresse optional mit einer Position aus einem externen Geomodell. Der Wertebereich bleibt in Version 0.1.0 bewusst offen."@de ;
-  rdfs:comment "Optionally links an address to a position from an external geographic model. The range intentionally remains open in version 0.1.0."@en ;
-  rdfs:domain conx-addr:Address ;
-  rdfs:label "has geographic position"@en ;
-  rdfs:label "hat geografische Position"@de ;
+  rdfs:label "hat geografische Referenz"@de, "has geographic reference"@en ;
+  rdfs:domain conx-addr:LocationAssignment ;
+  rdfs:comment "Verweist auf die geografische Referenz dieser Standortzuordnung. Das verwendete Geomodell bestimmt den Typ der Zielressource."@de,
+               "Links the assignment to a geographic reference. Its type is determined by the geographic model in use."@en ;
 .
 
 ## Datatype properties of Address
@@ -346,13 +354,13 @@ conx-addr:plotIdentifier
   rdfs:range xsd:string ;
 .
 
-## Datatype properties of AddressAssignment
+## Datatype properties of LocationAssignment
 
 conx-addr:departmentName
   a owl:DatatypeProperty ;
   rdfs:comment "Abteilung oder Organisationseinheit, für die die Adresse in dieser Zuordnung verwendet wird."@de ;
   rdfs:comment "Department or organizational unit for which the address is used in this assignment."@en ;
-  rdfs:domain conx-addr:AddressAssignment ;
+  rdfs:domain conx-addr:LocationAssignment ;
   rdfs:label "department name"@en ;
   rdfs:label "Abteilungsname"@de ;
   rdfs:range [ a rdfs:Datatype ; owl:unionOf ( xsd:string rdf:langString ) ] ;
@@ -362,7 +370,7 @@ conx-addr:attentionOf
   a owl:DatatypeProperty ;
   rdfs:comment "Empfängerhinweis im Sinn von „zu Händen“."@de ;
   rdfs:comment "Addressee instruction in the sense of 'for the attention of'."@en ;
-  rdfs:domain conx-addr:AddressAssignment ;
+  rdfs:domain conx-addr:LocationAssignment ;
   rdfs:label "attention of"@en ;
   rdfs:label "zu Händen"@de ;
   rdfs:range xsd:string ;
@@ -372,7 +380,7 @@ conx-addr:careOf
   a owl:DatatypeProperty ;
   rdfs:comment "Empfängerhinweis im Sinn von „c/o“ oder „bei“."@de ;
   rdfs:comment "Addressee instruction in the sense of 'care of'."@en ;
-  rdfs:domain conx-addr:AddressAssignment ;
+  rdfs:domain conx-addr:LocationAssignment ;
   rdfs:label "care of"@en ;
   rdfs:label "bei"@de ;
   rdfs:range xsd:string ;

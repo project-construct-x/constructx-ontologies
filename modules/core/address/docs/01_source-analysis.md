@@ -1,8 +1,8 @@
 # Source Analysis: Address Models in vCard, Schema.org, and UBL 2.5
 
 **Status:** Consolidated analysis baseline\
-**Version:** 0.1.0\
-**As of:** 3 September 2026\
+**Version:** 0.2.0\
+**As of:** 19 November 2026\
 **Research cutoff date:** 13 August 2026\
 **Scope:** `core/address`
 
@@ -156,9 +156,9 @@ Based on the comparison, the following modeling directions were agreed:
 1. The structured address is the authoritative representation. Unstructured or ordered address lines are not intended to serve as parallel primary data.
 2. Building number, building, building part, floor, room, and internal delivery point should be representable individually.
 3. Countries and administrative units are modeled exclusively as referenceable resources. Future A-Box graphs can provide these areas, their codes, names, and hierarchies.
-4. The use of an address is modeled through an `AddressAssignment` with a referenceable `AddressRole`. Specific roles are maintained as an extensible A-Box vocabulary rather than as T-Box properties requiring continual additions.
-5. Department, “for the attention of,” and “c/o” are included in the core as optional properties of the address assignment. Profiles can define stricter rules later.
-6. Georeferencing is not explored in further detail. The optional relationship `hasGeographicPosition` is included as an extension point in version 0.1.0; its range remains open.
+4. The use of an address is modeled through a `LocationAssignment` with a referenceable `LocationRole`. Specific roles are maintained as an extensible A-Box vocabulary rather than as T-Box properties requiring continual additions.
+5. Department, “for the attention of,” and “c/o” are included in the core as optional properties of the location assignment. Profiles can define stricter rules later.
+6. The location assignment may reference a resource in an external geographic model through `hasGeoReference`. Coordinate and geometry details are deferred.
 7. A formatted postal representation is explicitly not a primary data source and is not included as an Address property in the concept for version 0.1.0.
 8. Use-case-specific minimum requirements will be addressed through profiles after the basic structure has been established.
 
@@ -166,4 +166,4 @@ The resulting classes, properties, domains, ranges, and examples are provided in
 
 ## 8. Illustrative Mapping Example
 
-> vCard, Schema.org, and UBL use different names for street and locality fields. In the Construct-X model, these source fields are mapped to the same structured address; recipient instructions remain attached to the address assignment.
+> vCard, Schema.org, and UBL use different names for street and locality fields. In the Construct-X model, these source fields are mapped to the same structured address; recipient instructions remain attached to the location assignment.

@@ -1,8 +1,8 @@
 # Module Boundaries of the Contact Module
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** `core/contact`
 
 ## 1. Purpose
@@ -26,7 +26,7 @@ This document assigns contact concepts to the responsible Construct-X modules. T
 | `core/agent` | Common superclass for people and organizations | Specific contact values |
 | `core/person` | Intrinsic personal data | Email, telephone, private or business contact logic |
 | `core/organization` | Organizations, posts, memberships, and roles | General contact channel structure |
-| `core/address` | Structured address, address assignment, and address roles | Email, telephone, messenger, social profile |
+| `core/address` | Structured address, location assignment, and address roles | Email, telephone, messenger, social profile |
 | `domain/delivery-note` | Delivery note roles, delivery processes, and document-specific requirements | General contact model |
 
 ## 4. Documented Dependencies
@@ -36,7 +36,7 @@ This document assigns contact concepts to the responsible Construct-X modules. T
 | Dependency | Assessment |
 | --- | --- |
 | `core/contact -> core/agent` | Plausible from a domain perspective because people and organizations hold contact information; no mandatory import or restrictive domain |
-| `core/contact -> core/address` | Reference for `usesAddressAssignment` with range `conx-addr:AddressAssignment` |
+| `core/contact -> core/address` | Reference for `usesLocationAssignment` with range `conx-addr:LocationAssignment` |
 | `core/person -> core/contact` | Not required; personal data uses contact concepts only in instance data or profiles |
 | `core/organization -> core/contact` | Not required for the Organization T-Box, but both can be used together in data profiles |
 
@@ -54,7 +54,7 @@ Implemented decision: document the intended domain-level direction, but do not i
 
 ## 5. Boundary with Address
 
-A postal address remains a `conx-addr:Address` or `conx-addr:AddressAssignment`.
+A postal address remains a `conx-addr:Address` or `conx-addr:LocationAssignment`.
 
 The Contact module may only express that an address is used as a means of contact. It defines no fields of its own for:
 
@@ -66,7 +66,7 @@ The Contact module may only express that an address is used as a means of contac
 - administrative unit,
 - c/o or “for the attention of.”
 
-For delivery note use cases, the link to `AddressAssignment` has been established because existing roles such as `DeliveryAddressRole` or `InvoiceAddressRole` can be reused.
+For delivery note use cases, the link to `LocationAssignment` has been established because existing roles such as `DeliveryAddressRole` or `InvoiceAddressRole` can be reused.
 
 ## 6. Boundary with Organization
 
@@ -115,7 +115,7 @@ The requirement itself belongs in a domain shape of the Delivery Note module, ra
 - `contactPlatform`
 - `contactValue`
 - `contactURI`
-- `usesAddressAssignment`
+- `usesLocationAssignment`
 - Optional descriptive text properties such as `contactName`, `departmentName`, `functionTitle`, and `availabilityNote`
 
 ### A-Box or Reference Vocabularies
@@ -132,7 +132,7 @@ Specific people, telephone numbers, email addresses, and URLs are instance data 
 | Source | Classification |
 | --- | --- |
 | `core/agent` | Reference or import depending on the domain/range decision |
-| `core/address` | Reference for `usesAddressAssignment`; import only if the T-Box actually needs to load the external axioms |
+| `core/address` | Reference for `usesLocationAssignment`; import only if the T-Box actually needs to load the external axioms |
 | UBL | Source for analysis and mapping |
 | Schema.org | Alignment candidate for `ContactPoint`, not copied directly |
 | vCard RDF | Alignment candidate for email, telephone, URL, address, and usage types |

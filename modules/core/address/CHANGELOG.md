@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.0 - 2026-11-19
+
+- Replaced `AddressAssignment`, `hasAddressAssignment`, `AddressRole` and `addressRole` with `LocationAssignment`, `hasLocationAssignment`, `LocationRole` and `locationRole`. Existing role individuals retain their IRIs.
+- Replace each `Address → hasGeographicPosition → position` edge with `LocationAssignment → hasGeoReference → position`; the geographic reference can use any external model. For a shared address, identify the intended assignment before moving the point.
+- OWL and Core SHACL require at least one role and an address or a geolocation (or both), with at most one of each payload.
+
 ## Unreleased
 
 - Added `docs/09_confluence-overview.md` as the sole publication source for the concise Confluence module page.

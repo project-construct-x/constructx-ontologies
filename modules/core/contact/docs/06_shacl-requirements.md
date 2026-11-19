@@ -1,8 +1,8 @@
 # Domain-Specific SHACL Requirements for the Contact Module
 
 **Status:** Implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026  
+**Version:** 0.2.0  
+**As of:** 19 November 2026  
 **Scope:** Contact Core Shapes
 
 ## 1. Purpose
@@ -14,10 +14,10 @@ This document specifies the data quality requirements for the Contact module. It
 ```text
 Shape graph: modules/core/contact/shapes/conx-contact-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/contact/core
-Version IRI: https://www.construct-x.org/shapes/contact/core/0.1.0
+Version IRI: https://www.construct-x.org/shapes/contact/core/0.2.0
 Namespace:   https://www.construct-x.org/shapes/contact/core#
 Prefix:      conx-contact-sh
-Version:     0.1.0
+Version:     0.2.0
 ```
 
 ## 3. Validation Principles
@@ -64,7 +64,7 @@ The small sets of initial values can be included as closed `sh:in` lists in the 
 | Entity holding contact information references a contact point | `contact/core` | Check values of `hasContactPoint` |
 | Contact point and contact methods | `contact/core` | Validate fully |
 | Contact channel, usage, and purpose | `contact/core` plus reference vocabularies | Check values against approved vocabularies |
-| Postal contact address | `contact/core` plus `address/core` | `usesAddressAssignment` requires `conx-addr:AddressAssignment`; the Address Shape checks address details |
+| Postal contact address | `contact/core` plus `address/core` | `usesLocationAssignment` requires `conx-addr:LocationAssignment`; the Address Shape checks address details |
 | Personal data | `person/core` | Do not check in the Contact Shape |
 | Organizational structure | `organization/core` | Do not check in the Contact Shape |
 | Delivery note requirements | `domain/delivery-note` | Do not enforce in the Contact core |
@@ -83,7 +83,7 @@ The small sets of initial values can be included as closed `sh:in` lists in the 
 | `conx-contact-sh:ContactUsageConceptShape` | Node Shape | Values of `contactUsage` | Checks approved usage values |
 | `conx-contact-sh:ContactPurposeConceptShape` | Node Shape | Values of `contactPurpose` | Checks approved purpose values |
 | `conx-contact-sh:ContactPlatformConceptShape` | Node Shape | Values of `contactPlatform` | Checks approved platform values |
-| `conx-contact-sh:PostalAddressAssignmentReferenceShape` | Node Shape | Values of `usesAddressAssignment` | Checks the reference to `conx-addr:AddressAssignment` |
+| `conx-contact-sh:PostalLocationAssignmentReferenceShape` | Node Shape | Values of `usesLocationAssignment` | Checks the reference to `conx-addr:LocationAssignment` |
 
 ## 6. Targets
 
@@ -122,7 +122,7 @@ Targets:
 - `sh:targetSubjectsOf conx-contact:contactChannel`,
 - `sh:targetSubjectsOf conx-contact:contactValue`,
 - `sh:targetSubjectsOf conx-contact:contactURI`,
-- `sh:targetSubjectsOf conx-contact:usesAddressAssignment`,
+- `sh:targetSubjectsOf conx-contact:usesLocationAssignment`,
 - `sh:targetSubjectsOf conx-contact:contactPlatform`.
 
 Resources carrying channel values must therefore be explicitly typed as `conx-contact:ContactMethod`.
@@ -163,29 +163,29 @@ Contact points and contact methods may be modeled as blank nodes in the core. IR
 | `CON-CM-020` | Payload | 1 | 1 | Exactly one permitted value form according to the channel |
 | `CON-CM-030` | `contactValue` | Channel-dependent | Channel-dependent | Non-empty `xsd:string` |
 | `CON-CM-031` | `contactURI` | Channel-dependent | Channel-dependent | IRI |
-| `CON-CM-032` | `usesAddressAssignment` | Channel-dependent | Channel-dependent | IRI or blank node of type `conx-addr:AddressAssignment` |
+| `CON-CM-032` | `usesLocationAssignment` | Channel-dependent | Channel-dependent | IRI or blank node of type `conx-addr:LocationAssignment` |
 | `CON-CM-033` | `contactPlatform` | 0 | 1 | IRI from `contact-platform` |
 
 Here, payload means the specific contact value. Exactly one payload type is permitted per method:
 
 - `contactValue`,
 - `contactURI`,
-- `usesAddressAssignment`.
+- `usesLocationAssignment`.
 
-A method must not simultaneously carry a telephone number, a URL, and an address assignment.
+A method must not simultaneously carry a telephone number, a URL, and a location assignment.
 
 ## 10. Channel-Specific Payload Rules
 
 | Channel | Required Payload | Not Permitted in the Core | Note |
 | --- | --- | --- | --- |
-| `contact-channel:email` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesAddressAssignment` | Strict email syntax reserved for a later profile |
-| `contact-channel:phone` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesAddressAssignment` | Do not enforce international formatting in the core |
-| `contact-channel:mobilePhone` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesAddressAssignment` | Dedicated mobile telephone channel |
-| `contact-channel:fax` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesAddressAssignment` | UBL `Telefax`, Schema.org `faxNumber` |
-| `contact-channel:website` | Exactly one `contactURI` | `contactValue`, `usesAddressAssignment` | IRI rather than a free-text string |
-| `contact-channel:socialProfile` | Exactly one `contactURI` | `contactValue`, `usesAddressAssignment` | Optional platform value from `contact-platform` |
-| `contact-channel:messenger` | Exactly one `contactValue` or exactly one `contactURI` | `usesAddressAssignment` | Handle or URI depending on the platform |
-| `contact-channel:postalAddress` | Exactly one `usesAddressAssignment` | `contactValue`, `contactURI` | References `conx-addr:AddressAssignment` |
+| `contact-channel:email` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesLocationAssignment` | Strict email syntax reserved for a later profile |
+| `contact-channel:phone` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesLocationAssignment` | Do not enforce international formatting in the core |
+| `contact-channel:mobilePhone` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesLocationAssignment` | Dedicated mobile telephone channel |
+| `contact-channel:fax` | Exactly one `contactValue` as a non-empty string | `contactURI`, `usesLocationAssignment` | UBL `Telefax`, Schema.org `faxNumber` |
+| `contact-channel:website` | Exactly one `contactURI` | `contactValue`, `usesLocationAssignment` | IRI rather than a free-text string |
+| `contact-channel:socialProfile` | Exactly one `contactURI` | `contactValue`, `usesLocationAssignment` | Optional platform value from `contact-platform` |
+| `contact-channel:messenger` | Exactly one `contactValue` or exactly one `contactURI` | `usesLocationAssignment` | Handle or URI depending on the platform |
+| `contact-channel:postalAddress` | Exactly one `usesLocationAssignment` | `contactValue`, `contactURI` | References `conx-addr:LocationAssignment` |
 
 Syntax validation for email and telephone numbers deliberately remains pragmatic. An overly strict regular expression in the core would reject legitimate international or source-specific values. Stricter profiles may require E.164, `mailto:`, or organization-specific rules.
 
@@ -251,17 +251,17 @@ The shape checks any platform values provided against this approved initial set.
 
 ## 12. Postal Contact Addresses
 
-Postal contact methods exclusively use `usesAddressAssignment` to reference a `conx-addr:AddressAssignment` from a `ContactMethod`.
+Postal contact methods exclusively use `usesLocationAssignment` to reference a `conx-addr:LocationAssignment` from a `ContactMethod`.
 
-A direct reference to `conx-addr:Address` is not permitted in the Contact MVP. The reason is that `AddressAssignment` carries the domain-specific use of the address, such as delivery address, invoice address, registered address, department, “for the attention of,” and c/o. These details must not be lost when describing postal contactability.
+A direct reference to `conx-addr:Address` is not permitted in the Contact MVP. The reason is that `LocationAssignment` carries the domain-specific use of the address, such as delivery address, invoice address, registered address, department, “for the attention of,” and c/o. These details must not be lost when describing postal contactability.
 
 The Contact Shape checks only:
 
-- exactly one `usesAddressAssignment` for channel `postalAddress`,
+- exactly one `usesLocationAssignment` for channel `postalAddress`,
 - the value is a blank node or IRI,
-- the value is a `conx-addr:AddressAssignment`.
+- the value is a `conx-addr:LocationAssignment` with exactly one `assignedAddress` of type `Address`.
 
-The Address Core Shape checks the internal address structure, `assignedAddress`, `addressRole`, and address components.
+The Address Core Shape checks the internal address structure, `assignedAddress`, `locationRole`, and address components.
 
 ## 13. Error Message Catalog
 
@@ -297,7 +297,7 @@ The Address Core Shape checks the internal address structure, `assignedAddress`,
 | `CON-CM-020` | Eine ContactMethod muss genau einen zum Kanal passenden Payload besitzen. | A ContactMethod must have exactly one payload matching its channel. |
 | `CON-CM-030` | contactValue muss als nicht leerer String angegeben werden, wenn der Kanal einen Literalwert verlangt. | contactValue must be provided as a non-empty string when the channel requires a literal value. |
 | `CON-CM-031` | contactURI muss eine IRI sein, wenn der Kanal eine URI verlangt. | contactURI must be an IRI when the channel requires a URI. |
-| `CON-CM-032` | Eine postalische Kontaktmethode muss genau eine conx-addr:AddressAssignment referenzieren. | A postal contact method must reference exactly one conx-addr:AddressAssignment. |
+| `CON-CM-032` | Eine postalische Kontaktmethode muss genau eine conx-addr:LocationAssignment referenzieren. | A postal contact method must reference exactly one conx-addr:LocationAssignment. |
 | `CON-CM-033` | contactPlatform darf höchstens einmal vorkommen und muss auf eine freigegebene Plattform verweisen. | contactPlatform may occur at most once and must reference an approved platform. |
 
 ## 14. Valid Scenarios
@@ -328,7 +328,7 @@ ex:person-1-private-mobile
 
 Expected result: valid.
 
-### V-02: Business Delivery Contact with a Postal Address Assignment
+### V-02: Business Delivery Contact with a Postal Location Assignment
 
 ```turtle
 ex:company-1
@@ -350,18 +350,18 @@ ex:company-1-delivery-email
 ex:company-1-delivery-postal
     a conx-contact:ContactMethod ;
     conx-contact:contactChannel contact-channel:postalAddress ;
-    conx-contact:usesAddressAssignment ex:company-1-delivery-address-assignment .
+    conx-contact:usesLocationAssignment ex:company-1-delivery-address-assignment .
 
 ex:company-1-delivery-address-assignment
-    a conx-addr:AddressAssignment ;
-    conx-addr:addressRole roles:DeliveryAddressRole ;
+    a conx-addr:LocationAssignment ;
+    conx-addr:locationRole roles:DeliveryAddressRole ;
     conx-addr:assignedAddress ex:address-1 .
 
 ex:address-1
     a conx-addr:Address .
 ```
 
-Expected result: valid if the Address Core Shape accepts the address assignment.
+Expected result: valid if the Address Core Shape accepts the location assignment.
 
 ### V-03: Official Website Contact
 
@@ -624,7 +624,7 @@ The implementation is complete from a domain perspective when:
 2. `ContactPoint` requires at least one `ContactMethod`,
 3. every `ContactMethod` has exactly one approved channel,
 4. the payload rules apply for each channel,
-5. postal contact methods exclusively use `usesAddressAssignment`,
+5. postal contact methods exclusively use `usesLocationAssignment`,
 6. Usage, Purpose, Channel, and Platform are validated against approved vocabularies,
 7. the inverse relationship remains optional,
 8. no address, person, or organization semantics are duplicated in the Contact Shape.

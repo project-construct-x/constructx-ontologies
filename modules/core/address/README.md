@@ -1,13 +1,12 @@
 # Construct-X Address Core Module
 
 **Status:** Draft, domain-reviewed, and implemented  
-**Version:** 0.1.0  
-**As of:** 3 September 2026
+**Version:** 0.2.0  
+**As of:** 19 November 2026
 
 ## 1. Summary
 
-The module describes structured addresses and their contextual assignment to
-persons, organizations, or other resources.
+A location assignment identifies the address, geolocation, or both used by a resource for one or more purposes.
 
 ## 2. Accessible Example
 
@@ -16,14 +15,14 @@ persons, organizations, or other resources.
 > assignment.
 
 ```text
-Organization -> AddressAssignment -> Address
+Organization -> LocationAssignment -> Address
                      +-> Delivery address
                      +-> Billing address
 ```
 
 ## 3. Model Scope
 
-The Core contains `Address`, `AddressAssignment`, `AddressRole`, and
+The Core contains `Address`, `LocationAssignment`, `LocationRole`, and
 administrative territories. Contact channels and coordinate models remain in
 their responsible modules.
 
