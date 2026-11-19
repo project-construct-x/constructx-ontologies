@@ -192,9 +192,10 @@ def generate_ontology_page(module_file: Path) -> Path | None:
             output_path,
             rdf_format="turtle",
             language="en",
-            recommendations=True,
-            quality_report=True,
             include_custom_annotations=True,
+            theme="light",
+            show_missing_endpoints=True,
+            include_external_classes=True,
         )
     finally:
         ontolens_render._timestamped_output_path = original_timestamped_output_path

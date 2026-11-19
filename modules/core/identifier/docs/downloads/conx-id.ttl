@@ -1,0 +1,23 @@
+# baseURI: https://www.construct-x.org/ontology/identifier
+# prefix: conx-id
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://www.construct-x.org/ontology/identifier>
+  a owl:Ontology ;
+  dcterms:created "2026-09-01"^^xsd:date ;
+  dcterms:description "Definiert den gemeinsamen Construct-X-Vertrag fuer fachliche Kennungen auf Grundlage von ADMS und SKOS, ohne parallele lokale Kennungsbegriffe einzufuehren."@de ;
+  dcterms:description "Defines the shared Construct-X contract for domain identifiers based on ADMS and SKOS without introducing parallel local identifier terms."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Identifier Ontology"@en ;
+  dcterms:title "Construct-X Identifier-Ontologie"@de ;
+  vann:preferredNamespacePrefix "conx-id" ;
+  vann:preferredNamespaceUri "https://www.construct-x.org/ontology/identifier#" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/identifier/0.1.0> ;
+  owl:versionInfo "0.1.0" ;
+.
+
