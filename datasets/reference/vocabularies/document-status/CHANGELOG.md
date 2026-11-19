@@ -2,4 +2,4 @@
 
 ## 0.1.0 - 2026-08-27
 
-- Initiales Construct-X-Referenzvokabular mit sechs freigegebenen Dokumentstatus angelegt.
+- Created the initial Construct-X reference vocabulary with six approved document statuses.

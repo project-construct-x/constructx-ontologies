@@ -2,4 +2,4 @@
 
 ## 0.1.0 - 2026-08-27
 
-- Initiales Construct-X-Referenzvokabular fuer Kontaktkanaele angelegt.
+- Created the initial Construct-X reference vocabulary for contact channels.

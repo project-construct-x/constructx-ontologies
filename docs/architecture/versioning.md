@@ -1,83 +1,91 @@
-# Versionierung
+<a id="versionierung"></a>
 
-Jedes Ontologiemodul und jedes Referenzdatenartefakt wird nachvollziehbar versioniert. Construct-X unterscheidet dabei drei Modelle.
+# Versioning
 
-## 1. Ontologien und SHACL-Graphen
+Each ontology module and reference-data artifact is versioned in a traceable way. Construct-X distinguishes three models.
 
-Ontologien und SHACL-Graphen werden als vollstaendige Graphen mit SemVer versioniert.
+<a id="1-ontologien-und-shacl-graphen"></a>
 
-Regeln:
+## 1. Ontologies and SHACL Graphs
 
-- Die stabile Graph-IRI bleibt unveraendert.
-- Jede Veroeffentlichung erhaelt eine SemVer-Versions-IRI.
-- Begriffs-IRIs enthalten keine Versionsnummer.
-- Veroeffentlichte Versionen sind unveraenderlich.
-- Die unversionierte Graph-IRI verweist auf die aktuelle empfohlene Version.
-- Aeltere Versionen bleiben ueber ihre Versions-IRIs erreichbar.
-- Entfernte IRIs duerfen niemals fuer andere Begriffe wiederverwendet werden.
+Ontologies and SHACL graphs are versioned as complete graphs using SemVer.
 
-SHACL-Graphen werden pro Modul in benannte Shape-Sets gegliedert. Dadurch
-koennen allgemeine Core-Regeln und spaetere Anwendungsprofile unabhaengig
-versioniert werden:
+Rules:
+
+- The stable graph IRI remains unchanged.
+- Each publication receives a SemVer version IRI.
+- Term IRIs do not contain a version number.
+- Published versions are immutable.
+- The unversioned graph IRI points to the current recommended version.
+- Older versions remain accessible through their version IRIs.
+- Removed IRIs must never be reused for other terms.
+
+SHACL graphs are organized into named shape sets for each module. This allows
+general Core rules and later application profiles to be versioned
+independently:
 
 ```text
-Stabiler Core-Shape-Graph: https://www.construct-x.org/shapes/address/core
-Core-Shape-Version:       https://www.construct-x.org/shapes/address/core/0.1.0
-Shape-Namespace:          https://www.construct-x.org/shapes/address/core#
+Stable Core shape graph: https://www.construct-x.org/shapes/address/core
+Core shape version:      https://www.construct-x.org/shapes/address/core/0.1.0
+Shape namespace:         https://www.construct-x.org/shapes/address/core#
 ```
 
-Beispiel Address Ontology:
+Address Ontology example:
 
 ```text
-Ontologie-IRI: https://www.construct-x.org/ontology/address
-Versions-IRI:  https://www.construct-x.org/ontology/address/0.1.0
-Namespace:     https://www.construct-x.org/ontology/address#
+Ontology IRI: https://www.construct-x.org/ontology/address
+Version IRI:  https://www.construct-x.org/ontology/address/0.1.0
+Namespace:    https://www.construct-x.org/ontology/address#
 ```
 
-## 2. Referenzvokabulare
+<a id="2-referenzvokabulare"></a>
 
-Referenzvokabulare werden ebenfalls als vollstaendige Graphen mit SemVer versioniert.
+## 2. Reference Vocabularies
 
-Regeln:
+Reference vocabularies are also versioned as complete graphs using SemVer.
 
-- Die stabile Vokabular-IRI bleibt unveraendert.
-- Jede Veroeffentlichung erhaelt eine SemVer-Versions-IRI.
-- Vokabularbegriffe enthalten keine Versionsnummer.
-- Veroeffentlichte Versionen sind unveraenderlich.
-- Begriffe werden moeglichst nicht geloescht, sondern als veraltet gekennzeichnet.
+Rules:
 
-Beispiel:
+- The stable vocabulary IRI remains unchanged.
+- Each publication receives a SemVer version IRI.
+- Vocabulary terms do not contain a version number.
+- Published versions are immutable.
+- Wherever possible, terms are deprecated rather than deleted.
+
+Example:
 
 ```text
-Vokabular:        https://www.construct-x.org/vocab/wall-type
-Vokabularversion: https://www.construct-x.org/vocab/wall-type/1.2.0
-Begriff:          https://www.construct-x.org/vocab/wall-type#ExternalWall
+Vocabulary:         https://www.construct-x.org/vocab/wall-type
+Vocabulary version: https://www.construct-x.org/vocab/wall-type/1.2.0
+Term:               https://www.construct-x.org/vocab/wall-type#ExternalWall
 ```
 
-Eine neue Vokabularversion erzeugt nicht automatisch neue IRIs fuer unveraendert fortbestehende Begriffe.
+A new vocabulary version does not automatically create new IRIs for terms that continue to exist unchanged.
 
-## 3. Referenzobjekte
+<a id="3-referenzobjekte"></a>
 
-Referenzobjekte unter `/id/` werden individuell versioniert und verwenden kein SemVer.
+## 3. Reference Objects
 
-Regeln:
+Reference objects under `/id/` are versioned individually and do not use SemVer.
 
-- Eine fachliche Version besitzt eine GUID.
-- Eine Revision behaelt die GUID und erhoeht die Revisionsnummer.
-- Eine neue fachliche Version erhaelt eine neue GUID.
-- Veroeffentlichte Revisionen sind unveraenderlich.
-- Normative und reproduzierbare Referenzen verwenden GUID und Revisionsnummer.
+Rules:
 
-Beispiel:
+- A conceptual version of an object has a GUID.
+- A revision retains the GUID and increments the revision number.
+- A new conceptual version of an object receives a new GUID.
+- Published revisions are immutable.
+- Normative and reproducible references use the GUID and revision number.
+
+Example:
 
 ```text
-Aktuelle Revision:
+Current revision:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000
 
-Exakte Revision:
+Exact revision:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2
 ```
 
-Die SemVer-Version eines veroeffentlichten Graphen und die Revision eines darin beschriebenen Referenzobjekts sind voneinander unabhaengige Angaben.
+The SemVer version of a published graph and the revision of a reference object described within it are independent pieces of information.
 
-Die ausfuehrliche Regelung steht in `docs/architecture/construct-x-namespace-konzept.md`.
+The detailed rules are defined in `docs/architecture/construct-x-namespace-konzept.md`.

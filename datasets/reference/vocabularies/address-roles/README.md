@@ -1,49 +1,61 @@
 # Construct-X Address Roles
 
-Dieses Verzeichnis enthält das kontrollierte Adressrollen-Vokabular für die Construct-X Address Ontology. Es ist als A-Box-Referenzdatensatz von der T-Box unter `modules/core/address/ontology/conx-addr.ttl` getrennt.
+This directory contains the controlled address-role vocabulary for the Construct-X Address Ontology. As an A-Box reference dataset, it is separate from the T-Box at `modules/core/address/ontology/conx-addr.ttl`.
 
-## Kennung und Version
+<a id="kennung-und-version"></a>
+
+## Identification and Version
 
 ```text
-Vokabular-IRI: https://www.construct-x.org/vocab/address-role
-Versions-IRI:  https://www.construct-x.org/vocab/address-role/0.2.0
-Namespace:     https://www.construct-x.org/vocab/address-role#
-Prefix:        roles
-Version:       0.2.0
-Status:        draft
+Vocabulary IRI: https://www.construct-x.org/vocab/address-role
+Version IRI:    https://www.construct-x.org/vocab/address-role/0.2.0
+Namespace:      https://www.construct-x.org/vocab/address-role#
+Prefix:         roles
+Version:        0.2.0
+Status:         draft
 ```
 
-Die stabile Vokabular-IRI identifiziert das `skos:ConceptScheme`. Jede konkrete Rolle besitzt eine dauerhafte IRI im Rollen-Namespace und ist zugleich Instanz von `conx-addr:AddressRole` und `skos:Concept`.
+The stable vocabulary IRI identifies the `skos:ConceptScheme`. Each specific role has a permanent IRI in the role namespace and is an instance of both `conx-addr:AddressRole` and `skos:Concept`.
 
-## Inhalt
+<a id="inhalt"></a>
 
-Version `0.2.0` enthält elf Rollen:
+## Contents
 
-- Lieferadresse
-- Rechnungsadresse
-- Postanschrift
-- Registrierungsadresse mit dem alternativen Label Meldeadresse
-- Rücksendeadresse
-- Wohnadresse
-- Baustellenadresse
-- Baustellenzufahrtsadresse
-- rechtliche Adresse
-- Hauptsitzadresse
-- physische Standortadresse
+Version `0.2.0` contains eleven roles. German labels are retained alongside their English equivalents:
 
-Bezeichnungen, Definitionen und stabile Notationen stehen direkt in `address-roles.ttl`. Neue Rollen werden in diesem Referenzvokabular ergänzt und erfordern keine Änderung der Address-T-Box.
+| German | English |
+| --- | --- |
+| Lieferadresse | Delivery address |
+| Rechnungsadresse | Invoice address |
+| Postanschrift | Postal address |
+| Registrierungsadresse | Registration address |
+| Rücksendeadresse | Return address |
+| Wohnadresse | Residence address |
+| Baustellenadresse | Construction site address |
+| Baustellenzufahrtsadresse | Construction site access address |
+| rechtliche Adresse | Legal address |
+| Hauptsitzadresse | Headquarters address |
+| physische Standortadresse | Physical location address |
 
-## UBL-Orientierung
+The registration address role also has the alternative German label `Meldeadresse`.
 
-Die englischen Vorzugsbezeichnungen für Delivery, Postal, Registration, Residence und Return sind an die gleichnamigen Address-Elemente aus OASIS UBL 2.5 CS01 angelehnt. UBL beschreibt `cac:RegistrationAddress` sowohl im Kontext der Unternehmensregistrierung als auch der steuerlichen Registrierung; das Construct-X-Konzept fasst diese Verwendungen als allgemeine Registrierungsrolle zusammen.
+Labels, definitions, and stable notations are provided directly in `address-roles.ttl`. New roles are added to this reference vocabulary and do not require changes to the Address T-Box.
 
-Für `InvoiceAddressRole`, `ConstructionSiteAddressRole` und `ConstructionSiteAccessRole` wurde in UBL 2.5 kein direkter CAC-Adressbegriff identifiziert. Diese Rollen sind daher als Construct-X-eigene Begriffe dokumentiert. Die Rollen `LegalAddressRole`, `HeadquartersAddressRole` und `PhysicalLocationAddressRole` orientieren sich an Gaia-X. Insbesondere wird keine Gleichheit zu einem lediglich ähnlich verwendeten UBL-Element behauptet.
+<a id="ubl-orientierung"></a>
 
-UBL 2.5 enthält zusätzlich `cac:DespatchAddress` mit der Definition einer Versand- beziehungsweise Abholadresse. Eine entsprechende Construct-X-Rolle ist nicht Bestandteil von Version `0.1.0` und kann nach fachlicher Entscheidung additiv ergänzt werden.
+## UBL Guidance
 
-Quelle: [OASIS UBL 2.5 CS01 Common Aggregate Components](https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd)
+The English preferred labels for Delivery, Postal, Registration, Residence, and Return follow the corresponding Address elements in OASIS UBL 2.5 CS01. UBL describes `cac:RegistrationAddress` in both company-registration and tax-registration contexts; the Construct-X concept combines these uses into a general registration role.
 
-## Verwendung
+No direct CAC address term was identified in UBL 2.5 for `InvoiceAddressRole`, `ConstructionSiteAddressRole`, or `ConstructionSiteAccessRole`. These roles are therefore documented as Construct-X-specific terms. The roles `LegalAddressRole`, `HeadquartersAddressRole`, and `PhysicalLocationAddressRole` follow Gaia-X. In particular, no equivalence is asserted with a UBL element merely used in a similar way.
+
+UBL 2.5 also contains `cac:DespatchAddress`, defined as a dispatch or collection address. A corresponding Construct-X role is not part of version `0.1.0` and may be added following a domain decision.
+
+Source: [OASIS UBL 2.5 CS01 Common Aggregate Components](https://docs.oasis-open.org/ubl/cs01-UBL-2.5/xsd/common/UBL-CommonAggregateComponents-2.5.xsd)
+
+<a id="verwendung"></a>
+
+## Usage
 
 ```turtle
 @prefix conx-addr: <https://www.construct-x.org/ontology/address#> .
@@ -57,12 +69,14 @@ ex:site-access-assignment
                           roles:DeliveryAddressRole .
 ```
 
-Alle weiteren Angaben einer `AddressAssignment` gelten gemeinsam für sämtliche mit ihr verknüpften Rollen. Sobald sich beispielsweise Abteilung, Zustellhinweis oder Gültigkeit je Rolle unterscheiden, werden getrennte Zuordnungen zur selben Adresse verwendet.
+All other details of an `AddressAssignment` apply jointly to every role linked to it. If, for example, the department, delivery instruction, or validity differs by role, separate assignments to the same address are used.
 
-## Pflege
+<a id="pflege"></a>
 
-- Notationen und IRIs werden nicht für andere Bedeutungen wiederverwendet.
-- Entfernte Rollen werden als veraltet gekennzeichnet, nicht stillschweigend gelöscht.
-- Neue Rollen benötigen deutsche und englische Vorzugsbezeichnungen und Definitionen.
-- Direkte UBL-Bezüge werden nur dokumentiert, wenn ein entsprechender UBL-Begriff tatsächlich vorhanden ist.
+## Maintenance
+
+- Notations and IRIs are not reused for other meanings.
+- Removed roles are deprecated rather than silently deleted.
+- New roles require German and English preferred labels and definitions.
+- Direct UBL references are documented only when a corresponding UBL term actually exists.
 

@@ -1,24 +1,25 @@
 # Construct-X ISO 3166-1 Countries
 
-Dieser A-Box-Datensatz stellt die 249 aktuell vergebenen ISO-3166-1-Einträge
-als referenzierbare Ressourcen der Klasse `conx-addr:Country` bereit.
+This A-Box dataset provides the 249 currently assigned ISO 3166-1 entries
+as referenceable resources of the class `conx-addr:Country`.
 
-## Kennung und Version
+<a id="kennung-und-version"></a>
+
+## Identification and Version
 
 ```text
-Vokabular-IRI: https://www.construct-x.org/vocab/country
-Versions-IRI:  https://www.construct-x.org/vocab/country/0.1.0
-Namespace:     https://www.construct-x.org/vocab/country#
-Prefix:        countries
-Version:       0.1.0
-Status:        draft
+Vocabulary IRI: https://www.construct-x.org/vocab/country
+Version IRI:    https://www.construct-x.org/vocab/country/0.1.0
+Namespace:      https://www.construct-x.org/vocab/country#
+Prefix:         countries
+Version:        0.1.0
+Status:         draft
 ```
 
-Die Ressourcen-IRI verwendet den Alpha-3-Code, beispielsweise
-`countries:DEU`. Alpha-2-, Alpha-3- und numerische Kennung werden jeweils als
-eigene `adms:Identifier`-Ressource nach dem
-[netzwerkweiten Kennungsprofil](../../../../docs/architecture/identifier-model.md)
-beschrieben.
+The resource IRI uses the alpha-3 code, for example `countries:DEU`.
+Alpha-2, alpha-3, and numeric identifiers are each described as a separate
+`adms:Identifier` resource according to the
+[network-wide identifier profile](../../../../docs/architecture/identifier-model.md).
 
 ```turtle
 countries:DEU
@@ -31,37 +32,39 @@ countries:DEU
     ] .
 ```
 
-## Quellen und Abgrenzung
+<a id="quellen-und-abgrenzung"></a>
 
-Normative Grundlage der Kennungen ist ISO 3166-1. Die maschinenlesbaren Werte
-und deutsch- sowie englischsprachigen Bezeichnungen werden reproduzierbar aus
-der offiziellen EU-Vocabularies-Ländertabelle, Quellversion `20260617-0`,
-extrahiert.
+## Sources and Scope
 
-Die EU-Tabelle enthält zusätzlich die internen oder nicht mehr aktuell
-vergebenen Einträge `CPT`, `CRQ`, `FXX` und `XKX`. Sie sind kein Bestandteil
-der aktuellen Menge von 249 ISO-3166-1-Einträgen und werden vom Import
-ausdrücklich ausgeschlossen.
+ISO 3166-1 is the normative basis for the identifiers. Machine-readable values
+and German and English labels are extracted reproducibly from the official
+EU Vocabularies country table, source version `20260617-0`.
 
-Bei Nepal (`NPL`, `524`) und St. Helena (`SHN`, `654`) veröffentlicht die
-verwendete EU-Quellversion die numerische Kennung nur mit dem Datentyp UNSD M49.
-Der Import akzeptiert ausschließlich diese beiden belegten Werte als
-Fallback und erzeugt daraus die ISO-3166-1-Numerisch-Kennung.
+The EU table also contains the internal or no longer currently assigned
+entries `CPT`, `CRQ`, `FXX`, and `XKX`. These are not part of the current set of
+249 ISO 3166-1 entries and are explicitly excluded by the import.
 
-Quellen:
+For Nepal (`NPL`, `524`) and St. Helena (`SHN`, `654`), the EU source version
+used publishes the numeric identifier only with the UNSD M49 datatype.
+The import accepts only these two substantiated values as fallbacks and
+uses them to generate the ISO 3166-1 numeric identifiers.
+
+Sources:
 
 - [ISO 3166 Country Codes](https://www.iso.org/iso-3166-country-codes.html)
 - [EU Vocabularies Country](https://op.europa.eu/en/web/eu-vocabularies/concept-scheme/-/resource?uri=http://publications.europa.eu/resource/authority/country)
 
-## Aktualisierung
+<a id="aktualisierung"></a>
 
-Der Datensatz wird im Projektstamm mit folgendem Import aktualisiert:
+## Updating
+
+Update the dataset by running the following import from the project root:
 
 ```text
 uv run python scripts/import_iso_3166.py
 ```
 
-Der Import bricht ab, wenn Quellversion, Anzahl, Eindeutigkeit oder bekannte
-Quellabweichungen nicht mehr den geprüften Annahmen entsprechen. Änderungen
-werden anschließend als neue Datensatzversion geprüft und veröffentlicht.
+The import aborts if the source version, count, uniqueness, or known source
+discrepancies no longer match the verified assumptions. Changes are then
+reviewed and published as a new dataset version.
 

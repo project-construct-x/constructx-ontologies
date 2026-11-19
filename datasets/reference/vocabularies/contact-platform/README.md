@@ -1,10 +1,10 @@
 # Construct-X Contact Platforms
 
-Kontrolliertes Startvokabular fuer Plattformen von Social-, Messenger- und Webkontaktmethoden.
+Controlled initial vocabulary for platforms used by social, messenger, and web contact methods.
 
 ## Version 0.1.0
 
-Enthaltene Plattformen:
+Included platforms:
 
 - `contact-platform:linkedin`
 - `contact-platform:instagram`
@@ -15,4 +15,4 @@ Enthaltene Plattformen:
 - `contact-platform:signal`
 - `contact-platform:microsoftTeams`
 
-Das Vokabular ist ein MVP-Startpunkt und ausdruecklich erweiterbar.
+The vocabulary is an MVP starting point and is explicitly extensible.

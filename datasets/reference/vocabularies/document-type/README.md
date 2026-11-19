@@ -1,10 +1,10 @@
 # Construct-X Document Types
 
-Kontrolliertes Referenzvokabular fuer Werte von `conx-doc:documentType`.
+Controlled reference vocabulary for values of `conx-doc:documentType`.
 
 ## Version 0.1.0
 
-Enthaltene Dokumenttypen:
+Included document types:
 
 - `document-type:contract`
 - `document-type:invoice`
@@ -15,5 +15,5 @@ Enthaltene Dokumenttypen:
 - `document-type:evidenceDocument`
 - `document-type:other`
 
-Die Werte sind SKOS-Konzepte und Instanzen von `conx-doc:DocumentType`. Sie
-sind keine Unterklassen von `conx-doc:Document`.
+The values are SKOS concepts and instances of `conx-doc:DocumentType`.
+They are not subclasses of `conx-doc:Document`.

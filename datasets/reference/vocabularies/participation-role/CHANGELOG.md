@@ -2,5 +2,5 @@
 
 ## 0.1.0 - 2026-08-27
 
-- Initiales Construct-X-Referenzvokabular mit fuenf allgemeinen Participation-Rollen angelegt.
-- Architect und Engineer als kontextuelle Funktionen statt Agenten- oder Berufsklassen definiert.
+- Created the initial Construct-X reference vocabulary with five general Participation roles.
+- Defined Architect and Engineer as contextual functions rather than agent or profession classes.

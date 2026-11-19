@@ -1,10 +1,10 @@
 # Construct-X Contact Purposes
 
-Kontrolliertes Referenzvokabular fuer fachliche Zwecke von `conx-contact:ContactPoint`.
+Controlled reference vocabulary for the business purposes of `conx-contact:ContactPoint`.
 
 ## Version 0.1.0
 
-Enthaltene Werte:
+Included values:
 
 - `contact-purpose:general`
 - `contact-purpose:delivery`

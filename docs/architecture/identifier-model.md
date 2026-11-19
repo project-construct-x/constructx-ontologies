@@ -1,17 +1,20 @@
-# Kennungsmodell im Construction-X-Ontologienetzwerk
+<a id="kennungsmodell-im-construction-x-ontologienetzwerk"></a>
 
-## Entscheidung
+# Identifier Model in the Construction-X Ontology Network
 
-Das Ontologienetzwerk verwendet fuer fachliche Kennungen das W3C-Vokabular
-ADMS. Es wird keine parallele Construction-X-Klasse fuer Kennungen eingefuehrt.
-Eine Ressource verweist mit `adms:identifier` auf eine Instanz von
-`adms:Identifier`. Der Kennungswert steht in `skos:notation`; der Datentyp des
-Literals bezeichnet das verwendete Kennungssystem.
+<a id="entscheidung"></a>
 
-Der gemeinsame semantische und validierende Vertrag ist im Core-Modul
-[`identifier`](../../modules/core/identifier/README.md) versioniert. Das
-ausfuehrbare `conx-id-sh:ADMSIdentifierShape` wird von den fachlichen
-Core-Shape-Graphen wiederverwendet.
+## Decision
+
+The ontology network uses the W3C ADMS vocabulary for business identifiers.
+No parallel Construction-X class for identifiers is introduced.
+A resource uses `adms:identifier` to reference an instance of
+`adms:Identifier`. The identifier value is stored in `skos:notation`; the
+literal's datatype identifies the identifier scheme being used.
+
+The shared semantic and validation contract is versioned in the Core module
+[`identifier`](../../modules/core/identifier/README.md). The executable
+`conx-id-sh:ADMSIdentifierShape` is reused by the relevant Core shape graphs.
 
 ```turtle
 @prefix adms: <http://www.w3.org/ns/adms#> .
@@ -26,47 +29,54 @@ Core-Shape-Graphen wiederverwendet.
     ] .
 ```
 
-## Verwendete Kennungssysteme
+<a id="verwendete-kennungssysteme"></a>
 
-| Datentyp-IRI | Bedeutung |
+## Identifier Schemes in Use
+
+| Datatype IRI | Meaning |
 | --- | --- |
-| `id-scheme:iso-3166-1-alpha-2` | zweistelliger ISO-3166-1-Code |
-| `id-scheme:iso-3166-1-alpha-3` | dreistelliger ISO-3166-1-Code |
-| `id-scheme:iso-3166-1-numeric` | dreistelliger numerischer ISO-3166-1-Code |
-| `id-scheme:iso-3166-2` | ISO-3166-2-Code einer Verwaltungseinheit |
-| `id-scheme:nuts-2` | Code einer Region der NUTS-Ebene 2 |
+| `id-scheme:iso-3166-1-alpha-2` | Two-letter ISO 3166-1 code |
+| `id-scheme:iso-3166-1-alpha-3` | Three-letter ISO 3166-1 code |
+| `id-scheme:iso-3166-1-numeric` | Three-digit numeric ISO 3166-1 code |
+| `id-scheme:iso-3166-2` | ISO 3166-2 code of an administrative subdivision |
+| `id-scheme:nuts-2` | Code of a NUTS level 2 region |
 
-Die Datentyp-IRIs sind stabile Bezeichner der im Netzwerk verwendeten
-Kennungssysteme. Sie fuehren keine neue Kennungslogik ein. Die Semantik von
-Kennung, Kennungswert und herausgebender Stelle stammt aus ADMS und SKOS.
-Der zugehoerige Graph wird als Referenzvokabular unter der stabilen IRI
-`https://www.construct-x.org/vocab/identifier-scheme` und in Version `0.2.0`
-unter `https://www.construct-x.org/vocab/identifier-scheme/0.2.0`
-veroeffentlicht.
+The datatype IRIs are stable identifiers for the identifier schemes used in
+the network. They do not introduce new identifier logic. The semantics of
+identifiers, identifier values, and issuing agencies come from ADMS and SKOS.
+The corresponding graph is published as a reference vocabulary under the
+stable IRI `https://www.construct-x.org/vocab/identifier-scheme`, with version
+`0.2.0` published at
+`https://www.construct-x.org/vocab/identifier-scheme/0.2.0`.
 
-## Modellierungsregeln
+<a id="modellierungsregeln"></a>
 
-1. Fachressourcen erhalten keine systemspezifischen Eigenschaften wie
-   `isoAlpha2Code` oder `isoSubdivisionCode`.
-2. Jede Kennung wird als eigene `adms:Identifier`-Ressource modelliert.
-3. Der Wert wird genau einmal mit `skos:notation` angegeben.
-4. Das Kennungssystem wird ueber den Datentyp der Notation bezeichnet.
-5. Die herausgebende Stelle kann mit `adms:schemaAgency` dokumentiert werden.
-6. Eine Ressource darf mehrere Kennungen aus unterschiedlichen Systemen
-   besitzen.
+## Modeling Rules
 
-Dasselbe Muster wird fuer Personen-, Organisations-, Mitgliedschafts-,
-Dokument- und Dokumentreferenzkennungen wiederverwendet. Weitere Fachmodule
-koennen es verwenden, ohne eine eigene Kennungsstruktur zu definieren.
+1. Domain resources do not receive system-specific properties such as
+   `isoAlpha2Code` or `isoSubdivisionCode`.
+2. Each identifier is modeled as a separate `adms:Identifier` resource.
+3. The value is specified exactly once using `skos:notation`.
+4. The identifier scheme is identified by the notation's datatype.
+5. The issuing agency can be documented using `adms:schemaAgency`.
+6. A resource may have multiple identifiers from different schemes.
 
-## Abgrenzung
+The same pattern is reused for person, organization, membership, document,
+and document-reference identifiers. Additional domain modules can use it
+without defining their own identifier structure.
 
-Das Kennungsmodell sagt nicht aus, welche Kennung eine Ressource im
-Construction-X-Netzwerk adressierbar macht. Die stabile Ressourcen-IRI und ihre
-fachlichen Kennungen sind getrennte Sachverhalte. Auch eine A-Box mit
-ISO-Kennungen ersetzt keine allgemeine Stammdaten- oder Historisierungslogik.
+<a id="abgrenzung"></a>
 
-## Normative Grundlage
+## Boundaries
+
+The identifier model does not determine which identifier makes a resource
+addressable in the Construction-X network. The stable resource IRI and its
+business identifiers are separate concepts. An A-Box containing ISO identifiers
+does not replace general master-data or history-management logic either.
+
+<a id="normative-grundlage"></a>
+
+## Normative References
 
 - [Asset Description Metadata Schema (ADMS) 2.0](https://semiceu.github.io/ADMS/releases/2.00/)
 - [SKOS Simple Knowledge Organization System](https://www.w3.org/TR/skos-reference/)

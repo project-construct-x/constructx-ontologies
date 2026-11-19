@@ -1,178 +1,196 @@
-# Construct-X Namespace- und IRI-Konzept
+<a id="construct-x-namespace--und-iri-konzept"></a>
 
-Dokumentstand: 2026-08-18
+# Construct-X Namespace and IRI Concept
 
-Dieses Dokument legt das verbindliche Namespace-, IRI- und Versionierungskonzept fuer das Construct-X-Ontologienetzwerk fest. Es richtet sich auch an Personen ohne vertiefte Semantic-Web-Kenntnisse und trennt bewusst zwischen Ontologien, SHACL-Graphen, Referenzvokabularen und persistenten Referenzobjekten.
+Document date: 2026-08-18
 
-## Inhaltsverzeichnis
+This document defines the binding namespace, IRI, and versioning concept for the Construct-X ontology network. It also addresses readers without in-depth Semantic Web knowledge and explicitly distinguishes ontologies, SHACL graphs, reference vocabularies, and persistent reference objects.
 
-1. [Entscheidung in Kurzform](#1-entscheidung-in-kurzform)
-2. [Authority und Grundsatz](#2-authority-und-grundsatz)
-3. [Orientierung an etablierten Vorbildern](#3-orientierung-an-etablierten-vorbildern)
-4. [Oeffentliche Namensraeume und Ressourcenarten](#4-oeffentliche-namensraeume-und-ressourcenarten)
-5. [Praefix- und Benennungskonventionen](#5-praefix--und-benennungskonventionen)
-6. [Versionierungsregeln](#6-versionierungsregeln)
-7. [Repository-Struktur und oeffentliche IRIs](#7-repository-struktur-und-oeffentliche-iris)
-8. [Dereferenzierung und Auslieferung](#8-dereferenzierung-und-auslieferung)
-9. [Katalog nach QUDT-Vorbild](#9-katalog-nach-qudt-vorbild)
-10. [Beispiele aktueller Module](#10-beispiele-aktueller-module)
-11. [Technische und organisatorische Pruefregeln](#11-technische-und-organisatorische-pruefregeln)
-12. [Festgestellte Abweichungen und Anpassungen](#12-festgestellte-abweichungen-und-anpassungen)
-13. [Verbindliche Empfehlung](#13-verbindliche-empfehlung)
+<a id="inhaltsverzeichnis"></a>
 
-## 1. Entscheidung in Kurzform
+## Table of Contents
 
-Als vorlaeufige kanonische Authority wird verwendet:
+1. [Decision Summary](#1-decision-summary)
+2. [Authority and Guiding Principle](#2-authority-and-guiding-principle)
+3. [Established Models](#3-established-models)
+4. [Public Namespaces and Resource Types](#4-public-namespaces-and-resource-types)
+5. [Prefix and Naming Conventions](#5-prefix-and-naming-conventions)
+6. [Versioning Rules](#6-versioning-rules)
+7. [Repository Structure and Public IRIs](#7-repository-structure-and-public-iris)
+8. [Dereferencing and Delivery](#8-dereferencing-and-delivery)
+9. [Catalog Following the QUDT Model](#9-catalog-following-the-qudt-model)
+10. [Examples from Current Modules](#10-examples-from-current-modules)
+11. [Technical and Organizational Validation Rules](#11-technical-and-organizational-validation-rules)
+12. [Identified Deviations and Adjustments](#12-identified-deviations-and-adjustments)
+13. [Binding Recommendation](#13-binding-recommendation)
+
+<a id="1-entscheidung-in-kurzform"></a>
+
+## 1. Decision Summary
+
+The provisional canonical authority is:
 
 ```text
 https://www.construct-x.org
 ```
 
-Construct-X verwendet dereferenzierbare HTTPS-IRIs und keine eigenen URNs. URNs duerfen nur verwendet werden, wenn ein eingebundenes externes System sie verbindlich vorgibt.
+Construct-X uses dereferenceable HTTPS IRIs and does not define its own URNs. URNs may be used only when required by an integrated external system.
 
-Die zentralen Muster lauten:
+The central patterns are:
 
 ```text
-Ontologie:
-https://www.construct-x.org/ontology/{modul}
+Ontology:
+https://www.construct-x.org/ontology/{module}
 
-Ontologieversion:
-https://www.construct-x.org/ontology/{modul}/{semver}
+Ontology version:
+https://www.construct-x.org/ontology/{module}/{semver}
 
-Ontologiebegriff:
-https://www.construct-x.org/ontology/{modul}#{localName}
+Ontology term:
+https://www.construct-x.org/ontology/{module}#{localName}
 
-SHACL-Graph:
-https://www.construct-x.org/shapes/{modul}/{shape-set}
+SHACL graph:
+https://www.construct-x.org/shapes/{module}/{shape-set}
 
-SHACL-Version:
-https://www.construct-x.org/shapes/{modul}/{shape-set}/{semver}
+SHACL version:
+https://www.construct-x.org/shapes/{module}/{shape-set}/{semver}
 
-SHACL-Shape:
-https://www.construct-x.org/shapes/{modul}/{shape-set}#{localName}
+SHACL shape:
+https://www.construct-x.org/shapes/{module}/{shape-set}#{localName}
 
-Stabiles Referenzvokabular:
-https://www.construct-x.org/vocab/{vokabular}
+Stable reference vocabulary:
+https://www.construct-x.org/vocab/{vocabulary}
 
-Konkrete Vokabularversion:
-https://www.construct-x.org/vocab/{vokabular}/{semver}
+Specific vocabulary version:
+https://www.construct-x.org/vocab/{vocabulary}/{semver}
 
-Stabiler Vokabularbegriff:
-https://www.construct-x.org/vocab/{vokabular}#{localName}
+Stable vocabulary term:
+https://www.construct-x.org/vocab/{vocabulary}#{localName}
 
-Referenzobjekt in seiner aktuellen Revision:
-https://www.construct-x.org/id/{typ}/{guid}
+Reference object at its current revision:
+https://www.construct-x.org/id/{type}/{guid}
 
-Exakte Revision eines Referenzobjekts:
-https://www.construct-x.org/id/{typ}/{guid}/revision/{revision}
+Exact revision of a reference object:
+https://www.construct-x.org/id/{type}/{guid}/revision/{revision}
 ```
 
-Ontologien und Referenzvokabulare werden als vollstaendige Graphen veroeffentlicht und mit SemVer versioniert. Ihre Begriffs-IRIs bleiben versionsunabhaengig. Referenzobjekte unter `/id/` besitzen dagegen einen individuellen Lebenszyklus. Eine Revision behaelt ihre GUID und erhoeht die Revisionsnummer. Eine neue fachliche Version erhaelt eine neue GUID und verweist auf die ersetzte Version.
+Ontologies and reference vocabularies are published as complete graphs and versioned using SemVer. Their term IRIs remain independent of versions. Reference objects under `/id/`, by contrast, have an individual lifecycle. A revision retains its GUID and increments the revision number. A new conceptual version receives a new GUID and references the version it replaces.
 
-Beispiel fuer ein Referenzvokabular:
+Example of a reference vocabulary:
 
 ```text
-Stabiles Vokabular:
+Stable vocabulary:
 https://www.construct-x.org/vocab/wall-type
 
-Vokabularversion:
+Vocabulary version:
 https://www.construct-x.org/vocab/wall-type/1.2.0
 
-Stabiler Vokabularbegriff:
+Stable vocabulary term:
 https://www.construct-x.org/vocab/wall-type#ExternalWall
 ```
 
-Beispiel fuer ein Referenzobjekt:
+Example of a reference object:
 
 ```text
-Aktuelle Revision einer Property-Version:
+Current revision of a property version:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000
 
-Exakte Revision:
+Exact revision:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2
 ```
 
-Die IRI ohne Revisionssegment kann auf die aktuelle Revision der durch die GUID identifizierten fachlichen Version verweisen. Fuer normative, pruefungsrelevante oder reproduzierbare Verweise ist immer die konkrete Revisions-IRI zu verwenden.
+The IRI without a revision segment may point to the current revision of the conceptual version identified by the GUID. Normative, audit-related, or reproducible references must always use the specific revision IRI.
 
-## 2. Authority und Grundsatz
+<a id="2-authority-und-grundsatz"></a>
 
-Vor dem ersten stabilen oeffentlichen Release muss geprueft werden, ob `https://www.construct-x.org` dauerhaft als kanonische Authority verwendet werden kann.
+## 2. Authority and Guiding Principle
 
-Die oeffentlichen IRIs sollen fachlich stabil sein. Interne Repository-Kategorien duerfen nicht Bestandteil oeffentlicher Ontologie-IRIs werden. Das Core-Modul unter `modules/core/address` wird deshalb als `https://www.construct-x.org/ontology/address` identifiziert, nicht als `/ontology/core/address`.
+Before the first stable public release, it must be verified that `https://www.construct-x.org` can serve as the permanent canonical authority.
 
-## 3. Orientierung an etablierten Vorbildern
+Public IRIs should remain stable in terms of their domain meaning. Repository categories such as `core`, `domain`, and `alignments` must not be part of public ontology IRIs. The module under `modules/core/address` is therefore publicly identified as `https://www.construct-x.org/ontology/address`, not as `/ontology/core/address`.
 
-Construct-X orientiert sich an etablierten Linked-Data- und OWL-Prinzipien: stabile IRIs fuer Begriffe, versionierte Graphen fuer veroeffentlichte Staende und nachvollziehbare Katalogeintraege fuer Publikationen.
+<a id="3-orientierung-an-etablierten-vorbildern"></a>
+
+## 3. Established Models
+
+Construct-X follows established Linked Data and OWL principles: stable IRIs for terms, versioned graphs for published releases, and traceable catalog entries for publications.
 
 ### 3.1 QUDT
 
-QUDT trennt stabile Begriffs-IRIs von versionierten Graphveroeffentlichungen. Construct-X uebernimmt dieses Prinzip fuer Ontologien, SHACL-Graphen und Referenzvokabulare.
+QUDT separates stable term IRIs from versioned graph publications. Construct-X adopts this principle for ontologies, SHACL graphs, and reference vocabularies.
 
-| Bereich | Stabile IRI | Versionierte IRI | Beispiel |
+| Area | Stable IRI | Versioned IRI | Example |
 | --- | --- | --- | --- |
-| Ontologiegraph | ja | ja | `https://www.construct-x.org/ontology/vso/0.1.0` |
-| SHACL-Graph | ja | ja | `https://www.construct-x.org/shapes/address/core/0.1.0` |
-| Referenzvokabular | ja | ja | `https://www.construct-x.org/vocab/wall-type/1.0.0` |
-| Begriff | ja | nein | `https://www.construct-x.org/vocab/wall-type#ExternalWall` |
+| Ontology graph | yes | yes | `https://www.construct-x.org/ontology/vso/0.1.0` |
+| SHACL graph | yes | yes | `https://www.construct-x.org/shapes/address/core/0.1.0` |
+| Reference vocabulary | yes | yes | `https://www.construct-x.org/vocab/wall-type/1.0.0` |
+| Term | yes | no | `https://www.construct-x.org/vocab/wall-type#ExternalWall` |
 
-Construct-X uebertraegt das QUDT-Prinzip der stabilen Begriffs-IRIs auch auf Referenzvokabulare. Eine neue Veroeffentlichung des Vokabulargraphen erzeugt daher keine neuen IRIs fuer unveraendert fortbestehende Begriffe.
+Construct-X also applies QUDT's principle of stable term IRIs to reference vocabularies. A new publication of a vocabulary graph therefore does not create new IRIs for terms that continue to exist unchanged.
 
-Beispiel: Wenn im Vokabular `wall-type` in Version `1.1.0` ein neuer Wandtyp ergaenzt wird, bleibt der bestehende Begriff `https://www.construct-x.org/vocab/wall-type#ExternalWall` unveraendert erhalten.
+Example: If a new wall type is added to the `wall-type` vocabulary in version `1.1.0`, the existing term `https://www.construct-x.org/vocab/wall-type#ExternalWall` remains unchanged.
 
-## 4. Oeffentliche Namensraeume und Ressourcenarten
+<a id="4-oeffentliche-namensraeume-und-ressourcenarten"></a>
 
-### 4.1 Oeffentliche Namensraeume
+## 4. Public Namespaces and Resource Types
 
-| Artefakt oder Ressource | Muster | Beispiel |
+<a id="41-oeffentliche-namensraeume"></a>
+
+### 4.1 Public Namespaces
+
+| Artifact or resource | Pattern | Example |
 | --- | --- | --- |
-| Ontologieserie | `/ontology/{modul}` | `https://www.construct-x.org/ontology/vso` |
-| Begriffsnamespace | `/ontology/{modul}#` | `https://www.construct-x.org/ontology/vso#AssignedProperty` |
-| Konkrete Ontologieversion | `/ontology/{modul}/{semver}` | `https://www.construct-x.org/ontology/vso/0.1.0` |
-| SHACL-Graph | `/shapes/{modul}/{shape-set}` | `https://www.construct-x.org/shapes/address/core` |
-| Shape-Namespace | `/shapes/{modul}/{shape-set}#` | `https://www.construct-x.org/shapes/address/core#AddressShape` |
-| Konkrete SHACL-Version | `/shapes/{modul}/{shape-set}/{semver}` | `https://www.construct-x.org/shapes/address/core/0.1.0` |
-| Referenzvokabular | `/vocab/{vokabular}` | `https://www.construct-x.org/vocab/wall-type` |
-| Konkrete Vokabularversion | `/vocab/{vokabular}/{semver}` | `https://www.construct-x.org/vocab/wall-type/1.2.0` |
-| Begriff eines Referenzvokabulars | `/vocab/{vokabular}#{localName}` | `https://www.construct-x.org/vocab/wall-type#ExternalWall` |
-| Referenzobjekt in seiner aktuellen Revision | `/id/{typ}/{guid}` | `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000` |
-| Exakte Revision eines Referenzobjekts | `/id/{typ}/{guid}/revision/{revision}` | `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2` |
+| Ontology series | `/ontology/{module}` | `https://www.construct-x.org/ontology/vso` |
+| Term namespace | `/ontology/{module}#` | `https://www.construct-x.org/ontology/vso#AssignedProperty` |
+| Specific ontology version | `/ontology/{module}/{semver}` | `https://www.construct-x.org/ontology/vso/0.1.0` |
+| SHACL graph | `/shapes/{module}/{shape-set}` | `https://www.construct-x.org/shapes/address/core` |
+| Shape namespace | `/shapes/{module}/{shape-set}#` | `https://www.construct-x.org/shapes/address/core#AddressShape` |
+| Specific SHACL version | `/shapes/{module}/{shape-set}/{semver}` | `https://www.construct-x.org/shapes/address/core/0.1.0` |
+| Reference vocabulary | `/vocab/{vocabulary}` | `https://www.construct-x.org/vocab/wall-type` |
+| Specific vocabulary version | `/vocab/{vocabulary}/{semver}` | `https://www.construct-x.org/vocab/wall-type/1.2.0` |
+| Reference vocabulary term | `/vocab/{vocabulary}#{localName}` | `https://www.construct-x.org/vocab/wall-type#ExternalWall` |
+| Reference object at its current revision | `/id/{type}/{guid}` | `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000` |
+| Exact revision of a reference object | `/id/{type}/{guid}/revision/{revision}` | `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2` |
 | Alignment | `/alignment/{alignment}` | `https://www.construct-x.org/alignment/address-vcard` |
-| Netzwerkkatalog | `/catalog` | `https://www.construct-x.org/catalog` |
-| Dokumentation | `/docs/{modul}` | `https://www.construct-x.org/docs/vso` |
+| Network catalog | `/catalog` | `https://www.construct-x.org/catalog` |
+| Documentation | `/docs/{module}` | `https://www.construct-x.org/docs/vso` |
 
-Die Basis-IRI eines Referenzobjekts, zum Beispiel `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000`, repraesentiert die fachliche Version des Referenzobjekts und kann auf deren aktuelle Revision verweisen. Die exakte Revisions-IRI, zum Beispiel `.../revision/2`, bezeichnet dagegen dauerhaft einen unveraenderlichen Stand. Fuer Audits, Normverweise, Tests und reproduzierbare Datenverarbeitung ist die exakte Revisions-IRI zu verwenden.
+The base IRI of a reference object, for example `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000`, represents the conceptual version of the reference object and may point to its current revision. The exact revision IRI, for example `.../revision/2`, permanently identifies an immutable state. Audits, references in standards, tests, and reproducible data processing must use the exact revision IRI.
 
-### 4.2 Ressourcenarten
+<a id="42-ressourcenarten"></a>
 
-- `/ontology/` enthaelt T-Box-Begriffe wie Klassen, ObjectProperties, DataProperties und formale Axiome.
-- `/vocab/` enthaelt kontrollierte A-Box-Referenzdaten wie Auswahlwerte, Statuswerte oder Klassifikationsbegriffe.
-- `/id/` enthaelt eigenstaendig verwaltete Referenzobjekte mit stabiler Identitaet und eigenem Lebenszyklus.
+### 4.2 Resource Types
 
-Operative A-Box-Ressourcen wie konkrete Gebaeude, Waende oder Personen erhalten ihre IRIs durch den jeweiligen Datenhalter und nicht durch das Construct-X-Ontologienetzwerk.
+- `/ontology/` contains T-Box terms such as classes, ObjectProperties, DataProperties, and formal axioms.
+- `/vocab/` contains controlled A-Box reference data such as selection values, status values, or classification terms.
+- `/id/` contains independently managed reference objects with a stable identity and their own lifecycle.
 
-### 4.3 T-Box-Begriffe und Referenzdaten trennen
+Operational A-Box resources, such as specific buildings, walls, or people, receive their IRIs from the respective data holder rather than from the Construct-X ontology network.
 
-T-Box-Begriffe beschreiben fachliche Klassen und Eigenschaften. Referenzdaten beschreiben Werte, Katalogeintraege oder reale beziehungsweise verwaltete Referenzobjekte.
+<a id="43-t-box-begriffe-und-referenzdaten-trennen"></a>
 
-Beispiele:
+### 4.3 Separating T-Box Terms and Reference Data
+
+T-Box terms describe domain classes and properties. Reference data describes values, catalog entries, or real-world or managed reference objects.
+
+Examples:
 
 ```text
-Wandklasse:
+Wall class:
 https://www.construct-x.org/ontology/wall#Wall
 
-Auswahlwert "Aussenwand":
+Selection value "External wall":
 https://www.construct-x.org/vocab/wall-type#ExternalWall
 
-ISOProps-Merkmalsdefinition:
+ISOProps property definition:
 https://www.construct-x.org/id/property/{guid}
 
-Konkrete Wand eines Datenhalters:
+Specific wall belonging to a data holder:
 https://data.example.com/building/123/wall/456
 ```
 
-Die GUID identifiziert eine fachliche Version des Referenzobjekts. Aenderungen innerhalb dieser fachlichen Version werden als Revisionen gefuehrt und behalten die GUID. Entsteht eine neue fachliche Version, wird eine neue GUID vergeben. Die neue Version verweist auf die zuvor gueltige Version.
+The GUID identifies a conceptual version of the reference object. Changes within that conceptual version are managed as revisions and retain the GUID. When a new conceptual version is created, a new GUID is assigned. The new version references the previously valid version.
 
-Beispiel Wandhoehe als Revision: Wenn bei einer Property-Version `Wandhoehe` nur eine englische Benennung ergaenzt wird, kann dies als neue Revision behandelt werden. Die GUID bleibt erhalten, und die Revisionsnummer wird beispielsweise von `1` auf `2` erhoeht.
+Wall-height revision example: If only an English label is added to a `WallHeight` property version, this can be treated as a new revision. The GUID remains unchanged, and the revision number increases, for example, from `1` to `2`.
 
 ```text
 Revision 1:
@@ -182,19 +200,19 @@ Revision 2:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2
 ```
 
-Beide Staende bleiben erreichbar. Revision `1` dokumentiert den urspruenglich veroeffentlichten Stand, Revision `2` den Stand mit ergaenzter englischer Benennung.
+Both states remain accessible. Revision `1` documents the originally published state, and revision `2` documents the state with the added English label.
 
-Beispiel fuer eine neue fachliche Version:
+Example of a new conceptual version:
 
 ```text
-Bisherige Version:
+Previous version:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2
 
-Neue fachliche Version:
+New conceptual version:
 https://www.construct-x.org/id/property/a471c218-1234-5678-9012-abcdefabcdef/revision/1
 ```
 
-Die neue Version verweist mit `dcterms:replaces` auf die alte Version:
+The new version references the old version using `dcterms:replaces`:
 
 ```turtle
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -204,17 +222,19 @@ Die neue Version verweist mit `dcterms:replaces` auf die alte Version:
         <https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2> .
 ```
 
-## 5. Praefix- und Benennungskonventionen
+<a id="5-praefix--und-benennungskonventionen"></a>
 
-Construct-X-Ontologien verwenden Praefixe nach folgendem Muster:
+## 5. Prefix and Naming Conventions
+
+Construct-X ontologies use prefixes following this pattern:
 
 ```text
-conx-{modulkuerzel}
+conx-{module-abbreviation}
 ```
 
-Das Modulkuerzel muss kurz, eindeutig, stabil und vollstaendig kleingeschrieben sein. Der Bindestrich ist verbindlich.
+The module abbreviation must be short, unique, stable, and entirely lowercase. The hyphen is mandatory.
 
-Beispiele:
+Examples:
 
 ```turtle
 @prefix conx-vso:  <https://www.construct-x.org/ontology/vso#> .
@@ -224,226 +244,248 @@ Beispiele:
 @prefix conx-unit: <https://www.construct-x.org/ontology/units#> .
 ```
 
-Praefixe importierter oder referenzierter Ontologien wie `owl`, `rdf`, `rdfs`, `sh`, `opm`, `qudt`, `schema`, `vcard`, `org`, `locn`, `skos` oder `isoprops` bleiben unveraendert.
+Prefixes of imported or referenced ontologies, such as `owl`, `rdf`, `rdfs`, `sh`, `opm`, `qudt`, `schema`, `vcard`, `org`, `locn`, `skos`, and `isoprops`, remain unchanged.
 
-Neue Construct-X-Begriffe verwenden:
+New Construct-X terms use:
 
-- Klassen: `UpperCamelCase`, zum Beispiel `PhysicalObject`, `PropertyState` oder `PostalAddress`.
-- ObjectProperties: `lowerCamelCase` und als verbale Beziehung formuliert, zum Beispiel `hasAddress`, `hasPropertyReference`, `isPartOf`, `belongsToOrganization` oder `containsElement`.
-- DataProperties: `lowerCamelCase`, jedoch ohne Beziehungspraefix wie `has` oder `is`, zum Beispiel `name`, `revisionNumber`, `creationDate` oder `globallyUniqueIdentifier`.
-- SHACL-Shapes: Klassenname plus `Shape`, zum Beispiel `AddressShape`.
+- Classes: `UpperCamelCase`, for example `PhysicalObject`, `PropertyState`, or `PostalAddress`.
+- ObjectProperties: `lowerCamelCase`, phrased as a verbal relationship, for example `hasAddress`, `hasPropertyReference`, `isPartOf`, `belongsToOrganization`, or `containsElement`.
+- DataProperties: `lowerCamelCase`, without a relationship prefix such as `has` or `is`, for example `name`, `revisionNumber`, `creationDate`, or `globallyUniqueIdentifier`.
+- SHACL shapes: class name followed by `Shape`, for example `AddressShape`.
 
-Lokale Namen enthalten keine Leerzeichen, Umlaute oder sprachabhaengigen Namensbestandteile. Uebersetzungen werden ueber Labels mit Sprach-Tags abgebildet. Diese Regeln gelten nicht rueckwirkend fuer Begriffe importierter Ontologien.
+Local names contain no spaces, umlauts, or language-dependent name components. Translations are provided through labels with language tags. These rules do not apply retroactively to terms from imported ontologies.
 
-## 6. Versionierungsregeln
+<a id="6-versionierungsregeln"></a>
 
-Construct-X unterscheidet drei Versionierungsmodelle:
+## 6. Versioning Rules
 
-1. Ontologien und SHACL-Graphen werden als vollstaendige Graphen mit SemVer versioniert.
-2. Referenzvokabulare werden ebenfalls als vollstaendige Graphen mit SemVer versioniert.
-3. Referenzobjekte unter `/id/` besitzen einen individuellen Lebenszyklus aus GUID, fachlicher Version und Revision.
+Construct-X distinguishes three versioning models:
 
-### 6.1 Ontologien und SHACL-Graphen
+1. Ontologies and SHACL graphs are versioned as complete graphs using SemVer.
+2. Reference vocabularies are also versioned as complete graphs using SemVer.
+3. Reference objects under `/id/` have an individual lifecycle consisting of a GUID, conceptual version, and revision.
 
-Fuer Ontologien und SHACL-Graphen gilt:
+<a id="61-ontologien-und-shacl-graphen"></a>
 
-1. Die stabile Graph-IRI bleibt unveraendert.
-2. Jede Veroeffentlichung erhaelt eine SemVer-Versions-IRI.
-3. Veroeffentlichte Versionen sind unveraenderlich.
-4. Die unversionierte Graph-IRI verweist auf die aktuelle empfohlene Version.
-5. Begriffs-IRIs enthalten keine Versionsnummer.
-6. Aeltere Veroeffentlichungen bleiben ueber ihre Versions-IRIs erreichbar.
-7. Interne Release-Imports verwenden konkrete Versions-IRIs.
-8. Eine Import-Closure darf nicht mehrere Versionen derselben Ontologie enthalten.
-9. Eine neue Major-Version erzeugt nicht automatisch neue Begriffs-IRIs.
-10. Aendert sich die fachliche Identitaet eines Begriffs grundlegend, wird ein neuer Begriff angelegt und der alte Begriff als veraltet gekennzeichnet.
-11. Entfernte IRIs duerfen niemals fuer andere Begriffe wiederverwendet werden.
+### 6.1 Ontologies and SHACL Graphs
 
-Jeder SHACL-Graph gehoert zu einem benannten `shape-set`. Ein Shape-Set bildet
-eine fachlich gemeinsam versionierte Regelmenge, beispielsweise `core`,
-`delivery`, `invoice` oder `construction-site`. Unterschiedliche Shape-Sets
-duerfen unabhaengige Versionsstaende besitzen. Shape-IRIs liegen im stabilen
-Hash-Namespace ihres Shape-Sets und enthalten keine Versionsnummer.
+The following rules apply to ontologies and SHACL graphs:
 
-Beispiel:
+1. The stable graph IRI remains unchanged.
+2. Each publication receives a SemVer version IRI.
+3. Published versions are immutable.
+4. The unversioned graph IRI points to the current recommended version.
+5. Term IRIs do not contain a version number.
+6. Older publications remain accessible through their version IRIs.
+7. Internal release imports use specific version IRIs.
+8. An import closure must not contain multiple versions of the same ontology.
+9. A new major version does not automatically create new term IRIs.
+10. If the domain meaning of a term changes fundamentally, a new term is created and the old term is deprecated.
+11. Removed IRIs must never be reused for other terms.
+
+Each SHACL graph belongs to a named `shape-set`. A shape set groups rules
+that are versioned together as a coherent set, for example `core`, `delivery`,
+`invoice`, or `construction-site`. Different shape sets may have independent
+versions. Shape IRIs belong to their shape set's stable hash namespace and
+do not contain a version number.
+
+Example:
 
 ```text
-Stabiler Shape-Graph: https://www.construct-x.org/shapes/address/core
-Konkrete Version:     https://www.construct-x.org/shapes/address/core/0.1.0
-Stabiles Shape:       https://www.construct-x.org/shapes/address/core#AddressShape
+Stable shape graph: https://www.construct-x.org/shapes/address/core
+Specific version:   https://www.construct-x.org/shapes/address/core/0.1.0
+Stable shape:       https://www.construct-x.org/shapes/address/core#AddressShape
 ```
 
-Beispiel:
+Example:
 
 ```text
-Stabile Ontologie-IRI:
+Stable ontology IRI:
 https://www.construct-x.org/ontology/address
 
-Konkrete Version:
+Specific version:
 https://www.construct-x.org/ontology/address/0.1.0
 
-Stabiler Begriff:
+Stable term:
 https://www.construct-x.org/ontology/address#PostalAddress
 ```
 
-### 6.2 Referenzvokabulare
+<a id="62-referenzvokabulare"></a>
 
-Referenzvokabulare folgen demselben graphbezogenen Veroeffentlichungsmodell wie Ontologien, verwenden aber den Pfad `/vocab/`.
+### 6.2 Reference Vocabularies
 
-Regeln:
+Reference vocabularies follow the same graph-based publication model as ontologies but use the `/vocab/` path.
 
-1. Jedes Referenzvokabular besitzt eine stabile Graph-IRI.
-2. Jede Veroeffentlichung erhaelt eine SemVer-Versions-IRI.
-3. Veroeffentlichte Versionen sind unveraenderlich.
-4. Die stabile Vokabular-IRI liefert die aktuell empfohlene Veroeffentlichung.
-5. Die IRIs der enthaltenen Begriffe bleiben versionsunabhaengig.
-6. Redaktionelle Korrekturen ohne semantische Aenderung erzeugen eine Patch-Version.
-7. Rueckwaertskompatible Ergaenzungen erzeugen eine Minor-Version.
-8. Inkompatible strukturelle oder semantische Aenderungen erzeugen eine Major-Version.
-9. Begriffe werden moeglichst nicht geloescht, sondern als veraltet gekennzeichnet.
-10. Entfernte Begriffs-IRIs duerfen niemals neu vergeben werden.
+Rules:
 
-Beispiel:
+1. Each reference vocabulary has a stable graph IRI.
+2. Each publication receives a SemVer version IRI.
+3. Published versions are immutable.
+4. The stable vocabulary IRI returns the current recommended publication.
+5. The IRIs of the terms it contains remain independent of versions.
+6. Editorial corrections without semantic changes result in a patch version.
+7. Backward-compatible additions result in a minor version.
+8. Incompatible structural or semantic changes result in a major version.
+9. Wherever possible, terms are deprecated rather than deleted.
+10. Removed term IRIs must never be reassigned.
+
+Example:
 
 ```text
-Stabile Vokabular-IRI:
+Stable vocabulary IRI:
 https://www.construct-x.org/vocab/wall-type
 
-Konkrete Version:
+Specific version:
 https://www.construct-x.org/vocab/wall-type/1.2.0
 
-Stabiler Begriff:
+Stable term:
 https://www.construct-x.org/vocab/wall-type#ExternalWall
 ```
 
-| Aenderung am Vokabular | Versionsaenderung |
+| Vocabulary change | Version change |
 | --- | --- |
-| Tippfehler in einem Label korrigiert | `1.0.0` -> `1.0.1` |
-| neuer Wandtyp ergaenzt | `1.0.0` -> `1.1.0` |
-| inkompatible Aenderung der Begriffshierarchie | `1.0.0` -> `2.0.0` |
+| Corrected a typo in a label | `1.0.0` -> `1.0.1` |
+| Added a new wall type | `1.0.0` -> `1.1.0` |
+| Incompatible change to the term hierarchy | `1.0.0` -> `2.0.0` |
 
-Eine neue Vokabularversion erzeugt nicht automatisch neue IRIs fuer alle Begriffe. Wenn `ExternalWall` fachlich unveraendert bleibt, bleibt auch `https://www.construct-x.org/vocab/wall-type#ExternalWall` unveraendert.
+A new vocabulary version does not automatically create new IRIs for all terms. If the domain meaning of `ExternalWall` remains unchanged, `https://www.construct-x.org/vocab/wall-type#ExternalWall` also remains unchanged.
 
-### 6.3 Referenzobjekte
+<a id="63-referenzobjekte"></a>
 
-Referenzobjekte werden individuell versioniert und verwenden ausdruecklich kein SemVer. Der Lebenszyklus beruht auf GUID und Revision.
+### 6.3 Reference Objects
 
-Regeln:
+Reference objects are versioned individually and explicitly do not use SemVer. Their lifecycle is based on GUIDs and revisions.
 
-1. Referenzobjekte werden individuell und nicht mit SemVer versioniert.
-2. Eine fachliche Version besitzt eine GUID.
-3. Eine Revision behaelt die GUID und erhoeht die Revisionsnummer.
-4. Eine neue fachliche Version erhaelt eine neue GUID.
-5. Die neue Version verweist auf die ersetzte Version.
-6. Veroeffentlichte Revisionen sind unveraenderlich.
-7. Fruehere Versionen und Revisionen bleiben erreichbar.
-8. Normative und reproduzierbare Referenzen verwenden GUID und Revisionsnummer.
-9. GUIDs und Revisions-IRIs duerfen niemals neu vergeben werden.
-10. Fragmentierung und Zusammenfuehrung erzeugen neue GUIDs und dokumentierte Herkunfts- beziehungsweise Ersetzungsbeziehungen.
+Rules:
 
-Die SemVer-Version eines veroeffentlichten Graphen und die Revision eines darin beschriebenen Referenzobjekts sind voneinander unabhaengige Angaben.
+1. Reference objects are versioned individually, without SemVer.
+2. A conceptual version has a GUID.
+3. A revision retains the GUID and increments the revision number.
+4. A new conceptual version receives a new GUID.
+5. The new version references the version it replaces.
+6. Published revisions are immutable.
+7. Earlier versions and revisions remain accessible.
+8. Normative and reproducible references use the GUID and revision number.
+9. GUIDs and revision IRIs must never be reassigned.
+10. Splitting and merging create new GUIDs and documented provenance or replacement relationships.
 
-Beispiel: Ein Property-Dictionary kann als Graph `https://www.construct-x.org/vocab/property-dictionary/1.3.0` veroeffentlicht werden. Darin kann ein einzelnes Property-Referenzobjekt trotzdem die Revisions-IRI `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2` besitzen. Die Graphversion `1.3.0` und die Objektrevision `2` beschreiben unterschiedliche Dinge.
+The SemVer version of a published graph and the revision of a reference object described within it are independent pieces of information.
 
-## 7. Repository-Struktur und oeffentliche IRIs
+Example: A property dictionary may be published as the graph `https://www.construct-x.org/vocab/property-dictionary/1.3.0`. An individual property reference object within it may still have the revision IRI `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2`. Graph version `1.3.0` and object revision `2` describe different things.
 
-Repository-Kategorien strukturieren die Arbeit im Monorepo. Sie sind keine oeffentlichen IRI-Segmente.
+<a id="7-repository-struktur-und-oeffentliche-iris"></a>
 
-Beispiele:
+## 7. Repository Structure and Public IRIs
+
+Repository categories organize work in the monorepo. They are not public IRI segments.
+
+Examples:
 
 ```text
 Repository:
 modules/core/address
 
-Oeffentliche Ontologie:
+Public ontology:
 https://www.construct-x.org/ontology/address
 
 Repository:
-modules/core/document
+modules/core/participation
 
-Oeffentliche Ontologie:
-https://www.construct-x.org/ontology/document
+Public ontology:
+https://www.construct-x.org/ontology/participation
 ```
 
-## 8. Dereferenzierung und Auslieferung
+<a id="8-dereferenzierung-und-auslieferung"></a>
 
-Construct-X-IRIs sollen dereferenzierbar sein. Je nach angefragtem Format koennen RDF, HTML-Dokumentation oder andere Darstellungen ausgeliefert werden. Fuer nicht-informationsressourcen kann `303 See Other` verwendet werden. Content Negotiation soll maschinenlesbare und menschenlesbare Darstellungen unterstuetzen.
+## 8. Dereferencing and Delivery
 
-### 8.1 Ontologien
+Construct-X IRIs should be dereferenceable. Depending on the requested format, RDF, HTML documentation, or other representations can be delivered. `303 See Other` may be used for non-information resources. Content negotiation should support machine-readable and human-readable representations.
+
+<a id="81-ontologien"></a>
+
+### 8.1 Ontologies
 
 ```text
 GET https://www.construct-x.org/ontology/vso
 ```
 
-Diese IRI kann auf die aktuelle empfohlene Ontologieversion verweisen oder diese ausliefern.
+This IRI may point to or return the current recommended ontology version.
 
-### 8.2 Ontologieversionen
+<a id="82-ontologieversionen"></a>
+
+### 8.2 Ontology Versions
 
 ```text
 GET https://www.construct-x.org/ontology/vso/0.1.0
 ```
 
-Diese IRI liefert dauerhaft den unveraenderlichen Stand der Version `0.1.0`.
+This IRI permanently returns the immutable state of version `0.1.0`.
 
-### 8.3 Referenzvokabulare
+<a id="83-referenzvokabulare"></a>
+
+### 8.3 Reference Vocabularies
 
 ```text
 GET https://www.construct-x.org/vocab/wall-type
 ```
 
-Diese IRI kann die aktuelle empfohlene Vokabularveroeffentlichung liefern.
+This IRI may return the current recommended vocabulary publication.
 
 ```text
 GET https://www.construct-x.org/vocab/wall-type/1.2.0
 ```
 
-Diese IRI liefert dauerhaft den unveraenderlichen Stand der Vokabularversion `1.2.0`.
+This IRI permanently returns the immutable state of vocabulary version `1.2.0`.
 
-### 8.4 Persistente ID-Ressourcen
+<a id="84-persistente-id-ressourcen"></a>
+
+### 8.4 Persistent ID Resources
 
 ```text
 GET https://www.construct-x.org/id/property/{guid}
 ```
 
-Diese IRI repraesentiert die fachliche Version des Referenzobjekts und kann auf ihre aktuelle Revision verweisen.
+This IRI represents the conceptual version of the reference object and may point to its current revision.
 
 ```text
 GET https://www.construct-x.org/id/property/{guid}/revision/2
 ```
 
-Diese IRI liefert dauerhaft den unveraenderlichen Stand der Revision `2`.
+This IRI permanently returns the immutable state of revision `2`.
 
-Da sich die ueber die Basis-IRI ausgelieferte Beschreibung bei einer neuen Revision aendern kann, ist sie nicht fuer reproduzierbare Pruefungen oder normative Referenzen ausreichend. Dafuer wird immer die revisionsgebundene IRI verwendet.
+Since the description returned by the base IRI may change with a new revision, it is insufficient for reproducible validation or normative references. These must always use the revision-specific IRI.
 
-Beispiel: Eine Validierungsregel, die nachweisen soll, welche Property-Definition am 2026-08-18 verwendet wurde, referenziert `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2` statt nur die Basis-IRI ohne Revisionssegment.
+Example: A validation rule that needs to establish which property definition was used on 2026-08-18 references `https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2` rather than just the base IRI without a revision segment.
 
-## 9. Katalog nach QUDT-Vorbild
+<a id="9-katalog-nach-qudt-vorbild"></a>
 
-Der zentrale Artefaktkatalog beschreibt Graphveroeffentlichungen. Einzelne Referenzobjekte koennen zusaetzlich ueber eigene Registries oder ihre RDF-Beschreibungen verwaltet werden.
+## 9. Catalog Following the QUDT Model
 
-Fuer Ontologie- und SHACL-Veroeffentlichungen dokumentiert der Katalog mindestens:
+The central artifact catalog describes graph publications. Individual reference objects may also be managed through their own registries or RDF descriptions.
 
-- stabile Graph-IRI;
-- aktuelle Versions-IRI;
+For ontology and SHACL publications, the catalog documents at least:
+
+- stable graph IRI;
+- current version IRI;
 - SemVer;
-- Begriffs- oder Shape-Namespace;
-- vorherige Veroeffentlichung;
-- Veroeffentlichungsdatum;
-- Status;
-- Dokumentations- und Downloadlinks.
+- term or shape namespace;
+- previous publication;
+- publication date;
+- status;
+- documentation and download links.
 
-Fuer Vokabularveroeffentlichungen dokumentiert der Katalog mindestens:
+For vocabulary publications, the catalog documents at least:
 
-- stabile Vokabular-IRI;
-- aktuelle Versions-IRI;
+- stable vocabulary IRI;
+- current version IRI;
 - SemVer;
-- Begriffsnamespace;
-- vorherige Veroeffentlichung;
-- Veroeffentlichungsdatum;
-- Status;
-- Dokumentations- und Downloadlinks.
+- term namespace;
+- previous publication;
+- publication date;
+- status;
+- documentation and download links.
 
-Beispiel fuer einen Katalogeintrag:
+Example catalog entry:
 
 ```yaml
 id: wall-type
@@ -457,17 +499,17 @@ status: released
 published: 2026-08-18
 ```
 
-Fuer Referenzobjekte beziehungsweise deren Registry werden mindestens dokumentiert:
+For reference objects or their registries, at least the following are documented:
 
-- Typ des Referenzobjekts;
+- reference object type;
 - GUID;
-- aktuelle Revisionsnummer;
-- IRI der aktuellen Revision;
-- ersetzte beziehungsweise ersetzende Version;
-- Status;
-- Veroeffentlichungs- und Aenderungsdatum.
+- current revision number;
+- current revision IRI;
+- replaced or replacing version;
+- status;
+- publication and modification dates.
 
-Beispiel fuer einen Registry-Eintrag:
+Example registry entry:
 
 ```yaml
 type: property
@@ -481,113 +523,131 @@ published: 2026-08-18
 modified: 2026-08-18
 ```
 
-## 10. Beispiele aktueller Module
+<a id="10-beispiele-aktueller-module"></a>
+
+## 10. Examples from Current Modules
 
 ### 10.1 VSO
 
 ```text
-Ontologie-IRI:  https://www.construct-x.org/ontology/vso
-Namespace:      https://www.construct-x.org/ontology/vso#
-Versions-IRI:   https://www.construct-x.org/ontology/vso/0.1.0
-Praefix:        conx-vso
-Repository:     modules/core/vso/ontology/conx-vso.ttl
+Ontology IRI:  https://www.construct-x.org/ontology/vso
+Namespace:     https://www.construct-x.org/ontology/vso#
+Version IRI:   https://www.construct-x.org/ontology/vso/0.1.0
+Prefix:        conx-vso
+Repository:    modules/core/vso/ontology/conx-vso.ttl
 ```
 
 ### 10.2 Address
 
 ```text
-Ontologie-IRI:  https://www.construct-x.org/ontology/address
-Namespace:      https://www.construct-x.org/ontology/address#
-Versions-IRI:   https://www.construct-x.org/ontology/address/0.1.0
-Praefix:        conx-addr
-Repository:     modules/core/address/ontology/conx-addr.ttl
+Ontology IRI:  https://www.construct-x.org/ontology/address
+Namespace:     https://www.construct-x.org/ontology/address#
+Version IRI:   https://www.construct-x.org/ontology/address/0.1.0
+Prefix:        conx-addr
+Repository:    modules/core/address/ontology/conx-addr.ttl
 ```
 
-## 11. Technische und organisatorische Pruefregeln
-
-CI und Reviews sollen mindestens folgende Regeln pruefen:
-
-- Ontologie-IRI und Versions-IRI entsprechen dem festgelegten Muster.
-- SHACL-IRI, Shape-Set, Shape-Namespace und SHACL-Versions-IRI entsprechen dem festgelegten Muster.
-- Vokabular-IRI und Versions-IRI entsprechen dem festgelegten Muster.
-- SemVer im Ontologie-, Shape- oder Vokabularpfad stimmt mit den Versionsmetadaten ueberein.
-- stabile Ontologiebegriffe enthalten keine Versionsnummer.
-- stabile Vokabularbegriffe enthalten keine Versionsnummer.
-- veroeffentlichte Ontologie-, SHACL- und Vokabularversionen wurden nicht nachtraeglich veraendert.
-- Revisions-IRI, GUID und Revisionsnummer eines Referenzobjekts stimmen ueberein.
-- innerhalb einer GUID wird eine Revisionsnummer nur einmal vergeben.
-- eine neue fachliche Version besitzt eine neue GUID.
-- ersetzte und ersetzende Versionen verwenden unterschiedliche GUIDs.
-- fruehere Revisions-IRIs bleiben erreichbar.
-- normative Referenzen auf Referenzobjekte enthalten GUID und Revision.
-- Repository-Kategorien wie `core`, `domain` und `alignments` kommen nicht in oeffentlichen Ontologie-IRIs vor.
-- Construct-X-Praefixe folgen dem Muster `conx-{modulkuerzel}`.
-
-Verstaendliches Fehlerbeispiel:
+### 10.3 Participation
 
 ```text
-Falsch:
+Ontology IRI:  https://www.construct-x.org/ontology/participation
+Namespace:     https://www.construct-x.org/ontology/participation#
+Version IRI:   https://www.construct-x.org/ontology/participation/0.2.0
+Prefix:        conx-part
+Repository:    modules/core/participation/ontology/conx-part.ttl
+```
+
+<a id="11-technische-und-organisatorische-pruefregeln"></a>
+
+## 11. Technical and Organizational Validation Rules
+
+Manual validation and reviews should check at least the following rules:
+
+- Ontology IRIs and version IRIs match the defined pattern.
+- SHACL IRIs, shape sets, shape namespaces, and SHACL version IRIs match the defined pattern.
+- Vocabulary IRIs and version IRIs match the defined pattern.
+- SemVer in ontology, shape, or vocabulary paths matches the version metadata.
+- Stable ontology terms do not contain version numbers.
+- Stable vocabulary terms do not contain version numbers.
+- Published ontology, SHACL, and vocabulary versions have not been modified after publication.
+- A reference object's revision IRI, GUID, and revision number are consistent.
+- Each revision number is assigned only once within a GUID.
+- A new conceptual version has a new GUID.
+- Replaced and replacing versions use different GUIDs.
+- Earlier revision IRIs remain accessible.
+- Normative references to reference objects include the GUID and revision.
+- Repository categories such as `core`, `domain`, and `alignments` do not appear in public ontology IRIs.
+- Construct-X prefixes follow the pattern `conx-{module-abbreviation}`.
+
+Simple example of an error:
+
+```text
+Incorrect:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000
 ```
 
-Diese IRI kann fuer die aktuelle Revision stehen. Sie reicht aber nicht fuer eine normative oder reproduzierbare Referenz, weil sich die ausgelieferte Beschreibung bei einer neuen Revision aendern kann.
+This IRI may identify the current revision. However, it is insufficient for a normative or reproducible reference because the returned description may change with a new revision.
 
 ```text
-Richtig:
+Correct:
 https://www.construct-x.org/id/property/550e8400-e29b-41d4-a716-446655440000/revision/2
 ```
 
-Weiteres Fehlerbeispiel:
+Another example of an error:
 
 ```text
-Falsch:
+Incorrect:
 https://www.construct-x.org/vocab/wall-type/1.2.0#ExternalWall
 ```
 
-Der Begriff enthaelt eine Versionsnummer im Pfad. Richtig ist der stabile Begriffsnamespace:
+The term contains a version number in its path. The correct form uses the stable term namespace:
 
 ```text
 https://www.construct-x.org/vocab/wall-type#ExternalWall
 ```
 
-## 12. Festgestellte Abweichungen und Anpassungen
+<a id="12-festgestellte-abweichungen-und-anpassungen"></a>
 
-Analysierter Stand vor frueherer Umstellung der VSO:
+## 12. Identified Deviations and Adjustments
 
-- VSO-Ontologie-IRI: `https://www.construct-x.org/ontology/value-semantics`
-- VSO-Namespace: `https://www.construct-x.org/ontology/value-semantics#`
-- VSO-Version-IRI: `https://www.construct-x.org/ontology/value-semantics/0.1.0`
-- Repository-Pfad: `modules/core/value-semantics/ontology/conx-vso.ttl`
+State analyzed before the earlier VSO migration:
 
-Technische Anpassung:
+- VSO ontology IRI: `https://www.construct-x.org/ontology/value-semantics`
+- VSO namespace: `https://www.construct-x.org/ontology/value-semantics#`
+- VSO version IRI: `https://www.construct-x.org/ontology/value-semantics/0.1.0`
+- Repository path: `modules/core/value-semantics/ontology/conx-vso.ttl`
 
-- Oeffentliches Modulsegment von `value-semantics` auf `vso` umgestellt.
-- Repository-Modulordner von `modules/core/value-semantics` auf `modules/core/vso` umgestellt.
-- Praefix `conx-vso` beibehalten, da er der Konvention entspricht.
-- Fachliche Klassen, Properties und Axiome wurden nicht umbenannt.
+Technical adjustments:
 
-Offene Entscheidung:
+- Changed the public module segment from `value-semantics` to `vso`.
+- Changed the repository module folder from `modules/core/value-semantics` to `modules/core/vso`.
+- Retained the `conx-vso` prefix because it follows the convention.
+- Domain classes, properties, and axioms were not renamed.
 
-- Vor dem ersten stabilen Release muss bestaetigt werden, dass `https://www.construct-x.org` dauerhaft als kanonische Authority verwendet wird.
+Open decision:
 
-## 13. Verbindliche Empfehlung
+- Before the first stable release, it must be confirmed that `https://www.construct-x.org` will serve as the permanent canonical authority.
+
+<a id="13-verbindliche-empfehlung"></a>
+
+## 13. Binding Recommendation
 
 ```text
-Ontologien:          https://www.construct-x.org/ontology/{modul}
-Ontologieversionen:  https://www.construct-x.org/ontology/{modul}/{semver}
-Ontologiebegriffe:   https://www.construct-x.org/ontology/{modul}#{localName}
+Ontologies:          https://www.construct-x.org/ontology/{module}
+Ontology versions:   https://www.construct-x.org/ontology/{module}/{semver}
+Ontology terms:      https://www.construct-x.org/ontology/{module}#{localName}
 
-Vokabulare:          https://www.construct-x.org/vocab/{vokabular}
-Vokabularversionen:  https://www.construct-x.org/vocab/{vokabular}/{semver}
-Vokabularbegriffe:   https://www.construct-x.org/vocab/{vokabular}#{localName}
+Vocabularies:        https://www.construct-x.org/vocab/{vocabulary}
+Vocabulary versions: https://www.construct-x.org/vocab/{vocabulary}/{semver}
+Vocabulary terms:    https://www.construct-x.org/vocab/{vocabulary}#{localName}
 
-Referenzobjekte:     https://www.construct-x.org/id/{typ}/{guid}
-Exakte Revisionen:   https://www.construct-x.org/id/{typ}/{guid}/revision/{revision}
+Reference objects:   https://www.construct-x.org/id/{type}/{guid}
+Exact revisions:     https://www.construct-x.org/id/{type}/{guid}/revision/{revision}
 
-SHACL:               https://www.construct-x.org/shapes/{modul}/{shape-set}
+SHACL:               https://www.construct-x.org/shapes/{module}/{shape-set}
 Alignments:          https://www.construct-x.org/alignment/{alignment}
-Katalog:             https://www.construct-x.org/catalog
-Dokumentation:       https://www.construct-x.org/docs/{modul}
+Catalog:             https://www.construct-x.org/catalog
+Documentation:       https://www.construct-x.org/docs/{module}
 ```
 
-Ontologien und Referenzvokabulare folgen demselben graphbezogenen Veroeffentlichungsmodell. Referenzobjekte folgen dagegen einem individuellen, auf GUID und Revision basierenden Lebenszyklusmodell.
+Ontologies and reference vocabularies follow the same graph-based publication model. Reference objects follow an individual lifecycle model based on GUIDs and revisions.

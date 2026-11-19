@@ -1,10 +1,10 @@
 # Construct-X Contact Channels
 
-Kontrolliertes Referenzvokabular fuer Kommunikationskanaele von `conx-contact:ContactMethod`.
+Controlled reference vocabulary for communication channels of `conx-contact:ContactMethod`.
 
 ## Version 0.1.0
 
-Enthaltene Kanaele:
+Included channels:
 
 - `contact-channel:email`
 - `contact-channel:phone`
@@ -15,4 +15,4 @@ Enthaltene Kanaele:
 - `contact-channel:socialProfile`
 - `contact-channel:postalAddress`
 
-Postalische Kontaktmethoden verweisen nicht direkt auf Adressbestandteile, sondern ueber `conx-contact:usesAddressAssignment` auf eine `conx-addr:AddressAssignment`.
+Postal contact methods do not reference address components directly; they reference a `conx-addr:AddressAssignment` through `conx-contact:usesAddressAssignment`.

@@ -1,22 +1,26 @@
-﻿# Abhaengigkeitsregeln
+<a id="abhaengigkeitsregeln"></a>
 
-1. Core-Module duerfen andere Core-Module und externe Ontologien verwenden.
-2. Domain-Module duerfen Core-Module verwenden.
-3. Core-Module duerfen keine Domain-Module importieren.
-4. Alignments bleiben optional.
-5. Profile duerfen strengere Vorgaben als die allgemeinen Ontologien definieren.
-6. T-Box und A-Box bleiben getrennt.
-7. SHACL-Shapes bleiben von OWL-T-Boxen getrennt.
-8. Fremdontologien werden nicht lokal neu definiert.
-9. Externe Imports und getestete Versionen werden dokumentiert.
-10. Jedes Ontologiemodul wird unabhaengig versioniert.
+# Dependency Rules
 
-## Zweck
+1. Core modules may use other Core modules and external ontologies.
+2. Domain modules may use Core modules.
+3. Core modules must not import Domain modules.
+4. Alignments remain optional.
+5. Profiles may define stricter requirements than the general ontologies.
+6. T-Boxes and A-Boxes remain separate.
+7. SHACL shapes remain separate from OWL T-Boxes.
+8. External ontologies are not redefined locally.
+9. External imports and tested versions are documented.
+10. Each ontology module is versioned independently.
 
-Die Regeln stellen sicher, dass das Ontologienetzwerk modular, nachvollziehbar und wartbar bleibt. Kernontologien sollen nicht von spaeteren Anwendungssichten oder fachlichen Spezialfaellen abhaengen.
+<a id="zweck"></a>
+
+## Purpose
+
+These rules ensure that the ontology network remains modular, traceable, and maintainable. Core ontologies should not depend on later application views or specialized domain cases.
 
 ## Imports
 
-Externe Imports werden nur dokumentiert, wenn sie aus bereitgestellten Ontologien oder fachlich freigegebenen Entscheidungen belegbar sind. Versionen und getestete Staende werden in `network/imports.lock.yaml` gepflegt.
+External imports are documented only when they can be substantiated from supplied ontologies or approved domain decisions. Versions and tested releases are maintained in `network/imports.lock.yaml`.
 
-Die derzeit integrierte CX-VSO enthaelt keine `owl:imports`. Referenzierte externe Namespaces werden deshalb als `referenced-not-imported` dokumentiert.
+The currently integrated CX-VSO contains no `owl:imports`. Referenced external namespaces are therefore documented as `referenced-not-imported`.

@@ -1,21 +1,18 @@
-# Abhaengigkeiten der Core-Ontologien
+<a id="ontologienetzwerk"></a>
 
-Dieser Bereich dokumentiert die externen Ontologien und Namespaces, die von den
-bereitgestellten Construct-X Core-Modulen verwendet werden.
+# Core Dependency Registry
 
-Die Datei `imports.lock.yaml` haelt die belegbaren Abhaengigkeiten des
-Core-only-Repositorys fest. Lokale Beziehungen zwischen Core-Modulen und
-Shape-Sets stehen verbindlich in den jeweiligen `module.yaml`-Dateien.
+The [dependency registry](imports.lock.yaml) records external namespaces,
+reference vocabularies and validation components used by this distribution.
+Its `used_by` entries point only to included Core modules, datasets or the
+VSO/ISOProps validation profile.
 
-## Grundsaetze
+Each module's `module.yaml` is authoritative for that module's dependencies,
+versions, shape sets and registered artifacts. Referencing an external IRI
+does not automatically import or redistribute the external ontology.
 
-- Externe Begriffe werden ueberwiegend referenziert und nicht vollstaendig
-  importiert.
-- Die Shape-Graphen von Person, Organization und Document importieren den
-  lokalen versionierten Identifier-Shape-Vertrag.
-- Referenzvokabulare werden getrennt von den Ontologie-T-Boxen gepflegt.
-- Domain-Ontologien, anwendungsspezifische Profile und optionale Alignments
-  gehoeren nicht zum Lieferumfang dieses Repositorys.
-
-Eine zusammengefuehrte `construction-x.ttl` wird derzeit nicht erzeugt. Jedes
-Core-Modul bleibt eigenstaendig versionierbar und auslieferbar.
+For example, Status refers to Agent and VSO and validates against the Status
+vocabularies, VSO Core shapes and the ISOProps profile. The manual
+[Status validator](../scripts/validate_status.py) loads those dependencies
+locally. The [bundle exporter](../scripts/status_bundle.py) packages them for
+validation outside this repository.

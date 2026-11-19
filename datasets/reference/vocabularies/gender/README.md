@@ -1,24 +1,28 @@
 # Construct-X Gender
 
-Dieses Referenzvokabular stellt vier abgestimmte Startwerte für die optionale Property `conx-person:gender` bereit.
+This reference vocabulary provides four agreed initial values for the optional property `conx-person:gender`.
 
-## Öffentliche IRIs
+<a id="öffentliche-iris"></a>
+
+## Public IRIs
 
 ```text
-Vokabular-IRI: https://www.construct-x.org/vocab/gender
-Versions-IRI:  https://www.construct-x.org/vocab/gender/0.1.0
-Namespace:     https://www.construct-x.org/vocab/gender#
-Prefix:        gender
+Vocabulary IRI: https://www.construct-x.org/vocab/gender
+Version IRI:    https://www.construct-x.org/vocab/gender/0.1.0
+Namespace:      https://www.construct-x.org/vocab/gender#
+Prefix:         gender
 ```
 
-## Werte
+<a id="werte"></a>
 
-| IRI-Suffix | Deutsch | Englisch |
+## Values
+
+| IRI suffix | German | English |
 | --- | --- | --- |
 | `man` | Mann | Man |
 | `woman` | Frau | Woman |
 | `nonBinaryOrDiverse` | Nicht-binär oder divers | Non-binary or gender-diverse |
 | `notDisclosed` | Keine Angabe | Not disclosed |
 
-`nonBinaryOrDiverse` ist ein erweiterbarer Startbegriff. Spätere Versionen können präzisere Konzepte darunter einordnen. `notDisclosed` ist keine Genderidentität, sondern eine ausdrückliche Entscheidung zur Nichtoffenlegung.
+`nonBinaryOrDiverse` is an extensible initial concept. Later versions may introduce more specific concepts beneath it. `notDisclosed` is an explicit decision not to disclose, rather than a gender identity.
 

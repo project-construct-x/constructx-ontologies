@@ -1,11 +1,11 @@
 # Construct-X Participation Roles
 
-Kontrolliertes Referenzvokabular fuer allgemeine Rollen von Agenten in
+Controlled reference vocabulary for general roles of agents in
 `conx-part:Participation`.
 
 ## Version 0.1.0
 
-Enthaltene Werte:
+Included values:
 
 - `part-role:ClientRole`
 - `part-role:ContractorRole`
@@ -13,10 +13,10 @@ Enthaltene Werte:
 - `part-role:ArchitectRole`
 - `part-role:EngineerRole`
 
-Jeder Wert ist zugleich `conx-part:Role` und `skos:Concept`. Architect und
-Engineer bezeichnen eine Funktion im jeweiligen Kontext und klassifizieren
-den Agenten nicht als Beruf oder Organisationstyp.
+Each value is both a `conx-part:Role` and a `skos:Concept`. Architect and
+Engineer describe a function in the respective context; they do not classify
+the agent by profession or organization type.
 
-Fachspezifische Rollen werden waehrend der Entwicklung des zustaendigen
-Fachmoduls hergeleitet und in getrennten SKOS Concept Schemes gepflegt. Das
-minimale Vokabular ist keine universelle oder abgeschlossene Rollenliste.
+Domain-specific roles are derived during development of the responsible
+domain module and maintained in separate SKOS Concept Schemes. This minimal
+vocabulary is neither a universal nor a closed list of roles.

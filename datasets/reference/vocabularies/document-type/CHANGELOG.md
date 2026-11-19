@@ -2,4 +2,4 @@
 
 ## 0.1.0 - 2026-08-27
 
-- Initiales Construct-X-Referenzvokabular mit acht freigegebenen Dokumenttypen angelegt.
+- Created the initial Construct-X reference vocabulary with eight approved document types.

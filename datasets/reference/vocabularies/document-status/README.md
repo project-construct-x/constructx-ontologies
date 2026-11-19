@@ -1,10 +1,10 @@
 # Construct-X Document Statuses
 
-Kontrolliertes Referenzvokabular fuer Werte von `conx-doc:documentStatus`.
+Controlled reference vocabulary for values of `conx-doc:documentStatus`.
 
 ## Version 0.1.0
 
-Enthaltene Dokumentstatus:
+Included document statuses:
 
 - `document-status:draft`
 - `document-status:issued`
@@ -13,5 +13,5 @@ Enthaltene Dokumentstatus:
 - `document-status:expired`
 - `document-status:archived`
 
-Die Werte beschreiben dokumentbezogene Zustaende. Workflowzustaende und
-Bearbeitungsschritte sind nicht Bestandteil dieses Vokabulars.
+The values describe document-related states. Workflow states and processing
+steps are outside the scope of this vocabulary.

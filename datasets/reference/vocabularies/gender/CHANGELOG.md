@@ -2,7 +2,7 @@
 
 ## 0.1.0 - 2026-08-25
 
-- Erstveröffentlichung der vier abgestimmten Gender-Startkonzepte.
-- Erweiterungspunkt für präzisere nicht-binäre und genderdiverse Konzepte dokumentiert.
-- Nichtoffenlegung ausdrücklich von einer Genderidentität und einer fehlenden Aussage abgegrenzt.
+- Initial publication of the four agreed gender concepts.
+- Documented an extension point for more specific non-binary and gender-diverse concepts.
+- Explicitly distinguished non-disclosure from a gender identity and from an absent statement.
 
