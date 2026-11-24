@@ -1,9 +1,12 @@
 from pathlib import Path
+from shutil import copytree
 
+import pytest
 import yaml
 from rdflib import Graph, Literal, Namespace, RDF, URIRef
 from rdflib.namespace import OWL, SKOS
 
+from scripts.build import build_repository
 
 ROOT = Path(__file__).resolve().parents[1]
 DATASET_DIR = ROOT / "datasets/reference/administrative-territories/nuts-2"
@@ -27,6 +30,24 @@ def test_nuts2_dataset_is_versioned_and_pins_gaia_x_source() -> None:
     assert metadata["source"]["extraction_commit"] == (
         "57131b2cec747de8a08a4115bea198369778aef6"
     )
+
+
+def test_nuts2_release_ships_license_and_attribution(tmp_path: Path) -> None:
+    dataset = DATASET_DIR.relative_to(ROOT)
+    source = copytree(DATASET_DIR, tmp_path / dataset)
+    package = tmp_path / "dist" / dataset
+    manifest = build_repository(tmp_path)
+    included = manifest["datasets"][0]["included_files"]
+
+    for name in ("data/nuts-2-regions.ttl", "dataset.yaml", "README.md", "LICENSE-EPL-2.0.txt"):
+        delivered = package / name
+        assert delivered.relative_to(tmp_path).as_posix() in included
+        assert delivered.read_bytes() == (source / name).read_bytes()
+
+    (source / "LICENSE-EPL-2.0.txt").unlink()
+    with pytest.raises(FileNotFoundError, match="LICENSE-EPL-2[.]0[.]txt"):
+        build_repository(tmp_path)
+    assert not package.exists()
 
 
 def test_nuts2_vocabulary_contains_the_complete_gaia_x_release_set() -> None:

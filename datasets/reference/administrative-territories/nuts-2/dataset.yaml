@@ -40,3 +40,7 @@ artifacts:
   data: data/nuts-2-regions.ttl
   documentation: README.md
   changelog: CHANGELOG.md
+  release_files:
+    - README.md
+    - CHANGELOG.md
+    - LICENSE-EPL-2.0.txt

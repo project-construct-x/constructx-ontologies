@@ -51,3 +51,18 @@ uv run python scripts/import_gaia_x_nuts2.py
 
 Alternatively, a locally verified `region-codes.yaml` can be supplied
 through `--source`.
+
+## License and attribution
+
+The [Construct-X NUTS 2 vocabulary](data/nuts-2-regions.ttl) is distributed
+under the [Eclipse Public License 2.0](LICENSE-EPL-2.0.txt).
+The 271 region codes and names come from the `NUTS2Region` enumeration in
+Gaia-X Service Characteristics `v2.3.0`. Construct-X assigns each region an
+IRI, represents its code as a typed identifier and links it to its country.
+For example, Gaia-X supplies the code `DEA5` and the name “Arnsberg”.
+Construct-X links that region to the country resource `countries:DEU`.
+
+The [Gaia-X source file](https://gitlab.com/gaia-x/technical-committee/service-characteristics-working-group/service-characteristics/-/blob/57131b2cec747de8a08a4115bea198369778aef6/linkml/region-codes.yaml)
+and [upstream license](https://gitlab.com/gaia-x/technical-committee/service-characteristics-working-group/service-characteristics/-/blob/57131b2cec747de8a08a4115bea198369778aef6/LICENSE)
+are pinned to the commit used for this edition. The full license text is
+included with the vocabulary in the release package.

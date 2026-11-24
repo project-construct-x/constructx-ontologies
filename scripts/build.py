@@ -188,19 +188,20 @@ def build_repository(root: Path) -> dict[str, Any]:
             manifest["datasets"].append(dataset_entry)
             continue
 
+        release_files = artifacts.get("release_files", [])
+        for name in release_files:
+            path = Path(name)
+            if path.anchor or ".." in path.parts:
+                raise ValueError(f"{dataset_id}: expected a dataset-relative release path: {name}")
+            if not (dataset_dir / path).is_file():
+                raise FileNotFoundError(f"{dataset_id}: missing release file: {name}")
+
         target_dir = dist_dir / dataset_dir.relative_to(root)
-        target_dir.mkdir(parents=True, exist_ok=True)
-        target_metadata = target_dir / dataset_file.name
-        target_data = target_dir / data_artifact
-        target_data.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(dataset_file, target_metadata)
-        shutil.copy2(data_path, target_data)
-        dataset_entry["included_files"].extend(
-            [
-                target_metadata.relative_to(root).as_posix(),
-                target_data.relative_to(root).as_posix(),
-            ]
-        )
+        for name in [dataset_file.name, data_artifact, *release_files]:
+            target = target_dir / name
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(dataset_dir / name, target)
+            dataset_entry["included_files"].append(target.relative_to(root).as_posix())
         manifest["datasets"].append(dataset_entry)
 
     for profile_file in iter_profile_files(root):

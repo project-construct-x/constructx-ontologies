@@ -87,7 +87,8 @@ explains the optional OntoLens HTML generator and its separate installation.
 
 ## Licenses
 
-Code is licensed under Apache License 2.0; see [LICENSE](LICENSE).
-Ontologies, documentation and other non-code content are licensed under
-CC BY 4.0; see [LICENSE_non-code](LICENSE_non-code). Third-party source and
-license exceptions are recorded in local metadata and [NOTICE.md](NOTICE.md).
+Construct-X licenses its own code under [Apache-2.0](LICENSE) and its own
+ontologies, documentation and other non-code content under [CC BY 4.0](LICENSE_non-code).
+Third-party material is distributed under its applicable license. The
+[NUTS 2 reference dataset](datasets/reference/administrative-territories/nuts-2/README.md#license-and-attribution),
+for example, is distributed under EPL-2.0. See [NOTICE.md](NOTICE.md) for attribution.
