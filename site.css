@@ -1,0 +1,58 @@
+:root {
+  color-scheme: light;
+  --ink: #172e30;
+  --teal: #155c63;
+  --paper: #faf9f4;
+  --line: #bdc9c4;
+  --amber: #f6d5a4;
+  font-family: Inter, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+.wrap { width: min(68rem, 88%); margin-inline: auto; }
+a { color: var(--teal); text-underline-offset: .23em; }
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible { outline: 3px solid #ba632b; outline-offset: 4px; }
+.skip { position: absolute; top: .5rem; left: .5rem; padding: .6rem; background: white; transform: translateY(-180%); }
+.skip:focus { transform: none; }
+.masthead { border-bottom: 1px solid var(--line); }
+.bar, nav, .footer { display: flex; justify-content: space-between; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
+.bar { padding-block: 1.15rem; }
+nav, .footer { font-size: .9rem; }
+.brand { color: var(--ink); font-size: 1.4rem; font-weight: 750; letter-spacing: -.05em; text-decoration: none; }
+.intro { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 2.5rem; padding-block: clamp(2.75rem, 7vw, 6.5rem); }
+h1, h2, .postal { font-family: "STIX Two Text", Georgia, serif; font-weight: 400; }
+h1, h2, p, figure, dl, dd { margin: 0; }
+h1 { font-size: clamp(3.1rem, 6.5vw, 5.7rem); line-height: 1; letter-spacing: -.065em; }
+.intro-copy p, .pilot-copy > p:not(.status, .namespace) { font-size: 1.08rem; line-height: 1.6; max-width: 44ch; }
+.intro-copy a { display: inline-block; margin-top: .8rem; }
+.pilot { display: grid; grid-template-columns: 1.2fr 1fr; background: #e5eeea; }
+.pilot-copy, .example { padding: clamp(1.5rem, 4vw, 3.35rem); }
+.status, figcaption { font-size: .84rem; font-weight: 650; letter-spacing: .025em; }
+.status { color: var(--teal); }
+.pilot h2 { font-size: clamp(3rem, 5vw, 4.3rem); letter-spacing: -.055em; margin-block: .55rem .65rem; }
+.button { display: inline-flex; align-items: center; gap: .85rem; margin-block: 1.4rem 1.25rem; padding: .8rem 1.15rem; background: var(--teal); color: white; text-decoration: none; font-weight: 600; }
+.button:hover { background: #10454b; }
+.namespace { font-size: .82rem; line-height: 1.75; }
+.namespace code { overflow-wrap: anywhere; }
+.example { display: flex; flex-direction: column; justify-content: center; background: #103f44; color: #f9faf5; }
+.example figcaption, .example a { color: var(--amber); }
+.postal { margin-block: 1.4rem; font-size: clamp(1.85rem, 3.5vw, 3rem); line-height: 1.16; letter-spacing: -.035em; }
+.example dl { margin-bottom: 1.4rem; }
+.example dl > div { display: grid; grid-template-columns: 1fr 1.1fr; gap: .5rem; border-top: 1px solid #58797a; padding-block: .62rem; font-size: .92rem; }
+.example dt { color: #c1d7d5; }
+.files { padding-block: 2.4rem 2.8rem; }
+.files h2 { font-size: 2.1rem; letter-spacing: -.04em; }
+.files ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; padding: 0; margin: 1.15rem 0 0; list-style: none; }
+.files li { border-top: 1px solid var(--line); padding-top: .9rem; }
+.files li a { font-weight: 650; }
+.files li p { margin-top: .4rem; font-size: .94rem; line-height: 1.5; }
+.footer { padding-block: 1.3rem 2rem; border-top: 1px solid var(--line); }
+@media (max-width: 46rem) {
+  .intro, .pilot, .files ul { grid-template-columns: 1fr; }
+  .intro { gap: 1.1rem; }
+  .bar, nav { gap: .8rem; }
+  .files ul { gap: 1.1rem; }
+}

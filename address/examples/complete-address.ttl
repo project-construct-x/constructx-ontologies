@@ -1,0 +1,45 @@
+@prefix conx-addr: <https://w3id.org/constructx/address#> .
+@prefix ex: <https://example.org/id/> .
+
+ex:resource
+    conx-addr:hasLocationAssignment ex:assignment .
+
+ex:assignment
+    a conx-addr:LocationAssignment ;
+    conx-addr:hasAssignedAddress ex:address ;
+    conx-addr:hasLocationRole ex:delivery-role,
+                          ex:postal-role ;
+    conx-addr:hasGeoReference ex:gate .
+
+ex:address
+    a conx-addr:Address ;
+    conx-addr:streetName "Musterstraße"@de ;
+    conx-addr:additionalStreetName "Zufahrt West"@de ;
+    conx-addr:houseNumber "12a" ;
+    conx-addr:blockName "Block A"@de ;
+    conx-addr:buildingName "Logistikzentrum"@de ;
+    conx-addr:buildingPart "Halle 3"@de ;
+    conx-addr:floor "Erdgeschoss"@de ;
+    conx-addr:room "Warenannahme"@de ;
+    conx-addr:internalDeliveryPoint "Tor 4"@de ;
+    conx-addr:postOfficeBoxNumber "1234" ;
+    conx-addr:localityName "Bochum"@de ;
+    conx-addr:citySubdivisionName "Querenburg"@de ;
+    conx-addr:postalCode "44801" ;
+    conx-addr:plotIdentifier "Flurstück 4711" ;
+    conx-addr:hasCountry ex:germany ;
+    conx-addr:hasAdministrativeArea ex:north-rhine-westphalia .
+
+ex:delivery-role a conx-addr:LocationRole .
+ex:postal-role a conx-addr:LocationRole .
+
+ex:germany a conx-addr:Country .
+
+ex:north-rhine-westphalia
+    a conx-addr:AdministrativeArea ;
+    conx-addr:hasBroaderAdministrativeTerritory ex:germany .
+
+
+ex:gate-only a conx-addr:LocationAssignment ;
+    conx-addr:hasGeoReference ex:gate ;
+    conx-addr:hasLocationRole ex:delivery-role .

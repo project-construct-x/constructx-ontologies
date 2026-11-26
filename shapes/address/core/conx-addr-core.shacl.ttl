@@ -1,0 +1,315 @@
+# baseURI: https://w3id.org/constructx/shapes/address/core
+# prefix: conx-addr-sh
+
+@prefix conx-addr: <https://w3id.org/constructx/address#> .
+@prefix conx-addr-sh: <https://w3id.org/constructx/shapes/address/core#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <https://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://w3id.org/constructx/shapes/address/core>
+  a owl:Ontology ;
+  dcterms:conformsTo <https://www.w3.org/TR/shacl/> ;
+  dcterms:created "2026-08-18"^^xsd:date ;
+  dcterms:creator [
+      a schema:Person ;
+      schema:email <mailto:sven.zentgraf@rub.de> ;
+      schema:identifier <https://orcid.org/0000-0001-6058-7614> ;
+      schema:memberOf [
+          schema:identifier <https://www.inf.bi.ruhr-uni-bochum.de/iib/lehrstuhl/mitarbeiter/sven_zentgraf.html.en> ;
+          schema:name "Ruhr University Bochum" ;
+        ] ;
+      schema:name "Sven Zentgraf" ;
+    ] ;
+  dcterms:description "Validierungsregeln für die allgemeinen, anwendungsfallunabhängigen Verträge der Construct-X Adressontologie."@de ;
+  dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Address Ontology."@en ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2026-11-26"^^xsd:date ;
+  dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
+  dcterms:title "Construct-X Address Core Shapes"@en ;
+  dcterms:title "Construct-X Address Core Shapes"@de ;
+  owl:versionIRI <https://w3id.org/constructx/shapes/address/core/0.3.0> ;
+  owl:versionInfo "0.3.0" ;
+.
+
+## Reusable literal contract
+
+conx-addr-sh:StringOrLangStringShape
+  a sh:NodeShape ;
+  sh:or (
+      [ sh:datatype xsd:string ]
+      [ sh:datatype rdf:langString ]
+    ) ;
+.
+
+## Node shapes
+
+conx-addr-sh:ResourceWithLocationAssignmentShape
+  a sh:NodeShape ;
+  sh:name "Resource with location assignment"@en ;
+  sh:name "Ressource mit Standortzuordnung"@de ;
+  sh:targetSubjectsOf conx-addr:hasLocationAssignment ;
+  sh:property conx-addr-sh:HasLocationAssignmentPropertyShape ;
+.
+
+conx-addr-sh:LocationAssignmentShape
+  a sh:NodeShape ;
+  sh:class conx-addr:LocationAssignment ;
+  sh:name "Location assignment"@en ;
+  sh:name "Standortzuordnung"@de ;
+  sh:targetClass conx-addr:LocationAssignment ;
+  sh:targetObjectsOf conx-addr:hasLocationAssignment ;
+  sh:targetSubjectsOf conx-addr:hasAssignedAddress,
+                      conx-addr:hasGeoReference,
+                      conx-addr:hasLocationRole ;
+  sh:or (
+      [ sh:property [ sh:path conx-addr:hasAssignedAddress ; sh:minCount 1 ] ]
+      [ sh:property [ sh:path conx-addr:hasGeoReference ; sh:minCount 1 ] ]
+    ) ;
+  sh:message "Eine Standortzuordnung benötigt eine Adresse oder eine Geoposition oder beides."@de ;
+  sh:property conx-addr-sh:HasAssignedAddressPropertyShape,
+              conx-addr-sh:HasGeoReferencePropertyShape,
+              conx-addr-sh:HasLocationRolePropertyShape ;
+.
+
+conx-addr-sh:AddressShape
+  a sh:NodeShape ;
+  sh:class conx-addr:Address ;
+  sh:name "Address"@en ;
+  sh:name "Adresse"@de ;
+  sh:targetClass conx-addr:Address ;
+  sh:targetObjectsOf conx-addr:hasAssignedAddress ;
+  sh:targetSubjectsOf conx-addr:hasCountry,
+                      conx-addr:hasAdministrativeArea,
+                      conx-addr:streetName,
+                      conx-addr:additionalStreetName,
+                      conx-addr:houseNumber,
+                      conx-addr:blockName,
+                      conx-addr:buildingName,
+                      conx-addr:buildingPart,
+                      conx-addr:floor,
+                      conx-addr:room,
+                      conx-addr:internalDeliveryPoint,
+                      conx-addr:postOfficeBoxNumber,
+                      conx-addr:localityName,
+                      conx-addr:citySubdivisionName,
+                      conx-addr:postalCode,
+                      conx-addr:plotIdentifier ;
+  sh:property conx-addr-sh:HasCountryPropertyShape,
+              conx-addr-sh:HasAdministrativeAreaPropertyShape,
+              conx-addr-sh:StreetNamePropertyShape,
+              conx-addr-sh:AdditionalStreetNamePropertyShape,
+              conx-addr-sh:HouseNumberPropertyShape,
+              conx-addr-sh:BlockNamePropertyShape,
+              conx-addr-sh:BuildingNamePropertyShape,
+              conx-addr-sh:BuildingPartPropertyShape,
+              conx-addr-sh:FloorPropertyShape,
+              conx-addr-sh:RoomPropertyShape,
+              conx-addr-sh:InternalDeliveryPointPropertyShape,
+              conx-addr-sh:PostOfficeBoxNumberPropertyShape,
+              conx-addr-sh:LocalityNamePropertyShape,
+              conx-addr-sh:CitySubdivisionNamePropertyShape,
+              conx-addr-sh:PostalCodePropertyShape,
+              conx-addr-sh:PlotIdentifierPropertyShape ;
+.
+
+conx-addr-sh:LocationRoleShape
+  a sh:NodeShape ;
+  sh:class conx-addr:LocationRole ;
+  sh:nodeKind sh:IRI ;
+  sh:name "Address role reference"@en ;
+  sh:name "Adressrollenreferenz"@de ;
+  sh:targetClass conx-addr:LocationRole ;
+  sh:targetObjectsOf conx-addr:hasLocationRole ;
+.
+
+conx-addr-sh:CountryShape
+  a sh:NodeShape ;
+  sh:class conx-addr:Country ;
+  sh:nodeKind sh:IRI ;
+  sh:name "Country reference"@en ;
+  sh:name "Länderreferenz"@de ;
+  sh:targetClass conx-addr:Country ;
+  sh:targetObjectsOf conx-addr:hasCountry ;
+.
+
+conx-addr-sh:AdministrativeAreaShape
+  a sh:NodeShape ;
+  sh:class conx-addr:AdministrativeArea ;
+  sh:nodeKind sh:IRI ;
+  sh:name "Administrative area reference"@en ;
+  sh:name "Verwaltungseinheitsreferenz"@de ;
+  sh:targetClass conx-addr:AdministrativeArea ;
+  sh:targetObjectsOf conx-addr:hasAdministrativeArea ;
+  sh:targetSubjectsOf conx-addr:hasBroaderAdministrativeTerritory ;
+  sh:property conx-addr-sh:HasBroaderAdministrativeTerritoryPropertyShape ;
+.
+
+conx-addr-sh:AdministrativeTerritoryShape
+  a sh:NodeShape ;
+  sh:class conx-addr:AdministrativeTerritory ;
+  sh:nodeKind sh:IRI ;
+  sh:name "Administrative territory reference"@en ;
+  sh:name "Administrative Gebietsreferenz"@de ;
+  sh:targetClass conx-addr:AdministrativeTerritory ;
+  sh:targetObjectsOf conx-addr:hasBroaderAdministrativeTerritory ;
+.
+
+## Object-property shapes
+
+conx-addr-sh:HasLocationAssignmentPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasLocationAssignment ;
+  sh:class conx-addr:LocationAssignment ;
+  sh:message "Jeder Wert von hasLocationAssignment muss eine LocationAssignment sein."@de ;
+  sh:message "Every hasLocationAssignment value must be a LocationAssignment."@en ;
+.
+
+conx-addr-sh:HasAssignedAddressPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasAssignedAddress ;
+  sh:class conx-addr:Address ;
+  sh:maxCount 1 ;
+  sh:message "Eine LocationAssignment darf höchstens eine Adresse besitzen."@de ;
+  sh:message "A LocationAssignment may have at most one Address."@en ;
+.
+
+conx-addr-sh:HasLocationRolePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasLocationRole ;
+  sh:class conx-addr:LocationRole ;
+  sh:nodeKind sh:IRI ;
+  sh:minCount 1 ;
+  sh:message "Eine LocationAssignment muss mindestens eine referenzierbare LocationRole besitzen."@de ;
+  sh:message "A LocationAssignment must have at least one referenceable LocationRole."@en ;
+.
+
+conx-addr-sh:HasCountryPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasCountry ;
+  sh:class conx-addr:Country ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:message "Eine Address darf höchstens eine referenzierbare Country-Ressource besitzen."@de ;
+  sh:message "An Address may have at most one referenceable Country resource."@en ;
+.
+
+conx-addr-sh:HasAdministrativeAreaPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasAdministrativeArea ;
+  sh:class conx-addr:AdministrativeArea ;
+  sh:nodeKind sh:IRI ;
+  sh:message "Jeder Wert von hasAdministrativeArea muss eine referenzierbare AdministrativeArea sein."@de ;
+  sh:message "Every hasAdministrativeArea value must be a referenceable AdministrativeArea."@en ;
+.
+
+conx-addr-sh:HasBroaderAdministrativeTerritoryPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasBroaderAdministrativeTerritory ;
+  sh:class conx-addr:AdministrativeTerritory ;
+  sh:nodeKind sh:IRI ;
+  sh:maxCount 1 ;
+  sh:message "Eine AdministrativeArea darf höchstens ein direkt übergeordnetes AdministrativeTerritory besitzen."@de ;
+  sh:message "An AdministrativeArea may have at most one directly broader AdministrativeTerritory."@en ;
+.
+
+conx-addr-sh:HasGeoReferencePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:hasGeoReference ;
+  sh:maxCount 1 ;
+  sh:nodeKind sh:BlankNodeOrIRI ;
+  sh:message "Als geografische Referenz ist höchstens eine IRI oder ein Blank Node zulässig."@de ;
+  sh:message "A geographic reference may have at most one value, an IRI or a blank node."@en ;
+.
+
+## Address literal-property shapes
+
+conx-addr-sh:StreetNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:streetName ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:AdditionalStreetNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:additionalStreetName ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:HouseNumberPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:houseNumber ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+conx-addr-sh:BlockNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:blockName ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:BuildingNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:buildingName ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:BuildingPartPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:buildingPart ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:FloorPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:floor ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:RoomPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:room ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:InternalDeliveryPointPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:internalDeliveryPoint ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:PostOfficeBoxNumberPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:postOfficeBoxNumber ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+conx-addr-sh:LocalityNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:localityName ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:CitySubdivisionNamePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:citySubdivisionName ;
+  sh:node conx-addr-sh:StringOrLangStringShape ;
+.
+
+conx-addr-sh:PostalCodePropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:postalCode ;
+  sh:datatype xsd:string ;
+  sh:maxCount 1 ;
+.
+
+conx-addr-sh:PlotIdentifierPropertyShape
+  a sh:PropertyShape ;
+  sh:path conx-addr:plotIdentifier ;
+  sh:datatype xsd:string ;
+.

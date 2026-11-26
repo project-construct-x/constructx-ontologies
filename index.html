@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore the Construct-X Core ontologies and try the Address namespace pilot with documentation, RDF data and SHACL validation rules.">
+  <title>Construct-X Core Ontologies</title>
+  <link rel="stylesheet" href="site.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap bar">
+      <a class="brand" href="index.html" aria-label="Construct-X home">Construct-X</a>
+      <nav aria-label="Project links">
+        <a href="#address">Address pilot</a>
+        <a href="https://github.com/project-construct-x/constructx-ontologies">GitHub repository</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap" id="main">
+    <section class="intro" aria-labelledby="title">
+      <h1 id="title">Core ontologies</h1>
+      <div class="intro-copy">
+        <p>Shared terms for construction data, from the people and organizations on a project to the documents and addresses they use.</p>
+        <a href="https://github.com/project-construct-x/constructx-ontologies#core-modules">Browse all Core modules <span aria-hidden="true">↗</span></a>
+      </div>
+    </section>
+    <section id="address" class="pilot" aria-labelledby="pilot-title">
+      <div class="pilot-copy">
+        <p class="status">Namespace pilot · Draft 0.3.0</p>
+        <h2 id="pilot-title">Address</h2>
+        <p>A delivery and a postal address can point to the same building. A location assignment records the role each address plays and can also identify a specific gate or other geographic reference.</p>
+        <a class="button" href="address/index.html">Explore the Address pilot <span aria-hidden="true">→</span></a>
+        <p class="namespace">Proposed namespace<br><code>https://w3id.org/constructx/address#</code></p>
+      </div>
+      <figure class="example">
+        <figcaption>Inside the example dataset</figcaption>
+        <p class="postal">Musterstraße 12a<br>44801 Bochum</p>
+        <dl>
+          <div><dt>Delivery point</dt><dd>Tor 4</dd></div>
+          <div><dt>Location roles</dt><dd>Delivery and postal</dd></div>
+        </dl>
+        <a href="address/examples/complete-address.ttl">Read the example in Turtle <span aria-hidden="true">→</span></a>
+      </figure>
+    </section>
+    <section class="files" aria-labelledby="files-title">
+      <h2 id="files-title">Use the pilot data</h2>
+      <ul>
+        <li><a href="address/downloads/conx-addr.ttl" download>Address ontology <span aria-hidden="true">↓</span></a><p>Classes and properties in RDF Turtle.</p></li>
+        <li><a href="shapes/address/core/conx-addr-core.shacl.ttl" download>Core SHACL shapes <span aria-hidden="true">↓</span></a><p>Rules for checking address data against the pilot.</p></li>
+      </ul>
+    </section>
+  </main>
+  <footer class="wrap footer">
+    <p>Namespace contact · <a href="mailto:sven.zentgraf@rub.de">Sven Zentgraf</a></p>
+    <a href="https://github.com/project-construct-x/constructx-ontologies/blob/main/NOTICE.md">Licenses and attribution</a>
+  </footer>
+</body>
+</html>
