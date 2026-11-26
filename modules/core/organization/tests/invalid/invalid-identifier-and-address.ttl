@@ -21,8 +21,8 @@ ex:broken-identifier
 
 ex:postal-only-assignment
   a conx-addr:LocationAssignment ;
-  conx-addr:assignedAddress ex:postal-address ;
-  conx-addr:locationRole roles:PostalAddressRole ;
+  conx-addr:hasAssignedAddress ex:postal-address ;
+  conx-addr:hasLocationRole roles:PostalAddressRole ;
 .
 
 ex:postal-address a conx-addr:Address .

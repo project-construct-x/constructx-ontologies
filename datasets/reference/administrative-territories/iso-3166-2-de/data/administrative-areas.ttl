@@ -25,7 +25,7 @@ areas:DE-BB
             skos:notation "DE-BB"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-BE
@@ -42,7 +42,7 @@ areas:DE-BE
             skos:notation "DE-BE"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-BW
@@ -59,7 +59,7 @@ areas:DE-BW
             skos:notation "DE-BW"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-BY
@@ -76,7 +76,7 @@ areas:DE-BY
             skos:notation "DE-BY"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-HB
@@ -93,7 +93,7 @@ areas:DE-HB
             skos:notation "DE-HB"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-HE
@@ -110,7 +110,7 @@ areas:DE-HE
             skos:notation "DE-HE"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-HH
@@ -127,7 +127,7 @@ areas:DE-HH
             skos:notation "DE-HH"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-MV
@@ -144,7 +144,7 @@ areas:DE-MV
             skos:notation "DE-MV"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-NI
@@ -161,7 +161,7 @@ areas:DE-NI
             skos:notation "DE-NI"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-NW
@@ -178,7 +178,7 @@ areas:DE-NW
             skos:notation "DE-NW"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-RP
@@ -195,7 +195,7 @@ areas:DE-RP
             skos:notation "DE-RP"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-SH
@@ -212,7 +212,7 @@ areas:DE-SH
             skos:notation "DE-SH"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-SL
@@ -229,7 +229,7 @@ areas:DE-SL
             skos:notation "DE-SL"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-SN
@@ -246,7 +246,7 @@ areas:DE-SN
             skos:notation "DE-SN"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-ST
@@ -263,7 +263,7 @@ areas:DE-ST
             skos:notation "DE-ST"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 areas:DE-TH
@@ -280,7 +280,7 @@ areas:DE-TH
             skos:notation "DE-TH"^^id-scheme:iso-3166-2 ;
             adms:schemaAgency "International Organization for Standardization (ISO)" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de>
@@ -304,7 +304,7 @@ areas:DE-TH
         "Die 16 Länder der Bundesrepublik Deutschland mit ISO-3166-2-Kennung."@de ,
         "The 16 states of the Federal Republic of Germany with ISO 3166-2 codes."@en ;
     dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:modified "2026-08-18"^^xsd:date ;
+    dcterms:modified "2026-11-26"^^xsd:date ;
     dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
     dcterms:source
         <http://publications.europa.eu/resource/dataset/atu> ,
@@ -329,9 +329,9 @@ areas:DE-TH
         areas:DE-SN ,
         areas:DE-ST ,
         areas:DE-TH ;
-    schema:version "0.1.0" ;
-    owl:versionIRI <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.1.0> ;
-    owl:versionInfo "0.1.0" ;
+    schema:version "0.2.0" ;
+    owl:versionIRI <https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.2.0> ;
+    owl:versionInfo "0.2.0" ;
 .
 
 

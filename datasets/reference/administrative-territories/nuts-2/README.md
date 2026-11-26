@@ -10,16 +10,16 @@ regions and the `ZZ` extra-regio codes listed by Gaia-X.
 
 ```text
 Vocabulary IRI: https://www.construct-x.org/vocab/administrative-area/nuts-2
-Version IRI:    https://www.construct-x.org/vocab/administrative-area/nuts-2/0.1.0
+Version IRI:    https://www.construct-x.org/vocab/administrative-area/nuts-2/0.2.0
 Namespace:      https://www.construct-x.org/vocab/administrative-area/nuts-2#
 Prefix:         nuts
-Version:        0.1.0
+Version:        0.2.0
 Status:         draft
 ```
 
 Each region is both a `conx-addr:AdministrativeArea` and a `skos:Concept`.
 The code is stored as `skos:notation` with datatype `id-scheme:nuts-2`;
-`conx-addr:broaderAdministrativeTerritory` references the ISO 3166-1 country.
+`conx-addr:hasBroaderAdministrativeTerritory` references the ISO 3166-1 country.
 
 ```turtle
 nuts:DEA5
@@ -30,7 +30,7 @@ nuts:DEA5
         skos:notation "DEA5"^^id-scheme:nuts-2 ;
         adms:schemaAgency "Eurostat"
     ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU .
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU .
 ```
 
 <a id="quelle-und-reproduzierbarkeit"></a>

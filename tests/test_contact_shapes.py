@@ -70,10 +70,10 @@ def test_contact_shape_graph_has_consistent_version_metadata() -> None:
 
     assert (SHAPE_GRAPH_IRI, RDF.type, OWL.Ontology) in graph
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionIRI)) == [
-        URIRef("https://www.construct-x.org/shapes/contact/core/0.2.0")
+        URIRef("https://www.construct-x.org/shapes/contact/core/0.3.0")
     ]
     assert list(graph.objects(SHAPE_GRAPH_IRI, OWL.versionInfo)) == [
-        Literal("0.2.0")
+        Literal("0.3.0")
     ]
 
 
@@ -155,8 +155,8 @@ def test_invalid_contact_fixtures_report_expected_contracts(
 def test_postal_contact_requires_an_address_even_when_geolocation_exists() -> None:
     addr = Namespace("https://www.construct-x.org/ontology/address#")
     graph = load_data_with_references(VALID_DIR / "business-delivery-contact.ttl")
-    assignment, = graph.subjects(addr.assignedAddress, None)
-    graph.remove((assignment, addr.assignedAddress, None))
+    assignment, = graph.subjects(addr.hasAssignedAddress, None)
+    graph.remove((assignment, addr.hasAssignedAddress, None))
     position = URIRef("https://example.org/gate")
     graph.add((assignment, addr.hasGeoReference, position))
     conforms, _, report = validate(graph, shacl_graph=load_graph(SHAPES_FILE), ont_graph=load_ontology_graph())

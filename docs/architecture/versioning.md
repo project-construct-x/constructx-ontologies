@@ -26,7 +26,7 @@ independently:
 
 ```text
 Stable Core shape graph: https://www.construct-x.org/shapes/address/core
-Core shape version:      https://www.construct-x.org/shapes/address/core/0.2.0
+Core shape version:      https://www.construct-x.org/shapes/address/core/0.3.0
 Shape namespace:         https://www.construct-x.org/shapes/address/core#
 ```
 
@@ -34,7 +34,7 @@ Address Ontology example:
 
 ```text
 Ontology IRI: https://www.construct-x.org/ontology/address
-Version IRI:  https://www.construct-x.org/ontology/address/0.2.0
+Version IRI:  https://www.construct-x.org/ontology/address/0.3.0
 Namespace:    https://www.construct-x.org/ontology/address#
 ```
 

@@ -33,7 +33,7 @@ This analysis evaluates existing contact models as a basis for a Construct-X Con
 | [Schema.org ContactPoint](https://schema.org/ContactPoint) | Schema.org V30.0, accessed 2026-08-25 | Web interoperability and common terminology | Source for analysis and alignment, not copied directly |
 | [W3C vCard RDF](https://www.w3.org/TR/vcard-rdf/) | W3C Interest Group Note, 2014 | Traditional contact structure for people and organizations | Source for analysis and alignment |
 | [SEMIC Core Person Vocabulary](https://semiceu.github.io/Core-Person-Vocabulary/) | 2.1.2 | Supports Contact Point as a concept peripheral to Person | Source for defining boundaries |
-| [Construct-X Address Ontology](../../address/docs/03_concept-model.md) | 0.2.0 plus reference vocabularies | Existing address model | Postal addresses are referenced rather than copied |
+| [Construct-X Address Ontology](../../address/docs/03_concept-model.md) | 0.3.0 plus reference vocabularies | Existing address model | Postal addresses are referenced rather than copied |
 | [Construct-X Agent Ontology](../../agent/docs/10_agent-specification.md) | 0.1.0 | Common superclass for people and organizations | Entity holding contact information in the domain core |
 
 ## 4. UBL 2.5

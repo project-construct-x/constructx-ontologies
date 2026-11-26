@@ -1,5 +1,9 @@
 # Changelog
 
+## Core Shapes 0.3.0 - 2026-11-26
+
+- Postal contact methods validate `hasAssignedAddress` on the referenced assignment. The contact T-Box remains at 0.2.0.
+
 ## 0.2.0 - 2026-11-19
 
 - Postal methods now use `usesLocationAssignment`. The referenced assignment must contain exactly one typed `Address`.

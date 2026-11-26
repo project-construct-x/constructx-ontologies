@@ -92,8 +92,8 @@ def test_dataset_metadata_records_scope_source_and_dependencies() -> None:
     }
 
     assert areas["id"] == "iso-3166-2-de"
-    assert areas["version"] == "0.1.0"
-    assert areas["version_iri"] == f"{AREA_SCHEME}/0.1.0"
+    assert areas["version"] == "0.2.0"
+    assert areas["version_iri"] == f"{AREA_SCHEME}/0.2.0"
     assert areas["source"]["extraction_version"] == SOURCE_VERSION
     assert {dependency["id"] for dependency in areas["dependencies"]} == {
         "address",
@@ -174,7 +174,7 @@ def test_german_area_dataset_contains_only_the_16_states() -> None:
     assert areas == {AREAS[code] for code in EXPECTED_GERMAN_AREAS}
     assert (AREA_SCHEME, RDF.type, OWL.Ontology) in graph
     assert list(graph.objects(AREA_SCHEME, OWL.versionIRI)) == [
-        URIRef(f"{AREA_SCHEME}/0.1.0")
+        URIRef(f"{AREA_SCHEME}/0.2.0")
     ]
     assert set(graph.objects(AREA_SCHEME, SKOS.hasTopConcept)) == areas
 
@@ -184,7 +184,7 @@ def test_german_area_dataset_contains_only_the_16_states() -> None:
         assert (area, SKOS.inScheme, AREA_SCHEME) in graph
         assert (
             area,
-            CONX_ADDR.broaderAdministrativeTerritory,
+            CONX_ADDR.hasBroaderAdministrativeTerritory,
             COUNTRIES.DEU,
         ) in graph
         assert any(label.language == "de" for label in graph.objects(area, SKOS.prefLabel))
@@ -220,7 +220,7 @@ def test_address_example_uses_references_but_keeps_city_as_literal() -> None:
     assert (EX.rub, CONX_ADDR.hasLocationAssignment, EX["rub-postal-address-assignment"]) in graph
     assert (
         EX["rub-postal-address-assignment"],
-        CONX_ADDR.locationRole,
+        CONX_ADDR.hasLocationRole,
         ROLES.PostalAddressRole,
     ) in graph
     assert (EX["rub-address"], CONX_ADDR.hasCountry, COUNTRIES.DEU) in graph

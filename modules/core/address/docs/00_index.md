@@ -1,8 +1,8 @@
 # Address Core Module Documentation
 
 **Status:** Confirmed through domain review and implemented  
-**Version:** 0.2.0  
-**As of:** 19 November 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** `core/address`
 
 ## 1. Overview
@@ -43,3 +43,5 @@ The example `../examples/rub-address.ttl` shows a complete address. Positive and
 
 - [Address Roles](10_address-roles.md)
 - [Administrative Territories](11_administrative-territories.md)
+
+Recipient instructions are defined by the optional Delivery Instructions (not included in the Core distribution) module, not by Address Core.

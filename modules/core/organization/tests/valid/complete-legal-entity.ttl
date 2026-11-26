@@ -30,8 +30,8 @@ ex:bau-gmbh-register-id
 
 ex:bau-gmbh-legal-address
   a conx-addr:LocationAssignment ;
-  conx-addr:assignedAddress ex:bau-gmbh-address ;
-  conx-addr:locationRole roles:LegalAddressRole,
+  conx-addr:hasAssignedAddress ex:bau-gmbh-address ;
+  conx-addr:hasLocationRole roles:LegalAddressRole,
                         roles:RegistrationAddressRole ;
 .
 

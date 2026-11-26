@@ -1,8 +1,8 @@
 # Scope and Competency Questions for the Address Module
 
 **Status:** Domain-reviewed and implemented  
-**Version:** 0.2.0  
-**As of:** 19 November 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** `core/address`
 
 ## 1. Purpose
@@ -40,8 +40,7 @@ Company -> LocationAssignment -> Address in Bochum
 
 ## 6. Modeling Decisions
 
-The address itself remains free of recipient-specific and usage-specific data. Roles and  
-recipient-specific notes are represented on `LocationAssignment`. The complete  
+The address itself remains free of recipient-specific and usage-specific data. Roles are represented on `LocationAssignment`. Recipient instructions are defined by the optional Delivery Instructions (not included in the Core distribution) module, not by Address Core. The complete  
 modeling decisions are documented in the conceptual model.
 
 ## 7. Acceptance Criteria

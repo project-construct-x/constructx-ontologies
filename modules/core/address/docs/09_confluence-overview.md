@@ -3,8 +3,8 @@
 # Construct-X Core-Modul Address
 
 **Status:** Freigegebene Confluence-Kurzfassung<br>
-**Version:** 0.2.0<br>
-**Stand:** 19. November 2026<br>
+**Version:** 0.3.0<br>
+**Stand:** 26. November 2026<br>
 **Geltungsbereich:** `core/address`
 
 Dieses Dokument ist die Veröffentlichungsquelle für die kompakte
@@ -30,6 +30,8 @@ So werden widersprüchliche Kopien derselben Straße, Hausnummer und Postleitzah
 ## 3. Umfang und Abgrenzung
 
 Das Modul umfasst strukturierte Adressbestandteile, Standortzuordnungen, Zuordnungsrollen, Länder, Verwaltungsgebiete und die Verknüpfung einer Standortzuordnung mit einer Geoposition. Es definiert keine Kontaktkanäle, kein Koordinatenreferenzsystem, keine Personen- oder Organisationsstammdaten und keine länderspezifischen Postregeln.
+
+„Abteilung“, „zu Händen“ und „c/o“ sind keine Eigenschaften eines Standorts. Für eine konkrete Zustellung kann das optionale Modul Delivery Instructions (nicht Teil der Core-Distribution) diese Angaben an der Zuordnung ergänzen. Eine reine Baustellenzufahrt benötigt sie nicht.
 
 <a id="4-model-overview"></a>
 
@@ -58,8 +60,9 @@ Address -> Country
 | `LocationRole` | Zweck der Zuordnung, etwa Lieferadresse |
 | `Country` | Land aus dem Referenzdatensatz |
 | `AdministrativeArea` | Verwaltungsgebiet innerhalb eines Landes |
-| `assignedAddress` | Verknüpft die Zuordnung mit der Adresse |
-| `locationRole` | Gibt einen oder mehrere Verwendungszwecke an |
+| `hasAssignedAddress` | Verknüpft die Zuordnung mit der Adresse |
+| `hasLocationRole` | Gibt einen oder mehrere Verwendungszwecke an |
+| `hasBroaderAdministrativeTerritory` | Verknüpft ein Verwaltungsgebiet mit dem direkt übergeordneten Gebiet, etwa Nordrhein-Westfalen mit Deutschland. |
 | `hasGeoReference` | Verweist auf die Geoposition der Zuordnung, etwa die Lage eines Baustellentors. Der Typ der Zielressource bleibt offen. |
 
 <a id="6-validation-in-plain-language"></a>
@@ -83,7 +86,7 @@ Das Modul besitzt keine verpflichtende Abhängigkeit von einem anderen Construct
 | Eigenschaft | Wert |
 | --- | --- |
 | Repository-Status | Entwurf; fachlich geprüft und umgesetzt |
-| Version | `0.2.0` |
+| Version | `0.3.0` |
 | Ontologie-IRI | `https://www.construct-x.org/ontology/address` |
 | Präfix | `conx-addr` |
 

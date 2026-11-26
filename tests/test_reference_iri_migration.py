@@ -53,9 +53,9 @@ def test_reference_vocabularies_use_hash_namespaces_for_terms() -> None:
     versioned_vocabularies = {
         "https://www.construct-x.org/vocab/address-role": "0.3.0",
         "https://www.construct-x.org/vocab/country": "0.1.0",
-        "https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de": "0.1.0",
+        "https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de": "0.2.0",
         "https://www.construct-x.org/vocab/identifier-scheme": "0.2.0",
-        "https://www.construct-x.org/vocab/administrative-area/nuts-2": "0.1.0",
+        "https://www.construct-x.org/vocab/administrative-area/nuts-2": "0.2.0",
     }
     for stable_iri, version in versioned_vocabularies.items():
         slash_iris = {iri for iri in iris if iri.startswith(f"{stable_iri}/")}

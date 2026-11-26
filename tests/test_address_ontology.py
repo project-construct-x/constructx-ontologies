@@ -20,11 +20,11 @@ EXPECTED_CLASSES = {
 
 EXPECTED_OBJECT_PROPERTIES = {
     CONX_ADDR.hasLocationAssignment,
-    CONX_ADDR.assignedAddress,
-    CONX_ADDR.locationRole,
+    CONX_ADDR.hasAssignedAddress,
+    CONX_ADDR.hasLocationRole,
     CONX_ADDR.hasCountry,
     CONX_ADDR.hasAdministrativeArea,
-    CONX_ADDR.broaderAdministrativeTerritory,
+    CONX_ADDR.hasBroaderAdministrativeTerritory,
     CONX_ADDR.hasGeoReference,
 }
 
@@ -43,9 +43,6 @@ EXPECTED_DATATYPE_PROPERTIES = {
     CONX_ADDR.citySubdivisionName,
     CONX_ADDR.postalCode,
     CONX_ADDR.plotIdentifier,
-    CONX_ADDR.departmentName,
-    CONX_ADDR.attentionOf,
-    CONX_ADDR.careOf,
 }
 
 LANGUAGE_AWARE_PROPERTIES = {
@@ -59,7 +56,6 @@ LANGUAGE_AWARE_PROPERTIES = {
     CONX_ADDR.internalDeliveryPoint,
     CONX_ADDR.localityName,
     CONX_ADDR.citySubdivisionName,
-    CONX_ADDR.departmentName,
 }
 
 STRING_ONLY_PROPERTIES = {
@@ -67,8 +63,6 @@ STRING_ONLY_PROPERTIES = {
     CONX_ADDR.postOfficeBoxNumber,
     CONX_ADDR.postalCode,
     CONX_ADDR.plotIdentifier,
-    CONX_ADDR.attentionOf,
-    CONX_ADDR.careOf,
 }
 
 
@@ -115,15 +109,15 @@ def test_location_assignment_requires_address_or_geolocation_and_one_or_more_rol
     restrictions = set(graph.objects(CONX_ADDR.LocationAssignment, RDFS.subClassOf))
 
     address_restrictions = {
-        node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.assignedAddress) in graph
+        node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.hasAssignedAddress) in graph
     }
     role_restrictions = {
-        node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.locationRole) in graph
+        node for node in restrictions if (node, OWL.onProperty, CONX_ADDR.hasLocationRole) in graph
     }
 
     union, = (head for node in restrictions for head in graph.objects(node, OWL.unionOf))
     assert {(graph.value(r, OWL.onProperty), graph.value(r, OWL.someValuesFrom)) for r in Collection(graph, union)} == {
-        (CONX_ADDR.assignedAddress, CONX_ADDR.Address), (CONX_ADDR.hasGeoReference, OWL.Thing),
+        (CONX_ADDR.hasAssignedAddress, CONX_ADDR.Address), (CONX_ADDR.hasGeoReference, OWL.Thing),
     }
     assert any(
         (node, OWL.maxCardinality, Literal(1, datatype=XSD.nonNegativeInteger)) in graph
@@ -142,10 +136,10 @@ def test_address_object_property_contracts_are_explicit() -> None:
 
     assert (CONX_ADDR.hasLocationAssignment, RDFS.range, CONX_ADDR.LocationAssignment) in graph
     assert not list(graph.objects(CONX_ADDR.hasLocationAssignment, RDFS.domain))
-    assert (CONX_ADDR.assignedAddress, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
-    assert (CONX_ADDR.assignedAddress, RDFS.range, CONX_ADDR.Address) in graph
-    assert (CONX_ADDR.locationRole, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
-    assert (CONX_ADDR.locationRole, RDFS.range, CONX_ADDR.LocationRole) in graph
+    assert (CONX_ADDR.hasAssignedAddress, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
+    assert (CONX_ADDR.hasAssignedAddress, RDFS.range, CONX_ADDR.Address) in graph
+    assert (CONX_ADDR.hasLocationRole, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
+    assert (CONX_ADDR.hasLocationRole, RDFS.range, CONX_ADDR.LocationRole) in graph
     assert (CONX_ADDR.hasGeoReference, RDFS.domain, CONX_ADDR.LocationAssignment) in graph
     assert (CONX_ADDR.hasGeoReference, RDFS.range, None) not in graph
     assert CONX_ADDR.GeoLocation not in graph.all_nodes()
@@ -157,12 +151,12 @@ def test_administrative_territory_hierarchy_is_modeled() -> None:
     assert (CONX_ADDR.Country, RDFS.subClassOf, CONX_ADDR.AdministrativeTerritory) in graph
     assert (CONX_ADDR.AdministrativeArea, RDFS.subClassOf, CONX_ADDR.AdministrativeTerritory) in graph
     assert (
-        CONX_ADDR.broaderAdministrativeTerritory,
+        CONX_ADDR.hasBroaderAdministrativeTerritory,
         RDFS.domain,
         CONX_ADDR.AdministrativeArea,
     ) in graph
     assert (
-        CONX_ADDR.broaderAdministrativeTerritory,
+        CONX_ADDR.hasBroaderAdministrativeTerritory,
         RDFS.range,
         CONX_ADDR.AdministrativeTerritory,
     ) in graph

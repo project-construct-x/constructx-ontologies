@@ -15,20 +15,20 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 shape_sets:
   core:
     graph_iri: https://www.construct-x.org/shapes/contact/core
-    version_iri: https://www.construct-x.org/shapes/contact/core/0.2.0
+    version_iri: https://www.construct-x.org/shapes/contact/core/0.3.0
     namespace: https://www.construct-x.org/shapes/contact/core#
-    version: 0.2.0
+    version: 0.3.0
     artifact: shapes/conx-contact-core.shacl.ttl
 
 dependencies:
   - id: address
     relation: referenced-not-imported
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.2.0
+    version_iri: https://www.construct-x.org/ontology/address/0.3.0
     namespace: https://www.construct-x.org/ontology/address#
     used_terms:
       - conx-addr:Address
-      - conx-addr:assignedAddress
+      - conx-addr:hasAssignedAddress
       - conx-addr:LocationAssignment
   - id: contact-channel
     relation: referenced-not-imported

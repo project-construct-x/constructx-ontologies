@@ -9,9 +9,9 @@ ex:rub
 
 ex:rub-postal-address-assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:rub-address ;
+    conx-addr:hasAssignedAddress ex:rub-address ;
     conx-addr:hasGeoReference ex:campus-position ;
-    conx-addr:locationRole roles:PostalAddressRole .
+    conx-addr:hasLocationRole roles:PostalAddressRole .
 
 ex:rub-address
     a conx-addr:Address ;

@@ -33,18 +33,18 @@ def test_address_module_yaml_can_be_read() -> None:
     assert metadata["id"] == "address"
     assert metadata["type"] == "core"
     assert metadata["status"] == "draft"
-    assert metadata["version"] == "0.2.0"
+    assert metadata["version"] == "0.3.0"
     assert metadata["ontology_iri"] == "https://www.construct-x.org/ontology/address"
-    assert metadata["version_iri"] == "https://www.construct-x.org/ontology/address/0.2.0"
+    assert metadata["version_iri"] == "https://www.construct-x.org/ontology/address/0.3.0"
     assert metadata["namespace"] == "https://www.construct-x.org/ontology/address#"
     assert metadata["preferred_namespace_prefix"] == "conx-addr"
     assert metadata["artifacts"]["ontology"] == "ontology/conx-addr.ttl"
     assert metadata["artifacts"]["core_shapes"] == "shapes/conx-addr-core.shacl.ttl"
     assert metadata["shape_sets"]["core"] == {
         "graph_iri": "https://www.construct-x.org/shapes/address/core",
-        "version_iri": "https://www.construct-x.org/shapes/address/core/0.2.0",
+        "version_iri": "https://www.construct-x.org/shapes/address/core/0.3.0",
         "namespace": "https://www.construct-x.org/shapes/address/core#",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "artifact": "shapes/conx-addr-core.shacl.ttl",
     }
     assert metadata["artifacts"]["html_documentation"] == "docs/address.html"

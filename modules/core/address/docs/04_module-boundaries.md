@@ -1,8 +1,8 @@
 # Module Boundaries of the Address Module
 
 **Status:** Confirmed through domain review and implemented\
-**Version:** 0.2.0\
-**As of:** 19 November 2026\
+**Version:** 0.3.0\
+**As of:** 26 November 2026\
 **Scope:** `core/address`
 
 ## 1. Purpose
@@ -16,6 +16,7 @@ This document explains which statements fall within the responsibility of the Ad
 | Street, postal code, locality, and country | `core/address` |
 | Email, telephone, and postal contact channel | `core/contact` |
 | Person and organization | `core/person`, `core/organization` |
+| Department, attention line and c/o for a particular delivery | Delivery Instructions (not included in the Core distribution) (optional) |
 | Coordinates and spatial reference systems | External geospatial/location model |
 | Domain-specific identifier structure | `core/identifier` |
 

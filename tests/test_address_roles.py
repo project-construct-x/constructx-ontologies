@@ -67,9 +67,9 @@ def test_address_role_dataset_metadata_is_explicit() -> None:
     assert metadata["dependencies"] == [
         {
             "id": "address",
-            "version": "0.2.0",
+            "version": "0.3.0",
             "ontology_iri": "https://www.construct-x.org/ontology/address",
-            "version_iri": "https://www.construct-x.org/ontology/address/0.2.0",
+            "version_iri": "https://www.construct-x.org/ontology/address/0.3.0",
         }
     ]
 

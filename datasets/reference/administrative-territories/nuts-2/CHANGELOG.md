@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0 - 2026-11-26
+
+- Link regions to their country using Address 0.3.0 `hasBroaderAdministrativeTerritory`. Region IRIs, identifiers and source coverage are unchanged.
+
 ## 0.1.0 - 2026-08-20
 
 - Added the 271 NUTS 2 values used by the Gaia-X `v2.3.0` `NUTS2Region` enumeration.

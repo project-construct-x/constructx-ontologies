@@ -7,8 +7,8 @@ The Address T-Box defines only the domain structure through `Country`, `Administ
 | Dataset | Version IRI | Coverage | Resource Type |
 | --- | --- | --- | --- |
 | [ISO 3166-1 Countries](../../../../datasets/reference/administrative-territories/iso-3166-1-countries/README.md) | `https://www.construct-x.org/vocab/country/0.1.0` | 249 current ISO 3166-1 entries | `conx-addr:Country` |
-| [German States according to ISO 3166-2](../../../../datasets/reference/administrative-territories/iso-3166-2-de/README.md) | `https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.1.0` | 16 German federal states | `conx-addr:AdministrativeArea` |
-| [NUTS 2 Regions](../../../../datasets/reference/administrative-territories/nuts-2/README.md) | `https://www.construct-x.org/vocab/administrative-area/nuts-2/0.1.0` | 271 Gaia-X-compatible NUTS 2 values | `conx-addr:AdministrativeArea` |
+| [German States according to ISO 3166-2](../../../../datasets/reference/administrative-territories/iso-3166-2-de/README.md) | `https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.2.0` | 16 German federal states | `conx-addr:AdministrativeArea` |
+| [NUTS 2 Regions](../../../../datasets/reference/administrative-territories/nuts-2/README.md) | `https://www.construct-x.org/vocab/administrative-area/nuts-2/0.2.0` | 271 Gaia-X-compatible NUTS 2 values | `conx-addr:AdministrativeArea` |
 
 Country resources use the ISO alpha-3 code in their IRI, for example `countries:DEU`. German federal states use their complete ISO 3166-2 code, for example `areas:DE-NW`. Identifiers are modeled according to the [network-wide ADMS identifier profile](../../../../docs/architecture/identifier-model.md).
 

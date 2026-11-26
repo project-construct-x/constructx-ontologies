@@ -1,8 +1,8 @@
 # Concept Diagram of the Address Module
 
 **Status:** Implemented Documentation View\
-**Version:** 0.2.0\
-**As of:** 19 November 2026\
+**Version:** 0.3.0\
+**As of:** 26 November 2026\
 **Scope:** `core/address`
 
 ## 1. Core Model
@@ -10,11 +10,12 @@
 ```mermaid
 flowchart LR
     Resource[Any resource] -->|hasLocationAssignment| Assignment[LocationAssignment]
-    Assignment -->|assignedAddress 0..1| Address[Address]
-    Assignment -->|locationRole 1..n| Role[LocationRole]
+    Assignment -->|hasAssignedAddress 0..1| Address[Address]
+    Assignment -->|hasLocationRole 1..n| Role[LocationRole]
     Assignment -->|hasGeoReference 0..1| Position[External geographic reference]
     Address -->|hasCountry| Country
     Address -->|hasAdministrativeArea| AdministrativeArea
+    AdministrativeArea -->|hasBroaderAdministrativeTerritory 0..1| AdministrativeTerritory
     Country -.->|subclass of| AdministrativeTerritory
     AdministrativeArea -.->|subclass of| AdministrativeTerritory
 ```

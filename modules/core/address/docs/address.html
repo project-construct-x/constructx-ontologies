@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Construct-X Address Ontology</title>
-  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Address Ontology", "termSet": "https://www.construct-x.org/ontology/address#", "url": "https://www.construct-x.org/ontology/address"}, "author": [{"@type": "Person", "affiliation": "Ruhr University Bochum", "email": "mailto:sven.zentgraf@rub.de", "identifier": "https://orcid.org/0000-0001-6058-7614", "name": "Sven Zentgraf"}], "citation": "Construct-X Address Ontology, version 0.2.0", "contributor": [{"@type": "Person", "name": "Construction-X Arbeitspaket 3.4"}], "dateCreated": "2026-08-13", "dateModified": "2026-11-19", "description": "Defines a structured, reusable model for addresses, contextual location assignments, and referenceable administrative territories in the Construction-X ontology network.", "encoding": [{"@type": "MediaObject", "contentUrl": "downloads/conx-addr.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "schema", "url": "https://schema.org/"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Address Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/address", "version": "0.2.0"}</script>
+  <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebPage", "about": {"@type": "DefinedTermSet", "name": "Construct-X Address Ontology", "termSet": "https://www.construct-x.org/ontology/address#", "url": "https://www.construct-x.org/ontology/address"}, "author": [{"@type": "Person", "affiliation": "Ruhr University Bochum", "email": "mailto:sven.zentgraf@rub.de", "identifier": "https://orcid.org/0000-0001-6058-7614", "name": "Sven Zentgraf"}], "citation": "Construct-X Address Ontology, version 0.3.0", "contributor": [{"@type": "Person", "name": "Construction-X Arbeitspaket 3.4"}], "dateCreated": "2026-08-13", "dateModified": "2026-11-26", "description": "Defines a structured, reusable model for addresses, contextual location assignments, and referenceable administrative territories in the Construction-X ontology network.", "encoding": [{"@type": "MediaObject", "contentUrl": "downloads/conx-addr.ttl", "encodingFormat": "text/turtle", "name": "Turtle source"}], "license": "https://creativecommons.org/licenses/by/4.0/", "mentions": [{"@type": "CreativeWork", "name": "dcterms", "url": "http://purl.org/dc/terms/"}, {"@type": "CreativeWork", "name": "schema", "url": "https://schema.org/"}, {"@type": "CreativeWork", "name": "vann", "url": "http://purl.org/vocab/vann/"}], "name": "Construct-X Address Ontology", "publisher": "https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1", "url": "https://www.construct-x.org/ontology/address", "version": "0.3.0"}</script>
 <script data-ontolens-asset="cytoscape.min.js">/*!
 Copyright (c) 2016-2024, The Cytoscape Consortium.
 
@@ -11004,8 +11004,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
       <div class="hero-copy">
         <h1>Construct-X Address Ontology</h1>
 <p class="subtitle">Defines a structured, reusable model for addresses, contextual location assignments, and referenceable administrative territories in the Construction-X ontology network.</p>        <div class="hero-meta">
-<span class="version">Version 0.2.0</span><span class="hero-stat">Prefix conx-addr</span>          <span class="hero-stat">6 classes</span>
-          <span class="hero-stat">24 properties</span>
+<span class="version">Version 0.3.0</span><span class="hero-stat">Prefix conx-addr</span>          <span class="hero-stat">6 classes</span>
+          <span class="hero-stat">21 properties</span>
         </div>
       </div>
     </div>
@@ -11067,16 +11067,16 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
     <a class="toc-heading" href="#object-properties">Object Properties</a>
     <ul>
         <li>
-    <a href="#assignedAddress">assigned address</a>
-        <span class="toc-alt">zugeordnete Adresse <span lang="de">[de]</span></span>
-  </li>
-        <li>
-    <a href="#broaderAdministrativeTerritory">broader administrative territory</a>
-        <span class="toc-alt">übergeordnetes administratives Gebiet <span lang="de">[de]</span></span>
-  </li>
-        <li>
     <a href="#hasAdministrativeArea">has administrative area</a>
         <span class="toc-alt">hat Verwaltungseinheit <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasAssignedAddress">has assigned address</a>
+        <span class="toc-alt">hat zugeordnete Adresse <span lang="de">[de]</span></span>
+  </li>
+        <li>
+    <a href="#hasBroaderAdministrativeTerritory">has broader administrative territory</a>
+        <span class="toc-alt">hat übergeordnetes administratives Gebiet <span lang="de">[de]</span></span>
   </li>
         <li>
     <a href="#hasCountry">has country</a>
@@ -11091,8 +11091,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         <span class="toc-alt">hat Standortzuordnung <span lang="de">[de]</span></span>
   </li>
         <li>
-    <a href="#locationRole">location role</a>
-        <span class="toc-alt">Standortrolle <span lang="de">[de]</span></span>
+    <a href="#hasLocationRole">has location role</a>
+        <span class="toc-alt">hat Standortrolle <span lang="de">[de]</span></span>
   </li>
     </ul>
   </li>
@@ -11103,10 +11103,6 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         <li>
     <a href="#additionalStreetName">additional street name</a>
         <span class="toc-alt">zusätzlicher Straßenname <span lang="de">[de]</span></span>
-  </li>
-        <li>
-    <a href="#attentionOf">attention of</a>
-        <span class="toc-alt">zu Händen <span lang="de">[de]</span></span>
   </li>
         <li>
     <a href="#blockName">block name</a>
@@ -11121,16 +11117,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         <span class="toc-alt">Gebäudeteil <span lang="de">[de]</span></span>
   </li>
         <li>
-    <a href="#careOf">care of</a>
-        <span class="toc-alt">bei <span lang="de">[de]</span></span>
-  </li>
-        <li>
     <a href="#citySubdivisionName">city subdivision name</a>
         <span class="toc-alt">Stadtteilname <span lang="de">[de]</span></span>
-  </li>
-        <li>
-    <a href="#departmentName">department name</a>
-        <span class="toc-alt">Abteilungsname <span lang="de">[de]</span></span>
   </li>
         <li>
     <a href="#floor">floor</a>
@@ -11199,11 +11187,11 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         </tr>
         <tr class="">
           <th>Version info</th>
-          <td>0.2.0</td>
+          <td>0.3.0</td>
         </tr>
         <tr class="">
           <th>Version IRI</th>
-          <td><a href="https://www.construct-x.org/ontology/address/0.2.0">https://www.construct-x.org/ontology/address/0.2.0</a></td>
+          <td><a href="https://www.construct-x.org/ontology/address/0.3.0">https://www.construct-x.org/ontology/address/0.3.0</a></td>
         </tr>
         <tr class="">
           <th>Creation date</th>
@@ -11211,7 +11199,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         </tr>
         <tr class="">
           <th>Modification Date</th>
-          <td>2026-11-19</td>
+          <td>2026-11-26</td>
         </tr>
         <tr class="">
           <th>License</th>
@@ -11219,7 +11207,7 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__140__;
         </tr>
         <tr class="">
           <th>Citation</th>
-          <td>Construct-X Address Ontology, version 0.2.0 <span class="lang">[en]</span><br>Construct-X Adressontologie, Version 0.2.0 <span class="lang">[de]</span></td>
+          <td>Construct-X Address Ontology, version 0.3.0 <span class="lang">[en]</span><br>Construct-X Adressontologie, Version 0.3.0 <span class="lang">[de]</span></td>
         </tr>
         <tr class="">
           <th>Publisher</th>
@@ -11386,7 +11374,7 @@ PERFORMANCE OF THIS SOFTWARE.
       <table>
         <tr><th>Classes</th><td>6</td></tr>
         <tr><th>Object properties</th><td>7</td></tr>
-        <tr><th>Datatype properties</th><td>17</td></tr>
+        <tr><th>Datatype properties</th><td>14</td></tr>
         <tr><th>Annotation properties</th><td>0</td></tr>
         <tr><th>RDF properties</th><td>0</td></tr>
       </table>
@@ -11483,7 +11471,7 @@ PERFORMANCE OF THIS SOFTWARE.
             <summary>1 restriction</summary>
             <ul class="restriction-list">
               <li>
-                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#broaderAdministrativeTerritory">broader administrative territory</a></span>
+                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#hasBroaderAdministrativeTerritory">has broader administrative territory</a></span>
                 <span class="restriction-condition"><span class="restriction-constraint">at most</span> <strong>1</strong></span>
               </li>
             </ul>
@@ -11576,14 +11564,10 @@ PERFORMANCE OF THIS SOFTWARE.
         <th>Restrictions</th>
         <td>
           <details class="restriction-details">
-            <summary>4 restrictions</summary>
+            <summary>3 restrictions</summary>
             <ul class="restriction-list">
               <li>
-                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#assignedAddress">assigned address</a></span>
-                <span class="restriction-condition"><span class="restriction-constraint">at most</span> <strong>1</strong></span>
-              </li>
-              <li>
-                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#careOf">care of</a></span>
+                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#hasAssignedAddress">has assigned address</a></span>
                 <span class="restriction-condition"><span class="restriction-constraint">at most</span> <strong>1</strong></span>
               </li>
               <li>
@@ -11591,7 +11575,7 @@ PERFORMANCE OF THIS SOFTWARE.
                 <span class="restriction-condition"><span class="restriction-constraint">at most</span> <strong>1</strong></span>
               </li>
               <li>
-                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#locationRole">location role</a></span>
+                <span class="restriction-property"><a href="https://www.construct-x.org/ontology/address#hasLocationRole">has location role</a></span>
                 <span class="restriction-condition"><span class="restriction-constraint">at least</span> <strong>1</strong></span>
               </li>
             </ul>
@@ -11628,74 +11612,6 @@ PERFORMANCE OF THIS SOFTWARE.
   </article>
 
         <h3 id="object-properties">Object Properties</h3>
-  <article id="assignedAddress" class="term">
-    <h3>assigned address</h3>
-    <div class="term-meta">
-      <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-addr:assignedAddress</span>
-    </div>
-    <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#assignedAddress">https://www.construct-x.org/ontology/address#assignedAddress</a></td></tr>
-        <tr>
-    <th>Labels</th>
-    <td><span class="term-label" lang="en">assigned address</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">zugeordnete Adresse</span> <span class="lang">[de]</span></td>
-  </tr>
-
-        <tr>
-    <th>Comments</th>
-    <td><span data-toc-text="Comments" lang="en">Specifies the address of a location assignment.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Bestimmt die Adresse einer Standortzuordnung.</span> <span class="lang">[de]</span></td>
-  </tr>
-
-<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
-      
-        <tr>
-    <th>Domain</th>
-    <td><a href="https://www.construct-x.org/ontology/address#LocationAssignment">Location assignment</a></td>
-  </tr>
-
-        <tr>
-    <th>Range</th>
-    <td><a href="https://www.construct-x.org/ontology/address#Address">Address</a></td>
-  </tr>
-
-      
-      
-    </table>
-  </article>
-  <article id="broaderAdministrativeTerritory" class="term">
-    <h3>broader administrative territory</h3>
-    <div class="term-meta">
-      <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-addr:broaderAdministrativeTerritory</span>
-    </div>
-    <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#broaderAdministrativeTerritory">https://www.construct-x.org/ontology/address#broaderAdministrativeTerritory</a></td></tr>
-        <tr>
-    <th>Labels</th>
-    <td><span class="term-label" lang="en">broader administrative territory</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">übergeordnetes administratives Gebiet</span> <span class="lang">[de]</span></td>
-  </tr>
-
-        <tr>
-    <th>Comments</th>
-    <td><span data-toc-text="Comments" lang="en">Links an administrative area to its directly broader administrative territory or country.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Verknüpft eine Verwaltungseinheit mit dem direkt übergeordneten administrativen Gebiet oder Land.</span> <span class="lang">[de]</span></td>
-  </tr>
-
-<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
-      
-        <tr>
-    <th>Domain</th>
-    <td><a href="https://www.construct-x.org/ontology/address#AdministrativeArea">Administrative area</a></td>
-  </tr>
-
-        <tr>
-    <th>Range</th>
-    <td><a href="https://www.construct-x.org/ontology/address#AdministrativeTerritory">Administrative territory</a></td>
-  </tr>
-
-      
-      
-    </table>
-  </article>
   <article id="hasAdministrativeArea" class="term">
     <h3>has administrative area</h3>
     <div class="term-meta">
@@ -11724,6 +11640,74 @@ PERFORMANCE OF THIS SOFTWARE.
         <tr>
     <th>Range</th>
     <td><a href="https://www.construct-x.org/ontology/address#AdministrativeArea">Administrative area</a></td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasAssignedAddress" class="term">
+    <h3>has assigned address</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill term-curie">conx-addr:hasAssignedAddress</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#hasAssignedAddress">https://www.construct-x.org/ontology/address#hasAssignedAddress</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td><span class="term-label" lang="en">has assigned address</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat zugeordnete Adresse</span> <span class="lang">[de]</span></td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td><span data-toc-text="Comments" lang="en">Specifies the address of a location assignment.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Bestimmt die Adresse einer Standortzuordnung.</span> <span class="lang">[de]</span></td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td><a href="https://www.construct-x.org/ontology/address#LocationAssignment">Location assignment</a></td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td><a href="https://www.construct-x.org/ontology/address#Address">Address</a></td>
+  </tr>
+
+      
+      
+    </table>
+  </article>
+  <article id="hasBroaderAdministrativeTerritory" class="term">
+    <h3>has broader administrative territory</h3>
+    <div class="term-meta">
+      <span class="pill">Object Property</span>
+      <span class="pill term-curie">conx-addr:hasBroaderAdministrativeTerritory</span>
+    </div>
+    <table>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#hasBroaderAdministrativeTerritory">https://www.construct-x.org/ontology/address#hasBroaderAdministrativeTerritory</a></td></tr>
+        <tr>
+    <th>Labels</th>
+    <td><span class="term-label" lang="en">has broader administrative territory</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat übergeordnetes administratives Gebiet</span> <span class="lang">[de]</span></td>
+  </tr>
+
+        <tr>
+    <th>Comments</th>
+    <td><span data-toc-text="Comments" lang="en">Links an administrative area to its directly broader administrative territory or country.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Verknüpft eine Verwaltungseinheit mit dem direkt übergeordneten administrativen Gebiet oder Land.</span> <span class="lang">[de]</span></td>
+  </tr>
+
+<tr><th>Types</th><td><span class="curie">owl:ObjectProperty</span></td></tr>      
+      
+        <tr>
+    <th>Domain</th>
+    <td><a href="https://www.construct-x.org/ontology/address#AdministrativeArea">Administrative area</a></td>
+  </tr>
+
+        <tr>
+    <th>Range</th>
+    <td><a href="https://www.construct-x.org/ontology/address#AdministrativeTerritory">Administrative territory</a></td>
   </tr>
 
       
@@ -11824,17 +11808,17 @@ PERFORMANCE OF THIS SOFTWARE.
       
     </table>
   </article>
-  <article id="locationRole" class="term">
-    <h3>location role</h3>
+  <article id="hasLocationRole" class="term">
+    <h3>has location role</h3>
     <div class="term-meta">
       <span class="pill">Object Property</span>
-      <span class="pill term-curie">conx-addr:locationRole</span>
+      <span class="pill term-curie">conx-addr:hasLocationRole</span>
     </div>
     <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#locationRole">https://www.construct-x.org/ontology/address#locationRole</a></td></tr>
+      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#hasLocationRole">https://www.construct-x.org/ontology/address#hasLocationRole</a></td></tr>
         <tr>
     <th>Labels</th>
-    <td><span class="term-label" lang="en">location role</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">Standortrolle</span> <span class="lang">[de]</span></td>
+    <td><span class="term-label" lang="en">has location role</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">hat Standortrolle</span> <span class="lang">[de]</span></td>
   </tr>
 
         <tr>
@@ -11888,40 +11872,6 @@ PERFORMANCE OF THIS SOFTWARE.
         <tr>
     <th>Range</th>
     <td>unionOf (xsd:string, rdf:langString)</td>
-  </tr>
-
-      
-      
-    </table>
-  </article>
-  <article id="attentionOf" class="term">
-    <h3>attention of</h3>
-    <div class="term-meta">
-      <span class="pill">Datatype Property</span>
-      <span class="pill term-curie">conx-addr:attentionOf</span>
-    </div>
-    <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#attentionOf">https://www.construct-x.org/ontology/address#attentionOf</a></td></tr>
-        <tr>
-    <th>Labels</th>
-    <td><span class="term-label" lang="en">attention of</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">zu Händen</span> <span class="lang">[de]</span></td>
-  </tr>
-
-        <tr>
-    <th>Comments</th>
-    <td><span data-toc-text="Comments" lang="en">Addressee instruction in the sense of &#39;for the attention of&#39;.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Empfängerhinweis im Sinn von „zu Händen“.</span> <span class="lang">[de]</span></td>
-  </tr>
-
-<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
-      
-        <tr>
-    <th>Domain</th>
-    <td><a href="https://www.construct-x.org/ontology/address#LocationAssignment">Location assignment</a></td>
-  </tr>
-
-        <tr>
-    <th>Range</th>
-    <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
   </tr>
 
       
@@ -12030,40 +11980,6 @@ PERFORMANCE OF THIS SOFTWARE.
       
     </table>
   </article>
-  <article id="careOf" class="term">
-    <h3>care of</h3>
-    <div class="term-meta">
-      <span class="pill">Datatype Property</span>
-      <span class="pill term-curie">conx-addr:careOf</span>
-    </div>
-    <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#careOf">https://www.construct-x.org/ontology/address#careOf</a></td></tr>
-        <tr>
-    <th>Labels</th>
-    <td><span class="term-label" lang="en">care of</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">bei</span> <span class="lang">[de]</span></td>
-  </tr>
-
-        <tr>
-    <th>Comments</th>
-    <td><span data-toc-text="Comments" lang="en">Addressee instruction in the sense of &#39;care of&#39;.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Empfängerhinweis im Sinn von „c/o“ oder „bei“.</span> <span class="lang">[de]</span></td>
-  </tr>
-
-<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
-      
-        <tr>
-    <th>Domain</th>
-    <td><a href="https://www.construct-x.org/ontology/address#LocationAssignment">Location assignment</a></td>
-  </tr>
-
-        <tr>
-    <th>Range</th>
-    <td><a href="http://www.w3.org/2001/XMLSchema#string">xsd:string</a></td>
-  </tr>
-
-      
-      
-    </table>
-  </article>
   <article id="citySubdivisionName" class="term">
     <h3>city subdivision name</h3>
     <div class="term-meta">
@@ -12087,40 +12003,6 @@ PERFORMANCE OF THIS SOFTWARE.
         <tr>
     <th>Domain</th>
     <td><a href="https://www.construct-x.org/ontology/address#Address">Address</a></td>
-  </tr>
-
-        <tr>
-    <th>Range</th>
-    <td>unionOf (xsd:string, rdf:langString)</td>
-  </tr>
-
-      
-      
-    </table>
-  </article>
-  <article id="departmentName" class="term">
-    <h3>department name</h3>
-    <div class="term-meta">
-      <span class="pill">Datatype Property</span>
-      <span class="pill term-curie">conx-addr:departmentName</span>
-    </div>
-    <table>
-      <tr><th>IRI</th><td><a class="term-iri" href="https://www.construct-x.org/ontology/address#departmentName">https://www.construct-x.org/ontology/address#departmentName</a></td></tr>
-        <tr>
-    <th>Labels</th>
-    <td><span class="term-label" lang="en">department name</span> <span class="lang">[en]</span><br><span class="term-label" lang="de">Abteilungsname</span> <span class="lang">[de]</span></td>
-  </tr>
-
-        <tr>
-    <th>Comments</th>
-    <td><span data-toc-text="Comments" lang="en">Department or organizational unit for which the address is used in this assignment.</span> <span class="lang">[en]</span><br><span data-toc-text="Comments" lang="de">Abteilung oder Organisationseinheit, für die die Adresse in dieser Zuordnung verwendet wird.</span> <span class="lang">[de]</span></td>
-  </tr>
-
-<tr><th>Types</th><td><span class="curie">owl:DatatypeProperty</span></td></tr>      
-      
-        <tr>
-    <th>Domain</th>
-    <td><a href="https://www.construct-x.org/ontology/address#LocationAssignment">Location assignment</a></td>
   </tr>
 
         <tr>
@@ -12450,7 +12332,7 @@ PERFORMANCE OF THIS SOFTWARE.
     <div class="wrap">Generated by OntoLens.</div>
   </footer>
   <script>
-    window.ontolensVisualization = {"counts": {"edges": 13, "nodes": 10}, "elements": {"edges": [{"data": {"edgeKind": "subClassOf", "id": "subClassOf:https://www.construct-x.org/ontology/address#AdministrativeArea-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeTerritory", "label": "", "source": "https://www.construct-x.org/ontology/address#AdministrativeArea", "target": "https://www.construct-x.org/ontology/address#AdministrativeTerritory"}}, {"data": {"edgeKind": "subClassOf", "id": "subClassOf:https://www.construct-x.org/ontology/address#Country-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeTerritory", "label": "", "source": "https://www.construct-x.org/ontology/address#Country", "target": "https://www.construct-x.org/ontology/address#AdministrativeTerritory"}}, {"data": {"edgeKind": "object-property", "href": "#assignedAddress", "id": "assigned address:https://www.construct-x.org/ontology/address#LocationAssignment-\u003ehttps://www.construct-x.org/ontology/address#Address", "label": "assigned address", "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "https://www.construct-x.org/ontology/address#Address"}}, {"data": {"edgeKind": "object-property", "href": "#broaderAdministrativeTerritory", "id": "broader administrative territory:https://www.construct-x.org/ontology/address#AdministrativeArea-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeTerritory", "label": "broader administrative territory", "source": "https://www.construct-x.org/ontology/address#AdministrativeArea", "target": "https://www.construct-x.org/ontology/address#AdministrativeTerritory"}}, {"data": {"edgeKind": "object-property", "href": "#hasAdministrativeArea", "id": "has administrative area:https://www.construct-x.org/ontology/address#Address-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeArea", "label": "has administrative area", "source": "https://www.construct-x.org/ontology/address#Address", "target": "https://www.construct-x.org/ontology/address#AdministrativeArea"}}, {"data": {"edgeKind": "object-property", "href": "#hasCountry", "id": "has country:https://www.construct-x.org/ontology/address#Address-\u003ehttps://www.construct-x.org/ontology/address#Country", "label": "has country", "source": "https://www.construct-x.org/ontology/address#Address", "target": "https://www.construct-x.org/ontology/address#Country"}}, {"data": {"edgeKind": "object-property", "href": "#hasGeoReference", "id": "has geographic reference:https://www.construct-x.org/ontology/address#LocationAssignment-\u003emissing-range:https://www.construct-x.org/ontology/address#hasGeoReference", "label": "has geographic reference", "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "missing-range:https://www.construct-x.org/ontology/address#hasGeoReference"}}, {"data": {"edgeKind": "object-property", "href": "#hasLocationAssignment", "id": "has location assignment:missing-domain:https://www.construct-x.org/ontology/address#hasLocationAssignment-\u003ehttps://www.construct-x.org/ontology/address#LocationAssignment", "label": "has location assignment", "source": "missing-domain:https://www.construct-x.org/ontology/address#hasLocationAssignment", "target": "https://www.construct-x.org/ontology/address#LocationAssignment"}}, {"data": {"edgeKind": "object-property", "href": "#locationRole", "id": "location role:https://www.construct-x.org/ontology/address#LocationAssignment-\u003ehttps://www.construct-x.org/ontology/address#LocationRole", "label": "location role", "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "https://www.construct-x.org/ontology/address#LocationRole"}}, {"data": {"edgeKind": "datatype-property", "id": "10 datatype properties:https://www.construct-x.org/ontology/address#Address-\u003eliteral:unionOf (xsd:string, rdf:langString)", "label": "10 datatype properties", "properties": [{"curie": "conx-addr:additionalStreetName", "href": "#additionalStreetName", "title": "additional street name"}, {"curie": "conx-addr:blockName", "href": "#blockName", "title": "block name"}, {"curie": "conx-addr:buildingName", "href": "#buildingName", "title": "building name"}, {"curie": "conx-addr:buildingPart", "href": "#buildingPart", "title": "building part"}, {"curie": "conx-addr:citySubdivisionName", "href": "#citySubdivisionName", "title": "city subdivision name"}, {"curie": "conx-addr:floor", "href": "#floor", "title": "floor"}, {"curie": "conx-addr:internalDeliveryPoint", "href": "#internalDeliveryPoint", "title": "internal delivery point"}, {"curie": "conx-addr:localityName", "href": "#localityName", "title": "locality name"}, {"curie": "conx-addr:room", "href": "#room", "title": "room"}, {"curie": "conx-addr:streetName", "href": "#streetName", "title": "street name"}], "source": "https://www.construct-x.org/ontology/address#Address", "target": "literal:unionOf (xsd:string, rdf:langString)"}}, {"data": {"edgeKind": "datatype-property", "id": "2 datatype properties:https://www.construct-x.org/ontology/address#LocationAssignment-\u003ehttp://www.w3.org/2001/XMLSchema#string", "label": "2 datatype properties", "properties": [{"curie": "conx-addr:attentionOf", "href": "#attentionOf", "title": "attention of"}, {"curie": "conx-addr:careOf", "href": "#careOf", "title": "care of"}], "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "http://www.w3.org/2001/XMLSchema#string"}}, {"data": {"edgeKind": "datatype-property", "id": "1 datatype property:https://www.construct-x.org/ontology/address#LocationAssignment-\u003eliteral:unionOf (xsd:string, rdf:langString)", "label": "1 datatype property", "properties": [{"curie": "conx-addr:departmentName", "href": "#departmentName", "title": "department name"}], "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "literal:unionOf (xsd:string, rdf:langString)"}}, {"data": {"edgeKind": "datatype-property", "id": "4 datatype properties:https://www.construct-x.org/ontology/address#Address-\u003ehttp://www.w3.org/2001/XMLSchema#string", "label": "4 datatype properties", "properties": [{"curie": "conx-addr:houseNumber", "href": "#houseNumber", "title": "house number"}, {"curie": "conx-addr:plotIdentifier", "href": "#plotIdentifier", "title": "plot identifier"}, {"curie": "conx-addr:postOfficeBoxNumber", "href": "#postOfficeBoxNumber", "title": "post office box number"}, {"curie": "conx-addr:postalCode", "href": "#postalCode", "title": "postal code"}], "source": "https://www.construct-x.org/ontology/address#Address", "target": "http://www.w3.org/2001/XMLSchema#string"}}], "nodes": [{"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:Address", "href": "#Address", "id": "https://www.construct-x.org/ontology/address#Address", "kind": "class", "label": "Address", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:AdministrativeArea", "href": "#AdministrativeArea", "id": "https://www.construct-x.org/ontology/address#AdministrativeArea", "kind": "class", "label": "Administrative area", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:AdministrativeTerritory", "href": "#AdministrativeTerritory", "id": "https://www.construct-x.org/ontology/address#AdministrativeTerritory", "kind": "class", "label": "Administrative territory", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:Country", "href": "#Country", "id": "https://www.construct-x.org/ontology/address#Country", "kind": "class", "label": "Country", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:LocationAssignment", "href": "#LocationAssignment", "id": "https://www.construct-x.org/ontology/address#LocationAssignment", "kind": "class", "label": "Location assignment", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:LocationRole", "href": "#LocationRole", "id": "https://www.construct-x.org/ontology/address#LocationRole", "kind": "class", "label": "Location role", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasGeoReference", "id": "missing-range:https://www.construct-x.org/ontology/address#hasGeoReference", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasLocationAssignment", "id": "missing-domain:https://www.construct-x.org/ontology/address#hasLocationAssignment", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "unionOf (xsd:string, rdf:langString)", "href": null, "id": "literal:unionOf (xsd:string, rdf:langString)", "kind": "literal", "label": "unionOf (xsd:string, rdf:langString)", "ontology": ""}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:string", "href": null, "id": "http://www.w3.org/2001/XMLSchema#string", "kind": "literal", "label": "xsd:string", "ontology": ""}}]}, "ontologies": [{"border": "#0f4247", "color": "#155c63", "label": "conx-addr", "uri": "https://www.construct-x.org/ontology/address#"}]};
+    window.ontolensVisualization = {"counts": {"edges": 11, "nodes": 10}, "elements": {"edges": [{"data": {"edgeKind": "subClassOf", "id": "subClassOf:https://www.construct-x.org/ontology/address#AdministrativeArea-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeTerritory", "label": "", "source": "https://www.construct-x.org/ontology/address#AdministrativeArea", "target": "https://www.construct-x.org/ontology/address#AdministrativeTerritory"}}, {"data": {"edgeKind": "subClassOf", "id": "subClassOf:https://www.construct-x.org/ontology/address#Country-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeTerritory", "label": "", "source": "https://www.construct-x.org/ontology/address#Country", "target": "https://www.construct-x.org/ontology/address#AdministrativeTerritory"}}, {"data": {"edgeKind": "object-property", "href": "#hasAdministrativeArea", "id": "has administrative area:https://www.construct-x.org/ontology/address#Address-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeArea", "label": "has administrative area", "source": "https://www.construct-x.org/ontology/address#Address", "target": "https://www.construct-x.org/ontology/address#AdministrativeArea"}}, {"data": {"edgeKind": "object-property", "href": "#hasAssignedAddress", "id": "has assigned address:https://www.construct-x.org/ontology/address#LocationAssignment-\u003ehttps://www.construct-x.org/ontology/address#Address", "label": "has assigned address", "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "https://www.construct-x.org/ontology/address#Address"}}, {"data": {"edgeKind": "object-property", "href": "#hasBroaderAdministrativeTerritory", "id": "has broader administrative territory:https://www.construct-x.org/ontology/address#AdministrativeArea-\u003ehttps://www.construct-x.org/ontology/address#AdministrativeTerritory", "label": "has broader administrative territory", "source": "https://www.construct-x.org/ontology/address#AdministrativeArea", "target": "https://www.construct-x.org/ontology/address#AdministrativeTerritory"}}, {"data": {"edgeKind": "object-property", "href": "#hasCountry", "id": "has country:https://www.construct-x.org/ontology/address#Address-\u003ehttps://www.construct-x.org/ontology/address#Country", "label": "has country", "source": "https://www.construct-x.org/ontology/address#Address", "target": "https://www.construct-x.org/ontology/address#Country"}}, {"data": {"edgeKind": "object-property", "href": "#hasGeoReference", "id": "has geographic reference:https://www.construct-x.org/ontology/address#LocationAssignment-\u003emissing-range:https://www.construct-x.org/ontology/address#hasGeoReference", "label": "has geographic reference", "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "missing-range:https://www.construct-x.org/ontology/address#hasGeoReference"}}, {"data": {"edgeKind": "object-property", "href": "#hasLocationAssignment", "id": "has location assignment:missing-domain:https://www.construct-x.org/ontology/address#hasLocationAssignment-\u003ehttps://www.construct-x.org/ontology/address#LocationAssignment", "label": "has location assignment", "source": "missing-domain:https://www.construct-x.org/ontology/address#hasLocationAssignment", "target": "https://www.construct-x.org/ontology/address#LocationAssignment"}}, {"data": {"edgeKind": "object-property", "href": "#hasLocationRole", "id": "has location role:https://www.construct-x.org/ontology/address#LocationAssignment-\u003ehttps://www.construct-x.org/ontology/address#LocationRole", "label": "has location role", "source": "https://www.construct-x.org/ontology/address#LocationAssignment", "target": "https://www.construct-x.org/ontology/address#LocationRole"}}, {"data": {"edgeKind": "datatype-property", "id": "10 datatype properties:https://www.construct-x.org/ontology/address#Address-\u003eliteral:unionOf (xsd:string, rdf:langString)", "label": "10 datatype properties", "properties": [{"curie": "conx-addr:additionalStreetName", "href": "#additionalStreetName", "title": "additional street name"}, {"curie": "conx-addr:blockName", "href": "#blockName", "title": "block name"}, {"curie": "conx-addr:buildingName", "href": "#buildingName", "title": "building name"}, {"curie": "conx-addr:buildingPart", "href": "#buildingPart", "title": "building part"}, {"curie": "conx-addr:citySubdivisionName", "href": "#citySubdivisionName", "title": "city subdivision name"}, {"curie": "conx-addr:floor", "href": "#floor", "title": "floor"}, {"curie": "conx-addr:internalDeliveryPoint", "href": "#internalDeliveryPoint", "title": "internal delivery point"}, {"curie": "conx-addr:localityName", "href": "#localityName", "title": "locality name"}, {"curie": "conx-addr:room", "href": "#room", "title": "room"}, {"curie": "conx-addr:streetName", "href": "#streetName", "title": "street name"}], "source": "https://www.construct-x.org/ontology/address#Address", "target": "literal:unionOf (xsd:string, rdf:langString)"}}, {"data": {"edgeKind": "datatype-property", "id": "4 datatype properties:https://www.construct-x.org/ontology/address#Address-\u003ehttp://www.w3.org/2001/XMLSchema#string", "label": "4 datatype properties", "properties": [{"curie": "conx-addr:houseNumber", "href": "#houseNumber", "title": "house number"}, {"curie": "conx-addr:plotIdentifier", "href": "#plotIdentifier", "title": "plot identifier"}, {"curie": "conx-addr:postOfficeBoxNumber", "href": "#postOfficeBoxNumber", "title": "post office box number"}, {"curie": "conx-addr:postalCode", "href": "#postalCode", "title": "postal code"}], "source": "https://www.construct-x.org/ontology/address#Address", "target": "http://www.w3.org/2001/XMLSchema#string"}}], "nodes": [{"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:Address", "href": "#Address", "id": "https://www.construct-x.org/ontology/address#Address", "kind": "class", "label": "Address", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:AdministrativeArea", "href": "#AdministrativeArea", "id": "https://www.construct-x.org/ontology/address#AdministrativeArea", "kind": "class", "label": "Administrative area", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:AdministrativeTerritory", "href": "#AdministrativeTerritory", "id": "https://www.construct-x.org/ontology/address#AdministrativeTerritory", "kind": "class", "label": "Administrative territory", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:Country", "href": "#Country", "id": "https://www.construct-x.org/ontology/address#Country", "kind": "class", "label": "Country", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:LocationAssignment", "href": "#LocationAssignment", "id": "https://www.construct-x.org/ontology/address#LocationAssignment", "kind": "class", "label": "Location assignment", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "conx-addr:LocationRole", "href": "#LocationRole", "id": "https://www.construct-x.org/ontology/address#LocationRole", "kind": "class", "label": "Location role", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasGeoReference", "id": "missing-range:https://www.construct-x.org/ontology/address#hasGeoReference", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#0f4247", "color": "#155c63", "curie": "", "href": "#hasLocationAssignment", "id": "missing-domain:https://www.construct-x.org/ontology/address#hasLocationAssignment", "kind": "missing-endpoint", "label": "", "ontology": "https://www.construct-x.org/ontology/address#"}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "unionOf (xsd:string, rdf:langString)", "href": null, "id": "literal:unionOf (xsd:string, rdf:langString)", "kind": "literal", "label": "unionOf (xsd:string, rdf:langString)", "ontology": ""}}, {"data": {"border": "#155c63", "color": "#ffffff", "curie": "xsd:string", "href": null, "id": "http://www.w3.org/2001/XMLSchema#string", "kind": "literal", "label": "xsd:string", "ontology": ""}}]}, "ontologies": [{"border": "#0f4247", "color": "#155c63", "label": "conx-addr", "uri": "https://www.construct-x.org/ontology/address#"}]};
     (function () {
       const fallback = document.getElementById("visualization-fallback");
       const container = document.getElementById("ontology-graph");

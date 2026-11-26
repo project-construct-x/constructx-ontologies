@@ -143,9 +143,9 @@ def test_contact_module_metadata_registers_core_shapes_and_dependencies() -> Non
     assert metadata["artifacts"]["strict_shapes"] is None
     assert metadata["shape_sets"]["core"] == {
         "graph_iri": "https://www.construct-x.org/shapes/contact/core",
-        "version_iri": "https://www.construct-x.org/shapes/contact/core/0.2.0",
+        "version_iri": "https://www.construct-x.org/shapes/contact/core/0.3.0",
         "namespace": "https://www.construct-x.org/shapes/contact/core#",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "artifact": "shapes/conx-contact-core.shacl.ttl",
     }
 

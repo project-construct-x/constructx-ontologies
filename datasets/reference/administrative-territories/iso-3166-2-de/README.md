@@ -2,7 +2,7 @@
 
 This A-Box dataset provides only the 16 states of the Federal Republic of
 Germany as `conx-addr:AdministrativeArea` resources. Each state references
-`countries:DEU` through `conx-addr:broaderAdministrativeTerritory`.
+`countries:DEU` through `conx-addr:hasBroaderAdministrativeTerritory`.
 
 <a id="kennung-und-version"></a>
 
@@ -10,10 +10,10 @@ Germany as `conx-addr:AdministrativeArea` resources. Each state references
 
 ```text
 Vocabulary IRI: https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de
-Version IRI:    https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.1.0
+Version IRI:    https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de/0.2.0
 Namespace:      https://www.construct-x.org/vocab/administrative-area/iso-3166-2-de#
 Prefix:         areas
-Version:        0.1.0
+Version:        0.2.0
 Status:         draft
 ```
 

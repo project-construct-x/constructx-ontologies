@@ -38,7 +38,7 @@ dependencies:
   - id: address
     relation: referenced-not-imported
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.2.0
+    version_iri: https://www.construct-x.org/ontology/address/0.3.0
     namespace: https://www.construct-x.org/ontology/address#
     used_terms:
       - conx-addr:Country

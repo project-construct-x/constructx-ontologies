@@ -24,14 +24,13 @@ OWL_CARDINALITIES = {
         (CONX_ADDR.postalCode, OWL.maxCardinality, 1),
     },
     CONX_ADDR.LocationAssignment: {
-        (CONX_ADDR.assignedAddress, OWL.maxCardinality, 1),
+        (CONX_ADDR.hasAssignedAddress, OWL.maxCardinality, 1),
         (CONX_ADDR.hasGeoReference, OWL.maxCardinality, 1),
-        (CONX_ADDR.locationRole, OWL.minCardinality, 1),
-        (CONX_ADDR.careOf, OWL.maxCardinality, 1),
+        (CONX_ADDR.hasLocationRole, OWL.minCardinality, 1),
     },
     CONX_ADDR.AdministrativeArea: {
         (
-            CONX_ADDR.broaderAdministrativeTerritory,
+            CONX_ADDR.hasBroaderAdministrativeTerritory,
             OWL.maxCardinality,
             1,
         ),
@@ -39,17 +38,16 @@ OWL_CARDINALITIES = {
 }
 
 SHACL_CARDINALITIES = {
-    CONX_ADDR_SH.AssignedAddressPropertyShape: {
+    CONX_ADDR_SH.HasAssignedAddressPropertyShape: {
         (SH.maxCount, 1),
     },
     CONX_ADDR_SH.HasGeoReferencePropertyShape: {(SH.maxCount, 1)},
-    CONX_ADDR_SH.LocationRolePropertyShape: {(SH.minCount, 1)},
+    CONX_ADDR_SH.HasLocationRolePropertyShape: {(SH.minCount, 1)},
     CONX_ADDR_SH.HasCountryPropertyShape: {(SH.maxCount, 1)},
     CONX_ADDR_SH.HouseNumberPropertyShape: {(SH.maxCount, 1)},
     CONX_ADDR_SH.PostOfficeBoxNumberPropertyShape: {(SH.maxCount, 1)},
     CONX_ADDR_SH.PostalCodePropertyShape: {(SH.maxCount, 1)},
-    CONX_ADDR_SH.CareOfPropertyShape: {(SH.maxCount, 1)},
-    CONX_ADDR_SH.BroaderAdministrativeTerritoryPropertyShape: {
+    CONX_ADDR_SH.HasBroaderAdministrativeTerritoryPropertyShape: {
         (SH.maxCount, 1)
     },
 }
@@ -117,21 +115,20 @@ def test_complete_address_conforms_to_core_shapes() -> None:
     [
         (
             "assignment-missing-required-values.ttl",
-            {CONX_ADDR.locationRole},
+            {CONX_ADDR.hasLocationRole},
         ),
         (
             "invalid-core-values.ttl",
             {
-                CONX_ADDR.assignedAddress,
-                CONX_ADDR.locationRole,
-                CONX_ADDR.careOf,
+                CONX_ADDR.hasAssignedAddress,
+                CONX_ADDR.hasLocationRole,
                 CONX_ADDR.hasCountry,
                 CONX_ADDR.hasAdministrativeArea,
                 CONX_ADDR.hasGeoReference,
                 CONX_ADDR.streetName,
                 CONX_ADDR.houseNumber,
                 CONX_ADDR.postalCode,
-                CONX_ADDR.broaderAdministrativeTerritory,
+                CONX_ADDR.hasBroaderAdministrativeTerritory,
             },
         ),
     ],
@@ -152,10 +149,10 @@ def test_location_assignment_payloads(case: str) -> None:
     ex = Namespace("https://example.org/")
     data = Graph()
     data.add((ex.assignment, RDF.type, CONX_ADDR.LocationAssignment))
-    data.add((ex.assignment, CONX_ADDR.locationRole, ex.role))
+    data.add((ex.assignment, CONX_ADDR.hasLocationRole, ex.role))
     data.add((ex.role, RDF.type, CONX_ADDR.LocationRole))
     if case in {"address", "both"}:
-        data.add((ex.assignment, CONX_ADDR.assignedAddress, ex.address))
+        data.add((ex.assignment, CONX_ADDR.hasAssignedAddress, ex.address))
         data.add((ex.address, RDF.type, CONX_ADDR.Address))
     if case in {"geo", "both", "two_geo"}:
         data.add((ex.assignment, CONX_ADDR.hasGeoReference, ex.point))

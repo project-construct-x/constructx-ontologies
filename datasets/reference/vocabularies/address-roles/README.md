@@ -64,8 +64,8 @@ Source: [OASIS UBL 2.5 CS01 Common Aggregate Components](https://docs.oasis-open
 
 ex:site-access-assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:gate-3-address ;
-    conx-addr:locationRole roles:ConstructionSiteAccessRole,
+    conx-addr:hasAssignedAddress ex:gate-3-address ;
+    conx-addr:hasLocationRole roles:ConstructionSiteAccessRole,
                           roles:DeliveryAddressRole .
 ```
 

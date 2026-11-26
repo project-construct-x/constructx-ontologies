@@ -6,13 +6,10 @@ ex:resource
 
 ex:assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:address ;
-    conx-addr:locationRole ex:delivery-role,
+    conx-addr:hasAssignedAddress ex:address ;
+    conx-addr:hasLocationRole ex:delivery-role,
                           ex:postal-role ;
-    conx-addr:hasGeoReference ex:gate ;
-    conx-addr:departmentName "Wareneingang"@de ;
-    conx-addr:attentionOf "Schichtleitung" ;
-    conx-addr:careOf "Example Construction GmbH" .
+    conx-addr:hasGeoReference ex:gate .
 
 ex:address
     a conx-addr:Address ;
@@ -40,9 +37,9 @@ ex:germany a conx-addr:Country .
 
 ex:north-rhine-westphalia
     a conx-addr:AdministrativeArea ;
-    conx-addr:broaderAdministrativeTerritory ex:germany .
+    conx-addr:hasBroaderAdministrativeTerritory ex:germany .
 
 
 ex:gate-only a conx-addr:LocationAssignment ;
     conx-addr:hasGeoReference ex:gate ;
-    conx-addr:locationRole ex:delivery-role .
+    conx-addr:hasLocationRole ex:delivery-role .

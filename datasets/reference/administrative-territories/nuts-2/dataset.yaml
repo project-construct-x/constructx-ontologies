@@ -2,10 +2,10 @@ id: nuts-2
 title: Construct-X NUTS 2 Regions
 type: reference-vocabulary
 status: draft
-version: 0.1.0
+version: 0.2.0
 
 vocabulary_iri: https://www.construct-x.org/vocab/administrative-area/nuts-2
-version_iri: https://www.construct-x.org/vocab/administrative-area/nuts-2/0.1.0
+version_iri: https://www.construct-x.org/vocab/administrative-area/nuts-2/0.2.0
 namespace: https://www.construct-x.org/vocab/administrative-area/nuts-2#
 preferred_namespace_prefix: nuts
 created: 2026-08-20
@@ -21,9 +21,9 @@ source:
 
 dependencies:
   - id: address
-    version: 0.2.0
+    version: 0.3.0
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.2.0
+    version_iri: https://www.construct-x.org/ontology/address/0.3.0
   - id: iso-3166-1-countries
     version: 0.1.0
     vocabulary_iri: https://www.construct-x.org/vocab/country

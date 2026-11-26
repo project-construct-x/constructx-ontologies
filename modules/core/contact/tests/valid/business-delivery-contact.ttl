@@ -39,8 +39,8 @@ ex:company-1-delivery-postal
 
 ex:company-1-delivery-address-assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:company-1-delivery-address ;
-    conx-addr:locationRole roles:DeliveryAddressRole .
+    conx-addr:hasAssignedAddress ex:company-1-delivery-address ;
+    conx-addr:hasLocationRole roles:DeliveryAddressRole .
 
 ex:company-1-delivery-address
     a conx-addr:Address .

@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 - 2026-11-26
+
+- Migrate predicates on existing triples: `assignedAddress` to `hasAssignedAddress`, `locationRole` to `hasLocationRole`, and `broaderAdministrativeTerritory` to `hasBroaderAdministrativeTerritory`. Keep subjects and objects unchanged. This also applies to administrative-area reference data.
+- Move `departmentName`, `attentionOf` and `careOf` to the optional `https://www.construct-x.org/ontology/delivery-instructions#` namespace; keep subjects, literal values and language tags. Only the extension defines and validates these delivery hints.
+- `hasGeoReference` remains open-range. Address-only, geographic-reference-only and combined assignments remain valid.
+
 ## 0.2.0 - 2026-11-19
 
 - Replaced `AddressAssignment`, `hasAddressAssignment`, `AddressRole` and `addressRole` with `LocationAssignment`, `hasLocationAssignment`, `LocationRole` and `locationRole`. Existing role individuals retain their IRIs.

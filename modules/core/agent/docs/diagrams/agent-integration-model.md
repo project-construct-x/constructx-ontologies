@@ -42,8 +42,8 @@ flowchart TB
         LocationAssignment["LocationAssignment"]
         Address["Address"]
         LocationRole["LocationRole"]
-        LocationAssignment -->|"assignedAddress"| Address
-        LocationAssignment -->|"locationRole"| LocationRole
+        LocationAssignment -->|"hasAssignedAddress"| Address
+        LocationAssignment -->|"hasLocationRole"| LocationRole
     end
 
     Person -->|"rdfs:subClassOf"| Agent

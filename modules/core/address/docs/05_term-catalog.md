@@ -1,8 +1,8 @@
 # Glossary of the Address Module
 
 **Status:** Technically approved and implemented  
-**Version:** 0.2.0  
-**As of:** 19 November 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** `core/address`
 
 ## 1. Purpose
@@ -33,11 +33,11 @@ The prefix used is `conx-addr`.
 | Property | Description |
 | --- | --- |
 | `hasLocationAssignment` | Links a resource to a contextual location assignment |
-| `assignedAddress` | Links an assignment to at most one address |
-| `locationRole` | States one or more business purposes of the assignment |
+| `hasAssignedAddress` | Links an assignment to at most one address |
+| `hasLocationRole` | States one or more business purposes of the assignment |
 | `hasCountry` | Links an address to its country |
 | `hasAdministrativeArea` | Links an address to a relevant administrative area |
-| `broaderAdministrativeTerritory` | Links an area to a broader area or country |
+| `hasBroaderAdministrativeTerritory` | Links an area to a broader area or country |
 | `hasGeoReference` | Optionally links an assignment to one geographic reference (IRI or blank node, type open) |
 
 ## 5. Address Attributes
@@ -58,17 +58,14 @@ The prefix used is `conx-addr`.
 | `citySubdivisionName` | City, locality, or municipal subdivision name |
 | `postalCode` | Postal code or comparable postal-area identifier |
 | `plotIdentifier` | External identifier of a plot or land parcel |
-| `departmentName` | Department or organizational unit using the assignment |
-| `attentionOf` | Addressee instruction meaning "for the attention of" |
-| `careOf` | Addressee instruction meaning "care of" |
 
 ## 6. Illustrative Example
 
 ```
 ex:company conx-addr:hasLocationAssignment ex:deliveryAddress .
 ex:deliveryAddress
-    conx-addr:assignedAddress ex:addressBochum ;
-    conx-addr:locationRole roles:DeliveryAddressRole .
+    conx-addr:hasAssignedAddress ex:addressBochum ;
+    conx-addr:hasLocationRole roles:DeliveryAddressRole .
 ```
 
 In this example, the company has a delivery location assignment that references the actual address in Bochum.

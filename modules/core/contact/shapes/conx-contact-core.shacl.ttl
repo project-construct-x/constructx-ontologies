@@ -33,12 +33,12 @@
   dcterms:description "Validierungsregeln fuer die allgemeinen, anwendungsfallunabhaengigen Vertraege der Construct-X Kontaktontologie."@de ;
   dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Contact Ontology."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-11-19"^^xsd:date ;
+  dcterms:modified "2026-11-26"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:title "Construct-X Contact Core Shapes"@de ;
   dcterms:title "Construct-X Contact Core Shapes"@en ;
-  owl:versionIRI <https://www.construct-x.org/shapes/contact/core/0.2.0> ;
-  owl:versionInfo "0.2.0" ;
+  owl:versionIRI <https://www.construct-x.org/shapes/contact/core/0.3.0> ;
+  owl:versionInfo "0.3.0" ;
 .
 
 ## Reusable literal contracts
@@ -376,7 +376,7 @@ conx-contact-sh:UsesLocationAssignmentPropertyShape
   sh:path conx-contact:usesLocationAssignment ;
   sh:class conx-addr:LocationAssignment ;
   sh:node [ sh:property [
-      sh:path conx-addr:assignedAddress ; sh:class conx-addr:Address ; sh:minCount 1 ; sh:maxCount 1
+      sh:path conx-addr:hasAssignedAddress ; sh:class conx-addr:Address ; sh:minCount 1 ; sh:maxCount 1
     ] ] ;
   sh:nodeKind sh:BlankNodeOrIRI ;
   sh:severity sh:Violation ;

@@ -2,10 +2,10 @@ id: address
 title: Construct-X Address Ontology
 type: core
 status: draft
-version: 0.2.0
+version: 0.3.0
 
 ontology_iri: https://www.construct-x.org/ontology/address
-version_iri: https://www.construct-x.org/ontology/address/0.2.0
+version_iri: https://www.construct-x.org/ontology/address/0.3.0
 namespace: https://www.construct-x.org/ontology/address#
 preferred_namespace_prefix: conx-addr
 created: 2026-08-13
@@ -15,9 +15,9 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 shape_sets:
   core:
     graph_iri: https://www.construct-x.org/shapes/address/core
-    version_iri: https://www.construct-x.org/shapes/address/core/0.2.0
+    version_iri: https://www.construct-x.org/shapes/address/core/0.3.0
     namespace: https://www.construct-x.org/shapes/address/core#
-    version: 0.2.0
+    version: 0.3.0
     artifact: shapes/conx-addr-core.shacl.ttl
 
 dependencies: []

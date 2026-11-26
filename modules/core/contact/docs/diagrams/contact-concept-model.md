@@ -1,6 +1,6 @@
 # Domain Concept Diagram for Contact
 
-**Status:** Domain model of T-Box and Core Shapes 0.2.0  
+**Status:** Domain model of T-Box 0.2.0 and Core Shapes 0.3.0  
 **As of:** 27 August 2026
 
 The diagrams show the implemented contact model from five perspectives: core model, private/business contacts, postal address, reference vocabularies, and source mappings.
@@ -94,8 +94,8 @@ flowchart LR
         Assignment["LocationAssignment: role and delivery instructions"]
         Address["Address: structured address"]
         Role["LocationRole: delivery / billing / residence / ..."]
-        Assignment -->|"assignedAddress"| Address
-        Assignment -->|"locationRole"| Role
+        Assignment -->|"hasAssignedAddress"| Address
+        Assignment -->|"hasLocationRole"| Role
     end
 
     Method -->|"usesLocationAssignment"| Assignment

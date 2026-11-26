@@ -5,8 +5,8 @@ This distribution includes the vocabularies and administrative datasets used
 or documented by the Core modules.
 
 - [Construct-X ISO 3166-1 Countries](reference/administrative-territories/iso-3166-1-countries/README.md) — 0.1.0
-- [Construct-X German States according to ISO 3166-2](reference/administrative-territories/iso-3166-2-de/README.md) — 0.1.0
-- [Construct-X NUTS 2 Regions](reference/administrative-territories/nuts-2/README.md) — 0.1.0
+- [Construct-X German States according to ISO 3166-2](reference/administrative-territories/iso-3166-2-de/README.md) — 0.2.0
+- [Construct-X NUTS 2 Regions](reference/administrative-territories/nuts-2/README.md) — 0.2.0
 - [Construct-X Address Roles](reference/vocabularies/address-roles/README.md) — 0.3.0
 - [Construct-X Contact Channels](reference/vocabularies/contact-channel/README.md) — 0.1.1
 - [Construct-X Contact Platforms](reference/vocabularies/contact-platform/README.md) — 0.1.0

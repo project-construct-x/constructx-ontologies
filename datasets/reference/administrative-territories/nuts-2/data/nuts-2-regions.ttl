@@ -25,7 +25,7 @@ nuts:AT11
             skos:notation "AT11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT12
@@ -42,7 +42,7 @@ nuts:AT12
             skos:notation "AT12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT13
@@ -59,7 +59,7 @@ nuts:AT13
             skos:notation "AT13"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT21
@@ -76,7 +76,7 @@ nuts:AT21
             skos:notation "AT21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT22
@@ -93,7 +93,7 @@ nuts:AT22
             skos:notation "AT22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT31
@@ -110,7 +110,7 @@ nuts:AT31
             skos:notation "AT31"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT32
@@ -127,7 +127,7 @@ nuts:AT32
             skos:notation "AT32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT33
@@ -144,7 +144,7 @@ nuts:AT33
             skos:notation "AT33"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:AT34
@@ -161,7 +161,7 @@ nuts:AT34
             skos:notation "AT34"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:ATZZ
@@ -178,7 +178,7 @@ nuts:ATZZ
             skos:notation "ATZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:AUT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:AUT ;
 .
 
 nuts:BE10
@@ -195,7 +195,7 @@ nuts:BE10
             skos:notation "BE10"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE21
@@ -212,7 +212,7 @@ nuts:BE21
             skos:notation "BE21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE22
@@ -229,7 +229,7 @@ nuts:BE22
             skos:notation "BE22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE23
@@ -246,7 +246,7 @@ nuts:BE23
             skos:notation "BE23"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE24
@@ -263,7 +263,7 @@ nuts:BE24
             skos:notation "BE24"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE25
@@ -280,7 +280,7 @@ nuts:BE25
             skos:notation "BE25"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE31
@@ -297,7 +297,7 @@ nuts:BE31
             skos:notation "BE31"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE32
@@ -314,7 +314,7 @@ nuts:BE32
             skos:notation "BE32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE33
@@ -331,7 +331,7 @@ nuts:BE33
             skos:notation "BE33"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE34
@@ -348,7 +348,7 @@ nuts:BE34
             skos:notation "BE34"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BE35
@@ -365,7 +365,7 @@ nuts:BE35
             skos:notation "BE35"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BEZZ
@@ -382,7 +382,7 @@ nuts:BEZZ
             skos:notation "BEZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BEL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BEL ;
 .
 
 nuts:BG31
@@ -399,7 +399,7 @@ nuts:BG31
             skos:notation "BG31"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:BG32
@@ -416,7 +416,7 @@ nuts:BG32
             skos:notation "BG32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:BG33
@@ -433,7 +433,7 @@ nuts:BG33
             skos:notation "BG33"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:BG34
@@ -450,7 +450,7 @@ nuts:BG34
             skos:notation "BG34"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:BG41
@@ -467,7 +467,7 @@ nuts:BG41
             skos:notation "BG41"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:BG42
@@ -484,7 +484,7 @@ nuts:BG42
             skos:notation "BG42"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:BGZZ
@@ -501,7 +501,7 @@ nuts:BGZZ
             skos:notation "BGZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:BGR ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:BGR ;
 .
 
 nuts:CY00
@@ -518,7 +518,7 @@ nuts:CY00
             skos:notation "CY00"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CYP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CYP ;
 .
 
 nuts:CYZZ
@@ -535,7 +535,7 @@ nuts:CYZZ
             skos:notation "CYZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CYP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CYP ;
 .
 
 nuts:CZ01
@@ -552,7 +552,7 @@ nuts:CZ01
             skos:notation "CZ01"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ02
@@ -569,7 +569,7 @@ nuts:CZ02
             skos:notation "CZ02"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ03
@@ -586,7 +586,7 @@ nuts:CZ03
             skos:notation "CZ03"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ04
@@ -603,7 +603,7 @@ nuts:CZ04
             skos:notation "CZ04"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ05
@@ -620,7 +620,7 @@ nuts:CZ05
             skos:notation "CZ05"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ06
@@ -637,7 +637,7 @@ nuts:CZ06
             skos:notation "CZ06"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ07
@@ -654,7 +654,7 @@ nuts:CZ07
             skos:notation "CZ07"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZ08
@@ -671,7 +671,7 @@ nuts:CZ08
             skos:notation "CZ08"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:CZZZ
@@ -688,7 +688,7 @@ nuts:CZZZ
             skos:notation "CZZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:CZE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:CZE ;
 .
 
 nuts:DE11
@@ -705,7 +705,7 @@ nuts:DE11
             skos:notation "DE11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE12
@@ -722,7 +722,7 @@ nuts:DE12
             skos:notation "DE12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE13
@@ -739,7 +739,7 @@ nuts:DE13
             skos:notation "DE13"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE14
@@ -756,7 +756,7 @@ nuts:DE14
             skos:notation "DE14"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE21
@@ -773,7 +773,7 @@ nuts:DE21
             skos:notation "DE21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE22
@@ -790,7 +790,7 @@ nuts:DE22
             skos:notation "DE22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE23
@@ -807,7 +807,7 @@ nuts:DE23
             skos:notation "DE23"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE24
@@ -824,7 +824,7 @@ nuts:DE24
             skos:notation "DE24"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE25
@@ -841,7 +841,7 @@ nuts:DE25
             skos:notation "DE25"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE26
@@ -858,7 +858,7 @@ nuts:DE26
             skos:notation "DE26"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE27
@@ -875,7 +875,7 @@ nuts:DE27
             skos:notation "DE27"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE30
@@ -892,7 +892,7 @@ nuts:DE30
             skos:notation "DE30"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE40
@@ -909,7 +909,7 @@ nuts:DE40
             skos:notation "DE40"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE50
@@ -926,7 +926,7 @@ nuts:DE50
             skos:notation "DE50"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE60
@@ -943,7 +943,7 @@ nuts:DE60
             skos:notation "DE60"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE71
@@ -960,7 +960,7 @@ nuts:DE71
             skos:notation "DE71"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE72
@@ -977,7 +977,7 @@ nuts:DE72
             skos:notation "DE72"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE73
@@ -994,7 +994,7 @@ nuts:DE73
             skos:notation "DE73"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE80
@@ -1011,7 +1011,7 @@ nuts:DE80
             skos:notation "DE80"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE91
@@ -1028,7 +1028,7 @@ nuts:DE91
             skos:notation "DE91"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE92
@@ -1045,7 +1045,7 @@ nuts:DE92
             skos:notation "DE92"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE93
@@ -1062,7 +1062,7 @@ nuts:DE93
             skos:notation "DE93"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DE94
@@ -1079,7 +1079,7 @@ nuts:DE94
             skos:notation "DE94"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEA1
@@ -1096,7 +1096,7 @@ nuts:DEA1
             skos:notation "DEA1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEA2
@@ -1113,7 +1113,7 @@ nuts:DEA2
             skos:notation "DEA2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEA3
@@ -1130,7 +1130,7 @@ nuts:DEA3
             skos:notation "DEA3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEA4
@@ -1147,7 +1147,7 @@ nuts:DEA4
             skos:notation "DEA4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEA5
@@ -1164,7 +1164,7 @@ nuts:DEA5
             skos:notation "DEA5"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEB1
@@ -1181,7 +1181,7 @@ nuts:DEB1
             skos:notation "DEB1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEB2
@@ -1198,7 +1198,7 @@ nuts:DEB2
             skos:notation "DEB2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEB3
@@ -1215,7 +1215,7 @@ nuts:DEB3
             skos:notation "DEB3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEC0
@@ -1232,7 +1232,7 @@ nuts:DEC0
             skos:notation "DEC0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DED2
@@ -1249,7 +1249,7 @@ nuts:DED2
             skos:notation "DED2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DED4
@@ -1266,7 +1266,7 @@ nuts:DED4
             skos:notation "DED4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DED5
@@ -1283,7 +1283,7 @@ nuts:DED5
             skos:notation "DED5"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEE0
@@ -1300,7 +1300,7 @@ nuts:DEE0
             skos:notation "DEE0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEF0
@@ -1317,7 +1317,7 @@ nuts:DEF0
             skos:notation "DEF0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEG0
@@ -1334,7 +1334,7 @@ nuts:DEG0
             skos:notation "DEG0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DEZZ
@@ -1351,7 +1351,7 @@ nuts:DEZZ
             skos:notation "DEZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DEU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DEU ;
 .
 
 nuts:DK01
@@ -1368,7 +1368,7 @@ nuts:DK01
             skos:notation "DK01"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DNK ;
 .
 
 nuts:DK02
@@ -1385,7 +1385,7 @@ nuts:DK02
             skos:notation "DK02"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DNK ;
 .
 
 nuts:DK03
@@ -1402,7 +1402,7 @@ nuts:DK03
             skos:notation "DK03"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DNK ;
 .
 
 nuts:DK04
@@ -1419,7 +1419,7 @@ nuts:DK04
             skos:notation "DK04"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DNK ;
 .
 
 nuts:DK05
@@ -1436,7 +1436,7 @@ nuts:DK05
             skos:notation "DK05"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DNK ;
 .
 
 nuts:DKZZ
@@ -1453,7 +1453,7 @@ nuts:DKZZ
             skos:notation "DKZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:DNK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:DNK ;
 .
 
 nuts:EE00
@@ -1470,7 +1470,7 @@ nuts:EE00
             skos:notation "EE00"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:EST ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:EST ;
 .
 
 nuts:EEZZ
@@ -1487,7 +1487,7 @@ nuts:EEZZ
             skos:notation "EEZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:EST ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:EST ;
 .
 
 nuts:EL30
@@ -1504,7 +1504,7 @@ nuts:EL30
             skos:notation "EL30"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL41
@@ -1521,7 +1521,7 @@ nuts:EL41
             skos:notation "EL41"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL42
@@ -1538,7 +1538,7 @@ nuts:EL42
             skos:notation "EL42"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL43
@@ -1555,7 +1555,7 @@ nuts:EL43
             skos:notation "EL43"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL51
@@ -1572,7 +1572,7 @@ nuts:EL51
             skos:notation "EL51"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL52
@@ -1589,7 +1589,7 @@ nuts:EL52
             skos:notation "EL52"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL53
@@ -1606,7 +1606,7 @@ nuts:EL53
             skos:notation "EL53"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL54
@@ -1623,7 +1623,7 @@ nuts:EL54
             skos:notation "EL54"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL61
@@ -1640,7 +1640,7 @@ nuts:EL61
             skos:notation "EL61"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL62
@@ -1657,7 +1657,7 @@ nuts:EL62
             skos:notation "EL62"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL63
@@ -1674,7 +1674,7 @@ nuts:EL63
             skos:notation "EL63"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL64
@@ -1691,7 +1691,7 @@ nuts:EL64
             skos:notation "EL64"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:EL65
@@ -1708,7 +1708,7 @@ nuts:EL65
             skos:notation "EL65"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:ELZZ
@@ -1725,7 +1725,7 @@ nuts:ELZZ
             skos:notation "ELZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:GRC ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:GRC ;
 .
 
 nuts:ES11
@@ -1742,7 +1742,7 @@ nuts:ES11
             skos:notation "ES11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES12
@@ -1759,7 +1759,7 @@ nuts:ES12
             skos:notation "ES12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES13
@@ -1776,7 +1776,7 @@ nuts:ES13
             skos:notation "ES13"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES21
@@ -1793,7 +1793,7 @@ nuts:ES21
             skos:notation "ES21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES22
@@ -1810,7 +1810,7 @@ nuts:ES22
             skos:notation "ES22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES23
@@ -1827,7 +1827,7 @@ nuts:ES23
             skos:notation "ES23"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES24
@@ -1844,7 +1844,7 @@ nuts:ES24
             skos:notation "ES24"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES30
@@ -1861,7 +1861,7 @@ nuts:ES30
             skos:notation "ES30"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES41
@@ -1878,7 +1878,7 @@ nuts:ES41
             skos:notation "ES41"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES42
@@ -1895,7 +1895,7 @@ nuts:ES42
             skos:notation "ES42"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES43
@@ -1912,7 +1912,7 @@ nuts:ES43
             skos:notation "ES43"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES51
@@ -1929,7 +1929,7 @@ nuts:ES51
             skos:notation "ES51"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES52
@@ -1946,7 +1946,7 @@ nuts:ES52
             skos:notation "ES52"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES53
@@ -1963,7 +1963,7 @@ nuts:ES53
             skos:notation "ES53"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES61
@@ -1980,7 +1980,7 @@ nuts:ES61
             skos:notation "ES61"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES62
@@ -1997,7 +1997,7 @@ nuts:ES62
             skos:notation "ES62"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES63
@@ -2014,7 +2014,7 @@ nuts:ES63
             skos:notation "ES63"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES64
@@ -2031,7 +2031,7 @@ nuts:ES64
             skos:notation "ES64"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ES70
@@ -2048,7 +2048,7 @@ nuts:ES70
             skos:notation "ES70"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:ESZZ
@@ -2065,7 +2065,7 @@ nuts:ESZZ
             skos:notation "ESZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ESP ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ESP ;
 .
 
 nuts:FI19
@@ -2082,7 +2082,7 @@ nuts:FI19
             skos:notation "FI19"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FIN ;
 .
 
 nuts:FI1B
@@ -2099,7 +2099,7 @@ nuts:FI1B
             skos:notation "FI1B"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FIN ;
 .
 
 nuts:FI1C
@@ -2116,7 +2116,7 @@ nuts:FI1C
             skos:notation "FI1C"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FIN ;
 .
 
 nuts:FI1D
@@ -2133,7 +2133,7 @@ nuts:FI1D
             skos:notation "FI1D"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FIN ;
 .
 
 nuts:FI20
@@ -2150,7 +2150,7 @@ nuts:FI20
             skos:notation "FI20"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FIN ;
 .
 
 nuts:FIZZ
@@ -2167,7 +2167,7 @@ nuts:FIZZ
             skos:notation "FIZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FIN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FIN ;
 .
 
 nuts:FR10
@@ -2184,7 +2184,7 @@ nuts:FR10
             skos:notation "FR10"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRB0
@@ -2201,7 +2201,7 @@ nuts:FRB0
             skos:notation "FRB0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRC1
@@ -2218,7 +2218,7 @@ nuts:FRC1
             skos:notation "FRC1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRC2
@@ -2235,7 +2235,7 @@ nuts:FRC2
             skos:notation "FRC2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRD1
@@ -2252,7 +2252,7 @@ nuts:FRD1
             skos:notation "FRD1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRD2
@@ -2269,7 +2269,7 @@ nuts:FRD2
             skos:notation "FRD2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRE1
@@ -2286,7 +2286,7 @@ nuts:FRE1
             skos:notation "FRE1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRE2
@@ -2303,7 +2303,7 @@ nuts:FRE2
             skos:notation "FRE2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRF1
@@ -2320,7 +2320,7 @@ nuts:FRF1
             skos:notation "FRF1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRF2
@@ -2337,7 +2337,7 @@ nuts:FRF2
             skos:notation "FRF2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRF3
@@ -2354,7 +2354,7 @@ nuts:FRF3
             skos:notation "FRF3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRG0
@@ -2371,7 +2371,7 @@ nuts:FRG0
             skos:notation "FRG0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRH0
@@ -2388,7 +2388,7 @@ nuts:FRH0
             skos:notation "FRH0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRI1
@@ -2405,7 +2405,7 @@ nuts:FRI1
             skos:notation "FRI1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRI2
@@ -2422,7 +2422,7 @@ nuts:FRI2
             skos:notation "FRI2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRI3
@@ -2439,7 +2439,7 @@ nuts:FRI3
             skos:notation "FRI3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRJ1
@@ -2456,7 +2456,7 @@ nuts:FRJ1
             skos:notation "FRJ1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRJ2
@@ -2473,7 +2473,7 @@ nuts:FRJ2
             skos:notation "FRJ2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRK1
@@ -2490,7 +2490,7 @@ nuts:FRK1
             skos:notation "FRK1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRK2
@@ -2507,7 +2507,7 @@ nuts:FRK2
             skos:notation "FRK2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRL0
@@ -2524,7 +2524,7 @@ nuts:FRL0
             skos:notation "FRL0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRM0
@@ -2541,7 +2541,7 @@ nuts:FRM0
             skos:notation "FRM0"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRY1
@@ -2558,7 +2558,7 @@ nuts:FRY1
             skos:notation "FRY1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRY2
@@ -2575,7 +2575,7 @@ nuts:FRY2
             skos:notation "FRY2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRY3
@@ -2592,7 +2592,7 @@ nuts:FRY3
             skos:notation "FRY3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRY4
@@ -2609,7 +2609,7 @@ nuts:FRY4
             skos:notation "FRY4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRY5
@@ -2626,7 +2626,7 @@ nuts:FRY5
             skos:notation "FRY5"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:FRZZ
@@ -2643,7 +2643,7 @@ nuts:FRZZ
             skos:notation "FRZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:FRA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:FRA ;
 .
 
 nuts:HR02
@@ -2660,7 +2660,7 @@ nuts:HR02
             skos:notation "HR02"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HRV ;
 .
 
 nuts:HR03
@@ -2677,7 +2677,7 @@ nuts:HR03
             skos:notation "HR03"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HRV ;
 .
 
 nuts:HR05
@@ -2694,7 +2694,7 @@ nuts:HR05
             skos:notation "HR05"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HRV ;
 .
 
 nuts:HR06
@@ -2711,7 +2711,7 @@ nuts:HR06
             skos:notation "HR06"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HRV ;
 .
 
 nuts:HRZZ
@@ -2728,7 +2728,7 @@ nuts:HRZZ
             skos:notation "HRZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HRV ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HRV ;
 .
 
 nuts:HU11
@@ -2745,7 +2745,7 @@ nuts:HU11
             skos:notation "HU11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU12
@@ -2762,7 +2762,7 @@ nuts:HU12
             skos:notation "HU12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU21
@@ -2779,7 +2779,7 @@ nuts:HU21
             skos:notation "HU21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU22
@@ -2796,7 +2796,7 @@ nuts:HU22
             skos:notation "HU22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU23
@@ -2813,7 +2813,7 @@ nuts:HU23
             skos:notation "HU23"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU31
@@ -2830,7 +2830,7 @@ nuts:HU31
             skos:notation "HU31"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU32
@@ -2847,7 +2847,7 @@ nuts:HU32
             skos:notation "HU32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HU33
@@ -2864,7 +2864,7 @@ nuts:HU33
             skos:notation "HU33"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:HUZZ
@@ -2881,7 +2881,7 @@ nuts:HUZZ
             skos:notation "HUZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:HUN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:HUN ;
 .
 
 nuts:IE04
@@ -2898,7 +2898,7 @@ nuts:IE04
             skos:notation "IE04"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:IRL ;
 .
 
 nuts:IE05
@@ -2915,7 +2915,7 @@ nuts:IE05
             skos:notation "IE05"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:IRL ;
 .
 
 nuts:IE06
@@ -2932,7 +2932,7 @@ nuts:IE06
             skos:notation "IE06"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:IRL ;
 .
 
 nuts:IEZZ
@@ -2949,7 +2949,7 @@ nuts:IEZZ
             skos:notation "IEZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:IRL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:IRL ;
 .
 
 nuts:ITC1
@@ -2966,7 +2966,7 @@ nuts:ITC1
             skos:notation "ITC1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITC2
@@ -2983,7 +2983,7 @@ nuts:ITC2
             skos:notation "ITC2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITC3
@@ -3000,7 +3000,7 @@ nuts:ITC3
             skos:notation "ITC3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITC4
@@ -3017,7 +3017,7 @@ nuts:ITC4
             skos:notation "ITC4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITF1
@@ -3034,7 +3034,7 @@ nuts:ITF1
             skos:notation "ITF1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITF2
@@ -3051,7 +3051,7 @@ nuts:ITF2
             skos:notation "ITF2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITF3
@@ -3068,7 +3068,7 @@ nuts:ITF3
             skos:notation "ITF3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITF4
@@ -3085,7 +3085,7 @@ nuts:ITF4
             skos:notation "ITF4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITF5
@@ -3102,7 +3102,7 @@ nuts:ITF5
             skos:notation "ITF5"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITF6
@@ -3119,7 +3119,7 @@ nuts:ITF6
             skos:notation "ITF6"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITG1
@@ -3136,7 +3136,7 @@ nuts:ITG1
             skos:notation "ITG1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITG2
@@ -3153,7 +3153,7 @@ nuts:ITG2
             skos:notation "ITG2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITH1
@@ -3170,7 +3170,7 @@ nuts:ITH1
             skos:notation "ITH1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITH2
@@ -3187,7 +3187,7 @@ nuts:ITH2
             skos:notation "ITH2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITH3
@@ -3204,7 +3204,7 @@ nuts:ITH3
             skos:notation "ITH3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITH4
@@ -3221,7 +3221,7 @@ nuts:ITH4
             skos:notation "ITH4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITH5
@@ -3238,7 +3238,7 @@ nuts:ITH5
             skos:notation "ITH5"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITI1
@@ -3255,7 +3255,7 @@ nuts:ITI1
             skos:notation "ITI1"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITI2
@@ -3272,7 +3272,7 @@ nuts:ITI2
             skos:notation "ITI2"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITI3
@@ -3289,7 +3289,7 @@ nuts:ITI3
             skos:notation "ITI3"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITI4
@@ -3306,7 +3306,7 @@ nuts:ITI4
             skos:notation "ITI4"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:ITZZ
@@ -3323,7 +3323,7 @@ nuts:ITZZ
             skos:notation "ITZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ITA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ITA ;
 .
 
 nuts:LT01
@@ -3340,7 +3340,7 @@ nuts:LT01
             skos:notation "LT01"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LTU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LTU ;
 .
 
 nuts:LT02
@@ -3357,7 +3357,7 @@ nuts:LT02
             skos:notation "LT02"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LTU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LTU ;
 .
 
 nuts:LTZZ
@@ -3374,7 +3374,7 @@ nuts:LTZZ
             skos:notation "LTZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LTU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LTU ;
 .
 
 nuts:LU00
@@ -3391,7 +3391,7 @@ nuts:LU00
             skos:notation "LU00"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LUX ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LUX ;
 .
 
 nuts:LUZZ
@@ -3408,7 +3408,7 @@ nuts:LUZZ
             skos:notation "LUZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LUX ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LUX ;
 .
 
 nuts:LV00
@@ -3425,7 +3425,7 @@ nuts:LV00
             skos:notation "LV00"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LVA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LVA ;
 .
 
 nuts:LVZZ
@@ -3442,7 +3442,7 @@ nuts:LVZZ
             skos:notation "LVZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:LVA ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:LVA ;
 .
 
 nuts:MT00
@@ -3459,7 +3459,7 @@ nuts:MT00
             skos:notation "MT00"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:MLT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:MLT ;
 .
 
 nuts:MTZZ
@@ -3476,7 +3476,7 @@ nuts:MTZZ
             skos:notation "MTZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:MLT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:MLT ;
 .
 
 nuts:NL11
@@ -3493,7 +3493,7 @@ nuts:NL11
             skos:notation "NL11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL12
@@ -3510,7 +3510,7 @@ nuts:NL12
             skos:notation "NL12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL13
@@ -3527,7 +3527,7 @@ nuts:NL13
             skos:notation "NL13"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL21
@@ -3544,7 +3544,7 @@ nuts:NL21
             skos:notation "NL21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL22
@@ -3561,7 +3561,7 @@ nuts:NL22
             skos:notation "NL22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL23
@@ -3578,7 +3578,7 @@ nuts:NL23
             skos:notation "NL23"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL32
@@ -3595,7 +3595,7 @@ nuts:NL32
             skos:notation "NL32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL34
@@ -3612,7 +3612,7 @@ nuts:NL34
             skos:notation "NL34"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL35
@@ -3629,7 +3629,7 @@ nuts:NL35
             skos:notation "NL35"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL36
@@ -3646,7 +3646,7 @@ nuts:NL36
             skos:notation "NL36"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL41
@@ -3663,7 +3663,7 @@ nuts:NL41
             skos:notation "NL41"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NL42
@@ -3680,7 +3680,7 @@ nuts:NL42
             skos:notation "NL42"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:NLZZ
@@ -3697,7 +3697,7 @@ nuts:NLZZ
             skos:notation "NLZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:NLD ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:NLD ;
 .
 
 nuts:PL21
@@ -3714,7 +3714,7 @@ nuts:PL21
             skos:notation "PL21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL22
@@ -3731,7 +3731,7 @@ nuts:PL22
             skos:notation "PL22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL41
@@ -3748,7 +3748,7 @@ nuts:PL41
             skos:notation "PL41"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL42
@@ -3765,7 +3765,7 @@ nuts:PL42
             skos:notation "PL42"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL43
@@ -3782,7 +3782,7 @@ nuts:PL43
             skos:notation "PL43"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL51
@@ -3799,7 +3799,7 @@ nuts:PL51
             skos:notation "PL51"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL52
@@ -3816,7 +3816,7 @@ nuts:PL52
             skos:notation "PL52"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL61
@@ -3833,7 +3833,7 @@ nuts:PL61
             skos:notation "PL61"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL62
@@ -3850,7 +3850,7 @@ nuts:PL62
             skos:notation "PL62"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL63
@@ -3867,7 +3867,7 @@ nuts:PL63
             skos:notation "PL63"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL71
@@ -3884,7 +3884,7 @@ nuts:PL71
             skos:notation "PL71"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL72
@@ -3901,7 +3901,7 @@ nuts:PL72
             skos:notation "PL72"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL81
@@ -3918,7 +3918,7 @@ nuts:PL81
             skos:notation "PL81"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL82
@@ -3935,7 +3935,7 @@ nuts:PL82
             skos:notation "PL82"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL84
@@ -3952,7 +3952,7 @@ nuts:PL84
             skos:notation "PL84"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL91
@@ -3969,7 +3969,7 @@ nuts:PL91
             skos:notation "PL91"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PL92
@@ -3986,7 +3986,7 @@ nuts:PL92
             skos:notation "PL92"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PLZZ
@@ -4003,7 +4003,7 @@ nuts:PLZZ
             skos:notation "PLZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:POL ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:POL ;
 .
 
 nuts:PT11
@@ -4020,7 +4020,7 @@ nuts:PT11
             skos:notation "PT11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT15
@@ -4037,7 +4037,7 @@ nuts:PT15
             skos:notation "PT15"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT19
@@ -4054,7 +4054,7 @@ nuts:PT19
             skos:notation "PT19"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT1A
@@ -4071,7 +4071,7 @@ nuts:PT1A
             skos:notation "PT1A"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT1B
@@ -4088,7 +4088,7 @@ nuts:PT1B
             skos:notation "PT1B"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT1C
@@ -4105,7 +4105,7 @@ nuts:PT1C
             skos:notation "PT1C"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT1D
@@ -4122,7 +4122,7 @@ nuts:PT1D
             skos:notation "PT1D"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT20
@@ -4139,7 +4139,7 @@ nuts:PT20
             skos:notation "PT20"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PT30
@@ -4156,7 +4156,7 @@ nuts:PT30
             skos:notation "PT30"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:PTZZ
@@ -4173,7 +4173,7 @@ nuts:PTZZ
             skos:notation "PTZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:PRT ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:PRT ;
 .
 
 nuts:RO11
@@ -4190,7 +4190,7 @@ nuts:RO11
             skos:notation "RO11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO12
@@ -4207,7 +4207,7 @@ nuts:RO12
             skos:notation "RO12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO21
@@ -4224,7 +4224,7 @@ nuts:RO21
             skos:notation "RO21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO22
@@ -4241,7 +4241,7 @@ nuts:RO22
             skos:notation "RO22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO31
@@ -4258,7 +4258,7 @@ nuts:RO31
             skos:notation "RO31"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO32
@@ -4275,7 +4275,7 @@ nuts:RO32
             skos:notation "RO32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO41
@@ -4292,7 +4292,7 @@ nuts:RO41
             skos:notation "RO41"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:RO42
@@ -4309,7 +4309,7 @@ nuts:RO42
             skos:notation "RO42"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:ROZZ
@@ -4326,7 +4326,7 @@ nuts:ROZZ
             skos:notation "ROZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:ROU ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:ROU ;
 .
 
 nuts:SE11
@@ -4343,7 +4343,7 @@ nuts:SE11
             skos:notation "SE11"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE12
@@ -4360,7 +4360,7 @@ nuts:SE12
             skos:notation "SE12"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE21
@@ -4377,7 +4377,7 @@ nuts:SE21
             skos:notation "SE21"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE22
@@ -4394,7 +4394,7 @@ nuts:SE22
             skos:notation "SE22"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE23
@@ -4411,7 +4411,7 @@ nuts:SE23
             skos:notation "SE23"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE31
@@ -4428,7 +4428,7 @@ nuts:SE31
             skos:notation "SE31"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE32
@@ -4445,7 +4445,7 @@ nuts:SE32
             skos:notation "SE32"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SE33
@@ -4462,7 +4462,7 @@ nuts:SE33
             skos:notation "SE33"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SEZZ
@@ -4479,7 +4479,7 @@ nuts:SEZZ
             skos:notation "SEZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SWE ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SWE ;
 .
 
 nuts:SI03
@@ -4496,7 +4496,7 @@ nuts:SI03
             skos:notation "SI03"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVN ;
 .
 
 nuts:SI04
@@ -4513,7 +4513,7 @@ nuts:SI04
             skos:notation "SI04"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVN ;
 .
 
 nuts:SIZZ
@@ -4530,7 +4530,7 @@ nuts:SIZZ
             skos:notation "SIZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVN ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVN ;
 .
 
 nuts:SK01
@@ -4547,7 +4547,7 @@ nuts:SK01
             skos:notation "SK01"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVK ;
 .
 
 nuts:SK02
@@ -4564,7 +4564,7 @@ nuts:SK02
             skos:notation "SK02"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVK ;
 .
 
 nuts:SK03
@@ -4581,7 +4581,7 @@ nuts:SK03
             skos:notation "SK03"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVK ;
 .
 
 nuts:SK04
@@ -4598,7 +4598,7 @@ nuts:SK04
             skos:notation "SK04"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVK ;
 .
 
 nuts:SKZZ
@@ -4615,7 +4615,7 @@ nuts:SKZZ
             skos:notation "SKZZ"^^id-scheme:nuts-2 ;
             adms:schemaAgency "Eurostat" ;
         ] ;
-    conx-addr:broaderAdministrativeTerritory countries:SVK ;
+    conx-addr:hasBroaderAdministrativeTerritory countries:SVK ;
 .
 
 <https://www.construct-x.org/vocab/administrative-area/nuts-2>
@@ -4639,7 +4639,7 @@ nuts:SKZZ
         "Versioniertes Referenzvokabular der von Gaia-X v2.3.0 verwendeten NUTS-2-Codes."@de ,
         "Versioned reference vocabulary of the NUTS 2 codes used by Gaia-X v2.3.0."@en ;
     dcterms:license <https://www.eclipse.org/legal/epl-2.0/> ;
-    dcterms:modified "2026-08-20"^^xsd:date ;
+    dcterms:modified "2026-11-26"^^xsd:date ;
     dcterms:provenance "Gaia-X v2.3.0, commit 57131b2cec747de8a08a4115bea198369778aef6" ;
     dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
     dcterms:source
@@ -4648,8 +4648,8 @@ nuts:SKZZ
     dcterms:title
         "Construct-X NUTS-2-Regionen"@de ,
         "Construct-X NUTS 2 regions"@en ;
-    owl:versionIRI <https://www.construct-x.org/vocab/administrative-area/nuts-2/0.1.0> ;
-    owl:versionInfo "0.1.0" ;
+    owl:versionIRI <https://www.construct-x.org/vocab/administrative-area/nuts-2/0.2.0> ;
+    owl:versionInfo "0.2.0" ;
     skos:hasTopConcept
         nuts:AT11 ,
         nuts:AT12 ,
@@ -4922,5 +4922,5 @@ nuts:SKZZ
         nuts:SK03 ,
         nuts:SK04 ,
         nuts:SKZZ ;
-    schema:version "0.1.0" ;
+    schema:version "0.2.0" ;
 .

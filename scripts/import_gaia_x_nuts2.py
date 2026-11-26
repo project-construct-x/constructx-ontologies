@@ -14,7 +14,7 @@ from rdflib.namespace import DCTERMS, OWL, SKOS, XSD
 
 GAIA_X_RELEASE = "v2.3.0"
 GAIA_X_COMMIT = "57131b2cec747de8a08a4115bea198369778aef6"
-DATASET_VERSION = "0.1.0"
+DATASET_VERSION = "0.2.0"
 RELEASE_DATE = "2026-08-20"
 SOURCE_URL = (
     "https://gitlab.com/gaia-x/technical-committee/"
@@ -128,7 +128,7 @@ def build_graph(regions: list[tuple[str, str]], countries: dict[str, URIRef]) ->
     graph.add((SCHEME, RDF.type, OWL.Ontology))
     graph.add((SCHEME, RDF.type, SKOS.ConceptScheme))
     graph.add((SCHEME, DCTERMS.created, Literal(RELEASE_DATE, datatype=XSD.date)))
-    graph.add((SCHEME, DCTERMS.modified, Literal(RELEASE_DATE, datatype=XSD.date)))
+    graph.add((SCHEME, DCTERMS.modified, Literal("2026-11-26", datatype=XSD.date)))
     graph.add((SCHEME, DCTERMS.title, Literal("Construct-X NUTS-2-Regionen", lang="de")))
     graph.add((SCHEME, DCTERMS.title, Literal("Construct-X NUTS 2 regions", lang="en")))
     graph.add(
@@ -181,7 +181,7 @@ def build_graph(regions: list[tuple[str, str]], countries: dict[str, URIRef]) ->
         graph.add((region, SKOS.prefLabel, Literal(label)))
         graph.add((region, SKOS.topConceptOf, SCHEME))
         graph.add((region, ADMS.identifier, identifier))
-        graph.add((region, ADDR.broaderAdministrativeTerritory, country))
+        graph.add((region, ADDR.hasBroaderAdministrativeTerritory, country))
         graph.add((identifier, RDF.type, ADMS.Identifier))
         graph.add((identifier, SKOS.notation, Literal(code, datatype=ID_SCHEME["nuts-2"])))
         graph.add((identifier, ADMS.schemaAgency, Literal("Eurostat")))

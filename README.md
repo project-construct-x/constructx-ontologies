@@ -9,7 +9,7 @@ documentation, examples, SHACL validation rules and reference data.
 
 | Module | Version | Purpose |
 | --- | --- | --- |
-| [Address](modules/core/address/README.md) | 0.2.0 | Structured addresses and location assignments with an address, a geographic reference, or both |
+| [Address](modules/core/address/README.md) | 0.3.0 | Structured addresses and location assignments with an address, a geographic reference, or both |
 | [Agent](modules/core/agent/README.md) | 0.1.0 | Shared superclass for actors |
 | [Contact](modules/core/contact/README.md) | 0.2.0 | Contact points and communication methods |
 | [Document](modules/core/document/README.md) | 0.1.0 | Documents, references and technical distributions |

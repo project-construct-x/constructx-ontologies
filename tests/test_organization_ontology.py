@@ -198,9 +198,9 @@ def test_organization_module_metadata_matches_the_implementation() -> None:
     assert metadata["artifacts"]["strict_shapes"] is None
     assert metadata["shape_sets"]["core"] == {
         "graph_iri": "https://www.construct-x.org/shapes/organization/core",
-        "version_iri": "https://www.construct-x.org/shapes/organization/core/0.2.0",
+        "version_iri": "https://www.construct-x.org/shapes/organization/core/0.3.0",
         "namespace": "https://www.construct-x.org/shapes/organization/core#",
-        "version": "0.2.0",
+        "version": "0.3.0",
         "artifact": "shapes/conx-org-core.shacl.ttl",
     }
 

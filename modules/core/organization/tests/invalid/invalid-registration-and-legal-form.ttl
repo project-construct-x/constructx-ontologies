@@ -20,8 +20,8 @@ ex:invalid-registration
     ] ;
   conx-addr:hasLocationAssignment [
       a conx-addr:LocationAssignment ;
-      conx-addr:assignedAddress ex:address ;
-      conx-addr:locationRole roles:LegalAddressRole ;
+      conx-addr:hasAssignedAddress ex:address ;
+      conx-addr:hasLocationRole roles:LegalAddressRole ;
     ] ;
 .
 

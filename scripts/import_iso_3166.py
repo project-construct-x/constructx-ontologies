@@ -16,7 +16,8 @@ from rdflib.namespace import DCTERMS, OWL, SKOS, XSD
 
 ENDPOINT = "https://publications.europa.eu/webapi/rdf/sparql"
 SOURCE_VERSION = "20260617-0"
-DATASET_VERSION = "0.1.0"
+COUNTRY_VERSION = "0.1.0"
+AREA_VERSION = "0.2.0"
 RELEASE_DATE = "2026-08-18"
 
 EUVOC = Namespace("http://publications.europa.eu/ontology/euvoc#")
@@ -304,6 +305,8 @@ def add_scheme_metadata(
     source_dataset: URIRef,
     suffix: str,
 ) -> None:
+    version = AREA_VERSION if scheme == AREA_SCHEME else COUNTRY_VERSION
+    modified = "2026-11-26" if scheme == AREA_SCHEME else RELEASE_DATE
     graph.add((scheme, RDF.type, OWL.Ontology))
     graph.add((scheme, RDF.type, SKOS.ConceptScheme))
     graph.add((scheme, DCTERMS.title, Literal(title_de, lang="de")))
@@ -311,7 +314,7 @@ def add_scheme_metadata(
     graph.add((scheme, DCTERMS.description, Literal(description_de, lang="de")))
     graph.add((scheme, DCTERMS.description, Literal(description_en, lang="en")))
     graph.add((scheme, DCTERMS.created, Literal(RELEASE_DATE, datatype=XSD.date)))
-    graph.add((scheme, DCTERMS.modified, Literal(RELEASE_DATE, datatype=XSD.date)))
+    graph.add((scheme, DCTERMS.modified, Literal(modified, datatype=XSD.date)))
     graph.add(
         (
             scheme,
@@ -328,9 +331,9 @@ def add_scheme_metadata(
     )
     graph.add((scheme, DCTERMS.source, ISO_SOURCE))
     graph.add((scheme, DCTERMS.source, source_dataset))
-    graph.add((scheme, SCHEMA.version, Literal(DATASET_VERSION)))
-    graph.add((scheme, OWL.versionIRI, URIRef(f"{scheme}/{DATASET_VERSION}")))
-    graph.add((scheme, OWL.versionInfo, Literal(DATASET_VERSION)))
+    graph.add((scheme, SCHEMA.version, Literal(version)))
+    graph.add((scheme, OWL.versionIRI, URIRef(f"{scheme}/{version}")))
+    graph.add((scheme, OWL.versionInfo, Literal(version)))
     add_creator(graph, scheme, suffix)
 
 
@@ -427,7 +430,7 @@ def build_area_graph(areas: list[dict[str, object]]) -> Graph:
         graph.add((subject, SKOS.inScheme, AREA_SCHEME))
         graph.add((subject, SKOS.topConceptOf, AREA_SCHEME))
         graph.add((AREA_SCHEME, SKOS.hasTopConcept, subject))
-        graph.add((subject, ADDR.broaderAdministrativeTerritory, COUNTRIES.DEU))
+        graph.add((subject, ADDR.hasBroaderAdministrativeTerritory, COUNTRIES.DEU))
         graph.add((subject, DCTERMS.source, URIRef(str(item["source"]))))
         for language, label in sorted(item["labels"].items()):
             graph.add((subject, SKOS.prefLabel, Literal(label, lang=language)))

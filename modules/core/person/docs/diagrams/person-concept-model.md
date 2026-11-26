@@ -127,8 +127,8 @@ flowchart TB
         Address["Address"]
         LocationRole["LocationRole: Registration / Residence / Postal"]
 
-        LocationAssignment -->|"assignedAddress 1"| Address
-        LocationAssignment -->|"locationRole 1..*"| LocationRole
+        LocationAssignment -->|"hasAssignedAddress 1"| Address
+        LocationAssignment -->|"hasLocationRole 1..*"| LocationRole
     end
 
     subgraph ORGANIZATION["core/organization - T-Box 0.1.0"]

@@ -12,8 +12,8 @@
 
 <https://www.construct-x.org/ontology/address>
   a owl:Ontology ;
-  dcterms:bibliographicCitation "Construct-X Address Ontology, version 0.2.0"@en ;
-  dcterms:bibliographicCitation "Construct-X Adressontologie, Version 0.2.0"@de ;
+  dcterms:bibliographicCitation "Construct-X Address Ontology, version 0.3.0"@en ;
+  dcterms:bibliographicCitation "Construct-X Adressontologie, Version 0.3.0"@de ;
   dcterms:contributor "Construction-X Arbeitspaket 3.4"@de ;
   dcterms:created "2026-08-13"^^xsd:date ;
   dcterms:creator [
@@ -29,7 +29,7 @@
   dcterms:description "Definiert ein strukturiertes, wiederverwendbares Modell für Adressen, kontextbezogene Standortzuordnungen und referenzierbare administrative Gebiete im Construction-X-Ontologienetzwerk."@de ;
   dcterms:description "Defines a structured, reusable model for addresses, contextual location assignments, and referenceable administrative territories in the Construction-X ontology network."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-11-19"^^xsd:date ;
+  dcterms:modified "2026-11-26"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:source <https://schema.org/PostalAddress> ;
   dcterms:source <https://www.w3.org/TR/vcard-rdf/> ;
@@ -38,8 +38,8 @@
   dcterms:title "Construct-X Adressontologie"@de ;
   vann:preferredNamespacePrefix "conx-addr" ;
   vann:preferredNamespaceUri "https://www.construct-x.org/ontology/address#" ;
-  owl:versionIRI <https://www.construct-x.org/ontology/address/0.2.0> ;
-  owl:versionInfo "0.2.0" ;
+  owl:versionIRI <https://www.construct-x.org/ontology/address/0.3.0> ;
+  owl:versionInfo "0.3.0" ;
 .
 
 ## Classes
@@ -81,7 +81,7 @@ conx-addr:LocationAssignment
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty conx-addr:assignedAddress ;
+      owl:onProperty conx-addr:hasAssignedAddress ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
@@ -90,19 +90,14 @@ conx-addr:LocationAssignment
     ], [
       a owl:Class ;
       owl:unionOf (
-        [ a owl:Restriction ; owl:onProperty conx-addr:assignedAddress ; owl:someValuesFrom conx-addr:Address ]
+        [ a owl:Restriction ; owl:onProperty conx-addr:hasAssignedAddress ; owl:someValuesFrom conx-addr:Address ]
         [ a owl:Restriction ; owl:onProperty conx-addr:hasGeoReference ; owl:someValuesFrom owl:Thing ]
       ) ;
     ] ;
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:minCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty conx-addr:locationRole ;
-    ] ;
-  rdfs:subClassOf [
-      a owl:Restriction ;
-      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty conx-addr:careOf ;
+      owl:onProperty conx-addr:hasLocationRole ;
     ] ;
 .
 
@@ -141,7 +136,7 @@ conx-addr:AdministrativeArea
   rdfs:subClassOf [
       a owl:Restriction ;
       owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-      owl:onProperty conx-addr:broaderAdministrativeTerritory ;
+      owl:onProperty conx-addr:hasBroaderAdministrativeTerritory ;
     ] ;
 .
 
@@ -156,21 +151,21 @@ conx-addr:hasLocationAssignment
   rdfs:range conx-addr:LocationAssignment ;
 .
 
-conx-addr:assignedAddress
+conx-addr:hasAssignedAddress
   a owl:ObjectProperty ;
   rdfs:comment "Bestimmt die Adresse einer Standortzuordnung."@de ;
   rdfs:comment "Specifies the address of a location assignment."@en ;
   rdfs:domain conx-addr:LocationAssignment ;
-  rdfs:label "assigned address"@en ;
-  rdfs:label "zugeordnete Adresse"@de ;
+  rdfs:label "has assigned address"@en ;
+  rdfs:label "hat zugeordnete Adresse"@de ;
   rdfs:range conx-addr:Address ;
 .
 
-conx-addr:locationRole
+conx-addr:hasLocationRole
   a owl:ObjectProperty ;
   rdfs:comment "Verwendungszweck der Standortzuordnung."@de, "Purpose of the location assignment."@en ;
   rdfs:domain conx-addr:LocationAssignment ;
-  rdfs:label "Standortrolle"@de, "location role"@en ;
+  rdfs:label "hat Standortrolle"@de, "has location role"@en ;
   rdfs:range conx-addr:LocationRole ;
 .
 
@@ -194,13 +189,13 @@ conx-addr:hasAdministrativeArea
   rdfs:range conx-addr:AdministrativeArea ;
 .
 
-conx-addr:broaderAdministrativeTerritory
+conx-addr:hasBroaderAdministrativeTerritory
   a owl:ObjectProperty ;
   rdfs:comment "Verknüpft eine Verwaltungseinheit mit dem direkt übergeordneten administrativen Gebiet oder Land."@de ;
   rdfs:comment "Links an administrative area to its directly broader administrative territory or country."@en ;
   rdfs:domain conx-addr:AdministrativeArea ;
-  rdfs:label "broader administrative territory"@en ;
-  rdfs:label "übergeordnetes administratives Gebiet"@de ;
+  rdfs:label "has broader administrative territory"@en ;
+  rdfs:label "hat übergeordnetes administratives Gebiet"@de ;
   rdfs:range conx-addr:AdministrativeTerritory ;
 .
 
@@ -353,37 +348,3 @@ conx-addr:plotIdentifier
   rdfs:label "Grundstückskennung"@de ;
   rdfs:range xsd:string ;
 .
-
-## Datatype properties of LocationAssignment
-
-conx-addr:departmentName
-  a owl:DatatypeProperty ;
-  rdfs:comment "Abteilung oder Organisationseinheit, für die die Adresse in dieser Zuordnung verwendet wird."@de ;
-  rdfs:comment "Department or organizational unit for which the address is used in this assignment."@en ;
-  rdfs:domain conx-addr:LocationAssignment ;
-  rdfs:label "department name"@en ;
-  rdfs:label "Abteilungsname"@de ;
-  rdfs:range [ a rdfs:Datatype ; owl:unionOf ( xsd:string rdf:langString ) ] ;
-.
-
-conx-addr:attentionOf
-  a owl:DatatypeProperty ;
-  rdfs:comment "Empfängerhinweis im Sinn von „zu Händen“."@de ;
-  rdfs:comment "Addressee instruction in the sense of 'for the attention of'."@en ;
-  rdfs:domain conx-addr:LocationAssignment ;
-  rdfs:label "attention of"@en ;
-  rdfs:label "zu Händen"@de ;
-  rdfs:range xsd:string ;
-.
-
-conx-addr:careOf
-  a owl:DatatypeProperty ;
-  rdfs:comment "Empfängerhinweis im Sinn von „c/o“ oder „bei“."@de ;
-  rdfs:comment "Addressee instruction in the sense of 'care of'."@en ;
-  rdfs:domain conx-addr:LocationAssignment ;
-  rdfs:label "care of"@en ;
-  rdfs:label "bei"@de ;
-  rdfs:range xsd:string ;
-.
-
-

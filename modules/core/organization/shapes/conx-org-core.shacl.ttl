@@ -34,13 +34,13 @@
   dcterms:description "Validierungsregeln für die allgemeinen, anwendungsfallunabhängigen Verträge der Construct-X Organisationsontologie."@de ;
   dcterms:description "Validation rules for the general, application-independent contracts of the Construct-X Organization Ontology."@en ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2026-11-19"^^xsd:date ;
+  dcterms:modified "2026-11-26"^^xsd:date ;
   dcterms:publisher <https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-94f260963eb2/revision/1> ;
   dcterms:title "Construct-X Organization Core Shapes"@de ;
   dcterms:title "Construct-X Organization Core Shapes"@en ;
   owl:imports <https://www.construct-x.org/shapes/identifier/core/0.1.0> ;
-  owl:versionIRI <https://www.construct-x.org/shapes/organization/core/0.2.0> ;
-  owl:versionInfo "0.2.0" ;
+  owl:versionIRI <https://www.construct-x.org/shapes/organization/core/0.3.0> ;
+  owl:versionInfo "0.3.0" ;
 .
 
 ## Reusable contracts
@@ -63,9 +63,9 @@ conx-org-sh:LegalLocationAssignmentShape
   a sh:NodeShape ;
   sh:nodeKind sh:BlankNodeOrIRI ;
   sh:class conx-addr:LocationAssignment ;
-  sh:property [ sh:path conx-addr:assignedAddress ; sh:class conx-addr:Address ; sh:minCount 1 ; sh:maxCount 1 ] ;
+  sh:property [ sh:path conx-addr:hasAssignedAddress ; sh:class conx-addr:Address ; sh:minCount 1 ; sh:maxCount 1 ] ;
   sh:property [
-      sh:path conx-addr:locationRole ;
+      sh:path conx-addr:hasLocationRole ;
       sh:hasValue roles:LegalAddressRole ;
     ] ;
 .

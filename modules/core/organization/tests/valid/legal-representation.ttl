@@ -18,8 +18,8 @@ ex:bau-gmbh
     ] ;
   conx-addr:hasLocationAssignment [
       a conx-addr:LocationAssignment ;
-      conx-addr:assignedAddress ex:bau-gmbh-address ;
-      conx-addr:locationRole roles:LegalAddressRole ;
+      conx-addr:hasAssignedAddress ex:bau-gmbh-address ;
+      conx-addr:hasLocationRole roles:LegalAddressRole ;
     ] ;
 .
 

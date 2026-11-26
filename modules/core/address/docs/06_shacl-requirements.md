@@ -1,8 +1,8 @@
 # Domain-Specific SHACL Requirements of the Address Module
 
 **Status:** Implemented\
-**Version:** 0.2.0\
-**As of:** 19 November 2026\
+**Version:** 0.3.0\
+**As of:** 26 November 2026\
 **Scope:** Address Core Shapes
 
 ## 1. Purpose

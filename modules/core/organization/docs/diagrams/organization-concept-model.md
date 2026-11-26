@@ -90,8 +90,8 @@ flowchart LR
         LocationAssignment["LocationAssignment"]
         Address["Address"]
         LocationRole["LocationRole: Legal / Headquarters / Registration / Postal"]
-        LocationAssignment -->|"assignedAddress 1"| Address
-        LocationAssignment -->|"locationRole 1..*"| LocationRole
+        LocationAssignment -->|"hasAssignedAddress 1"| Address
+        LocationAssignment -->|"hasLocationRole 1..*"| LocationRole
     end
 
     subgraph CONTACT["core/contact"]

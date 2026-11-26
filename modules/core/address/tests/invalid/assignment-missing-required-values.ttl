@@ -3,11 +3,11 @@
 
 ex:missing-address
     a conx-addr:LocationAssignment ;
-    conx-addr:locationRole ex:role .
+    conx-addr:hasLocationRole ex:role .
 
 ex:missing-role
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:address .
+    conx-addr:hasAssignedAddress ex:address .
 
 ex:role a conx-addr:LocationRole .
 ex:address a conx-addr:Address .

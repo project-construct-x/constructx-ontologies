@@ -1,8 +1,8 @@
 # Core SHACL Shapes
 
 **Status:** Implemented\
-**Version:** 0.2.0\
-**As of:** 19 November 2026\
+**Version:** 0.3.0\
+**As of:** 26 November 2026\
 **Scope:** Address Core Shapes
 
 The Address Core Shapes validate the general contracts of the Address Ontology independently of a specific use case. They mirror the OWL cardinalities and make the ranges described in the T-Box executable as closed-world data checks.
@@ -10,9 +10,9 @@ The Address Core Shapes validate the general contracts of the Address Ontology i
 ```text
 Shape graph: modules/core/address/shapes/conx-addr-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/address/core
-Version IRI: https://www.construct-x.org/shapes/address/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/address/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/address/core#
-Version:     0.2.0
+Version:     0.3.0
 ```
 
 `core` is the name of the shape set. Additional use-case-specific shape sets can be versioned independently under the same module path.
@@ -30,15 +30,14 @@ SHACL, by contrast, checks the data graph currently available. If a mandatory ro
 
 | Class | Property | Cardinality |
 | ----- | -------- | ----------- |
-| `LocationAssignment` | `assignedAddress` | At most 1 |
+| `LocationAssignment` | `hasAssignedAddress` | At most 1 |
 | `LocationAssignment` | `hasGeoReference` | At most 1 |
-| `LocationAssignment` | `locationRole` | At least 1 |
-| `LocationAssignment` | `careOf` | At most 1 |
+| `LocationAssignment` | `hasLocationRole` | At least 1 |
 | `Address` | `hasCountry` | At most 1 |
 | `Address` | `houseNumber` | At most 1 |
 | `Address` | `postOfficeBoxNumber` | At most 1 |
 | `Address` | `postalCode` | At most 1 |
-| `AdministrativeArea` | `broaderAdministrativeTerritory` | At most 1 |
+| `AdministrativeArea` | `hasBroaderAdministrativeTerritory` | At most 1 |
 
 A union of two OWL existential restrictions requires an address or a geolocation. The SHACL `sh:or` accepts either or both.
 
@@ -52,7 +51,7 @@ The shapes enforce the existing OWL/RDFS contracts as data checks:
 - Roles, countries, and administrative units must be referenced through IRIs.
 - `hasGeoReference` must reference a resource rather than a literal.
 - Textual labels accept `xsd:string` or `rdf:langString`.
-- Codes and recipient-related text values accept only `xsd:string`.
+- Codes accept only `xsd:string`.
 - Resources using Address properties must explicitly have the appropriate Address type.
 
 The final rule is enforced more strictly in SHACL than by an RDFS domain. An RDFS domain infers the type, whereas SHACL can report a missing or incorrect type as a data issue.

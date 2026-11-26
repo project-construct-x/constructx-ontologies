@@ -1,8 +1,8 @@
 # Domain-Specific SHACL Requirements for the Contact Module
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 19 November 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** Contact Core Shapes
 
 ## 1. Purpose
@@ -14,10 +14,10 @@ This document specifies the data quality requirements for the Contact module. It
 ```text
 Shape graph: modules/core/contact/shapes/conx-contact-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/contact/core
-Version IRI: https://www.construct-x.org/shapes/contact/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/contact/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/contact/core#
 Prefix:      conx-contact-sh
-Version:     0.2.0
+Version:     0.3.0
 ```
 
 ## 3. Validation Principles
@@ -259,9 +259,9 @@ The Contact Shape checks only:
 
 - exactly one `usesLocationAssignment` for channel `postalAddress`,
 - the value is a blank node or IRI,
-- the value is a `conx-addr:LocationAssignment` with exactly one `assignedAddress` of type `Address`.
+- the value is a `conx-addr:LocationAssignment` with exactly one `hasAssignedAddress` of type `Address`.
 
-The Address Core Shape checks the internal address structure, `assignedAddress`, `locationRole`, and address components.
+The Address Core Shape checks the internal address structure, `hasAssignedAddress`, `hasLocationRole`, and address components.
 
 ## 13. Error Message Catalog
 
@@ -354,8 +354,8 @@ ex:company-1-delivery-postal
 
 ex:company-1-delivery-address-assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:locationRole roles:DeliveryAddressRole ;
-    conx-addr:assignedAddress ex:address-1 .
+    conx-addr:hasLocationRole roles:DeliveryAddressRole ;
+    conx-addr:hasAssignedAddress ex:address-1 .
 
 ex:address-1
     a conx-addr:Address .

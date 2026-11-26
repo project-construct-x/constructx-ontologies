@@ -14,9 +14,9 @@ publisher: https://www.construct-x.org/id/organization/ecbe8336-94ab-5c11-8220-9
 
 dependencies:
   - id: address
-    version: 0.2.0
+    version: 0.3.0
     ontology_iri: https://www.construct-x.org/ontology/address
-    version_iri: https://www.construct-x.org/ontology/address/0.2.0
+    version_iri: https://www.construct-x.org/ontology/address/0.3.0
 
 artifacts:
   data: address-roles.ttl

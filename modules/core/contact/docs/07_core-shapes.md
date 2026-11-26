@@ -1,8 +1,8 @@
 # Contact Core Shapes
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 19 November 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** Contact Core Shapes
 
 The Contact Core Shapes validate the general, use-case-independent data contracts of the Construct-X Contact Ontology. The T-Box remains semantically open under the open-world assumption; the core profile, by contrast, checks concrete data submissions.
@@ -10,9 +10,9 @@ The Contact Core Shapes validate the general, use-case-independent data contract
 ```text
 Shape graph: modules/core/contact/shapes/conx-contact-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/contact/core
-Version IRI: https://www.construct-x.org/shapes/contact/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/contact/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/contact/core#
-Version:     0.2.0
+Version:     0.3.0
 ```
 
 ## 1. Validated Contracts
@@ -72,5 +72,5 @@ These areas belong in later domain-specific profiles or standalone modules.
 ## 5. Illustrative Example
 
 > A contact point without a contact method is invalid because nobody can be reached through it. A business contact point with a correctly typed email method, by contrast, satisfies the core contract.
-For a postal method, `usesLocationAssignment` must reference a `LocationAssignment` with exactly one `assignedAddress` of type `Address`.
+For a postal method, `usesLocationAssignment` must reference a `LocationAssignment` with exactly one `hasAssignedAddress` of type `Address`.
 

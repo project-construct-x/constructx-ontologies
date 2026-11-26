@@ -1,8 +1,8 @@
 # Organization Core Shapes
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 3 September 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** Organization Core Shapes
 
 The Organization Core Shapes validate the general, use-case-independent data contracts of the Construct-X Organization Ontology. The T-Box remains semantically open under the open-world assumption; the core profile checks concrete data submissions.
@@ -10,9 +10,9 @@ The Organization Core Shapes validate the general, use-case-independent data con
 ```text
 Shape graph: modules/core/organization/shapes/conx-org-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/organization/core
-Version IRI: https://www.construct-x.org/shapes/organization/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/organization/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/organization/core#
-Version:     0.2.0
+Version:     0.3.0
 ```
 
 ## 1. Validated Contracts

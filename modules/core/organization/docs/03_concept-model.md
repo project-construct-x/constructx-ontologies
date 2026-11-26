@@ -236,8 +236,8 @@ An organization uses the existing pattern:
 | Resource | Property | Target |
 | --- | --- | --- |
 | `Organization` | `conx-addr:hasLocationAssignment` | `LocationAssignment` |
-| `LocationAssignment` | `assignedAddress` | `Address` |
-| `LocationAssignment` | `locationRole` | `LocationRole` |
+| `LocationAssignment` | `hasAssignedAddress` | `Address` |
+| `LocationAssignment` | `hasLocationRole` | `LocationRole` |
 
 The following are particularly relevant for Legal Entities:
 

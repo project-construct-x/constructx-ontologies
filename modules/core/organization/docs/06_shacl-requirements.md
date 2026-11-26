@@ -1,8 +1,8 @@
 # Domain-Specific SHACL Requirements for the Organization MVP
 
 **Status:** Implemented  
-**Version:** 0.2.0  
-**As of:** 3 September 2026  
+**Version:** 0.3.0  
+**As of:** 26 November 2026  
 **Scope:** Organization Core Shapes
 
 ## 1. Purpose
@@ -24,13 +24,13 @@ Foundations:
 ```text
 Shape graph: modules/core/organization/shapes/conx-org-core.shacl.ttl
 Shape IRI:   https://www.construct-x.org/shapes/organization/core
-Version IRI: https://www.construct-x.org/shapes/organization/core/0.2.0
+Version IRI: https://www.construct-x.org/shapes/organization/core/0.3.0
 Namespace:   https://www.construct-x.org/shapes/organization/core#
 Prefix:      conx-org-sh
-Version:     0.2.0
+Version:     0.3.0
 ```
 
-These IRIs are implemented as binding identifiers in the shape graph and module metadata for shape version `0.2.0`.
+These IRIs are implemented as binding identifiers in the shape graph and module metadata for shape version `0.3.0`.
 
 ## 3. Validation Principles
 
@@ -129,7 +129,7 @@ The requirement for at least one ADMS identifier establishes only that a structu
 | Shape | Owner | Usage |
 | --- | --- | --- |
 | `conx-addr-sh:ResourceWithLocationAssignmentShape` | `address/core` | Checks values of `hasLocationAssignment` |
-| `conx-addr-sh:LocationAssignmentShape` | `address/core` | Checks `assignedAddress`, `locationRole`, and other assignment data |
+| `conx-addr-sh:LocationAssignmentShape` | `address/core` | Checks `hasAssignedAddress`, `hasLocationRole`, and other assignment data |
 | `conx-addr-sh:AddressShape` | `address/core` | Checks the address itself |
 | `conx-contact-sh:ContactCarrierShape` | `contact/core` | Checks values of `hasContactPoint` |
 | `conx-contact-sh:ContactPointShape` | `contact/core` | Checks contact point, usage, purpose, and methods |
@@ -292,15 +292,15 @@ At least one value of `conx-addr:hasLocationAssignment` must:
 
 - be a blank node or IRI,
 - be typed as `conx-addr:LocationAssignment`,
-- have `conx-addr:locationRole roles:LegalAddressRole`,
-- reference exactly one `conx-addr:Address` through `assignedAddress`.
+- have `conx-addr:hasLocationRole roles:LegalAddressRole`,
+- reference exactly one `conx-addr:Address` through `hasAssignedAddress`.
 
 The implementation uses a qualified minimum cardinality, for example `sh:qualifiedValueShape` with `sh:qualifiedMinCount 1`.
 
 The existing Address Shape additionally checks:
 
 - at most one address and one geolocation, with at least one of the two present,
-- at least one `locationRole`,
+- at least one `hasLocationRole`,
 - type and structure of the assigned address.
 
 The Organization Shape additionally requires the postal address for this use. It also does not require a globally inappropriate component list of street, building number, postal code, and locality. Country-specific Address profiles may add such rules later.
@@ -567,8 +567,8 @@ ex:bau-gmbh-register-id
 
 ex:bau-gmbh-legal-address
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:bau-gmbh-address ;
-    conx-addr:locationRole roles:LegalAddressRole,
+    conx-addr:hasAssignedAddress ex:bau-gmbh-address ;
+    conx-addr:hasLocationRole roles:LegalAddressRole,
                           roles:RegistrationAddressRole .
 
 ex:bau-gmbh-address
@@ -603,8 +603,8 @@ ex:planung-ag-id
 
 ex:planung-ag-legal-address
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:planung-ag-address ;
-    conx-addr:locationRole roles:LegalAddressRole .
+    conx-addr:hasAssignedAddress ex:planung-ag-address ;
+    conx-addr:hasLocationRole roles:LegalAddressRole .
 
 ex:planung-ag-address a conx-addr:Address .
 ```
@@ -798,8 +798,8 @@ ex:valid-company-id
 
 ex:postal-only-assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:postal-address ;
-    conx-addr:locationRole roles:PostalAddressRole .
+    conx-addr:hasAssignedAddress ex:postal-address ;
+    conx-addr:hasLocationRole roles:PostalAddressRole .
 
 ex:postal-address a conx-addr:Address .
 ```

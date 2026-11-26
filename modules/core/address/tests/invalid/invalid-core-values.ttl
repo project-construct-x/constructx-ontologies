@@ -3,12 +3,10 @@
 
 ex:assignment
     a conx-addr:LocationAssignment ;
-    conx-addr:assignedAddress ex:address-1,
+    conx-addr:hasAssignedAddress ex:address-1,
                               ex:address-2 ;
     conx-addr:hasGeoReference "51.4, 7.3" ;
-    conx-addr:locationRole ex:not-a-role ;
-    conx-addr:careOf "First recipient",
-                     "Second recipient" .
+    conx-addr:hasLocationRole ex:not-a-role .
 
 ex:address-1
     a conx-addr:Address ;
@@ -28,6 +26,6 @@ ex:country-2 a conx-addr:Country .
 
 ex:area
     a conx-addr:AdministrativeArea ;
-    conx-addr:broaderAdministrativeTerritory ex:country-1,
+    conx-addr:hasBroaderAdministrativeTerritory ex:country-1,
                                                     ex:country-2 .
 

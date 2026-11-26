@@ -24,8 +24,8 @@ SCHEME = URIRef("https://www.construct-x.org/vocab/administrative-area/nuts-2")
 def test_nuts2_dataset_is_versioned_and_pins_gaia_x_source() -> None:
     metadata = yaml.safe_load(METADATA_FILE.read_text(encoding="utf-8"))
 
-    assert metadata["version"] == "0.1.0"
-    assert metadata["version_iri"] == f"{SCHEME}/0.1.0"
+    assert metadata["version"] == "0.2.0"
+    assert metadata["version_iri"] == f"{SCHEME}/0.2.0"
     assert metadata["source"]["extraction_release"] == "v2.3.0"
     assert metadata["source"]["extraction_commit"] == (
         "57131b2cec747de8a08a4115bea198369778aef6"
@@ -64,7 +64,7 @@ def test_nuts2_vocabulary_contains_the_complete_gaia_x_release_set() -> None:
         assert (region, RDF.type, SKOS.Concept) in graph
         assert (region, SKOS.inScheme, SCHEME) in graph
         assert len(list(graph.objects(region, SKOS.prefLabel))) == 1
-        assert len(list(graph.objects(region, CONX_ADDR.broaderAdministrativeTerritory))) == 1
+        assert len(list(graph.objects(region, CONX_ADDR.hasBroaderAdministrativeTerritory))) == 1
         identifiers = list(graph.objects(region, ADMS.identifier))
         assert len(identifiers) == 1
         notations = list(graph.objects(identifiers[0], SKOS.notation))
@@ -77,12 +77,12 @@ def test_nuts2_regions_link_to_the_correct_iso_country_resources() -> None:
 
     assert (
         NUTS.DEA5,
-        CONX_ADDR.broaderAdministrativeTerritory,
+        CONX_ADDR.hasBroaderAdministrativeTerritory,
         COUNTRIES.DEU,
     ) in graph
     assert (
         NUTS.EL30,
-        CONX_ADDR.broaderAdministrativeTerritory,
+        CONX_ADDR.hasBroaderAdministrativeTerritory,
         COUNTRIES.GRC,
     ) in graph
     identifier = next(graph.objects(NUTS.DEA5, ADMS.identifier))
